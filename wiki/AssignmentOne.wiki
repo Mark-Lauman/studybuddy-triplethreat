@@ -1,4 +1,4 @@
-#labels Assignment
+#labels Featured,Phase-Requirements,Assignment-1
 Project Plan and Webiste
 
 
