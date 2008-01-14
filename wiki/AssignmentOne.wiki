@@ -1,4 +1,4 @@
-#labels Assignment1,ProjectPlanandWebsite
+#labels Assignment
 Project Plan and Webiste
 
 
