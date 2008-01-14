@@ -1,0 +1,11 @@
+#summary One-sentence summary of this page.
+
+= Assignment One = 
+Project Plan and Webiste
+
+
+== Details ==
+
+* Project Webite *: To set up a website for the project
+
+* Vision and Scope Document *: * TODO *
