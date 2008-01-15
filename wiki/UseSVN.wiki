@@ -1,5 +1,5 @@
 #labels SVN
-How to check out using SVN?
+How to check out using SVN
 
 ===It's easy! Just 6 steps!===
 *Steps:*
