@@ -1,4 +1,4 @@
-#labels Featured,Phase-Requirements,Assignment-1
+#labels Assignment
 Project Plan and Webiste
 
 ===Project Manager:===
