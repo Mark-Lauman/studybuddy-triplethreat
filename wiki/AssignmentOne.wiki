@@ -2,15 +2,11 @@
 =Assignment One:=
 Project Plan and Webiste
 
+==Project Website:==
+To set up a website for the project.
 
-==Details==
-
-=== *Project Website:* === To set up a website for the project.
-
-=== *Vision and Scope Document :* ===
-
-=== Problem Description: ===
-   
+==Vision and Scope Document:==
+=== Problem Description: ===   
  * *Problem Background:* The problem that this project aims to solve is to create several programs to aid in learning.  These program must follow specific guidelines and a due date.
   
  * * Stakeholders:* The stakeholders in this project will be our team.  Our grades for this course depend on the quality of the end product.
