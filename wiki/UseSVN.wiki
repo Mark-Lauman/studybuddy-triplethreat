@@ -6,4 +6,4 @@ How to check out using SVN?
  # Create a new folder anywhere you like which will be used to check out the repository.
  # Right click on the folder, and choose "SVN Checkout".
  # Copy and paste https://studybuddy-triplethreat.googlecode.com/svn/trunk/ in the "URL of repository" field, and then click "OK".
- # Enter your google username with the complete email(e.g, vkao@sfu.ca), and for the password, go to "http://code.google.com/hosting/settings". Use the "*GoogleCode.com Password*" as the password.
+ # Enter your google username with the complete email(e.g, vkao@sfu.ca), and for the password, go to "http://code.google.com/hosting/settings". Use the "*{{{GoogleCode.com Password}}}*" as the password.
