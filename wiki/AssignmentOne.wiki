@@ -23,7 +23,7 @@ To set up a website for the project. You can click on the tab "*Project Home*" t
   * Assumptions
 
 
-=== Vision of Solution: ===
+====Vision of Solution:====
   * *Vision Statement*:  The purpose of this project is to create mini-programs for learning.  These programs are called “Study buddies” and they will be designed to help users to educate themselves on a specific topic that the Study buddy that each was designed for.  The method of instruction for each Study buddy will be different and will be appropriate for the topic.  There will also be one Study buddy not meant for learning purposes which will be called a Break buddy.  The Break buddy will be used as entertainment  program for the user.
 
   * *Architectural Diagram*
