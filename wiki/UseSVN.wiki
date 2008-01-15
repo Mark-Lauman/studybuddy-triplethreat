@@ -1,6 +1,6 @@
 How to check out using SVN?
 
-===It's easy! Just few steps!===
+===It's easy! Just 6 steps!===
 *Steps:*
  # Go to [http://tortoisesvn.tigris.org/ TortoiseSVN] to download the lastest version of TortoiseSVN, and install it after downloaded.
  # Create a new folder anywhere you like which will be used to check out the repository.
