@@ -2,28 +2,25 @@
 Project Plan and Webiste
 
 
-== Details ==
+=Details=
 
-* Project Website *: To set up a website for the project
-
-
+===Project Website:=== To set up a website for the project.
 
 
 
-== Vision and Scope Document :==
 
-=== Problem Description ===
+
+=== *Vision and Scope Document :* ===
+
+=== Problem Description: ===
    
- * Problem Background
- The problem that this project aims to solve is to create several programs to aid in learning.  These program must follow specific guidelines and a due date.
+ * *Problem Background:* The problem that this project aims to solve is to create several programs to aid in learning.  These program must follow specific guidelines and a due date.
   
-  * Stakeholders 
-  The stakeholders in this project will be our team.  Our grades for this course depend on the quality of the end product.
+  * * Stakeholders:* The stakeholders in this project will be our team.  Our grades for this course depend on the quality of the end product.
   
-  * Users 
-  Users of these Study buddies will be people who would like to learn using simple techniques.  
+  * *Users:*  Users of these Study buddies will be people who would like to learn using simple techniques.  
 	
-  * Risks
+  * *Risks*
    * Risk
    * Occurance
    * Severity
