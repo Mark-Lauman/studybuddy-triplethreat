@@ -1,5 +1,5 @@
 #labels Assignment2
-Assignment 2: Initial Requirements and Design
+Initial Requirements and Design
 
 ===Project Manager:===
 Mark Lauman
