@@ -5,5 +5,8 @@
 
  # *Users:* These study buddies are mainly for freshmen in Canada and they want to know more about Canada ASAP. We assume that they have basic skills using computer and abilities to understand conversational English. If not, they would need to use a translator for help.
 
- # *Risks:* 
+ # *Risks:*
+
+  || *Risk* || *likeihood of occurring* || *severity* ||
+  |||| lack of English || test || test ||
    
