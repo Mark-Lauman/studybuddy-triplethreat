@@ -1,3 +1,5 @@
+=Problem Description=
+
  * *Project background:* We are interested in helping people who just arrived at Canada and they need help with English and fundamentals in Canada, such geography. And our goal is to make an easy and fun study buddies for those people so that they would have more knowledges about Canada.
 
  * *Stakeholders:* Toby Donaldson, Denny Dai, Team Triple Threat, library and ESL staffs,and freshmen in Canada.
@@ -19,6 +21,16 @@
   # _Team Members' Assumptions_
    ** todo
 
+=Vision of Solution=
+ * *Vision Statement:* The purpose of this project to help freshmen or elementary ESL students in Canada be more familiar with the place where they live and some esstials they need to know about. With these study buddies, they would discover a fun and interesting learning environment. 
+
+ * *Architectural Diagram:* *TODO*
+
+ * *List of features:* *TODO*
+
+ * *Scope of phased release:* *TODO*
+
+ * Features that will not be implemented:* *TODO*
 
  
   
