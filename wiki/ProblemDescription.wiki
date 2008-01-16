@@ -1,5 +1,6 @@
 = Problem Description=
  # *Project background:* We are interested in helping people who just arrived at Canada and they need help with English and fundamentals in Canada, such geography. And our goal is to make an easy and fun study buddies for those people so that they would have more knowledges about Canada.
  # *Stakeholders:* Toby Donaldson, Denny Dai, Team Triple Threat, library and ESL staffs,and freshmen in Canada.
-
+ # *Users:* These study buddies are mainly for freshmen in Canada and they want to know more about Canada ASAP. We assume that they have basic skills using computer and abilities to understand conversational English. If not, they would need to use a translator for help.
+ # *Risks:* 
    
