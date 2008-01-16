@@ -1,0 +1,36 @@
+=Problem Description=
+
+ * *Project background:* We are interested in helping people who just arrived at Canada and they need help with English and fundamentals in Canada, such geography. And our goal is to make an easy and fun study buddies for those people so that they would have more knowledges about Canada.
+
+ * *Stakeholders:* Toby Donaldson, Denny Dai, Team Triple Threat, library and ESL staffs,and freshmen in Canada.
+
+ * *Users:* These study buddies are mainly for freshmen in Canada and they want to know more about Canada ASAP. We assume that they have basic skills using computer and abilities to understand conversational English. If not, they would need to use a translator for help.
+
+ * *Risks:*
+|| *Risk* || *likeihood of occurring* || *severity* ||
+|| Users lack of basic English skills|| low || high ||
+|| Team members drop the course || low || midium ||
+|| Could not make it before the deadline || low || high ||
+|| Buddies have bugs || low || low ||
+
+ * *Assiumptions:* 
+  # _Stakeholders' Assumptions_
+   ** todo
+  # _Users' Assumptions_
+   ** todo
+  # _Team Members' Assumptions_
+   ** todo
+
+=Vision of Solution=
+ * *Vision Statement:* The purpose of this project to help freshmen or elementary ESL students in Canada be more familiar with the place where they live and some esstials they need to know about. With these study buddies, they would discover a fun and interesting learning environment. 
+
+ * *Architectural Diagram:* *TODO*
+
+ * *List of features:* *TODO*
+
+ * *Scope of phased release:* *TODO*
+
+ * Features that will not be implemented:* *TODO*
+
+ 
+  
