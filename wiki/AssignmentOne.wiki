@@ -9,18 +9,37 @@ To set up a website for the project. You can click on the tab "*Project Home*" t
 
 ===Vision and Scope Document:===
 ====Problem Description:====   
- * *Problem Background:* The problem that this project aims to solve is to create several programs to aid in learning.  These program must follow specific guidelines and a due date.
+ * *Problem Background:*
+  * Creating several programs to aid in learning.
+  * Programs must follow a specific guideline and due date.
   
- * * Stakeholders:* The stakeholders in this project will be our team.  Our grades for this course depend on the quality of the end product.
+ * * Stakeholders:*
+  * Our team.
+  * Our grades.
   
- * *Users:*  Users of these Study buddies will be people who would like to learn using simple techniques.  
+ * *Users:*
+  # High School Students
+   * Assumptions:
+    * Expertise: Low
+    * Experience: Minimal
+    * Background: Any
+  # Development team
+   * Assumptions:
+    * Expertise: Medium
+    * Experience: Experienced
+    * Background: Computer Science Students
+  # Instructor and TA
+   * Assumptions:
+    * Expertise: High
+    * Experience: Experienced
+    * Background: Computer Science
 	
   * *Risks*
    * Risk
    * Occurance
    * Severity
 
-  * Assumptions
+  * *Assumptions*
 
 
 ====Vision of Solution:====
@@ -28,5 +47,6 @@ To set up a website for the project. You can click on the tab "*Project Home*" t
 
   * *Architectural Diagram*
   * *List of Features*
+   * 
   * *Scope of phased Release*
   * *Features that will not be implemented*
