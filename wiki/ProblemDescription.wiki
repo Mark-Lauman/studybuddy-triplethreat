@@ -8,5 +8,5 @@
  # *Risks:*
 
   || *Risk* || *likeihood of occurring* || *severity* ||
-  || lack of English || test || test ||
+  || lack of basic English skills|| low || high ||
    
