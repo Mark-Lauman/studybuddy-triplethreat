@@ -35,9 +35,14 @@ To set up a website for the project. You can click on the tab "*Project Home*" t
     * Background: Computer Science
 	
   * *Risks*
-   * Risk
-   * Occurance
-   * Severity
+|| *Risk*                   || *Occurance* || *Severity* ||
+|| Deadlines not met        || Low || Catastrophic ||
+|| Program crashes/errors   || Low || Medium ||
+|| Program does not run     || Low || Catastrophic ||
+|| Requirements not met     || Medium || Medium ||
+|| Features not implemented || High || Low ||
+|| Guidelines not followed  || Medium || Medium ||
+
 
   * *Assumptions*
 
