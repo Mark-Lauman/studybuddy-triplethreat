@@ -45,6 +45,17 @@ To set up a website for the project. You can click on the tab "*Project Home*" t
 
 
   * *Assumptions*
+   * Team Members: 
+    * Current team will not be changed throughout the semester.
+    * Team members will complete their part of the project.
+    * Has some knowledge and experience with programming and Java.
+   * Stakeholders:
+    * Final project will be completed at the dealine.
+    * Final project will be of high quality.
+   * Users:
+    * Programs will be useful.
+    * Be able to learn from programs.
+    * Programs is visually pleasing.
 
 
 ====Vision of Solution:====
