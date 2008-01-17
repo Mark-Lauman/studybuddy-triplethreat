@@ -6,3 +6,5 @@ Vic Kao
 
 ===Project Website:===
 To set up a website for the project. You can click on the tab "*Project Home*" to view our homepage.
+
+[VisAndScopeDoc Vision and Scope Document]
