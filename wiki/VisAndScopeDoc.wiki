@@ -1,6 +1,4 @@
 #labels VisionAndScopeDoc
-[http://studybuddy-triplethreat.googlecode.com/files/Untitled-1.jpg]
-
 ====Problem Description:====   
  * *Project Background:*
   We are interested in helping people who have just arrived in Canada that need help with the English language and the fundamentals of Canada, such geography. Our goal is to make easy and fun study buddies for people to help them increase their knowledge of Canada.
@@ -63,6 +61,7 @@
 The purpose of this project to help freshmen or elementary ESL students in Canada be more familiar with the place where they live and some esstials they need to know about. With these study buddies, they would discover a fun and interesting learning environment. 
 
   * *Architectural Diagram*
+[http://studybuddy-triplethreat.googlecode.com/files/Untitled-1.jpg]
   * *List of Features*
    * 
   * *Scope of phased Release*
