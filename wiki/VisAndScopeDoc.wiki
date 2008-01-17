@@ -1,4 +1,6 @@
 #labels VisionAndScopeDoc
+[ArchDiagram]
+
 ====Problem Description:====   
  * *Project Background:*
   We are interested in helping people who have just arrived in Canada that need help with the English language and the fundamentals of Canada, such geography. Our goal is to make easy and fun study buddies for people to help them increase their knowledge of Canada.
