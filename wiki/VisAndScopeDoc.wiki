@@ -33,7 +33,7 @@
     * Background: Computer Science
 
   * *Risks*
-|| *Risk*                   || *Occurance* || *Severity* ||
+|| *Risk*                   || *Occurrence* || *Severity* ||
 || Deadlines not met        || Low || Catastrophic ||
 || Program crashes/errors   || Low || Medium ||
 || Program does not run     || Low || Catastrophic ||
@@ -48,7 +48,7 @@
     * Team members will complete their part of the project.
     * Has some knowledge and experience with programming and Java.
    * Stakeholders:
-    * Final project will be completed at the dealine.
+    * Final project will be completed at the deadline.
     * Final project will be of high quality.
    * Users:
     * Programs will be useful.
@@ -65,7 +65,7 @@
    # *User Login*
     Keeps track of different users that use the study buddies.
    # *Interaction*
-    Study buddies will have creative uses for the input devices to enchance learning.
+    Study buddies will have creative uses for the input devices to enhance learning.
    # *Multiplayer*
     Challenge fellow students to create competition to help with learning.
    # *Statistics*
