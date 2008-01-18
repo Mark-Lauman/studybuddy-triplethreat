@@ -64,7 +64,7 @@
   * *List of Features*
    # *User Login*
     Keeps track of different users that use the study buddies.
-   # *Interaction using multimedia*
+   # *Interaction*
     Study buddies will have creative uses for the input devices to enchance learning.
    # *Multiplayer*
     Challenge fellow students to create competition to help with learning.
@@ -78,10 +78,10 @@
     The Study buddy programs will be included in a easy to use and and easy to navigate GUI.
    # *Replay Value*
     The questions and tasks for the study buddy will be on a random generator so that the user will rarely see the same thing twice.
-   # *asd*
-    asdasdasd
-   # *asdasd*
-    asdasdasd
+   # *Multimedia*
+    Study buddies will use sound, images, and video.
+   # *Time of Day*
+    Some buddies will be different depending on the time of day it is. (According to the system time, not outside environment).
 
   * *Scope of phased Release*
    # *Version 1*
