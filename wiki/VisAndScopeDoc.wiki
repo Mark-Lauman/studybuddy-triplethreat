@@ -62,6 +62,35 @@
   * *Architectural Diagram*
 [http://studybuddy-triplethreat.googlecode.com/files/Untitled-1.jpg]
   * *List of Features*
-   * 
+   # *User Login*
+    Keeps track of different users that use the study buddies.
+   # *Interaction using multimedia*
+    Study buddies will have creative uses for the input devices to enchance learning.
+   # *Multiplayer*
+    Challenge fellow students to create competition to help with learning.
+   # *Statistics*
+    Keeps track of user's statistics so they can see if they are improving.
+   # *Varying Learning Curve*
+    Activities will depend on the user's statistics of previous use of the program.
+   # *Plugin Loader*
+    Third parties can create plugin study buddies or add to the current study buddies through the plugin loader.
+   # *GUI*
+    The Study buddy programs will be included in a easy to use and and easy to navigate GUI.
+   # *Replay Value*
+    The questions and tasks for the study buddy will be on a random generator so that the user will rarely see the same thing twice.
+   # *asd*
+    asdasdasd
+   # *asdasd*
+    asdasdasd
+
   * *Scope of phased Release*
+   # *Version 1*
+    Version 1 will include three working prototype study buddies, user statistics and account information.
+   # *Version 2*
+    In addition to version 1, it will include a login and GUI. The break buddy will also be implemented. "Game learning" will also be implemented that will be using the user statistics.
+   # *Version 3*
+    Plugin loader implementation.  Polish up of entire program removing bugs.
   * *Features that will not be implemented*
+   * Program will not be accessing the internet, other networks or computers for multiplayer.  This will also exclude automatic statistic sharing with other computers, although it can be done manually.
+   * Customization of the GUI.
+   * Input devices other than the mouse and keyboard.
