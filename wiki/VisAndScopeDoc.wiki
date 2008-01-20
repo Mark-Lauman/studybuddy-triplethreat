@@ -2,25 +2,18 @@
 ===Vision and Scope Document===
 ====Problem Description:====   
  * *Project Background:*
-  We are interested in helping people who have just arrived in Canada that need help with the English language and the fundamentals of Canada, such geography. Our goal is to make easy and fun study buddies for people to help them increase their knowledge of Canada.
+  We are interested in helping elementary school students that are in grades five to seven.  The topics of the study buddies will mainly reflect the subjects taught in schools such as English, Math, Science, etc.  Our goal is to make an effective yet enteratining learning system that will help students.
   
  * * Stakeholders:*
   * Our team.
-  * Library.
-  * ESL staff.
-  * Freshmen in Canada.
+  * Elementary school teachers.
   
  * *Users:*
-  # New Arrivals to Canada
+  # Elementary School Students
    * Assumptions:
     * Expertise: Low
     * Experience: Minimal
-    * Background: Limited English
-  # High School Students
-   * Assumptions:
-    * Expertise: Low
-    * Experience: Minimal
-    * Background: Any
+    * Background: Limited knowledge in real world activities. Knows how to use a mouse and be able to type.
   # Development team
    * Assumptions:
     * Expertise: Medium
@@ -30,7 +23,7 @@
    * Assumptions:
     * Expertise: High
     * Experience: Experienced
-    * Background: Computer Science
+    * Background: Computer Science.
 
   * *Risks*
 || *Risk*                   || *Occurrence* || *Severity* ||
