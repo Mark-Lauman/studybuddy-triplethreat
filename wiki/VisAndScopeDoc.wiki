@@ -81,12 +81,10 @@
     * Study buddy loader / Plugin Loader
     * 3 prototype study buddies
     * User statistic and Account Information storage
-
    # *Version 2*
     * User login
     * GUI
     * Break Buddy
-
    # *Version 3*
     * Bug fixes / removal
   
