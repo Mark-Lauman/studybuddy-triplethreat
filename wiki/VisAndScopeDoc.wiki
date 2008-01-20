@@ -78,11 +78,18 @@
 
   * *Scope of phased Release*
    # *Version 1*
-    Version 1 will include three working prototype study buddies, user statistics and account information.
+    * Study buddy loader / Plugin Loader
+    * 3 prototype study buddies
+    * User statistic and Account Information storage
+
    # *Version 2*
-    In addition to version 1, it will include a login and GUI. The break buddy will also be implemented. "Game learning" will also be implemented that will be using the user statistics.
+    * User login
+    * GUI
+    * Break Buddy
+
    # *Version 3*
-    Plugin loader implementation.  Polish up of entire program removing bugs.
+    * Bug fixes / removal
+  
   * *Features that will not be implemented*
    * Program will not be accessing the internet, other networks or computers for multiplayer.  This will also exclude automatic statistic sharing with other computers, although it can be done manually.
    * Customization of the GUI.
