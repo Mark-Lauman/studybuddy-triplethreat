@@ -5,9 +5,8 @@ Initial Requirements and Design
 Mark Lauman
 
 ===Requirements Document===
- * *Introduction:* This program is for grade 6 to 7 students.......
-
- * *Intended Audience:*
+ * *Introduction:* This program is for grade 6 to 7 students. It helps them gain more knowledge about English, Math, and Science.
+ * *Intended Audience:* 
 
  * *Features:*
 
