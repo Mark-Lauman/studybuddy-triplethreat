@@ -4,4 +4,16 @@ Initial Requirements and Design
 ===Project Manager:===
 Mark Lauman
 
-_To be updated....._
+===Requirements Document===
+ * *Introduction:*
+ * *Intended Audience:*
+ * *Features:*
+ * *Non-fuctional requirements:*
+ * *Example Tutorials:*
+ * *Glossary:*
+
+===Design Document===
+ * *Guidelines:*
+ * *System Diagrams:* 
+ * *Data Requirements:*
+ * *Feature Priorty:*
