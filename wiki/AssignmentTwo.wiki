@@ -5,15 +5,23 @@ Initial Requirements and Design
 Mark Lauman
 
 ===Requirements Document===
- * *Introduction:*
+ * *Introduction:* This program is for grade 6 to 7 students.......
+
  * *Intended Audience:*
+
  * *Features:*
+
  * *Non-fuctional requirements:*
+
  * *Example Tutorials:*
+
  * *Glossary:*
 
 ===Design Document===
  * *Guidelines:*
+
  * *System Diagrams:* 
+
  * *Data Requirements:*
+
  * *Feature Priorty:*
