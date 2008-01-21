@@ -6,6 +6,7 @@ Mark Lauman
 
 ===Requirements Document===
  * *Introduction:* This program is for grade 6 to 7 students. It helps them gain more knowledge about English, Math, and Science.
+
  * *Intended Audience:* 
 
  * *Features:*
@@ -17,7 +18,7 @@ Mark Lauman
  * *Glossary:*
 
 ===Design Document===
- * *Guidelines:*
+ * *Guidelines:* The development will be done using the Ecilpse IDE, and using the same coding format to ensure the consistence. 
 
  * *System Diagrams:* 
 
