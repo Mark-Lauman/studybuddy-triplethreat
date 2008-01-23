@@ -5,7 +5,7 @@ Initial Requirements and Design
 Mark Lauman
 
 ===Requirements Document===
- * *Introduction:* This program is for grade 6 to 7 students. It helps them gain more knowledge about English, Math, and Science.
+ * *Introduction:* Our system provides an educational learning tool to teachers and students of the sixth and seventh grade.  It does so by having a code library that third party “Study Buddies” have access to to create programs.  The system also keeps track of individual users and user statistics.  It also provides teachers with special accounts to enable them to make changes to the system in terms of the study buddies available, user statistics, and passwords.  It is useful for helping students study for a variety of subjects on a digital medium.  It also aids teachers in creating content for study quickly by using templates or, if they are advanced enough, a full fledged study buddy. 
 
  * *Intended Audience:* 
 
