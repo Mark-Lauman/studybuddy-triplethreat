@@ -15,12 +15,32 @@ Mark Lauman
   # Students below grade 6
   # Students above grade 7
   
-
  * *Features:*
+  * Login system
+  * User type privilages
+  * Password protection
+  * Password reminder
+  * Minimalistic graphical user interface
+  * Multi-windowed
+  * Manipulatable windows
+  * Random question generator
+  * Varying difficulty curve
+  * Supports audio and images
+  * Statistics
+  * Ranking / Overall statistics
+  * Basic third party study buddy creation
+  * Advanced third party study buddy creation
+  * Exporting loaded Study Buddy
+  * Modular study buddies
+  * System administration
+  * Light weight base program
 
  * *Non-fuctional requirements:*
 
  * *Example Tutorials:*
+  * Tutorial 1: Logging in / Forgetting Password
+  * Tutorial 2: Loading Study Buddies
+  * Tutorial 3: Sharing Study Buddies
 
  * *Glossary:*
 
