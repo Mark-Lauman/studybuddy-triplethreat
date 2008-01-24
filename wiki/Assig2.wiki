@@ -24,6 +24,7 @@ Mark Lauman
   * [exportBuddy Exporting loaded Study Buddy]
   * Modular study buddies??
   * [admini System administration]
+  * [classManagement Class Management]
   * Light weight base program???
 
  * *Non-fuctional requirements:* 
