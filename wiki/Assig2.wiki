@@ -1,0 +1,48 @@
+Initial Requirements and Design
+
+===Project Manager:===
+Mark Lauman
+
+===Requirements Document===
+ * *Introduction:* Our system provides an educational learning tool to teachers and students of the sixth and seventh grade.  It does so by having a code library that third party “Study Buddies” have access to to create programs.  The system also keeps track of individual users and user statistics.  It also provides teachers with special accounts to enable them to make changes to the system in terms of the study buddies available, user statistics, and passwords.  It is useful for helping students study for a variety of subjects on a digital medium.  It also aids teachers in creating content for study quickly by using templates or, if they are advanced enough, a full fledged study buddy. 
+
+ * *Intended Audience:* 
+   # Grade 6 students and teachers
+   # Grade 7 students and teachers
+   # Students below grade 6 and above 7
+  
+ * *Features:*
+  * [loginSystem Login system with password protection]
+  * [logoutFun Logout function]
+  * [randomQuesGen Random question generator]
+  * Varying difficulty curve??
+  * [audioNimage Supports audio and images]
+  * [stats Statistics]
+  * [scoreBoard Ranking / Overall statistics]
+  * [3rdPartyBuddy Basic third party study buddy creation]
+  * Advanced third party study buddy creation???
+  * [exportBuddy Exporting loaded Study Buddy]
+  * Modular study buddies??
+  * [admini System administration]
+  * Light weight base program???
+
+ * *Non-fuctional requirements:* 
+  * 
+
+ * *Example Tutorials:*
+  * Tutorial 1: Logging in / Forgetting Password
+  * Tutorial 2: Loading Study Buddies
+  * Tutorial 3: Sharing Study Buddies
+
+ * *Glossary:*
+
+===Design Document===
+ * *Guidelines:* The development will be done using the Ecilpse IDE(Java), and using the same coding format to ensure the consistence.
+
+ * *System Diagrams:* 
+
+ * *Data Requirements:* A keyboard and a mouse will be used as the inputs to play study buddies, and the monitor and speakers will be used as the outputs. 
+
+ * *Feature Priorty:*
+   * Version 1
+     * core program with Admin, Teacher, and Student login functions
