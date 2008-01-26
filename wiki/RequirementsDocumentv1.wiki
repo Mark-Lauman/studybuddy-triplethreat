@@ -33,7 +33,8 @@ Our system provides an educational learning tool to teachers and students of the
    * "Forgot password" link on login screen Will ask a personal question and user must provide the answer they recorded at account setup.
   # Minimalistic graphical user interface
    * Minimal amount of menus and icons. Uncluttered interface.
-  # [Multiwindow Multi-windowed]
+  # Multi-windowed
+   * Ability to open several study buddies at once.
   # [ManipulatableWindows Manipulatable windows]
   # [Random Random question generator]
   # [VaryingDifficulty Varying difficulty curve]
