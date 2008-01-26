@@ -1,0 +1,5 @@
+#labels Filesize
+
+= File Size =
+
+Base program will be small in file size. No more than 5MB.
