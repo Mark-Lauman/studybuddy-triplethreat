@@ -1,10 +1,10 @@
 #summary Project Plan and Website
 
-=====Project Manager:=====
+===Project Manager:===
 Vic Kao
 
-=====Project Website:=====
+===Project Website:===
 To set up a website for the project. You can click on the tab "*Project Home*" to view our homepage.
 
-=====Vision and Scope Document:=====
+===Vision and Scope Document:===
 [VisAndScopeDoc Vision and Scope Document]
