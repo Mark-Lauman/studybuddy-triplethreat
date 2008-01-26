@@ -1,5 +1,5 @@
 #summary Project Plan and Website
-#labels Assignment1
+#labels Assignment1,Submitted
 
 =====Project Manager:=====
 Vic Kao
