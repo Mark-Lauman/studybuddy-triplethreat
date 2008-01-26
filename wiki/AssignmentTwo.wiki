@@ -18,47 +18,23 @@ Mark Lauman
   
  * *Features:*
   * [Loginsystem Login System]
-   Fields for username and password.
-   Letter case sensitivity.
   * [UserT User types]
-   Different levels of users.
-   Hierarchical
-   Three account types:  administrator, instructor, and student.
   * [PasswordProtection Password protection]
-   Password will be blocked out when typed.
-   Encrypted password in user account file.
   * [PasswordReminder Password reminder]
-   "Forgot password" link on login screen
-   Will ask a personal question and user must provide the answer they recorded at account setup.
   * [MinGUI Minimalistic graphical user interface]
-   Minimal amount of menus and icons.
-   Uncluttered interface.
   * [Multiwindow Multi-windowed]
-   Ability to open several study buddies at once.
   * [ManipulatableWindows Manipulatable windows]
-   Windows will be able to be moved around.
-   Resizing.
   * [Random Random question generator]
-   Randomly generates questions based on a programmed question format.
   * [VaryingDifficulty Varying difficulty curve]
-   Uses the random question generator and combining questions together to create increased difficulty questions.
   * [SupportAudioImage Supports audio and images]
-   Enables audio and images to be loaded into program.
   * [Statistics Statistics]
-   Program records user statistics of study buddies at each use.
   * [Rank Ranking / Overall statistics]
-   Program able to parse all user data and combine it to show over all statistics.
   * [Basic Basic third party study buddy creation]
-   
   * [Advanced Advanced third party study buddy creation]
   * [Export Exporting loaded Study Buddy]
-   Ability to export loaded study buddies as a single file.
   * [Modularity Modularity]
-   Study buddies are able to be transfered to other computers and installed.
   * [SystemAdmin System administration]
-   Special account types which allow administration over system such as installation and deletion of study buddies, and account management.
   * [Size Small filesize]
-   Base program will be small in file size.  No more than 5MB.
 
  * *Non-fuctional requirements:* 
   * 
