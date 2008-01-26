@@ -1,4 +1,3 @@
-
-= Introduction =
+= Minimalistic GUI =
 
 Minimal amount of menus and icons. Uncluttered interface.
