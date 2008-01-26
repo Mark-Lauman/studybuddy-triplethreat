@@ -1,4 +1,4 @@
-#labels VisionAndScopeDoc
+#labels Assignment1
 ===Vision and Scope Document===
 ====Problem Description:====   
  * *Project Background:*
