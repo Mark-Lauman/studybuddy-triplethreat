@@ -1,7 +1,0 @@
-#labels Assignment4
-Version 2
-
-===Project Manager:===
-Vic Kao
-
-_To be updated....._
