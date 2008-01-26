@@ -1,4 +1,0 @@
-#labels LoginSystem
-= Login System =
-
-Fields for username and password. Letter case sensitivity.
