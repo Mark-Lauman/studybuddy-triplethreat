@@ -52,7 +52,8 @@ Our system provides an educational learning tool to teachers and students of the
   # Exporting loaded Study Buddy
   # Modularity
    * Study buddies are able to be transfered to other computers and installed.
-  # [SystemAdmin System administration]
+  # System administration
+   * Special account types which allow administration over system such as installation and deletion of study buddies, and account management.
   # [Size Small filesize]
 
 ==Non-fuctional requirements==
