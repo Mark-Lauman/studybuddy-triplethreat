@@ -39,7 +39,7 @@ Our system provides an educational learning tool to teachers and students of the
    * Windows will be able to be moved around. Resizing.
   # Random question generator
    * Randomly generates questions based on a programmed question format.
-  # VaryingDifficulty
+  # Varying Difficulty
    * Uses the random question generator and combining questions together to create increased difficulty questions.
   # [SupportAudioImage Supports audio and images]
   # [Statistics Statistics]
