@@ -1,5 +1,0 @@
-#labels Modularity
-
-= Modularity =
-
-Study buddies are able to be transfered to other computers and installed.
