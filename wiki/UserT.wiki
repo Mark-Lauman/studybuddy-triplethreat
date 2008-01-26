@@ -1,0 +1,5 @@
+#labels UserTypes
+
+= User Types =
+
+Different levels of users. Hierarchical Three account types: administrator, instructor, and student.
