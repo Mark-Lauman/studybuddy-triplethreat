@@ -1,0 +1,12 @@
+#summary Initial Requirements and Design
+#labels Assignment2
+
+===Project Manager:===
+Mark Lauman
+
+===Criteria===
+A link to the crieria of assingment 1 can be found [http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentOne here]
+
+===Documents===
+Requirements Document
+Design Document
