@@ -54,7 +54,8 @@ Our system provides an educational learning tool to teachers and students of the
    * Study buddies are able to be transfered to other computers and installed.
   # System administration
    * Special account types which allow administration over system such as installation and deletion of study buddies, and account management.
-  # [Size Small filesize]
+  # Small filesize
+   * Base program will be small in file size. No more than 5MB.
 
 ==Non-fuctional requirements==
 
