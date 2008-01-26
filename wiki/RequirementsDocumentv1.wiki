@@ -35,7 +35,8 @@ Our system provides an educational learning tool to teachers and students of the
    * Minimal amount of menus and icons. Uncluttered interface.
   # Multi-windowed
    * Ability to open several study buddies at once.
-  # [ManipulatableWindows Manipulatable windows]
+  # Manipulatable windows
+   * Windows will be able to be moved around. Resizing.
   # [Random Random question generator]
   # [VaryingDifficulty Varying difficulty curve]
   # [SupportAudioImage Supports audio and images]
