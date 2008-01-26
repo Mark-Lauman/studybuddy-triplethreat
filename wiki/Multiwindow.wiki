@@ -1,5 +1,0 @@
-#labels Multi-windowed
-
-= Multi-windowed =
-
-Ability to open several study buddies at once.
