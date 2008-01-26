@@ -43,7 +43,8 @@ Our system provides an educational learning tool to teachers and students of the
    * Uses the random question generator and combining questions together to create increased difficulty questions.
   # Supports audio and images
    * Enables audio and images to be loaded into program.
-  # [Statistics Statistics]
+  # Statistics
+   * Program records user statistics of study buddies at each use.
   # [Rank Ranking / Overall statistics]
   # [Basic Basic third party study buddy creation]
   # [Advanced Advanced third party study buddy creation]
