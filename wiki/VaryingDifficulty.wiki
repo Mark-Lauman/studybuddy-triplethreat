@@ -1,0 +1,5 @@
+#labels VaryingDifficultyCurve
+
+= Varying Difficulty Curve =
+
+Uses the random question generator and combining questions together to create increased difficulty questions.
