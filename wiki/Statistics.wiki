@@ -1,5 +1,0 @@
-#labels Statistics
-
-= Statistics =
-
-Program records user statistics of study buddies at each use.
