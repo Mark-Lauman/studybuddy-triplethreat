@@ -1,0 +1,5 @@
+#labels ManipulatableWindows
+
+= Manipulatable Windows =
+
+Windows will be able to be moved around. Resizing.
