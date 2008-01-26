@@ -29,7 +29,8 @@ Our system provides an educational learning tool to teachers and students of the
    * Different levels of users. Hierarchical Three account types: administrator, instructor, and student.
   # Password protection
    * Password will be blocked out when typed. Encrypted password in user account file.
-  # [PasswordReminder Password reminder]
+  # Password reminder
+   * "Forgot password" link on login screen Will ask a personal question and user must provide the answer they recorded at account setup.
   # [MinGUI Minimalistic graphical user interface]
   # [Multiwindow Multi-windowed]
   # [ManipulatableWindows Manipulatable windows]
