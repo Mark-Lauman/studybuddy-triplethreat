@@ -45,7 +45,8 @@ Our system provides an educational learning tool to teachers and students of the
    * Enables audio and images to be loaded into program.
   # Statistics
    * Program records user statistics of study buddies at each use.
-  # [Rank Ranking / Overall statistics]
+  # Ranking / Overall statistics
+   * Program able to parse all user data and combine it to show over all statistics.
   # [Basic Basic third party study buddy creation]
   # [Advanced Advanced third party study buddy creation]
   # [Export Exporting loaded Study Buddy]
