@@ -1,0 +1,13 @@
+#summary One-sentence summary of this page.
+
+==Guidelines==
+The development will be done using the Ecilpse IDE(Java), and using the same coding format to ensure the consistence. 
+
+==System Diagrams==
+
+==Data Requirements==
+A keyboard and a mouse will be used as the inputs to play study buddies, and the monitor and speakers will be used as the outputs. 
+
+==Feature Priorty==
+  * Version 1
+   * core program with Admin, Teacher, and Student login functions
