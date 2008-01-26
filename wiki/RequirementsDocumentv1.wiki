@@ -37,7 +37,8 @@ Our system provides an educational learning tool to teachers and students of the
    * Ability to open several study buddies at once.
   # Manipulatable windows
    * Windows will be able to be moved around. Resizing.
-  # [Random Random question generator]
+  # Random question generator
+   * Randomly generates questions based on a programmed question format.
   # [VaryingDifficulty Varying difficulty curve]
   # [SupportAudioImage Supports audio and images]
   # [Statistics Statistics]
