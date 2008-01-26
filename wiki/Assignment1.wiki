@@ -4,6 +4,9 @@
 ===Project Manager:===
 Vic Kao
 
+===Criteria===
+A link to the crieria of assingment 1 can be found [http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentOne here]
+
 ===Project Website:===
 To set up a website for the project. You can click on the tab "*Project Home*" to view our homepage.
 
