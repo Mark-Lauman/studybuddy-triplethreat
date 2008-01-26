@@ -1,0 +1,5 @@
+#labels SystemAdministration
+
+= System Administration =
+
+Special account types which allow administration over system such as installation and deletion of study buddies, and account management.
