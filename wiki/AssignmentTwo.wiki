@@ -8,14 +8,23 @@ Mark Lauman
  * *Introduction:* Our system provides an educational learning tool to teachers and students of the sixth and seventh grade.  It does so by having a code library that third party “Study Buddies” have access to to create programs.  The system also keeps track of individual users and user statistics.  It also provides teachers with special accounts to enable them to make changes to the system in terms of the study buddies available, user statistics, and passwords.  It is useful for helping students study for a variety of subjects on a digital medium.  It also aids teachers in creating content for study quickly by using templates or, if they are advanced enough, a full fledged study buddy. 
 
  * *Intended Audience:* 
-   # Grade 6 students and teachers
-    Experience
-    Expertise
-    Goal 
-   # Grade 7 students and teachers
-   
+   # Grade 6 students
+    * Experience:
+    * Expertise:
+    * Goals:
+   # Grade 7 students
+    * Experience:
+    * Expertise:
+    * Goals:
+   # Teachers of Grade 6 and 7
+    * Experience:
+    * Expertise:
+    * Goals:
    # Students below grade 6 and above 7
-  
+    * Experience:
+    * Expertise:
+    * Goals:
+
  * *Features:*
   * [Loginsystem Login System]
   * [UserT User types]
