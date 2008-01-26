@@ -47,10 +47,11 @@ Our system provides an educational learning tool to teachers and students of the
    * Program records user statistics of study buddies at each use.
   # Ranking / Overall statistics
    * Program able to parse all user data and combine it to show over all statistics.
-  # [Basic Basic third party study buddy creation]
-  # [Advanced Advanced third party study buddy creation]
-  # [Export Exporting loaded Study Buddy]
-  # [Modularity Modularity]
+  # Basic third party study buddy creation
+  # Advanced third party study buddy creation
+  # Exporting loaded Study Buddy
+  # Modularity
+   * Study buddies are able to be transfered to other computers and installed.
   # [SystemAdmin System administration]
   # [Size Small filesize]
 
