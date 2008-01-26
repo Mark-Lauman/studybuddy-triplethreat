@@ -23,24 +23,25 @@ Our system provides an educational learning tool to teachers and students of the
   * Goals:
 
 ==Features==
-  * [Loginsystem Login System]
-  * [UserT User types]
-  * [PasswordProtection Password protection]
-  * [PasswordReminder Password reminder]
-  * [MinGUI Minimalistic graphical user interface]
-  * [Multiwindow Multi-windowed]
-  * [ManipulatableWindows Manipulatable windows]
-  * [Random Random question generator]
-  * [VaryingDifficulty Varying difficulty curve]
-  * [SupportAudioImage Supports audio and images]
-  * [Statistics Statistics]
-  * [Rank Ranking / Overall statistics]
-  * [Basic Basic third party study buddy creation]
-  * [Advanced Advanced third party study buddy creation]
-  * [Export Exporting loaded Study Buddy]
-  * [Modularity Modularity]
-  * [SystemAdmin System administration]
-  * [Size Small filesize]
+  # Login System
+   * Fields for username and password. Letter case sensitivity.
+  # [UserT User types]
+  # [PasswordProtection Password protection]
+  # [PasswordReminder Password reminder]
+  # [MinGUI Minimalistic graphical user interface]
+  # [Multiwindow Multi-windowed]
+  # [ManipulatableWindows Manipulatable windows]
+  # [Random Random question generator]
+  # [VaryingDifficulty Varying difficulty curve]
+  # [SupportAudioImage Supports audio and images]
+  # [Statistics Statistics]
+  # [Rank Ranking / Overall statistics]
+  # [Basic Basic third party study buddy creation]
+  # [Advanced Advanced third party study buddy creation]
+  # [Export Exporting loaded Study Buddy]
+  # [Modularity Modularity]
+  # [SystemAdmin System administration]
+  # [Size Small filesize]
 
 ==Non-fuctional requirements==
 
