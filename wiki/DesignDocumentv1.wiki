@@ -1,4 +1,4 @@
-#summary The first version of our requirements document
+#summary The first version of our design document
 #labels Assignment2
 
 ==Guidelines==
