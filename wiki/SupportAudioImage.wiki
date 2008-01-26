@@ -1,4 +1,0 @@
-
-= Support for Audio and Images =
-
-Enables audio and images to be loaded into program.
