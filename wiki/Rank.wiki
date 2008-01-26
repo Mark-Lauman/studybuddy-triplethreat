@@ -1,5 +1,5 @@
 #labels Ranking
 
-= Ranking / Overall Standings =
+= Ranking / Overall Statistics =
 
 Program able to parse all user data and combine it to show over all statistics.
