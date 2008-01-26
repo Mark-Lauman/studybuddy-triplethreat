@@ -27,7 +27,8 @@ Our system provides an educational learning tool to teachers and students of the
    * Fields for username and password. Letter case sensitivity.
   # User types
    * Different levels of users. Hierarchical Three account types: administrator, instructor, and student.
-  # [PasswordProtection Password protection]
+  # Password protection
+   * Password will be blocked out when typed. Encrypted password in user account file.
   # [PasswordReminder Password reminder]
   # [MinGUI Minimalistic graphical user interface]
   # [Multiwindow Multi-windowed]
