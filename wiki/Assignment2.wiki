@@ -5,7 +5,7 @@
 Mark Lauman
 
 ===Criteria===
-A link to the crieria of assingment 1 can be found [http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentOne here]
+A link to the crieria of assingment 2 can be found [http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo here]
 
 ===Documents===
 RequirementsDocumentv1
