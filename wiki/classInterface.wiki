@@ -7,6 +7,7 @@ The buddy class will contain the following:
   # A JFrame object
   # A JPanel object
   # A method that records the user data properly
+  # A method for retrieving user data for this buddy
   # A method that displays a menu and returns the choice chosen
   # A method that loads images
   # A method that loads music clips
