@@ -23,41 +23,17 @@ Our system provides an educational learning tool to teachers and students of the
   * Goals:
 
 ==Features==
-  # Login System
-   * Fields for username and password. Letter case sensitivity.
-  # User types
-   * Different levels of users. Hierarchical Three account types: administrator, instructor, and student.
-  # Password protection
-   * Password will be blocked out when typed. Encrypted password in user account file.
-  # Password reminder
-   * "Forgot password" link on login screen Will ask a personal question and user must provide the answer they recorded at account setup.
-  # Minimalistic graphical user interface
-   * Minimal amount of menus and icons. Uncluttered interface.
-  # Multi-windowed
-   * Ability to open several study buddies at once.
-  # Manipulatable windows
-   * Windows will be able to be moved around. Resizing.
-  # Random question generator
-   * Randomly generates questions based on a programmed question format.
-  # Varying Difficulty
-   * Uses the random question generator and combining questions together to create increased difficulty questions.
-  # Supports audio and images
-   * Enables audio and images to be loaded into program.
-  # Statistics
-   * Program records user statistics of study buddies at each use.
-  # Ranking / Overall statistics
-   * Program able to parse all user data and combine it to show over all statistics.
-  # Basic third party study buddy creation
-  # Advanced third party study buddy creation
-  # Exporting loaded Study Buddy
-  # Modularity
-   * Study buddies are able to be transfered to other computers and installed.
-  # System administration
-   * Special account types which allow administration over system such as installation and deletion of study buddies, and account management.
-  # Small filesize
-   * Base program will be small in file size. No more than 5MB.
+  # A [login Login System]
+  # 3 different [users user access levels]
+  # All data will be [security secured]
+  # A Study Buddy [classInterface Class Interface] allowing devolpers to make buddies with java.
+  # A [statistics user statistics] system.
+  # [importExport Tools] for importing and exporting study buddies
+  
 
 ==Non-fuctional requirements==
+  # Minimalistic graphical user interface
+   * Minimal amount of menus and icons. Uncluttered interface.
 
 ==Example Tutorials==
   * Tutorial 1: Logging in / Forgetting Password
