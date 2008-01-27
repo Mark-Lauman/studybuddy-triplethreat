@@ -1,0 +1,15 @@
+#summary Data security details.
+#labels Assignment2,Feature,Phase-Requirements
+
+Data stored using this program will be encrypted using bit shifting.
+
+The following data will be subject to encryption:
+
+  # Usernames and passwords
+  # Study Buddy scores
+  # Class lists
+
+The following will NOT be subject to encryption:
+
+  # The actual buddy plugin
+  # Any buddies exported by the program
