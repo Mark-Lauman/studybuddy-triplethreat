@@ -1,8 +1,10 @@
 The program will implement a login feature with passwords and 3 levels of user.
   # Administrator
    * Has access to all teacher and student functions
-   * May create and delete any user account
+   * May [manageAccount manage all accounts]
    * May do a full system wipe
   # Teacher
-   * Has access to the ClassGradebook
-   * Can perform ClassManagement
+   * Has access to the [classGradebook Class Gradebook]
+   * Can perform [classManagement Class Management]
+   * Can [installBuddies Install Buddies]
+  
