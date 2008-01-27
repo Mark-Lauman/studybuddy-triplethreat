@@ -1,0 +1,19 @@
+#summary Outlines the statistics system
+#labels Assignment2,Feature,Phase-Requirements
+
+Each user will play the study buddies differently. While playing the buddies, statistics on their performance will be recorded. These statistics can then be viewed by the student and their teacher when they wish.
+
+==Student==
+The student will only have the right to view their own information.  They will be able to see things like:
+  * Their average score
+  * Their lowest score
+  * Their highest score
+  * The trend of their score
+
+==Teacher==
+Teachers will want to view information in more detail, and with greater access than students.  They can view the data of all students using all study buddies in their class.  Teachers will be able to see:
+  * All above student information
+  * All individual grades
+
+==Administrators==
+Can see everything that teachers can see.
