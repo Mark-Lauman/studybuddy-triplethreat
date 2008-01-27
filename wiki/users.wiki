@@ -1,0 +1,21 @@
+#summary The user types and their abilities
+#labels Assignment2,Feature,Phase-Requirements
+
+There will be three types of user in the program
+
+== Student ==
+  # Can play study buddies
+  # Can [statistics view their own score]
+  # Can change their own password
+
+== Teacher ==
+  # Can access all student functions
+  # Can add/remove accounts to their class
+  # Can import/export study buddies for their class to use
+  # Can view [statistics class grades]
+  # Can change student passwords
+
+== Administrator ==
+  # Can access all student and teacher functions
+  # Can create/delete/modify all user accounts
+  # Can wipe the entire system
