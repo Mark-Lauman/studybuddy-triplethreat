@@ -1,0 +1,14 @@
+#summary Outline of the designer interface
+#labels Assignment2,Feature
+
+Our program will define a "Buddy" class which developers can extend to make their own buddies. All buddies will be written using the Java programming language.
+
+The buddy class will contain the following:
+  # A JFrame object
+  # A JPanel object
+  # A method that records the user data properly
+  # A method that displays a menu and returns the choice chosen
+  # A method that loads images
+  # A method that loads music clips
+  # A basic image displayer
+  # A basic sound player
