@@ -1,0 +1,9 @@
+
+== Core Library ==
+
+The system will have a library of methods and constructors that will part of the base program.  This library will allow developers of study buddies access to code that controls the system to create study buddies.  
+
+Includes methods for:
+ * GUI constructor – Window creation, manipulation, etc.
+ * Statistics access/retrieval
+ * Media controller – Loading, displaying, playing of images and sounds
