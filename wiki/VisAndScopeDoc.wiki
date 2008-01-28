@@ -2,7 +2,7 @@
 ===Vision and Scope Document===
 ====Problem Description:====   
  * *Project Background:*
-  We are interested in helping elementary school students that are in grades five to seven.  The topics of the study buddies will mainly reflect the subjects taught in schools such as English, Math, Science, etc.  Our goal is to make an effective yet enteratining learning system that will help students.
+  Most educational childrens' software is inflexable and unadaptable.  It is our hope to create an educational "study buddy" program for Grade 6 students that is both of these things.
   
  * * Stakeholders:*
   * Our team.
