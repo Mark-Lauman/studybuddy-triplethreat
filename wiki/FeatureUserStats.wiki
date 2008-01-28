@@ -1,0 +1,3 @@
+== User Statistics ==
+
+User statistics will be stored each time a study buddy is used.  The system can then be accessed to gather all the statistics for a specific user ID or all users and display them in a graph.  The graph will show the distribution of marks on a bar graph.
