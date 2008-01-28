@@ -6,20 +6,19 @@
   
  * * Stakeholders:*
   * Our team.
-  * Elementary school teachers.
   
  * *Users:*
-  # Elementary School Students
+  # Grade 6 Students
    * Assumptions:
-    * Expertise: Low
+    * Expertise: 
     * Experience: Minimal
     * Background: Limited knowledge in real world activities. Knows how to use a mouse and be able to type.
-  # Development team
+  # Parents of Grade 6 students
    * Assumptions:
     * Expertise: Medium
     * Experience: Experienced
     * Background: Computer Science Students
-  # Instructor and TA
+  # Buddy Developers
    * Assumptions:
     * Expertise: High
     * Experience: Experienced
