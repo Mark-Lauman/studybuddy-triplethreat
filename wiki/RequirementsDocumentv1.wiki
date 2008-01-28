@@ -2,7 +2,9 @@
 #labels Assignment2
 
 ==Introduction==
-Our system provides an educational learning tool to teachers and students of the sixth and seventh grade.  It does so by having a code library that third party “Study Buddies” have access to to create programs.  The system also keeps track of individual users and user statistics.  It also provides teachers with special accounts to enable them to make changes to the system in terms of the study buddies available, user statistics, and passwords.  It is useful for helping students study for a variety of subjects on a digital medium.  It also aids teachers in creating content for study quickly by using templates or, if they are advanced enough, a full fledged study buddy. 
+Our system provides an educational learning tool to students of the sixth and seventh grade. It does so by having a code library that third party “Study Buddies” have access to to create programs. The system also keeps track of individual users and user statistics.  Study buddies can be imported into and exported out of the system to allow sharing of study buddies.  The study buddies are able to display images, play sounds, and take in events from input devices.
+This study buddy system is useful for helping students study for a potentially wide variety of subjects on a digital medium.  It is also useful because of its portability and compatibility.  The program will be just a couple of megabytes and all it is needed to run it is computer with Java.
+
 
 ==Intended Audience==
  # Grade 6 students
@@ -13,21 +15,21 @@ Our system provides an educational learning tool to teachers and students of the
   * Parents are busy individuals who will occasionally look in on their children.  They may also actively participate, testing the progam before their children use it. It is important to treat parents as grade 6 students, so they can correctly interpret how the system works.
 
 ==Features==
-  # A [login Login System]
-  # 3 different [users user access levels]
-  # All data will be [security secured]
-  # A Study Buddy [classInterface Class Interface] allowing devolpers to make buddies with java.
-  # A [statistics user statistics] system.
-  # [importExport Tools] for importing and exporting study buddies
+ * [FeatureUserID User ID]
+ * [FeatureCoreAPI Core API]
+ * [FeatureUserStats User Statistics]
+ * [FeatureImpExp Import and Export]
+ * [FeatureWindows Multi-manipulatable windows]
+ * [FeatureAdaptiveness Program adaptiveness]
   
 
 ==Non-fuctional requirements==
-  # Minimalistic graphical user interface
-   * Minimal amount of menus and icons. Uncluttered interface.
+ # Minimalistic graphical user interface
+  * Minimal amount of menus and icons. Uncluttered interface.
 
 ==Example Tutorials==
-  * Tutorial 1: Logging in / Forgetting Password
-  * Tutorial 2: Loading Study Buddies
-  * Tutorial 3: Sharing Study Buddies
+ * Tutorial 1: Logging in / Forgetting Password
+ * Tutorial 2: Loading Study Buddies
+ * Tutorial 3: Sharing Study Buddies
 
 ==Glossary==
