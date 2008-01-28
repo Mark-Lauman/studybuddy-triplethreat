@@ -1,0 +1,4 @@
+
+= Multi-Manipulatable Windows =
+
+The users will be allowed to open multiple windows, one for each study buddy.  The user will have the ability to move and resize the windows to their pleasing.
