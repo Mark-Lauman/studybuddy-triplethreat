@@ -2,12 +2,17 @@
 #labels Assignment2
 
 ==Guidelines==
-The development will be done using the Ecilpse IDE(Java), and using the same coding format to ensure the consistence. 
+    * We will be using Java programming language with the Eclipse IDE.
+    * We will use Tortoise SVN to keep the data updated and consistence.
+    * The project will be coding with the internal coding style.
 
 ==System Diagrams==
 
 ==Data Requirements==
-A keyboard and a mouse will be used as the inputs to play study buddies, and the monitor and speakers will be used as the outputs. 
+    * A keyboard and a mouse will be used as the inputs to play study buddies as the inputs, and the monitor and speakers will be used as the outputs. 
+    * Usernames and passwords will be stored in a text file. A method will be used to retrieve the information. 
+    * The results of a user will be stored in a text file and will be displayed as a bar graph for statistics purpose. 
+    * JPEG images and MP3 files will be used for some study buddies.  
 
 ==Feature Priorty==
   * Version 1
