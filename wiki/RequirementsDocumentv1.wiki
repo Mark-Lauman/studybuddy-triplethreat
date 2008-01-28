@@ -16,7 +16,7 @@ This study buddy system is useful for helping students study for a potentially w
 
 ==Features==
  * [FeatureUserID User ID]
- * [FeatureCoreAPI Core API]
+ * [FeatureCoreLibrary Core Library]
  * [FeatureUserStats User Statistics]
  * [FeatureImpExp Import and Export]
  * [FeatureWindows Multi-manipulatable windows]
