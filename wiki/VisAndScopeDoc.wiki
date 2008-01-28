@@ -6,7 +6,6 @@
   
  * * Stakeholders:*
   * Our team.
-  * Elementary school teachers.
   
  * *User Assumptions:*
   # Grade 6 Students
