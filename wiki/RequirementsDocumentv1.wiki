@@ -19,7 +19,6 @@ This study buddy system is useful for helping students study for a potentially w
  * [FeatureCoreLibrary Core Library]
  * [FeatureUserStats User Statistics]
  * [FeatureImpExp Import and Export]
- * [FeatureWindows Multi-manipulatable windows]
  * [FeatureAdaptiveness Program adaptiveness]
   
 
