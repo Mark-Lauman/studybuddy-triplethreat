@@ -15,11 +15,15 @@ This study buddy system is useful for helping students study for a potentially w
   * Parents are busy individuals who will occasionally look in on their children.  They may also actively participate, testing the progam before their children use it. It is important to treat parents as grade 6 students, so they can correctly interpret how the system works.
 
 ==Features==
- * [FeatureUserID User ID]
+ * [FeatureUserID User Login]
  * [FeatureCoreLibrary Core Library]
  * [FeatureUserStats User Statistics]
+ * [FeatureVariableLearningCur Variable Learning Curve]
  * [FeatureImpExp Import and Export]
+ * [FeaturePlugIn Plug-in System]
  * [FeatureAdaptiveness Program adaptiveness]
+ * [FeatureGUI GUI]
+ * [FeatureMultimedia Multimedia]
   
 
 ==Non-fuctional requirements==
