@@ -31,8 +31,8 @@ This study buddy system is useful for helping students study for a potentially w
   * Minimal amount of menus and icons. Uncluttered interface.
 
 ==Example Tutorials==
- * Tutorial 1: Logging in / Forgetting Password
- * Tutorial 2: Loading Study Buddies
- * Tutorial 3: Sharing Study Buddies
+ * [Tutorial1 Tutorial 1: Logging in for the first time]
+ * [Tutorial2 Tutorial 2: Starting up a Study Buddy]
+ * [Tutorial3 Tutorial 3: Viewing Your Scores]
 
 ==Glossary==
