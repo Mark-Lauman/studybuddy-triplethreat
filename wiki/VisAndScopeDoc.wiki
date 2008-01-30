@@ -57,7 +57,7 @@
    # *GUI*
     Our system will use a minimalistic, user-friendly GUI.  It will be tested on Grade 6 students.
    # *Replay Value*
-    The questions and tasks for the study buddy will be on a random generator so that the user will rarely see the same thing twice.???
+    The questions and tasks for the study buddy will be on a random generator so that the user will rarely see the same thing appeared as the first question.
    # *Multimedia*
     Study buddies will use sounds and images.
    # *Import Tool*
