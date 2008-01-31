@@ -2,7 +2,7 @@
 #labels Assignment2
 
 == Introduction ==
-Okay, you've downloaded the porgram and started it up, but what do you do next?
+OK, you've downloaded the program and started it up, but what do you do next?
 
 First you have to create your own player account. This account will keep track of how well you do on all of your study buddies, so you can see how you're doing. You can also show off your skill to others.
 
