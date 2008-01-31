@@ -7,7 +7,7 @@
     * The project will be coding with the internal coding style.
 
 ==System Diagrams==
-[http://studybuddy-triplethreat.googlecode.com/files/StateDiagram.jpg]
+[http://studybuddy-triplethreat.googlecode.com/files/stateDiagram.jpg]
     * State Machine Diagram
 
 ==Data Requirements==
