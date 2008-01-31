@@ -2,7 +2,9 @@
 #labels Assignment2
 
 == Introduction ==
+Well, you have your own account from [Tutorial1 Tutorial 1], and you have not played a few Buddies with the help of [Tutorial2 Tutorial 2].  Now it's time to see how well you are doing in your Buddy exploits.
 
 == Step by Step ==
+
 
 == What Next? ==
