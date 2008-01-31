@@ -27,8 +27,21 @@ This study buddy system is useful for helping students study for a potentially w
   
 
 ==Non-fuctional requirements==
- # Minimalistic graphical user interface
-  * Minimal amount of menus and icons. Uncluttered interface.
+ * * Product Requirements *
+  # Minimalistic.
+  # The size of the system will not exceed 5MB.
+  # The system will be computer resource friendly.
+  # The system will be able to run on Windows and MacOS.
+  # Ease of Use.
+
+ * * Organizational Requirements *
+  # Product will be implemented in Java.
+  # Coding follows the same convention.
+  # Final product will be delivered as a simple executable.
+
+ * * External Requirements *
+  # Study buddy material is of the Grade 6 curriculum.
+
 
 ==Example Tutorials==
  * [Tutorial1 Tutorial 1: Logging in for the first time]
