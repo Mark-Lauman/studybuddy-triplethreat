@@ -1,10 +1,19 @@
 #summary Logging in for the first time
+#labels Assignment2
 
 == Introduction ==
 Okay, you've downloaded the porgram and started it up, but what do you do next?
 
 First you have to create your own player account. This account will keep track of how well you do on all of your study buddies, so you can see how you're doing. You can also show off your skill to others.
 
-== Creating a new player ==
+== Step by Step ==
  # The first screen you will see looks like the one below. Just click on the "New Player" button to begin.
-[http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic1.jpg]
+  [http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic1.jpg]
+ # You will be presented with a pop up box. Type in the name of the person you wish to add, and click OK.
+  [http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic2.jpg]
+ # Congratulations! You've created your first player account!
+  Just double click on your name to log in. If you want to log on in the future, this is all you will have to do.
+  [http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic3.jpg]
+
+== Now what? ==
+Now that you've logged in correctly, I'm sure you want to try out a buddy.  For instructions on how to do that, view our tutorial on [Tutorial2 Starting up a Study Buddy].
