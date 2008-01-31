@@ -8,7 +8,7 @@ By now you know you've created your first account logged on to the program. Now 
  # Log in to the program, as [Tutorial1 Tutorial 1] showed you.
  # The first thing you will see is the screen below. Since we want to start a study buddy, click on the "Study Buddies" button to go to the next screen.
   [http://studybuddy-triplethreat.googlecode.com/files/Tut2Pic1.jpg]
- # You will notice a list of buddies on the left side of the next screen. One of these buddies is a darker colour than its the others. This is because that buddy is selected. The selected buddy shows a panel over on the right side of the screen, so you can know more about it.
+ # You will notice a list of buddies on the left side of the next screen. One of these buddies is a darker colour than the others. This is because that buddy is selected. The selected buddy shows a panel over on the right side of the screen, so you can know more about it.
   [http://studybuddy-triplethreat.googlecode.com/files/Tut2Pic2.jpg]
  # If you want to go back at any time, all you have to do is hit the "Back" button.  This button works in Buddies too.
   [http://studybuddy-triplethreat.googlecode.com/files/Tut2Pic3.jpg]
