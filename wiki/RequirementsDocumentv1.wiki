@@ -9,10 +9,10 @@ This study buddy system can help Grade 6 students study a large amount of subjec
 ==Intended Audience==
  * Grade 6 students
   * Our primary user of the program, Grade 6 students are very fond of all types of game. Most grade 6 students are competent with computer basics, as they enjoy instant messaging services and computer games a lot.
-  * Grade 6 students have reached the "cool" phase of their lives.  They enjoy watching teen dramas and anime shows, (Like Hannah Montana and Pokemon) and often play teenager though temporary "relationships".  
+  * Grade 6 students have reached the "cool" phase of their lives.  They enjoy watching teen dramas and anime shows, (Like Hannah Montana and Pokemon) and often play teenager though temporary "relationships".
  * Parents of grade 6 students
   * Grade 6 parents will want software that is educational for their children and age appropriate. They will be the ones who check over and install the software, and its associated buddies.  Parents have an varied technical ability, so the system must be simple enough that all can understand it.
-  * Parents are busy individuals who will occasionally look in on their children.  They may also actively participate, testing the progam before their children use it. It is important to treat parents as grade 6 students, so they can correctly interpret how the system works.
+  * Parents are busy individuals who will occasionally look in on their children.  They may also actively participate, testing the program before their children use it. It is important to treat parents as grade 6 students, so they can correctly interpret how the system works.
 
 ==Features==
  * [FeatureUserID User Login]
