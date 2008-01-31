@@ -2,13 +2,13 @@
 #labels Assignment2
 
 ==Introduction==
-Our system provides an educational learning tool to students of the sixth and seventh grade. It does so by having a code library that third party “Study Buddies” have access to to create programs. The system also keeps track of individual users and user statistics.  Study buddies can be imported into and exported out of the system to allow sharing of study buddies.  The study buddies are able to display images, play sounds, and take in events from input devices.
-This study buddy system is useful for helping students study for a potentially wide variety of subjects on a digital medium.  It is also useful because of its portability and compatibility.  The program will be just a couple of megabytes and all it is needed to run it is computer with Java.
+Our system provides an educational learning tool to students of the sixth and seventh grade. It does so by having a code library that third party “Study Buddies” access to create programs. The system keeps track of individual users and user statistics.  Study buddies can be imported into and exported out of the system to allow sharing of study buddies.  The study buddies are able to display images, play sounds, and take in events from a keyboard and mouse.
+This study buddy system can help Grade 6 students study a large amount of subjects without them leaving their computer. It will run on the Java Runtime Environment, allowing our program's use on all different platforms.
 
 
 ==Intended Audience==
  * Grade 6 students
-  * Our primary user of the program, Grade 6 students are very fond of all types of game. Most grade 6 students are very experienced with computers, as they enjoy instant messaging services and computer games a lot. 
+  * Our primary user of the program, Grade 6 students are very fond of all types of game. Most grade 6 students are competent with computer basics, as they enjoy instant messaging services and computer games a lot.
   * Grade 6 students have reached the "cool" phase of their lives.  They enjoy watching teen dramas and anime shows, (Like Hannah Montana and Pokemon) and often play teenager though temporary "relationships".  
  * Parents of grade 6 students
   * Grade 6 parents will want software that is educational for their children and age appropriate. They will be the ones who check over and install the software, and its associated buddies.  Parents have an varied technical ability, so the system must be simple enough that all can understand it.
@@ -71,6 +71,8 @@ This study buddy system is useful for helping students study for a potentially w
 * Images * - Pictures stored electronically in different formats. JPEG, GIF, PNG...
 
 * Import * - Adding an external plugin into the system for use.
+
+* Java * - Any references to Java refer to Java 1.2
 
 * Minimalistic * - Using as few objects as neccessary to achieve the same result.
 
