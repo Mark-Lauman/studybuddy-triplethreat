@@ -12,7 +12,7 @@ First you have to create your own player account. This account will keep track o
  # You will be presented with a pop up box. Type in the name of the person you wish to add, and click OK.
   [http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic2.jpg]
  # Congratulations! You've created your first player account!
-  Just double click on your name to log in. If you want to log on in the future, this is all you will have to do.
+ Just double click on your name to log in. If you want to log on in the future, this is all you will have to do.
   [http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic3.jpg]
 
 == Now what? ==
