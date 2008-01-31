@@ -5,6 +5,14 @@
 Well, you have your own account from [Tutorial1 Tutorial 1], and you have not played a few Buddies with the help of [Tutorial2 Tutorial 2].  Now it's time to see how well you are doing in your Buddy exploits.
 
 == Step by Step ==
+ # First, you need to return back to the first page after you logged in. It has your name on the top of the screen, and looks like the one below. Choose the Stats option to proceed to the next screen.
+  [http://studybuddy-triplethreat.googlecode.com/files/Tut3Pic1.jpg]
+ # You will notice that the stats screen is very similar to the Choose a Study Buddy Screen from [Tutorial2 Tutorial 2]. It also works in the same fashion. Choose a study buddy, and your stats for that buddy will be displayed on the right.
+  [http://studybuddy-triplethreat.googlecode.com/files/Tut3Pic1.jpg]
+ # The bar graph gives you a brief look at how you are doing, while at the bottom you have some numbers for more detail.
+  [http://studybuddy-triplethreat.googlecode.com/files/Tut3Pic1.jpg]
 
+Congratulations!  You have mastered all the the basics of working with our program. Check out your other scores, and brag about how good you are!
 
 == What Next? ==
+The next step is to play around with your buddies, and master your skills. From all of us in Team Triple Threat, good luck with Grade 6!
