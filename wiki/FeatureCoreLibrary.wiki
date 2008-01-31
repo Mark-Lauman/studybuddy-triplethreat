@@ -1,8 +1,7 @@
 #labels CoreLibraryFeature
-
 == Core Library ==
 
-The system will have a library of methods and constructors that will part of the base program.  This library will allow developers of study buddies access to code that controls the system to create study buddies.  
+The system will have a library of methods and constructors that will act as the foundation for the system.  This library will allow developers of study buddies to access code that controls the system to create study buddies.
 
 Includes methods for:
  * GUI constructor – Window creation, manipulation, etc.
