@@ -17,5 +17,12 @@
     * JPEG images and MP3 files will be used for the system.  
 
 ==Feature Priorty==
-  * Version 1
-   * core program with Admin, Teacher, and Student login functions
+  * * Version 1 *
+   * Core Library
+   * GUI
+  * * Version 2 *
+   * User ID
+   * User Statistics
+   * Difficulty Gradient
+  * * Version 3 *
+   * Import and Export
