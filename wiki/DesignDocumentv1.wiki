@@ -23,6 +23,6 @@
   * * Version 2 *
    * [FeatureUserID User ID]
    * [FeatureUserStats User Statistics]
-   * [FeatureDifficultuGradient Difficulty Gradient]
+   * [FeatureDifficultyGradient Difficulty Gradient]
   * * Version 3 *
    * [FeatureImpExp Import and Export]
