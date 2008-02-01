@@ -17,6 +17,7 @@ First you have to create your own player account. This account will keep track o
   [http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic4.jpg]
  # When you want to log out, merely close the program, or click the "Log out" button in the top right corner or close the program window.
   [http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic5.jpg]
+Congratulations! You've created your first player account and learned how to log in and out!
 
 == What Next? ==
 Now that you've logged in correctly, I'm sure you want to try out a buddy.  For instructions on how to do that, view our tutorial on [Tutorial2 Starting up a Study Buddy].
