@@ -11,10 +11,12 @@ First you have to create your own player account. This account will keep track o
   [http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic1.jpg]
  # You will be presented with a pop up box. Type in the name of the person you wish to add, and click OK.
   [http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic2.jpg]
- # Congratulations! You've created your first player account! Just double click on your name to log in. If you want to log on in the future, this is all you will have to do.
+ # Congratulations! You've created your first player account! You will notice that your name is in a gray box. The gray box indicates that your name is selected. To select another name, if one is available, click on that name.  For now, make sure your name is selected.
   [http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic3.jpg]
- # When you want to log out, merely close the program, or click the "Log out" button in the top right corner or close the program window.
+ # Now that your name is selected, just click the Log In button to log in to the program.
   [http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic4.jpg]
+ # When you want to log out, merely close the program, or click the "Log out" button in the top right corner or close the program window.
+  [http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic5.jpg]
 
 == What Next? ==
 Now that you've logged in correctly, I'm sure you want to try out a buddy.  For instructions on how to do that, view our tutorial on [Tutorial2 Starting up a Study Buddy].
