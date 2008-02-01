@@ -18,11 +18,11 @@
 
 ==Feature Priorty==
   * * Version 1 *
-   * Core Library
-   * GUI
+   * [FeatureCoreLibrary Core Library]
+   * [FeatureGUI GUI]
   * * Version 2 *
-   * User ID
-   * User Statistics
-   * Difficulty Gradient
+   * [FeatureUserID User ID]
+   * [FeatureUserStats User Statistics]
+   * [FeatureDifficultuGradient Difficulty Gradient]
   * * Version 3 *
-   * Import and Export
+   * [FeatureImpExp Import and Export]
