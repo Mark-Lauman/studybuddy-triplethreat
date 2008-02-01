@@ -76,7 +76,7 @@ This study buddy system can help Grade 6 students study a large amount of subjec
 
 * Minimalistic * - Using as few objects as neccessary to achieve the same result.
 
-* Plugin * - .
+* Plugin * - A piece of software that accesses the core library to create a Study buddy.
 
 * Score * - Varies between Study Buddies.  The results after the Study buddy has been finished.  Study Buddies that return non-numerical scores are tallied up and graphed.  The amount of each string is indicated at the bottom of the graph.
 
