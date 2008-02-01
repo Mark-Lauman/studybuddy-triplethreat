@@ -29,7 +29,6 @@ This study buddy system can help Grade 6 students study a large amount of subjec
 ==Non-fuctional requirements==
  * * Product Requirements *
   # Minimalistic.
-  # The size of the system will not exceed 5MB.
   # The system will be computer resource friendly.
   # The system will be able to run on Windows and MacOS.
   # Ease of Use.
