@@ -18,7 +18,7 @@ This study buddy system can help Grade 6 students study a large amount of subjec
  * [FeatureUserID User Login]
  * [FeatureCoreLibrary Core Library]
  * [FeatureUserStats User Statistics]
- * [FeatureVariableLearningCur Variable Learning Curve]
+ * [FeatureDifficultyGradient Difficulty Gradient]
  * [FeatureImpExp Import and Export]
  * [FeaturePlugIn Plug-in System]
  * [FeatureAdaptiveness Program adaptiveness]
