@@ -28,9 +28,13 @@
   * * Version 1 *
    * [FeatureCoreLibrary Core Library]
    * [FeatureGUI GUI]
+   * Word Find Buddy
   * * Version 2 *
    * [FeatureUserID User ID]
    * [FeatureUserStats User Statistics]
    * [FeatureDifficultyGradient Difficulty Gradient]
+   * Science Wiring Buddy
   * * Version 3 *
    * [FeatureImpExp Import and Export]
+   * Break Buddy
+   * Math Buddy
