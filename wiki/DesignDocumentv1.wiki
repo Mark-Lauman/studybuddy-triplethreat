@@ -10,7 +10,7 @@
 [http://studybuddy-triplethreat.googlecode.com/files/stateDiagram.jpg]
     * State Machine Diagram
 
-[http://studybuddy-triplethreat.googlecode.com/files/uml.JPG]
+[http://studybuddy-triplethreat.googlecode.com/files/uml.jpg]
     * UML Diagram
 
 ==Data Requirements==
