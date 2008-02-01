@@ -91,3 +91,8 @@ All buddies are file folders filled with .java files.  Every study buddy must ha
 * Username * -	A name used to identify a particular set of scores.  One user may have multiple usernames.
 
 * Variable * - A component that has the ability to change.
+
+
+
+----
+[Assignment2 Assignment 2]
