@@ -43,7 +43,7 @@
   * *Vision Statement*: We hope to make a system that will assist in home learning.  It will do so by providing third party "study buddies" to users that will teach them grade 6 topics. We also intend to implement our own study buddies, to better test the system and provide users with some starter applications. This system will be written in the Java programming language, to allow cross-platform compatibility.
 
   * *Architectural Diagram*
-[http://studybuddy-triplethreat.googlecode.com/files/ArchDiagram.png]
+[http://studybuddy-triplethreat.googlecode.com/files/ArchDiagram2.png]
 
   * *List of Features*
    # *User Login*
