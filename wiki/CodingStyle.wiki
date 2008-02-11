@@ -1,0 +1,51 @@
+#summary Coding conventions we will follow
+#labels Assignment3
+
+A class file is divided into sections, with one empty space between each section. There are no empty spaces inside sections unless otherwise noted.
+
+We will follow Java coding standards at all times (indentation etc).
+
+Order:
+ # Headers
+  {{{
+  /*
+  Filename
+  Brief File Description
+  
+  Team Triple Threat
+  Log:
+  MM/DD/YYYY Name_of_Editor Description
+  */
+  }}}
+  Dates will be ordered with the most recent at the top.
+ # Package name
+ # import statements
+  Ordered Alphabetically
+ # Class declaration
+  Description provided in the header - no comments are here.
+ # Objects of the class
+  {{{
+  object_declaration //object description
+  }}}
+  Objects are ordered alphabetically: first by type, then by name.
+ # Functions
+  {{{
+  scope return_type func_name(params) {
+    /* Function_Description */
+    .....
+  }
+  }}}
+  Inside categories, functions are ordered first alphabetically by name, then by the number of parameters in ascending order. They are seperated from other functions by one space.
+  Function categories (in order) are: 
+  # Constructors
+  # public static void main
+  # Horizontal rule
+    A comment line starting with // ending with // and containing several dashes.  The line ends 12 characters before the red line in NetBeans.
+  # Setters, Getters and Misc functions
+    * Setters start with set
+    * Getters start with get
+  # Horizontal rule
+  # Overided functions
+  # Interface functions
+
+Inside functions coders have free reign.
