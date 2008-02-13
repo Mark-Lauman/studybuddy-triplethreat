@@ -2,7 +2,7 @@
 BarGraph.java
 This class displays the data inside it as a bar graph
 
-Team Triple Threat
+Team Triple Threat 
 Log:
 02/12/2008 Mark Lauman 
 02/11/2008 Mark Lauman Created Template
@@ -21,10 +21,14 @@ public class BarGraph extends JPanel {
     private BufferedImage disp; //This image contains the graph
 
     public BarGraph() {
+<<<<<<< .mine
+        /*   */
+=======
         /* Set up the BarGraph class */
         super();
         disp = null;
         scores = null;
+>>>>>>> .r296
     }
     
 // -------------------------------------------------------------- //
