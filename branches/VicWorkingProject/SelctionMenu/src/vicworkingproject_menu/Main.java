@@ -3,33 +3,17 @@
  * and open the template in the editor.
  */
 
-package selectionmenu;
+package vicworkingproject_menu;
 import javax.swing.*;
 
-/**
- *
- * @author Chen-Wei Kao
- */
 public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         
+        //testing codes:
         JFrame jf=new JFrame();
-        
-        
-        
-        jf.add(new TestMenu());
-        
+        jf.add(new SelectionMenu());        
         jf.setVisible(true);
-        jf.setSize(500, 500);
-        
+        jf.setSize(700, 450);        
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        
-        
     }
-
 }
