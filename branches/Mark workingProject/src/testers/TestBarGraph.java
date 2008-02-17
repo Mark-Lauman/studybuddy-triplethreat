@@ -4,6 +4,7 @@ This class is designed to
 
 Team Triple Threat
 Log:
+02/16/2008 Mark Lauman Some minor formatting fixes
 02/14/2008 Mark Lauman implemented tests 6-9, ran all tests on BarGraph
 02/14/2008 Mark Lauman Sperated tests into functions, implemented tests 2-5
 02/12/2008 Mark Lauman Created main, ran test 1
@@ -17,17 +18,14 @@ import java.awt.Dimension;
 import java.util.Random;
 import javax.swing.JFrame;
 
-
 public abstract class TestBarGraph {
+    
     public static void main(String[] args) {
         /* run test on BarGraph
            check functions below for various tests */
         JFrame test = makeTest7();
         test.setVisible(true);
     }
-    
-    
-    
     
     private static JFrame makeTest1() {
         //1st test - No scores, Not resizeable
