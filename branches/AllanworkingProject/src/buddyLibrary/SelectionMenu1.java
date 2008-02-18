@@ -1,10 +1,10 @@
-  /*
+/*
 SelectionMenu.java    
 It is a structure for each selection menu.
 Team Triple Threat
 Log:
 02/16/2008 Allan Lei Implementation of methods
- */
+*/
 package buddyLibrary;
 
 import javax.swing.*;
