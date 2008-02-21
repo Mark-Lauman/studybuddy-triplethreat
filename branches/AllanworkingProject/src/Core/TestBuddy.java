@@ -7,24 +7,27 @@ Buddy.java
 Brief File Description
 Team Triple Threat
 Log:
-02/14/2008  Allan Lei   Created unit test buddy
+ 02/20/2008  Allan Lei   Updated test cases
+ 02/14/2008  Allan Lei   Created unit test buddy
  */
 public class TestBuddy extends Buddy {
 
     public TestBuddy(Core c) {
-        setReference(c);
-
-        //loadImage(new JarResource("C:\\Documents and Settings\\Knight\\Desktop\\1.jar").getImage("1.png"), 50, 50);
-        //addAudioPlayer(new JarResource("C:\\Documents and Settings\\Knight\\Desktop\\1.jar").getWav("1.wav"), 50, 50);
-        float[] q = getStatistics(new JarResource("C:\\Documents and Settings\\Knight\\Desktop\\1.jar").getText("q.txt"));
+        setReference(c);                    // Sets the Core as parent
+        
+        JarResource j = new JarResource("C:\\Documents and Settings\\Knight\\Desktop\\1.jar");  //Initialize a jar resource
+        j.extract("1.png", "C:\\Documents and Settings\\Knight\\Desktop\\");                    //extract a file from jar
+        loadImage(j.getImage("1.png"), 90, 90);                     //load an image at a specific location from a jar file
+        addAudioPlayer(j.getWav("1.wav"), 50, 50);                  //create an audioplayer by accessing wav in jar file
+        float[] q = getStatistics(j.getText("q.txt"));              //Access text file and print out the values stored
         for (int i = 0; i < q.length; i++) {
             System.out.println(q[i]);
         }
-        System.out.println(getUser());
-        setTitle("Changed");
+        System.out.println(getUser());                              //Print the user name stored in core
+        setTitle("Changed");                                        //change the title of Core
         
         
-        SelectionMenu1 s = new SelectionMenu1(400, 600);
+        SelectionMenu s = new SelectionMenu(400, 600);            //Create a selection menu and populate
         s.addSubButton("Button1", 0);
         s.addSubButton("", 50);
         s.addSubButton("Button2", 0);
