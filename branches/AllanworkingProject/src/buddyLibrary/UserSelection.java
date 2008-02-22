@@ -21,8 +21,8 @@ public class UserSelection extends buddyLibrary.SelectionMenu1 {
     
    public final String userDIR = "./data/user"; //set a constant directory
    public final int subButtonwidth = 50 ;   //set the space between buttons
-   public final String newPlayertext="New Player";  //set the tag for convention
-   public final String deletePlayertext="Delete Player";    //set the tag for convention
+   public final String newPlayertext = "New Player";  //set the tag for convention
+   public final String deletePlayertext ="Delete Player";    //set the tag for convention
    public final String loginUsertext = "Login";  //set the tag for convention
    public ArrayList<String> userList = new ArrayList<String>(); //store usernames to userList
    
