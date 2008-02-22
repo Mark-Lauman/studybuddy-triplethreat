@@ -22,7 +22,7 @@ public class Stats extends Buddy implements ActionListener {
     private BarGraph graph;
     private Buddy buddy;
 
-    public Stats(Buddy b) {
+    public Stats() {
         /*  */
     }
 

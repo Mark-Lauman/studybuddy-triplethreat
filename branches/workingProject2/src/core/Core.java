@@ -1,8 +1,8 @@
 package core;
 
 /*
-BarGraph.java
-This class displays the data inside it as a bar graph
+Core.java
+Description
 
 Team Triple Threat
 Log:

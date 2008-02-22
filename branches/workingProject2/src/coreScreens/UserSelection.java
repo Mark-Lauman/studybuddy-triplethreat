@@ -3,10 +3,11 @@
    * This class handle all the requests related to user
    * Team Triple Threat
    * Log:
+   * 02/22/2008 Mark Lauman Changed package
    * 02/21/2008 Vic Kao complete the working module  
   */
 
-package buddyLibrary;
+package coreScreens;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 
 
 
-public class UserSelection extends buddyLibrary.SelectionMenu1 {
+public class UserSelection extends buddyLibrary.SelectionMenu {
     
    public final String userDIR = "./data/user"; //set a constant directory
    public final int subButtonwidth = 50 ;   //set the space between buttons
