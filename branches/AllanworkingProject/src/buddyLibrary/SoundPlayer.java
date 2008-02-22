@@ -6,6 +6,7 @@ Log:
 02/20/2008 Allan Lei Updated Audiostream playing
 02/14/2008 Allan Lei Completed working module
  */
+
 package buddyLibrary;
 
 import java.awt.event.ActionEvent;
@@ -26,8 +27,9 @@ public class SoundPlayer extends JButton implements ActionListener {
     String fName;
     Boolean audiostream = false;
 
-    //Constructor for Soundplayer that accepts a file location
     public SoundPlayer(String filename) {
+        /* Constructor for SoundPlayer.  This constructor accepts a file location of a .wav file.  
+         Also sets all the action commands */
         super("Play");
         fName = filename;
         try {
@@ -43,8 +45,9 @@ public class SoundPlayer extends JButton implements ActionListener {
         validate();
     }
 
-    //Constructor for Soundplayer that accepts a AudioStream
     public SoundPlayer(AudioStream as) {
+        /* Constructor for SoundPlayer.  This constructor accepts an AudioStream.  
+         Also sets all the action commands */
         super("Play");
         try {
             data = as.getData();
@@ -59,17 +62,24 @@ public class SoundPlayer extends JButton implements ActionListener {
         validate();
     }
 
-    //Play the stored audio
+    
     public void play() {
+        /* Play the stored audio
+         Input: None
+         Output: None - Plays the stored AudioStream */
         AudioPlayer.player.start(cas);
     }
 
-    //Stop the stored audio
+    
     public void stop() {
+        /* Stop the stored audio
+         Input: None
+         Output: None - Stops the currently playing audio*/
         AudioPlayer.player.stop(song);
     }
 
     public void actionPerformed(ActionEvent e) {
+        /* ActionListener that listens to the stop and play commands */
         if (e.getActionCommand().equals(cas.toString())) {
             try {
                 play();

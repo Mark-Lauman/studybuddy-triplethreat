@@ -13,6 +13,7 @@ package Core;
  */
 
 import Core.TestBuddy;
+import coreScreens.*;
 import buddyLibrary.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -39,9 +40,9 @@ public class Core extends JFrame implements ActionListener{
         setLocation(60, 50);
         
         TestBuddy t = new TestBuddy(this);
+        UserChoice u = new UserChoice();
 
-
-        content.add(t, BorderLayout.CENTER);
+        content.add(u, BorderLayout.CENTER);
         
         
         
