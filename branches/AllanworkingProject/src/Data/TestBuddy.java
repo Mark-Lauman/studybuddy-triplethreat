@@ -1,4 +1,4 @@
-package Core;
+package Data;
 
 import buddyLibrary.*;
 
@@ -10,12 +10,14 @@ Log:
  02/20/2008  Allan Lei   Updated test cases
  02/14/2008  Allan Lei   Created unit test buddy
  */
-public class TestBuddy extends Buddy {
 
-    public TestBuddy(Core c) {
-        setReference(c);                    // Sets the Core as parent
+public class TestBuddy extends Buddy{
+
+    public TestBuddy() {
+        //setReference(c);                    // Sets the Core as parent
         
-        JarResource j = new JarResource("C:\\Documents and Settings\\Knight\\Desktop\\1.jar");  //Initialize a jar resource
+        System.out.println(System.getProperty("user.dir") + "1.jar");
+        JarResource j = new JarResource(System.getProperty("user.dir") + "1.jar");  //Initialize a jar resource
         j.extract("1.png", "C:\\Documents and Settings\\Knight\\Desktop\\");                    //extract a file from jar
         loadImage(j.getImage("1.png"), 90, 90);                     //load an image at a specific location from a jar file
         addAudioPlayer(j.getWav("1.wav"), 50, 50);                  //create an audioplayer by accessing wav in jar file
@@ -23,8 +25,8 @@ public class TestBuddy extends Buddy {
         for (int i = 0; i < q.length; i++) {
             System.out.println(q[i]);
         }
-        System.out.println(getUser());                              //Print the user name stored in core
-        setTitle("Changed");                                        //change the title of Core
+        //System.out.println(getUser());                              //Print the user name stored in core
+        //setTitle("Changed");                                        //change the title of Core
         
         
         SelectionMenu s = new SelectionMenu(400, 600);            //Create a selection menu and populate
@@ -43,8 +45,13 @@ public class TestBuddy extends Buddy {
         add(s);
         s.removeFromButtonHolder(0);
         this.setPosition(s, 0, 0);
+    }
 
-
-
+    public Buddy load() {
+        return this;
+    }
+    
+    public void a(){
+        System.out.println("asd");
     }
 }
