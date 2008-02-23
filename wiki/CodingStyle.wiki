@@ -46,7 +46,7 @@ To build the documents when you are done commenting, choose "Build" then "Genera
  }}}
  * The class description is separated into paragraphs using the <p> command
  * For each class you import, include an @see statement linking us to its documentation. JAVA_URL is the location of the document, while DISPLAYED_LINK should be its full name (like "javax.swing.JFrame" or "buddyLibrary.Buddy")
-  * for one of our classes, the documentation is always located at "../packageName/buddyName.html"
+  * for one of our classes, the documentation is always located at "../packageName/buddyName.html". Note the two periods at the beginning of the path - they are essential
   * for a Java API class, it is always located at "http://java.sun.com/javase/6/docs/api/" then its pathname. For instance, the pathname of "java.awt.Color" is "java/awt/Color.html"
  * @see statements are ordered just like their import statements are
  * If you need an additional line for either of the @ lines, create a new line, and start typing with the left edge lining up with your description on the above line.
