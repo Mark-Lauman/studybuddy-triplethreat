@@ -1,14 +1,14 @@
 /*
-BarGraph.java
-This class displays the data inside it as a bar graph
-
-Team Triple Threat
-Log:
-02/15/2008 Mark Lauman Rewrote rendering functions - beta v1
-02/14/2008 Mark Lauman Worked on the render and makeBars function
-02/12/2008 Mark Lauman Implemented Functions for no data
-02/11/2008 Mark Lauman Created Template
-*/
+ * BarGraph.java
+ * 
+ * Team Triple Threat
+ * Log:
+ * 02/23/2008 Mark Lauman Changed the comments so they fit our standard
+ * 02/15/2008 Mark Lauman Rewrote rendering functions - beta v1
+ * 02/14/2008 Mark Lauman Worked on the render and makeBars function
+ * 02/12/2008 Mark Lauman Implemented Functions for no data
+ * 02/11/2008 Mark Lauman Created Template
+ */
 
 package buddyLibrary;
 
@@ -20,15 +20,41 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
+/**
+ * This class displays the an array of <code>float</code>s (scores) as a bar
+ * graph. It can be treated as a <code>JPanel</code> for easy installation into
+ * a window.
+ * <p>
+ * All <code>float</code>s are accepted by the graph, including negative values.
+ * If all <code>float<code> values follow the rule
+ * <code>1.0 >= val >= 0.0</code> then the scores are treated as percentages,
+ * and graphed accordingly.
+ * <p>
+ * The foreground colour of the graph is the colour of the axis and
+ * the bars themselves. The background colour is everything else. The default is black
+ * foreground and white background.
+ * @author Team Triple Threat
+ * @see <a href="http://java.sun.com/javase/6/docs/api/java/awt/Color.html">
+ *      java.awt.Color</a>
+ * @see <a href="http://java.sun.com/javase/6/docs/api/javax/swing/JPanel.html">
+ *      javax.swing.JPanel</a>
+ */
 public class BarGraph extends JPanel {
     
-    private ArrayList<Float> scores; //This is the data to be graphed
-    private BufferedImage disp; //This image contains the graph
-    private float max; //the maximum value for the graph
-    private float min; //the minimum value for the graph
+    /** The data to be graphed */
+    private ArrayList<Float> scores;
+    /** Contains the graph as an image */
+    private BufferedImage disp;
+    /* The maximum value for the graph */
+    private float max;
+    /** the minimum value for the graph */
+    private float min;
 
+    /**
+     * Constructs a <code>BarGraph</code> containing no scores. It has a white
+     * background, and a black foreground.
+     */
     public BarGraph() {
-        /* Set up the BarGraph class */
         super();
         disp = null;
         scores = new ArrayList<Float>();
@@ -38,6 +64,13 @@ public class BarGraph extends JPanel {
     
 // -------------------------------------------------------------- //
 
+    /**
+     * Calculates the data that will be displayed to the screen.
+     * This is an <code>ArrayList</code> of floats, with a <code>length</code>
+     * no greater than the amount of pixels on the x axis.
+     * @return An <code>ArrayList</code> of floats extracted from the data that
+     *         is ready to be graphed.
+     */
     private ArrayList<Float> calculateDisplayData() {
         ArrayList<Float> result; //The display data
         
@@ -98,9 +131,17 @@ public class BarGraph extends JPanel {
         return result;
     }
     
+    /**
+     * Creates an <code>ArrayList</code> of <code>Rectangles</code> from a
+     * <code>float ArrayList</code> that has been prepared for drawing.
+     * <p>
+     * The data provided by <code>calculateDisplayData()</code> is prepared for
+     * drawing.
+     * @param data An <code>ArrayList</code> of <code>float</code>s prepared for
+     *        drawing
+     * @return A set of rectangles that can be drawn as the graph's bars
+     */
     private ArrayList<Rectangle> makeBars(ArrayList<Float> data) {
-        /* Makes the Rectangles that will be displayed
-         * in the BarGraph */
         
         /* We need an integer value of the width to increment the bars, but we
          * also need a decimal representation so the bars stay close to the
@@ -180,6 +221,13 @@ public class BarGraph extends JPanel {
         return result;
     }
     
+    /**
+     * Redraws the graph in <code>disp</code> using
+     * <code>calculateDisplayData()</code> and
+     * <code>makeBars(ArrayList<Float> data)</code>. This function is called
+     * whenever paint wants the graph redrawn.
+     * @param g A <code>Graphics</code> object that points to this BarGraph.
+     */
     private void render(Graphics g) {
         /* Render the graph */
         
@@ -230,16 +278,21 @@ public class BarGraph extends JPanel {
         }
     }
     
+    /**
+     * Clears all the scores and forces a redraw of the panel and the graph.
+     */
     public void resetAll() {
-        /* Clear all data and force a redraw of the graph */
         scores.clear();
         repaint();
     }
     
+    /**
+     * Sets the scores to equal the passed float array, and calculates some
+     * score statistics for graphing. This function also forces a redraw of the
+     * panel and the graph.
+     * @param values The new scores
+     */
     public void setScores(float[] values) {
-        /* Set the scores to equal the float array passed,
-         * Extract min/max values for drawing
-         * and force redraw. */
         
         //make it so these will definitely be overwritten
         max = Float.MIN_VALUE;
@@ -271,13 +324,21 @@ public class BarGraph extends JPanel {
     }
 
 // -------------------------------------------------------------- //
-    
+    /**
+     * Forces a redraw of the panel and the graph.
+     */
     @Override
     public void repaint(){
         disp = null;
         super.repaint();
     }
     
+    /**
+     * This method paints the panel on the screen. If the panel has been
+     * resized, or the graph has not been drawn, then it tells the graph to draw
+     * itself again.
+     * @param g A <code>Graphics</code> oject that points to this object
+     */
     @Override
     public void paint(Graphics g) {
         /* repaint the graph */
