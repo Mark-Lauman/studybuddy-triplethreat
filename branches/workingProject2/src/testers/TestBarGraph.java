@@ -1,9 +1,9 @@
 /*
 TestBarGraph.java
-This class is designed to 
 
 Team Triple Threat
 Log:
+02/24/2008 Mark Lauman Changed the comments & made all methods public
 02/16/2008 Mark Lauman Some minor formatting fixes
 02/14/2008 Mark Lauman implemented tests 6-9, ran all tests on BarGraph
 02/14/2008 Mark Lauman Sperated tests into functions, implemented tests 2-5
@@ -20,15 +20,23 @@ import javax.swing.JFrame;
 
 public abstract class TestBarGraph {
     
+    /**
+     * Run a test on BarGraph. The test run is determined by the second line in
+     * the code. Change the number there to change the test.
+     * @param args arguments passed on command line. These are ignored.
+     */
     public static void main(String[] args) {
-        /* run test on BarGraph
-           check functions below for various tests */
         JFrame test = makeTest7();
         test.setVisible(true);
     }
     
-    private static JFrame makeTest1() {
-        //1st test - No scores, Not resizeable
+    /**
+     * The first test, a <code>BarGraph</code> without any <code>score</code>s
+     * in a non-resizable window
+     * @return A <code>JFrame</code> containing the first test, ready to be set
+     *         visible
+     */
+    public static JFrame makeTest1() {
         JFrame frame = new JFrame("Test 1: No Scores, Fixed");
         BarGraph graph1 = new BarGraph();
         graph1.setPreferredSize(new Dimension(100, 100));
@@ -39,8 +47,13 @@ public abstract class TestBarGraph {
         return frame;
     }
     
-    private static JFrame makeTest2() {
-        //2nd test - No scores, resizable
+    /**
+     * The second test, a <code>BarGraph</code> without any <code>score</code>s
+     * in a resizable window
+     * @return A <code>JFrame</code> containing the second test, ready to be set
+     * visible
+     */
+    public static JFrame makeTest2() {
         JFrame frame = new JFrame("Test 2: No Scores, Resizable");
         BarGraph graph1 = new BarGraph();
         graph1.setPreferredSize(new Dimension(80, 80));
@@ -50,8 +63,13 @@ public abstract class TestBarGraph {
         return frame;
     }
     
-    private static JFrame makeTest3() {
-        //3rd test - 3 scores, not resizable (bars over 1 pxl wide)
+    /**
+     * The third test, a <code>BarGraph</code> with 3 <code>score<code>s in a
+     * non-resizable window. This forces the bars to be more than 1 pixel wide
+     * @return A <code>JFrame</code> containing the third test, ready to be set
+     *         visible
+     */
+    public static JFrame makeTest3() {
         JFrame frame = new JFrame("Test 3: 3 Scores, Fixed");
         BarGraph graph1 = new BarGraph();
         graph1.setPreferredSize(new Dimension(100, 90));
@@ -64,8 +82,14 @@ public abstract class TestBarGraph {
         return frame;
     }
     
-    private static JFrame makeTest4() {
-        //4th test - 200 scores, not resizable (bars under pxl wide)
+    /**
+     * The fourth test, a <code>BarGraph</code> with 200 <code>score</code>s in
+     * ascending order in a non-resizable window. This makes the data less than
+     * 1 pixel wide, and ensures the average functions are working correctly
+     * @return A <code>JFrame</code> containing the fourth test, ready to be set
+     *         visible
+     */
+    public static JFrame makeTest4() {
         JFrame frame = new JFrame("Test 4: 200 Scores, Fixed");
         BarGraph graph1 = new BarGraph();
         graph1.setPreferredSize(new Dimension(100, 90));
@@ -81,8 +105,14 @@ public abstract class TestBarGraph {
         return frame;
     }
     
-    private static JFrame makeTest5() {
-        //5th test - 3 scores, resizable (variable bars, bar discontinutities)
+    /**
+     * The fifth test, a <code>BarGraph</code> with 3 <code>score</code>s in a
+     * resizable window. This allows your to see if there are any problems at
+     * any bar size
+     * @return A <code>JFrame</code> containing the fifth test, ready to be set
+     * visible
+     */
+    public static JFrame makeTest5() {
         JFrame frame = new JFrame("Test 5: 3 Scores, Variable");
         BarGraph graph1 = new BarGraph();
         graph1.setPreferredSize(new Dimension(100, 90));
@@ -94,8 +124,15 @@ public abstract class TestBarGraph {
         return frame;
     }
     
-    private static JFrame makeTest6() {
-        //6th test - 200 scores, resizable (variable bars, render times)
+    /**
+     * The sixth test, a <code>BarGraph</code> with 200 <code>score</code>s in
+     * ascending order in a resizable window. This allows your to see if there
+     * are any problems at any bar size, and also allows you to see how long it
+     * takes to re-render the graph
+     * @return A <code>JFrame</code> containing the sixth test, ready to be set
+     *         visible
+     */
+    public static JFrame makeTest6() {
         JFrame frame = new JFrame("Test 6: 200 Scores, Variable");
         BarGraph graph1 = new BarGraph();
         graph1.setPreferredSize(new Dimension(100, 90));
@@ -110,8 +147,14 @@ public abstract class TestBarGraph {
         return frame;
     }
     
-    private static JFrame makeTest7() {
-        //same as 6th test with Blue BG + White Fore
+    /**
+     * The seventh test, a <code>BarGraph</code> identical to the sixth test,
+     * except the background and foreground colours have been changed. This
+     * allows you to verify that those functions work correctly
+     * @return A <code>JFrame</code> containing the seventh test, ready to be
+     *         set visible
+     */
+    public static JFrame makeTest7() {
         JFrame frame = new JFrame("Test 7: 200 Scores, Variable, Coloured");
         BarGraph graph1 = new BarGraph();
         graph1.setPreferredSize(new Dimension(100, 90));
@@ -128,9 +171,15 @@ public abstract class TestBarGraph {
         return frame;
     }
     
-    private static JFrame makeTest8() {
-        //Percent Scores - largest value will be 75% - 3/4 total height
-        //No score is at 100% - this relies on the max being resized correctly
+    /**
+     * The eighth test, a <code>BarGraph</code> with 200 random percent
+     * <code>score</code>s in a resizable window. The largest value is 75% (or
+     * 0.75) which means if the graph has resized for percentages, the
+     * highest value will take up 3/4 of the y axis
+     * @return A <code>JFrame</code> containing the eighth test, ready to be set
+     *         visible
+     */
+    public static JFrame makeTest8() {
         JFrame frame = new JFrame("Test 8: 200 Random Percent Scores, Variable");
         BarGraph graph1 = new BarGraph();
         graph1.setPreferredSize(new Dimension(100, 90));
@@ -147,8 +196,15 @@ public abstract class TestBarGraph {
         return frame;
     }
     
-    private static JFrame makeTest9() {
-        //9th test - 200 random scores, resizable (variable bars, render times)
+    /**
+     * The ninth test, a <code>BarGraph</code> with 200 random 
+     * <code>score</code>s (both negative and positive) in a resizable window.
+     * This allows you to see if the negative values are being graphed
+     * appropriately
+     * @return A <code>JFrame</code> containing the ninth test, ready to be set
+     *         visible
+     */
+    public static JFrame makeTest9() {
         JFrame frame = new JFrame("Test 9: 200 Random Scores, Variable");
         BarGraph graph1 = new BarGraph();
         graph1.setPreferredSize(new Dimension(100, 90));

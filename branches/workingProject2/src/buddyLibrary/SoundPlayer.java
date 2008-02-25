@@ -1,11 +1,13 @@
 /*
-SoundPlayer.java
-Creates a JButton that is loaded with the specified .wav file
-Team Triple Threat
-Log:
-02/20/2008 Allan Lei Updated Audiostream playing
-02/14/2008 Allan Lei Completed working module
+ * SoundPlayer.java
+ * 
+ * Team Triple Threat
+ * Log:
+ * 02/24/2008 Mark Lauman Updated comments so they line up with new standards
+ * 02/20/2008 Allan Lei   Updated Audiostream playing
+ * 02/14/2008 Allan Lei   Completed working module
  */
+
 package buddyLibrary;
 
 import java.awt.event.ActionEvent;
@@ -18,15 +20,24 @@ import sun.audio.AudioStream;
 import sun.audio.AudioPlayer;
 import sun.audio.ContinuousAudioDataStream;
 
+/**
+ * This is a <code>JButton</code> object, that plays an audio clip when clicked.
+ * The audio clip must be in .wav format.
+ * @author Team Triple Threat
+ */
 public class SoundPlayer extends JButton implements ActionListener {
 
-    AudioStream song;
-    ContinuousAudioDataStream cas;
-    AudioData data;
-    String fName;
-    Boolean audiostream = false;
+    private AudioStream song;
+    private ContinuousAudioDataStream cas;
+    private AudioData data;
+    private String fName;
+    private Boolean audiostream = false;
 
-    //Constructor for Soundplayer that accepts a file location
+    /**
+     * Constructs a <code>SoundPlayer</code> that points to the file located at
+     * <code>filename</code>. If the file is not a .wav file,
+     * @param filename The filename of the sound you wish to play
+     */
     public SoundPlayer(String filename) {
         super("Play");
         fName = filename;
@@ -43,7 +54,12 @@ public class SoundPlayer extends JButton implements ActionListener {
         validate();
     }
 
-    //Constructor for Soundplayer that accepts a AudioStream
+    /**
+     * If you have already opened the sound, you may create a new
+     * <code>SoundPlayer</code> linked to your sound by passing it to this
+     * function.
+     * @param as An opened sound file.
+     */
     public SoundPlayer(AudioStream as) {
         super("Play");
         try {
@@ -59,16 +75,24 @@ public class SoundPlayer extends JButton implements ActionListener {
         validate();
     }
 
-    //Play the stored audio
+    /**
+     * Play the audio file linked to this button
+     */
     public void play() {
         AudioPlayer.player.start(cas);
     }
-
-    //Stop the stored audio
+    
+    /**
+     * If the audio file linked to this button is playing, stop it.
+     */
     public void stop() {
         AudioPlayer.player.stop(song);
     }
 
+    /**
+     * Plays the sound. When this button is clicked, this function is called.
+     * @param e
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals(cas.toString())) {
             try {
