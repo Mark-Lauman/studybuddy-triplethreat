@@ -15,7 +15,8 @@ import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import javax.swing.*;
-import Core.*;
+import core.*;
+import java.applet.AudioClip;
 import sun.audio.AudioStream;
 
 
@@ -28,15 +29,19 @@ public class Buddy extends JPanel {
 
     //Create an audioplayer with a specific filename and location
     public void addAudioPlayer(String filename, int x, int y) {
+        try{
         SoundPlayer player = new SoundPlayer(filename);
         add(player);
         setPosition(player, x, y);
         validate();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
     
     //Create an audioplayer with a Audiostream at a specific location
-    public void addAudioPlayer(AudioStream as, int x, int y) {
-        SoundPlayer player = new SoundPlayer(as);
+    public void addAudioPlayer(AudioClip ac, int x, int y) {
+        SoundPlayer player = new SoundPlayer(ac);
         add(player);
         setPosition(player, x, y);
         validate();
@@ -114,8 +119,13 @@ public class Buddy extends JPanel {
 
     //Load a sound file from a specific location
     public SoundPlayer loadSound(String filename) {
+        try{
         SoundPlayer player = new SoundPlayer(filename);
         return player;
+        }catch(Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
     }
 
     //Sets the position of any component

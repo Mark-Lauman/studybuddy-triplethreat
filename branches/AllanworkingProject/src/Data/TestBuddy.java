@@ -16,8 +16,8 @@ public class TestBuddy extends Buddy{
     public TestBuddy() {
         //setReference(c);                    // Sets the Core as parent
         
-        System.out.println(System.getProperty("user.dir") + "1.jar");
-        JarResource j = new JarResource(System.getProperty("user.dir") + "1.jar");  //Initialize a jar resource
+        //System.out.println(System.getProperty("user.dir") + "1.jar");
+        JarResource j = new JarResource(System.getProperty("user.dir") + "\\build\\classes\\Data\\TestBuddy.jar");  //Initialize a jar resource
         j.extract("1.png", "C:\\Documents and Settings\\Knight\\Desktop\\");                    //extract a file from jar
         loadImage(j.getImage("1.png"), 90, 90);                     //load an image at a specific location from a jar file
         addAudioPlayer(j.getWav("1.wav"), 50, 50);                  //create an audioplayer by accessing wav in jar file

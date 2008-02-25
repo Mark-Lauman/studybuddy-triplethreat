@@ -7,6 +7,7 @@ Team Triple Threat
 Log:
 02/14/2008 Allan Lei    Implementation of all methods
  */
+import java.applet.AudioClip;
 import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -24,10 +25,7 @@ public class JarResource {
 
     public JarResource(String jarName) {
         try {
-            System.out.println(jarName);
             jar = new JarFile(jarName);
-            
-
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -58,7 +56,7 @@ public class JarResource {
     }
     
     //Retrieves a wav file from a jar file and returns as a Audiostream
-    public AudioStream getWav(String file) {
+    public AudioStream getSound(String file) {
         try {
             InputStream is = jar.getInputStream(jar.getEntry(file));
             AudioStream as = new AudioStream(is);

@@ -19,7 +19,7 @@ public class TestBuddy extends Buddy {
         JarResource j = new JarResource("C:\\Documents and Settings\\Knight\\Desktop\\1.jar");  //Initialize a jar resource
         j.extract("1.png", "C:\\Documents and Settings\\Knight\\Desktop\\");                    //extract a file from jar
         loadImage(j.getImage("1.png"), 90, 90);                     //load an image at a specific location from a jar file
-        addAudioPlayer(j.getWav("1.wav"), 50, 50);                  //create an audioplayer by accessing wav in jar file
+        //addAudioPlayer(, 50, 50);                  //create an audioplayer by accessing wav in jar file
         float[] q = getStatistics(j.getText("q.txt"));              //Access text file and print out the values stored
         for (int i = 0; i < q.length; i++) {
             System.out.println(q[i]);

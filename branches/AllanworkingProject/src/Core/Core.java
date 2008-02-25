@@ -38,9 +38,10 @@ public class Core extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
         setLocation(60, 50);
 
-        Buddy b = loadBuddy("TestBuddy");
+        Buddy b = loadBuddy("TestBudddy1");
+        //SoundPlayer s = new SoundPlayer("C:\\Documents and Settings\\Knight\\My Documents\\SVN\\branches\\workingProject2\\src\\testers\\test.wav");
         content.add(b, BorderLayout.CENTER);
-
+        
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         pack();
         setVisible(true);
@@ -57,11 +58,13 @@ public class Core extends JFrame implements ActionListener {
                 Buddy b = (Buddy) c.newInstance();
                 return b;
             } catch (Exception ex) {
-                ex.printStackTrace();
+                return null;
             }
-        return null;
     }
     
+    
+    
     public void actionPerformed(ActionEvent e) {
+        
     }
 }

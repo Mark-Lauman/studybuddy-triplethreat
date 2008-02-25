@@ -34,7 +34,7 @@ public class TestSoundPlayer {
      */
     public static void main(String[] args) {
         try{
-            JFrame test = makeTest1();
+            JFrame test = makeTest2();
             test.setVisible(true);
             System.out.println("No errors!");
         }
