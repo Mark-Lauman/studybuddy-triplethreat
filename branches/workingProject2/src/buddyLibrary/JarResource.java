@@ -78,7 +78,6 @@ public class JarResource {
             }
             in.close();
             out.close();
-            System.out.println(destination + filename);
         } catch (Exception ex) {
         }
     }

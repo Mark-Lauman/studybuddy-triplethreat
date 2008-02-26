@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 02/25/2008 Allan Lei Added deleteDir for deleting folders with hidden files
  * 02/21/2008 Vic completed the class
  * 02/11/2008 Mark Lauman Created Template
  */
@@ -115,12 +116,27 @@ public class UserSelection extends buddyLibrary.SelectionMenu{
        // if the user decides to delete the user, n = 0
        // and remove the user from the list and delete the directory as well
        if(n == 0) {
+           
+           
             list.removeElement(userTobeDeleted);
             userList.remove(userTobeDeleted.toUpperCase());
          File f = new File(userDIR + "/" + userTobeDeleted);
-            f.delete();
+         deleteDir(f);
         }       
    }
+   //http://javaalmanac.com/egs/java.io/DeleteDir.html
+     public static boolean deleteDir(File dir) {
+        if (dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i=0; i<children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        return dir.delete();
+    }
 
   /**
     * Events for each button
@@ -134,7 +150,6 @@ public class UserSelection extends buddyLibrary.SelectionMenu{
            deleteUser();
        }
        else if(e.getActionCommand().compareTo(loginUserText) == 0) {
-            System.out.println(getSelection());
             
        }
    }

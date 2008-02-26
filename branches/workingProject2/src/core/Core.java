@@ -1,4 +1,4 @@
-package core;
+
 
 /*
  * PhotoAlbum.java
@@ -9,7 +9,18 @@ package core;
  * ala16
  * 301028107
  */
-//import Core.TestBuddy;
+
+
+ /*
+ * BuddySelection.java
+ * 
+ * Team Triple Threat
+ * Log:
+ * 
+ * 02/25/2008 Allan Lei Core, added screen switiching
+ */
+package core;
+
 import coreScreens.*;
 import buddyLibrary.*;
 import Buddies.*;
@@ -27,6 +38,8 @@ public class Core extends JFrame implements ActionListener{
     private JMenuBar mb;
     private UserSelection us;
     private UserChoice uc;
+    private BuddySelection bs;
+    private Buddy b;
 
     public static void main(String[] args) {
         new Core();
@@ -42,7 +55,6 @@ public class Core extends JFrame implements ActionListener{
         makeMenuBar();
         content.add(mb, BorderLayout.NORTH);
         
-        
         us = new UserSelection(300, 400, this);
         content.add(us, BorderLayout.WEST);
         
@@ -53,12 +65,10 @@ public class Core extends JFrame implements ActionListener{
 
     private void makeMenuBar(){
         mb = new JMenuBar();
-        
-        JMenu m = new JMenu("asd");
-        
-        
+        JMenu m = new JMenu("File");
         mb.add(m);
     }
+    
     public String getUser() {
         return user;
     }
@@ -79,6 +89,7 @@ public class Core extends JFrame implements ActionListener{
     
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Login")){
+            if(us.getSelection() != null){
             user = us.getSelection();
             us.setVisible(false);
             content.remove(us);
@@ -87,8 +98,24 @@ public class Core extends JFrame implements ActionListener{
             invalidate();
             validate();
             pack();
+            }
         }else if(e.getActionCommand().equals("Statistics")){
-            System.out.println("thn");
+            //System.out.println("Stats clicked");
+        }else if(e.getActionCommand().equals("Study Buddy")){
+            uc.setVisible(false);
+            content.remove(uc);
+            bs = new BuddySelection(300, 400, this);
+            content.add(bs, BorderLayout.CENTER);
+            validate();
+        }else if(e.getActionCommand().equals("Start")){
+            if(bs.getSelection() != null){
+                bs.setVisible(false);
+                content.remove(bs);
+                b = loadBuddy(bs.getSelection());
+                content.add(b);
+                validate();
+            }
+            
         }
     }
 }

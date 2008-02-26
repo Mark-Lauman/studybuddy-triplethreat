@@ -41,9 +41,7 @@ public class UserChoice extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Statistics")){
-            System.out.println("asd");
         }else if(e.getActionCommand().equals("Study Buddy")){
-            System.out.println("qwe");
         }
     }
 }

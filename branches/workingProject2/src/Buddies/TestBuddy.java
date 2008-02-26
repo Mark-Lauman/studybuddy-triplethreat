@@ -29,7 +29,7 @@ public class TestBuddy extends Buddy{
         //}
         //System.out.println(getUser());                              //Print the user name stored in core
         //setTitle("Changed");                                        //change the title of Core
-        
+        /*
         
         SelectionMenu s = new SelectionMenu(400, 600);            //Create a selection menu and populate
         s.addSubButton("Button1", 0);
@@ -50,10 +50,6 @@ public class TestBuddy extends Buddy{
         
         BuddySelection us = new BuddySelection(300, 400);
         add(us);
-    }
-
-    
-    public void a(){
-        System.out.println("asd");
+         */
     }
 }
