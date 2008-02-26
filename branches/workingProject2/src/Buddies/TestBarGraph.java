@@ -10,7 +10,7 @@ Log:
 02/12/2008 Mark Lauman Created main, ran test 1
 */
 
-package testers;
+package Buddies;
 
 import buddyLibrary.BarGraph;
 import java.awt.Color;

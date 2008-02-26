@@ -7,8 +7,10 @@
  * 02/11/2008 Mark Lauman Created Template
  */
 
-package buddyLibrary;
+package coreScreens;
 
+import buddyLibrary.*;
+import core.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -24,7 +26,7 @@ import java.util.ArrayList;
  * @see <a href="http://java.sun.com/javase/6/docs/api/javax/swing/JPanel.html">
  *      javax.swing.JPanel</a>
  */
-public class UserSelection extends buddyLibrary.SelectionMenu {
+public class UserSelection extends buddyLibrary.SelectionMenu{
    /** the space between buttons */   
    public final int subButtonwidth = 50 ;
    /** the string names for subbuttons and the main button */
@@ -32,7 +34,8 @@ public class UserSelection extends buddyLibrary.SelectionMenu {
    public final String deletePlayerText = "Delete Player";
    public final String loginUserText = "Login";
    /** the directory to store user's data */
-   public final String userDIR = "./data/user";
+   //public final String userDIR = "./data/user";
+   public final String userDIR = "./build/classes/Data/Users";
    /** an array list to store usernames */
    public ArrayList<String> userList = new ArrayList<String>();
    
@@ -44,8 +47,8 @@ public class UserSelection extends buddyLibrary.SelectionMenu {
     * for checking if a user exists already.
     * Also, it creates sub buttons and main button.
     */
-   public UserSelection (int width, int height) {
-       super(width, height);
+   public UserSelection (int width, int height, Core c) {
+       super(width, height, c);
        
        File f = new File(userDIR);  //add all users to the list and create the directory      
        String [] fileList = f.list();       
@@ -131,8 +134,8 @@ public class UserSelection extends buddyLibrary.SelectionMenu {
            deleteUser();
        }
        else if(e.getActionCommand().compareTo(loginUserText) == 0) {
-      //if the comand is login
-       //call function to handl user choice
+            System.out.println(getSelection());
+            
        }
    }
     

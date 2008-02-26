@@ -1,6 +1,7 @@
-package Data;
+package Buddies;
 
 import buddyLibrary.*;
+import coreScreens.*;
 
 /*
 Buddy.java
@@ -16,7 +17,7 @@ public class TestBuddy extends Buddy{
 
     public TestBuddy() {
         //setReference(c);                    // Sets the Core as parent
-        setBackground(Color.YELLOW);
+        setBackground(Color.BLUE);
         //System.out.println(System.getProperty("user.dir") + "1.jar");
         //JarResource j = new JarResource(System.getProperty("user.dir") + "\\build\\classes\\Data\\TestBuddy.jar");  //Initialize a jar resource
         //j.extract("1.png", "C:\\Documents and Settings\\Knight\\Desktop\\");                    //extract a file from jar
@@ -43,14 +44,14 @@ public class TestBuddy extends Buddy{
         s.addChoice("qwras");
         s.setMainButton("Main button");
         
-        add(s);
+        //add(s);
         s.removeFromButtonHolder(0);
         this.setPosition(s, 0, 0);
+        
+        BuddySelection us = new BuddySelection(300, 400);
+        add(us);
     }
 
-    public Buddy load() {
-        return this;
-    }
     
     public void a(){
         System.out.println("asd");

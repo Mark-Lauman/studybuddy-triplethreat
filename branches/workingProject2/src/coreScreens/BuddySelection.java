@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.*;
 import java.util.*;
 import buddyLibrary.*;
+import core.*;
 
 /**
  * This class handle all the requests related to buddies on the <code>Buddy</code>
@@ -37,7 +38,8 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
    public final String startuddytext = "Start";
    /** the directory to store user's data */
    //public final String buddydir="./Data";
-   public final String buddydir="./build/classes/Data";
+   public final String buddydir="./build/classes/Buddies";
+   
    
    /**
     * Constructs a <code>BuddySelection</code> menu with specified width 
@@ -46,8 +48,8 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
     * for checking if a user exists already.
     * Also, it creates sub buttons and main button.
     */   
-   public BuddySelection (int width, int height) {
-       super(width, height);
+   public BuddySelection (int width, int height, Core c) {
+       super(width, height, c);
        
        File f = new File(buddydir);  //add all buddies to the list and create a directory    
        
@@ -108,7 +110,8 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
            
            JarResource j = new JarResource(chooser.getSelectedFile().getPath());
 
-           j.extract(name + ".class", buddydir);
+           j.extract(name + ".class", buddydir + "/");
+           
        }catch( IOException e){
           ;}
         }

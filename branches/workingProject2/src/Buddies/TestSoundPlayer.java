@@ -6,7 +6,7 @@
  * 02/24/2008 Mark Lauman Implemented
  */
 
-package testers;
+package Buddies;
 
 import buddyLibrary.SoundPlayer;
 import java.awt.Dimension;
@@ -76,7 +76,7 @@ public class TestSoundPlayer {
         JPanel panel = new JPanel();
         panel.setPreferredSize(new Dimension(500, 500));
         String musicLocation = System.getProperty("user.dir")
-                                + "\\src\\testers\\test.wav";
+                                + "\\src\\Buddies\\test.wav";
         panel.add(new SoundPlayer(musicLocation));
         frame.getContentPane().add(panel);
         frame.setResizable(false);
@@ -97,7 +97,7 @@ public class TestSoundPlayer {
         JPanel panel = new JPanel();
         panel.setPreferredSize(new Dimension(500, 500));
         String musicLocation = System.getProperty("user.dir")
-                                + "\\src\\testers\\CodingStyleExample.java";
+                                + "\\src\\Buddies\\CodingStyleExample.java";
         panel.add(new SoundPlayer(musicLocation));
         frame.getContentPane().add(panel);
         frame.setResizable(false);
@@ -116,7 +116,7 @@ public class TestSoundPlayer {
         JFrame frame = new JFrame("Test 3: Valid file, short path");
         JPanel panel = new JPanel();
         panel.setPreferredSize(new Dimension(500, 500));
-        String musicLocation = "\\src\\testers\\test.wav";
+        String musicLocation = "\\src\\Buddies\\test.wav";
         panel.add(new SoundPlayer(musicLocation));
         frame.getContentPane().add(panel);
         frame.setResizable(false);
