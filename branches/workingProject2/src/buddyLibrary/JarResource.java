@@ -31,7 +31,12 @@ public class JarResource {
         }
     }
 
-    //Retrieves an Image file from a jar file
+/**
+ *  Retrieves an Image file from a jar file
+ *
+ * @param  file Name of the image file to be found
+ * @return  image Image file returned as in Image format
+ */
     public Image getImage(String file) {
         try {
             InputStream is = jar.getInputStream(jar.getEntry(file));
@@ -43,7 +48,12 @@ public class JarResource {
         }
     }
 
-    //Retrieves a text file from a jar file and returns as BufferedReader
+ /**
+ *  Retrieves a text file from a jar file and returns as a BufferedReader
+ *
+ * @param  file Name of the text file to be found
+ * @return  read The text file returned as a BufferedReader
+ */
     public BufferedReader getText(String file) {
         try {
             InputStream is = jar.getInputStream(jar.getEntry(file));
@@ -54,8 +64,13 @@ public class JarResource {
             return null;
         }
     }
-    
-    //Retrieves a wav file from a jar file and returns as a Audiostream
+
+/**
+ *  Retrieves a .wav file from a jar file and returns as a AudioStream
+ *
+ * @param  file Name of the wav file to be found
+ * @return  as The wav file returned as a AudioStream
+ */
     public AudioStream getSound(String file) {
         try {
             InputStream is = jar.getInputStream(jar.getEntry(file));
@@ -67,7 +82,12 @@ public class JarResource {
         }
     }
 
-    //Extracts a file from a jar file and copies to a specified location
+ /**
+ *  Extracts a file from a jar file and copies to a specified location
+ *
+ * @param  file Name of the file to be extracted
+ * @param destination The destination file location to extract the file to
+ */
     public void extract(String filename, String destination) {
         try {
             InputStream in = jar.getInputStream(jar.getEntry(filename));

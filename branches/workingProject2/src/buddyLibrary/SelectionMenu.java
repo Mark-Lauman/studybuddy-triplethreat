@@ -45,18 +45,35 @@ public class SelectionMenu extends JPanel implements ActionListener{
         validate();
     }
 
+    
+ /**
+ *  Adds a Choice to the list
+ *
+ * @param  choice The name of the choice to be added to the list
+ */
     public void addChoice(String choice) {
         list.addElement(choice);
         invalidate();
         validate();
     }
 
+ /**
+ *  Adds a choice to the list
+ *
+ * @param  choice An Array of strings that will be added to the list
+ */
     public void addChoice(String[] choice) {
         for (int i = 0; i < choice.length; i++) {
             addChoice(choice[i]);
         }
     }
 
+ /**
+ *  Constructs and adds a button to the sub button bar
+ *
+ * @param name The name to be used on the button
+ * @param width The width of the button/space to be created. Leave "name" as "" if desiring a space
+ */
     public void addSubButton(String name, int width) {
         if (!name.equals("")) {
             JMenuItem button = createButton(name);
@@ -70,11 +87,23 @@ public class SelectionMenu extends JPanel implements ActionListener{
         }
     }
 
+    
+ /**
+ *  Adds a component to the sub button bar
+ *
+ * @param  c A Component to be added to the sub button bar
+ */
     public void addToButtonHolder(Component c) {
         buttonHolder.add(c);
         validate();
     }
 
+ /**
+ *  Creates a button with the Core and this Actionlisteners
+ *
+ * @param  name String of the name to be used on the button
+ * @return  button A JMenuItem that has the actionlisteners and name attached
+ */
     public JMenuItem createButton(String name) {
         JMenuItem button = new JMenuItem(name);
         button.setActionCommand(name);
@@ -84,6 +113,13 @@ public class SelectionMenu extends JPanel implements ActionListener{
         return button;
     }
 
+ /**
+ *  Creates a button with the Core and this Actionlisteners
+ *
+ * @param  name String of the name to be used on the button
+ * @param actioncommand A String of the action command to be set on the button
+ * @return  button A JMenuItem that has the actionlisteners and name attached
+ */
     public JMenuItem createButton(String name, String actioncommand) {
         JMenuItem button = createButton(name);
         button.setActionCommand(actioncommand);
@@ -93,12 +129,24 @@ public class SelectionMenu extends JPanel implements ActionListener{
         return button;
     }
 
+ /**
+ *  Creates a empty JLabel to act as a space
+ *
+ * @param  width The width of the space to be
+ * @param height The height of the spae to be
+ * @return space A JLabel with the specified dimensions
+ */
     public JLabel createSpace(int width, int height) {
         JLabel space = new JLabel();
         space.setPreferredSize(new Dimension(width, height));
         return space;
     }
 
+/**
+ *  Returns the choices available on the list
+ *
+ * @return choices Returns the choices available in a String array
+ */
     public String[] getChoices() {
         String[] choices = new String[list.getSize()];
         for (int i = 0; i < list.getSize(); i++) {
@@ -107,6 +155,11 @@ public class SelectionMenu extends JPanel implements ActionListener{
         return choices;
     }
 
+ /**
+ *  Gets the currently selected item on the list
+ *
+ * @return String Returns the string value of the currently selected item
+ */    
     public String getSelection() {
         if (jl.getSelectedValue() != null) {
             return jl.getSelectedValue().toString();
@@ -115,19 +168,38 @@ public class SelectionMenu extends JPanel implements ActionListener{
         }
     }
 
+ /**
+ *  Removes all the choices that are on the list
+ */
     public void removeAllChoices() {
         list.clear();
     }
 
+/**
+ *  Removes the choice at a specific index
+ *
+ * @param choice Index of the item to be removed from the list
+ */
     public void removeChoice(int choice) {
         list.remove(choice);
     }
 
+    
+/**
+ *  Removes a component from the sub button bar at the specified index
+ *
+ * @param  index The int value of the index to be removed
+ */
     public void removeFromButtonHolder(int index) {
         buttonHolder.remove(subButtons.get(index));
         subButtons.remove(index);
     }
 
+/**
+ *  Creates and sets the name and action listener to the main button at the bottom
+ *
+ * @param  name String of the name to be used on the button
+ */
     public void setMainButton(String name) {
         mainButton = new JButton(name);
         for (int i = 0; i < listener.length; i++) {
@@ -138,6 +210,14 @@ public class SelectionMenu extends JPanel implements ActionListener{
         validate();
     }
 
+/**
+ *  Sets the position of a component to the specified location
+ *
+ * @param c Component to be moved
+ * @param x X coordinate to set the component to
+ * @param y Y coordinate to set the component to
+ * @return  button A JMenuItem that has the actionlisteners and name attached
+ */
     public void setPosition(Component c, int x, int y) {
         Insets insets = getInsets();
         c.setBounds(x + insets.left, y + insets.top, c.getPreferredSize().width, c.getPreferredSize().height);

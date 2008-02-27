@@ -26,8 +26,15 @@ public class Buddy extends JPanel {
     public Buddy() {
         setLayout(null);
     }
-
-    //Create an audioplayer with a specific filename and location
+    
+ /**
+ *  Create an audioplayer with a Audiostream at a specific location
+ *
+ * @param filename File location of the .wav file to be stored
+ * @param x X coordinate where the audioplayer will be located
+ * @param y Y coordinate where the audioplayer will be located
+ * @return Creates a audiplayer with the specified AudioStream and moved to specified location
+ */
     public void addAudioPlayer(String filename, int x, int y) {
         try{
         SoundPlayer player = new SoundPlayer(filename);
@@ -38,8 +45,14 @@ public class Buddy extends JPanel {
             ex.printStackTrace();
         }
     }
-    
-    //Create an audioplayer with a Audiostream at a specific location
+ /**
+ *  Create an audioplayer with a Audiostream at a specific location
+ *
+ * @param filename File location of a AudioClip to be stored
+ * @param x X coordinate where the audioplayer will be located
+ * @param y Y coordinate where the audioplayer will be located
+ * @return   Creates a audiplayer with the specified AudioClip and moved to specified location
+ */
     public void addAudioPlayer(AudioClip ac, int x, int y) {
         SoundPlayer player = new SoundPlayer(ac);
         add(player);
@@ -47,7 +60,12 @@ public class Buddy extends JPanel {
         validate();
     }
 
-    //Retrieve the statistics for a certain buddy
+ /**
+ *  Retrieve the statistics for a certain buddy
+ *
+ * @param  buddyName  Name of the study buddy to get the scores from
+ * @return  stats Returns the values of the specified study buddy in a float array
+ */
     public float[] getStatistics(String buddyName) {
         float[] stats = null;
         ArrayList<Float> temp = new ArrayList<Float>();
@@ -70,7 +88,12 @@ public class Buddy extends JPanel {
         return stats;
     }
     
-    //Retrieves statistics from a BufferedReader
+ /**
+ *  Retrieve the statistics for a certain buddy
+ *
+ * @param br Buffered reader that contains an data stream to be read from
+ * @return stats Returns the values of the specified Buffered Reader in a float array
+ */ 
     public float[] getStatistics(BufferedReader br) {
         float[] stats = null;
         ArrayList<Float> temp = new ArrayList<Float>();
@@ -93,13 +116,23 @@ public class Buddy extends JPanel {
         return stats;
     }
 
-    //Retrieve the user name from Core parent
+ /**
+ *  Retrieve the user name from Core parent
+ *
+ * @return   Retrieves the username from the reference frame (Core)
+ */ 
     public String getUser() {
         return frame.getUser();
     }
     
-    
-    //Loads and displays an image from a file location and specify the location
+ /**
+ *  Loads and displays an image from a file location and specify the location
+ *
+ * @param filename File location of an image file
+ * @param x X coordinate for the image to be placed at
+ * @param y Y coordinate for the image to be placed at
+ * @return   Places the accessed image at the specified location
+ */ 
     public void loadImage(String filename, int x, int y) {
         ImageIcon image = new ImageIcon(filename);
         JLabel pic = new JLabel(image);
@@ -107,8 +140,15 @@ public class Buddy extends JPanel {
         setPosition(pic, x, y);
         validate();
     }
-
-    //Displays image at a specific location
+    
+ /**
+ *  Loads and displays an image from a file location and specify the location
+ *
+ * @param i Image stream to be read from
+ * @param x X coordinate for the image to be placed at
+ * @param y Y coordinate for the image to be placed at
+ * @return   Places the accessed image at the specified location
+ */ 
     public void loadImage(Image i, int x, int y) {
         ImageIcon image = new ImageIcon(i);
         JLabel pic = new JLabel(image);
@@ -117,7 +157,12 @@ public class Buddy extends JPanel {
         validate();
     }
 
-    //Load a sound file from a specific location
+ /**
+ *  Load a sound file from a specific location
+ *
+ * @param filename - File location of a .wav file
+ * @return player Returns a object that has the .wav file stored inside
+ */ 
     public SoundPlayer loadSound(String filename) {
         try{
         SoundPlayer player = new SoundPlayer(filename);
@@ -127,21 +172,37 @@ public class Buddy extends JPanel {
             return null;
         }
     }
-
-    //Sets the position of any component
+    
+ /**
+ *  Sets the position of any component 
+ *
+ * @param c The Component to be moved
+ * @param x X coordinate that the component will be moved to
+ * @param y Y coordinate that the component will be moved to
+ * @return Set the position of the component
+ */ 
     public void setPosition(Component c, int x, int y) {
         Insets insets = getInsets();
         c.setBounds(x + insets.left, y + insets.top, c.getPreferredSize().width, c.getPreferredSize().height);
         validate();
     }
-
-    //sets the parent to f
+    
+ /**
+ *  Sets the parent to f
+ *
+ * @param f A Core object
+ * @return   saves the reference to the Core object
+ */ 
     public void setReference(Core f) {
         this.frame = f;
     }
-
     
-    //Sets the title on the parent Core window
+ /**
+ *  Sets the title on the parent Core window
+ *
+ * @param title Name that the Core object's title will be changed to
+ * @return   Sets the new title in Core object
+ */ 
     public void setTitle(String title) {
         this.frame.setTitle(title);
     }

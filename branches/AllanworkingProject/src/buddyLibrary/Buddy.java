@@ -50,10 +50,14 @@ public class Buddy extends JPanel {
         validate();
     }
 
+    
+    /**
+ *  Retrieve the statistics for a certain buddy
+ *
+ * @param  buddyName  Name of the study buddy to get the scores from
+ * @return  stats Returns the values of the specified study buddy in a float array
+ */
     public float[] getStatistics(String buddyName) {
-        /* Retrieve the statistics for a certain buddy
-         Input: String buddyName - Name of the study buddy to get the scores from
-         Output: float[] stats - Returns the values of the specified study buddy in a float array*/
         float[] stats = null;
         ArrayList<Float> temp = new ArrayList<Float>();
         try {

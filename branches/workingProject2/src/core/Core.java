@@ -63,20 +63,43 @@ public class Core extends JFrame implements ActionListener{
         setVisible(true);
     }
 
+ /**
+ *  Creates the menu bar
+ *
+ * @return  Makes the menu bar
+ */
     private void makeMenuBar(){
         mb = new JMenuBar();
         JMenu m = new JMenu("File");
         mb.add(m);
     }
     
+ /**
+ *  Retrieves the user name in Core
+ *
+ * @return user Returns the username stored in Core
+ */
     public String getUser() {
         return user;
     }
     
+    
+ /**
+ *  Sets the user name in Core
+ *
+ * @param  userName Name to change current user to
+ */
     public void setUser(String userName){
         user = userName;
     }
 
+    
+ /**
+ *  Loads a .class file in the Buddies folder and converts it to a Buddy Class
+ *
+ * @param  classN Name of the .class file to be loaded
+ * @return  b The loaded .class file returned as a Buddy instance
+ */
     private Buddy loadBuddy(String classN) {
             try {
                 Class c = Class.forName("Buddies." + classN);

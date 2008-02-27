@@ -17,7 +17,7 @@ public class TestBuddyUserSel extends Buddy{
 
     public TestBuddyUserSel() {
         setBackground(Color.GREEN);
-        BuddySelection us = new BuddySelection(300, 400);
-        add(us);
+        //BuddySelection us = new BuddySelection(300, 400);
+        //add(us);
     }
 }
