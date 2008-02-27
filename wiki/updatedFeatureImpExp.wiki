@@ -6,4 +6,4 @@ The system will have functions to allow the import and export of study buddies. 
 
 
 ----
-[updatedUserMnaual Back to User Manual]
+[updatedUserManual Back to User Manual]
