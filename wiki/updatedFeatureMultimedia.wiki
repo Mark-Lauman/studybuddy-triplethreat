@@ -1,6 +1,6 @@
 == Multimedia ==
 
-The system will load and use sounds and images in some study buddies for learning purpose. By doing that, it would interacts with the users, Grade 6 students and help them improve learning skills so that they will find out it is attractive and joyful to play.
+The system will load and use sounds and images in some study buddies for learning purpose. By doing that, it would interact with the users, Grade 6 students and help them improve learning skills so that they will find out it is attractive and joyful to play.
 
 ----
 [updatedUserManual Back to User Manual]
