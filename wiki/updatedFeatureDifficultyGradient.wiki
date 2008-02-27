@@ -1,0 +1,9 @@
+== Difficulty Gradient ==
+
+Each study buddy will adjust its difficulty as the students progresses through the buddy.
+If the student answers two questions incorrectly, then difficulty level will go down by one level. On the other hand, the difficulty level will go up by one level if answered correctly. There are three difficulty levels, easy, medium, and hard. Activities will depend on the user's statistics of previous use of the system and adjust the difficulty of the next question.
+
+
+----
+[updatedUserManual Back to User Manual]
+
