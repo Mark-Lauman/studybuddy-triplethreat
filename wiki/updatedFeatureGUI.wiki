@@ -1,6 +1,6 @@
 == GUI ==
 
-The system will be implemented as a user-friendly GUI. The user should find it out it is easy to use and to know what to do next. The GUI should be attractive and enjoyable to users, Grade 6 students in this case, so that they would be interested in playing with the system. 
+The system will be implemented as a user-friendly and straightforward GUI. The user should find it out it is easy to use and to know what to do next. The GUI system should be attractive and enjoyable to users, Grade 6 students in this case, so that they would be interested in playing with the system. 
 
 ----
 [updatedUserManual Back to User Manual]
