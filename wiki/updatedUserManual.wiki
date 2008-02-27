@@ -1,0 +1,23 @@
+#summary One-sentence summary of this page.
+
+==Introduction==
+Our system provides an educational learning tool to students of the sixth and seventh grade. It does so by having a code library that third party “Study Buddies” access to create programs. The system keeps track of individual users and user statistics.  Study buddies can be imported into and exported out of the system to allow sharing of study buddies.  The study buddies are able to display images, play sounds, and take in events from a keyboard and mouse. This study buddy system can help Grade 6 students study a large amount of subjects without them leaving their computer. It will run on the Java Runtime Environment, allowing our program's use on all different platforms.
+
+==Intended Audience==
+ * Grade 6 students
+  * Our primary user of the program, Grade 6 students are very fond of all types of game. Most grade 6 students are competent with computer basics, as they enjoy instant messaging services and computer games a lot.
+  * Grade 6 students have reached the "cool" phase of their lives.  They enjoy watching teen dramas and anime shows, (Like Hannah Montana and Pokemon) and often play teenager though temporary "relationships".
+ * Parents of grade 6 students
+  * Grade 6 parents will want software that is educational for their children and age appropriate. They will be the ones who check over and install the software, and its associated buddies.  Parents have an varied technical ability, so the system must be simple enough that all can understand it.
+  * Parents are busy individuals who will occasionally look in on their children.  They may also actively participate, testing the program before their children use it. It is important to treat parents as grade 6 students, so they can correctly interpret how the system works.
+
+==Features==
+ * [FeatureUserID User Login]
+ * [FeatureCoreLibrary Core Library]
+ * [FeatureUserStats User Statistics]
+ * [FeatureDifficultyGradient Difficulty Gradient]
+ * [FeatureImpExp Import and Export]
+ * [FeaturePlugIn Plug-in System]
+ * [FeatureAdaptiveness Program adaptiveness]
+ * [FeatureGUI GUI]
+ * [FeatureMultimedia Multimedia]
