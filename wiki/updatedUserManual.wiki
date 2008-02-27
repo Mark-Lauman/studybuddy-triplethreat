@@ -12,7 +12,7 @@ Our system provides an educational learning tool to students of the sixth and se
   * Parents are busy individuals who will occasionally look in on their children.  They may also actively participate, testing the program before their children use it. It is important to treat parents as grade 6 students, so they can correctly interpret how the system works.
 
 ==Features==
- * [FeatureUserID User Login]
+ * [updatedFeatureUserID User Login]
  * [FeatureCoreLibrary Core Library]
  * [FeatureUserStats User Statistics]
  * [FeatureDifficultyGradient Difficulty Gradient]
