@@ -30,7 +30,7 @@ Our system provides an educational learning tool to students of the sixth and se
 
 ==Glossary==
 
-* Audio * - Sounds stored electronically in different formats. MP3, WAV...
+* Audio * - Sounds stored electronically in different formats, like MP3, WAV...
 
 * Average * - The sum of all scores divided by the number of scores
 
@@ -42,7 +42,7 @@ Our system provides an educational learning tool to students of the sixth and se
 
 * Error * - The system functioning in an unexpected and unintended way.
 
-* Export * - Copying a component of the system to be saved to another location.
+* Export * - Copying a component of the system to be saved to another location, Jar files.
 
 * Guardian * - Adult that is assigned to the care of a child.
 
@@ -50,9 +50,9 @@ Our system provides an educational learning tool to students of the sixth and se
 
 * Images * - Pictures stored electronically in different formats. JPEG, GIF, PNG...
 
-* Import * - Adding an external plugin into the system for use.
+* Import * - Adding an external plugin into the system for use, Jar files.
 
-* Java * - Any references to Java refer to Java 1.2
+* Java * - Any references to Java refer to Java 1.5
 
 * Minimalistic * - Using as few objects as neccessary to achieve the same result.
 
