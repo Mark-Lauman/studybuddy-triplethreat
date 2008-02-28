@@ -24,3 +24,6 @@
    * Modified !SelectionMenu to have the single selection function
    * Debugging
    * Updated the user manual and design documents
+
+---
+[updatedUserManual Back to User Manual]
