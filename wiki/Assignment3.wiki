@@ -5,9 +5,15 @@
 Allan Lei
 
 ===Criteria===
-A link to the criteria of Assignment 2 can be found [http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentThree here]
+A link to the criteria of Assignment 3 can be found [http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentThree here]
 
 ===Updated Documents===
 [updatedUserManual User Manual]
 
 [updatedDesignDoc Design Document]
+
+
+===Unit Tests===
+
+[UserSelection User Selection menu]
+[BuddySelection Buddy Selection menu]
