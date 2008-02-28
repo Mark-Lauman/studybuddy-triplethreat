@@ -1,3 +1,5 @@
+#summary Updated User Manual - Difficulty Gradient
+
 == Difficulty Gradient ==
 
 Each study buddy will adjust its difficulty as the students progresses through the buddy.
