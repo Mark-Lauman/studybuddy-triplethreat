@@ -1,4 +1,5 @@
-#summary One-sentence summary of this page.
+#summary Updated User Manual
+#labels Assignment3
 
 ==Introduction==
 Our system provides an educational learning tool to students of the sixth and seventh grade. It does so by having a code library that third party “Study Buddies” access to create programs. The system keeps track of individual users and user statistics.  Study buddies can be imported into and exported out of the system to allow sharing of study buddies.  The study buddies are able to display images, play sounds, and take in events from a keyboard and mouse. This study buddy system can help Grade 6 students study a large amount of subjects without them leaving their computer. It will run on the Java Runtime Environment, allowing our program's use on all different platforms.
