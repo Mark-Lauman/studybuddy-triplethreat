@@ -25,7 +25,8 @@
  * .JPEG file and .MP3 files will be used for the system to display images and play sounds.
 
 ==Feature Priorty==
-  * * Version 1 *
+  * * Version 1:* Version 1 will have the basic menu selection function and GUI. It will have user-login menu, and statistics function to display score trends. For importing,it is almost fully implemented as it can import a .jar file, extract its .class file within its directory and the buddy's name can be displayed on the selection list. The reason why it is "almost fully" is that we do not have a study at this moment to test it out, and it will be fully functioned in Version 2. For exporting, it is fully implemented. 
+
    * [updatedFeatureCoreLibrary Core Library]
    * [updatedFeatureGUI GUI]
    * [updatedFeatureUserID User Login]
