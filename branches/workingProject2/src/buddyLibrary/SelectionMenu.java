@@ -24,24 +24,29 @@ public class SelectionMenu extends JPanel implements ActionListener{
     public Core core;
     private ActionListener[] listener = {this, core};
     private JButton mainButton;
+    private JPanel content;
 
-    public SelectionMenu(int width, int height, Core c) {
+    public SelectionMenu(String menuName,int width, int height, ActionListener c) {
         listener[1] = c;
         setLayout(new BorderLayout());
-        setBorder(BorderFactory.createTitledBorder("Selection Menu"));
-
+        setBorder(BorderFactory.createTitledBorder(menuName));
+        content = new JPanel();
+        content.setPreferredSize(new Dimension(width, height));
+        content.setLayout(new FlowLayout());
+        
         list = new DefaultListModel();
         jl = new JList(list);
         JScrollPane jsp = new JScrollPane(jl);
         jsp.setPreferredSize(new Dimension(width, height));
 
-        add(jsp, BorderLayout.NORTH);
+        content.add(jsp);
 
         buttonHolder = new JMenuBar();
-        buttonHolder.setPreferredSize(new Dimension(jsp.getPreferredSize().width, 16));
+        buttonHolder.setPreferredSize(new Dimension(jsp.getPreferredSize().width, 30));
         buttonHolder.setBackground(null);
 
-        add(buttonHolder, BorderLayout.CENTER);
+        content.add(buttonHolder);
+        add(content, BorderLayout.CENTER);
         validate();
     }
 
@@ -106,6 +111,7 @@ public class SelectionMenu extends JPanel implements ActionListener{
  */
     public JMenuItem createButton(String name) {
         JMenuItem button = new JMenuItem(name);
+        button.setBorder(BorderFactory.createRaisedBevelBorder());
         button.setActionCommand(name);
         for (int i = 0; i < listener.length; i++) {
             button.addActionListener(listener[i]); //added by vic

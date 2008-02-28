@@ -7,7 +7,7 @@
  * 02/11/2008 Mark Lauman Created Template
  */
 
-package buddyLibrary;
+package coreScreens;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -27,14 +27,13 @@ import java.util.ArrayList;
 public class UserSelection extends buddyLibrary.SelectionMenu {
    /** the space between buttons */   
    public final int subButtonwidth = 50 ;
-   /** the string name for subbutton "New Player" */
+   /** the string names for subbuttons and the main button */
    public final String newPlayerText = "New Player";
-   /** the string name for subbutton "Delete Player" */
    public final String deletePlayerText = "Delete Player";
-   /** the string name for subbutton "Login" */
    public final String loginUserText = "Login";
    /** the directory to store user's data */
-   public final String userDIR = "./data/user";
+   //public final String userDIR = "./data/user";
+   public final String userDIR = "./build/classes/Data/Users";
    /** an array list to store usernames */
    public ArrayList<String> userList = new ArrayList<String>();
    
@@ -46,15 +45,8 @@ public class UserSelection extends buddyLibrary.SelectionMenu {
     * for checking if a user exists already.
     * Also, it creates sub buttons and main button.
     */
-<<<<<<< .mine
    public UserSelection (int width, int height, ActionListener c) {
        super("User Selection", width, height, c);
-=======
-   public UserSelection (int width, int height) {
-       super(width, height);
-       setBorder(BorderFactory.createTitledBorder("Study Buddies"));
->>>>>>> .r370
-       
        File f = new File(userDIR);  //add all users to the list and create the directory      
        String [] fileList = f.list();       
        for(int i = 0; i < fileList.length; i++) {
@@ -63,8 +55,7 @@ public class UserSelection extends buddyLibrary.SelectionMenu {
        }
        
        //add sub button - New Player
-       addSubButton(newPlayerText, subButtonwidth);
-       
+       addSubButton(newPlayerText, subButtonwidth); 
        //add sub button - Delete Player
        addSubButton(deletePlayerText, subButtonwidth);
        //add the main button - Login
@@ -103,7 +94,7 @@ public class UserSelection extends buddyLibrary.SelectionMenu {
    private void deleteUser(){
        String userTobeDeleted = getSelection();
        
-       //if nothing is selected on the list, then show the warning message
+       //if nothing is chosen on the list, then show the warning message
        if (userTobeDeleted == null ) {
            JOptionPane.showMessageDialog(null,
                    "Please select one user from the list!", "Warning",
@@ -119,7 +110,7 @@ public class UserSelection extends buddyLibrary.SelectionMenu {
                             "Delete Player", JOptionPane.YES_NO_OPTION);
        
        // if the user decides to delete the user, n = 0
-       // then remove the user from the list and delete the directory as well
+       // and remove the user from the list and delete the directory as well
        if(n == 0) {
             list.removeElement(userTobeDeleted);
             userList.remove(userTobeDeleted.toUpperCase());
@@ -127,7 +118,6 @@ public class UserSelection extends buddyLibrary.SelectionMenu {
             f.delete();
         }       
    }
-
 
   /**
     * Events for each button
@@ -146,6 +136,4 @@ public class UserSelection extends buddyLibrary.SelectionMenu {
        }
    }
     
-   
-   
 }

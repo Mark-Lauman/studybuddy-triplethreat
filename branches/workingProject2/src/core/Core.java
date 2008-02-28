@@ -1,18 +1,5 @@
-
-
-/*
- * PhotoAlbum.java
- *
- * Created on January 22, 2008, 1:43 PM
- *
- * @author Allan Lei
- * ala16
- * 301028107
- */
-
-
  /*
- * BuddySelection.java
+ * Core.java
  * 
  * Team Triple Threat
  * Log:
@@ -27,14 +14,11 @@ import Buddies.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.io.File;
 import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
 
 public class Core extends JFrame implements ActionListener{
-    public String user = "asd";
-    public Container content;
+    private String user = "asd";
+    private Container content;
     private JMenuBar mb;
     private UserSelection us;
     private UserChoice uc;
@@ -58,7 +42,7 @@ public class Core extends JFrame implements ActionListener{
         us = new UserSelection(300, 400, this);
         content.add(us, BorderLayout.WEST);
         
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         pack();
         setVisible(true);
     }
@@ -128,7 +112,7 @@ public class Core extends JFrame implements ActionListener{
             uc.setVisible(false);
             content.remove(uc);
             bs = new BuddySelection(300, 400, this);
-            content.add(bs, BorderLayout.CENTER);
+            content.add(bs, BorderLayout.WEST);
             validate();
         }else if(e.getActionCommand().equals("Start")){
             if(bs.getSelection() != null){
@@ -137,8 +121,7 @@ public class Core extends JFrame implements ActionListener{
                 b = loadBuddy(bs.getSelection());
                 content.add(b);
                 validate();
-            }
-            
+            }            
         }
     }
 }
