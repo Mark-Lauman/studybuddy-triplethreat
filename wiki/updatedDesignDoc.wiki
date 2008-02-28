@@ -1,0 +1,26 @@
+#summary Updated Design Document
+#labels Assignment3
+
+==Guidelines==
+ * The system will be constructed under Java programming language with the NetBeans IDE.
+
+ * Tortoise SVN is used to keep the data updated and consistence.
+
+ * The project will be coding with the internal coding style.
+
+==System Diagrams==
+ * to be updated by Mark
+
+==Data Requirements==
+ * A keyboard and a mouse will be used as the inputs to play buddies, and the monitor and speakers will be used as the outputs. 
+
+ * A directory will be created of the username when a new username is added. 
+
+ * No password is needed for the system.
+
+ * The results of a user will be stored in a TXT file and will be displayed as a bar graph for statistics purpose. Each line has a score of numbers. 
+
+ * *.JPEG file and *.MP3 files will be used for the system to display images and play sounds.
+
+
+
