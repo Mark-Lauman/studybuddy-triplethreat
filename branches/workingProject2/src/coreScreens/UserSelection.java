@@ -46,9 +46,14 @@ public class UserSelection extends buddyLibrary.SelectionMenu {
     * for checking if a user exists already.
     * Also, it creates sub buttons and main button.
     */
+<<<<<<< .mine
+   public UserSelection (int width, int height, ActionListener c) {
+       super("User Selection", width, height, c);
+=======
    public UserSelection (int width, int height) {
        super(width, height);
        setBorder(BorderFactory.createTitledBorder("Study Buddies"));
+>>>>>>> .r370
        
        File f = new File(userDIR);  //add all users to the list and create the directory      
        String [] fileList = f.list();       

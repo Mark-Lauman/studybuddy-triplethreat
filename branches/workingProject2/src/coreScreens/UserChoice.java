@@ -18,21 +18,28 @@ import core.*;
 
 public class UserChoice extends JPanel implements ActionListener {
 
-    public UserChoice(Core c) {
+    public UserChoice(ActionListener c) {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createTitledBorder("User Choice"));
         setPreferredSize(new Dimension(300, 300));
+        JPanel content = new JPanel();
+        content.setLayout(new FlowLayout());
+        
+        
         JButton studybuddy = new JButton("Study Buddy");
+        studybuddy.setPreferredSize(new Dimension(this.getPreferredSize().width, 20));
         studybuddy.setActionCommand("Study Buddy");
         studybuddy.addActionListener(this);
         studybuddy.addActionListener(c);
-        add(studybuddy, BorderLayout.NORTH);
+        content.add(studybuddy);
         
         JButton stats = new JButton("Statistics");
+        stats.setPreferredSize(new Dimension(this.getPreferredSize().width, 20));
         stats.setActionCommand("Statistics");
         stats.addActionListener(this);
         stats.addActionListener(c);
-        add(stats, BorderLayout.SOUTH);
+        content.add(stats);
+        add(content, BorderLayout.CENTER);
     }
 
 // -------------------------------------------------------------- //

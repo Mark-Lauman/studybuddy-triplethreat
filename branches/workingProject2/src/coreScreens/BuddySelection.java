@@ -25,6 +25,39 @@ import java.util.*;
  *      javax.swing.JPanel</a>
  */
 public class BuddySelection extends buddyLibrary.SelectionMenu {
+<<<<<<< .mine
+
+    /** the map for buddy name on screen to the file choose of it */
+    HashMap<String, String> exportmap = new HashMap<String, String>();
+    /** the space between buttons */
+    public final int subButtonwidth = 25;
+    /** the string names for subbuttons and the main button */
+    public final String addBuddytext = "Add Buddy";
+    public final String exportBuddytext = "Export Buddy";
+    public final String deleteBuddytext = "Delete Buddy";
+    public final String startBuddytext = "Start";
+    /** the directory to store user's data */
+    //public final String buddydir="./Data";
+    public final String buddydir = "./build/classes/Buddies";
+
+    /**
+     * Constructs a <code>BuddySelection</code> menu with specified width 
+     * and height and creates a directory of the buddy's name to store data.
+     * The names are stored in a <code>DefaultListModel</code> and an array list 
+     * for checking if a user exists already.
+     * Also, it creates sub buttons and main button.
+     */
+    public BuddySelection(int width, int height, ActionListener c) {
+        super("Buddy Selection", width, height, c);
+
+        File f = new File(buddydir);  //add all buddies to the list and create a directory    
+
+        String[] fileList = f.list();
+        for (int i = 0; i < fileList.length; i++) {
+            //if the file doesn't have "."
+            if (fileList[i].indexOf(".") < 0) {
+
+=======
    /** the map for buddy name on screen to the file choose of it */ 
    HashMap<String,String> exportmap= new HashMap<String,String>();
    /** the space between buttons */     
@@ -56,6 +89,7 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
        for(int i = 0; i < fileList.length; i++) {
            //if the file doesn't have "."
            if(fileList[i].indexOf(".")<0) {
+>>>>>>> .r370
                 list.addElement(fileList[i]); //add the names to list
                 exportmap.put(fileList[i], buddydir + "/" + fileList[i]);
            }
@@ -102,12 +136,43 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
            name = name.substring(0, name.lastIndexOf(".")); //get the name before the extension type
            addChoice(name); //add the name to the list
 
+<<<<<<< .mine
+            public boolean accept(File f) {
+                return f.getName().toLowerCase().endsWith(".jar") || f.isDirectory();
+            }
+
+            //shows ".jar" in the file type field
+            public String getDescription() {
+                return "*.jar";
+            }
+        });
+
+        int r = chooser.showOpenDialog(new JFrame());
+        if (r == JFileChooser.APPROVE_OPTION) {
+            String name = chooser.getSelectedFile().getName();
+            name = name.substring(0, name.lastIndexOf(".")); //get the name before the extension type
+            addChoice(name); //add the name to the list
+
+            try {
+                copyFile(chooser.getSelectedFile(), new File(buddydir + "/" +
+                        chooser.getSelectedFile().getName()));
+                exportmap.put(name, buddydir + "/" + chooser.getSelectedFile().getName());
+
+                JarResource j = new JarResource(chooser.getSelectedFile().getPath());
+
+                j.extract(name + ".class", buddydir + "/");
+
+            } catch (IOException e) {
+                
+            }
+=======
        try{
            copyFile(chooser.getSelectedFile(), new File(buddydir + "/" + 
                    chooser.getSelectedFile().getName()));
            exportmap.put(name, buddydir + "/" + chooser.getSelectedFile().getName());
        }catch( IOException e){
           ;}
+>>>>>>> .r370
         }
   }
        
