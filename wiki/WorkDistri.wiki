@@ -12,7 +12,7 @@
    * Created templates for each class
    * Modified !SoundPlayer to use up to date libraries
    * Implemented !BarGraph
-   * Did research on JavaDoc and integrated it with our coding standard
+   * Did research on !JavaDoc and integrated it with our coding standard
  # Vic:
    * Designed initial diagrams
    * Implemented the first verison of !SelectionMenu class
