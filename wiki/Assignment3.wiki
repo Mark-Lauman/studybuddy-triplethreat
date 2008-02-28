@@ -16,4 +16,5 @@ A link to the criteria of Assignment 3 can be found [http://sleepy.cs.surrey.sfu
 ===Unit Tests===
 
 [UserSelection User Selection menu]
+
 [BuddySelection Buddy Selection menu]
