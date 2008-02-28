@@ -1,4 +1,5 @@
 #summary Updated User Manual - Difficulty Gradient
+#labels Assignment3
 
 == Difficulty Gradient ==
 
