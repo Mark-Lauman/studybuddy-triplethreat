@@ -14,13 +14,21 @@ Our system provides an educational learning tool to students of the sixth and se
 
 ==Features==
  * [updatedFeatureUserID User Login]
+
  * [updatedFeatureCoreLibrary Core Library]
+
  * [updatedFeatureUserStats User Statistics]
+
  * [updatedFeatureDifficultyGradient Difficulty Gradient]
+
  * [updatedFeatureImpExp Import and Export]
+
  * [updatedFeaturePlugIn Plug-in System]
+
  * [updatedFeatureAdaptiveness Program adaptiveness]
+
  * [updatedFeatureGUI GUI]
+
  * [updatedFeatureMultimedia Multimedia]
 
 ==Non-Functional Requirements==
