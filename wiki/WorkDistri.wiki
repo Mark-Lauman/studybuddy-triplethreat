@@ -3,7 +3,18 @@
 
 ==Work Distribution of Team Triple Threat==
  # Allen:
-
+   * Designed initial diagrams
+   * Implemented the first version of SoundPlayer.
+   * Implemented JarResource, Buddy, Core, UserChoice classes
+   * Modified SelectionMenu class
  # Mark:
-
+   * Designed and drew diagrams
+   * Created templates for each class
+   * Modified SoundPlayer to use up to date libraries
+   * Implemented BarGraph
+   * Did research on JavaDoc and integrated it with our coding standard
  # Vic:
+   * Designed initial diagrams
+   * Implemented the first verison of SelectionMenu class
+   * Implemented UserSelection, BuddySelection, and Stats classes
+   * Modified SelectionMenu to have the single selection function
