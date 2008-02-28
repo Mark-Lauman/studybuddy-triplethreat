@@ -1,0 +1,25 @@
+#summary Description of unit tests for Buddy Selection menu
+
+= Unit Test - Buddy Selection menu =
+
+
+=== Details ===
+
+ * Add Buddy - No file selected
+  # User presses "Add Buddy" button
+  # File chooser dialog pops up
+  # User clicks "Open" with no file selected
+  # Nothing happens
+
+ * Add Buddy - Jar File with the correct files
+  # User presses "Add Buddy" button
+  # File chooser dialog pops up
+  # User chooses a jar file
+  # Clicks "Open"
+  # File chooser dialog closes
+  # Class file and Jar file is extracted to folder ./Buddies
+  # Buddy name is added to the list
+
+ * Add Buddy - Jar file with incorrect files
+  #
+  
