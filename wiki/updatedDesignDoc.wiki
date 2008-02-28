@@ -23,3 +23,21 @@
  * When loading a buddy, its .class will be extracted from its .jar file in order to be executed with the system.
 
  * .JPEG file and .MP3 files will be used for the system to display images and play sounds.
+
+==Feature Priorty==
+  * * Version 1 *
+   * [updatedFeatureCoreLibrary Core Library]
+   * [updatedFeatureGUI GUI]
+   * [updatedFeatureUserID User Login]
+   * [updatedFeatureUserStats User Statistics]
+   * [updatedFeatureImpExp Import and Export]   
+
+  * * Version 2 *
+   * [updatedFeatureDifficultyGradient Difficulty Gradient]
+   * [updatedFeatureMultimedia Multimedia]
+   * Break Buddy   
+   * Science Wiring Buddy
+
+  * * Version 3 *   
+   * Math Buddy
+   * Word Find Buddy 
