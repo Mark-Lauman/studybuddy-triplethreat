@@ -26,7 +26,7 @@ Our system provides an educational learning tool to students of the sixth and se
  * [updatedNonFuncPerformance Performance]
  * [updatedNonFuncSpeed Speed]
  * [updatedNonFuncEaseofUse Ease of Use]
- * [updatedNonFuncReliability Reliability]
+ * Reliability: * The system is always available since it does not use networking and potential failures could be caused by improper data given by the third party.
  * [updatedNonFuncPortability Portability]
  * [updatedNonFuncUsability Usability]
  * [updatedNonFuncMaintainability  Maintainability ]
