@@ -23,7 +23,14 @@ Our system provides an educational learning tool to students of the sixth and se
  * [updatedFeatureMultimedia Multimedia]
 
 ==Non-Functional Requirements==
- * to be updated by Vic
+ * [updatedNonFuncPerformance Performance]
+ * [updatedNonFuncSpeed Speed]
+ * [updatedNonFuncEaseofUse Ease of Use]
+ * [updatedNonFuncReliability Reliability]
+ * [updatedNonFuncPortability Portability]
+ * [updatedNonFuncUsability Usability]
+ * [updatedNonFuncImplementation Implementation]
+
 
 ==Example Tutorials==
  * to be updated by Vic and Mark
