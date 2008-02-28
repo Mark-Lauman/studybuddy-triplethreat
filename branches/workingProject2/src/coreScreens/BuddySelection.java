@@ -16,6 +16,7 @@ import java.nio.channels.*;
 import javax.swing.JOptionPane;
 import javax.swing.*;
 import java.util.*;
+import java.util.jar.JarFile;
 
 /**
  * This class handle all the requests related to buddies on the <code>Buddy</code>
@@ -96,7 +97,13 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
 
        int r = chooser.showOpenDialog(new JFrame());
        if (r == JFileChooser.APPROVE_OPTION) {
+           try{
+           JarFile jar = new JarFile(chooser.getSelectedFile().getPath());
+           }catch(Exception ex){
+               
+           }
            String name = chooser.getSelectedFile().getName();
+           
            name = name.substring(0, name.lastIndexOf(".")); //get the name before the extension type
            addChoice(name); //add the name to the list
 

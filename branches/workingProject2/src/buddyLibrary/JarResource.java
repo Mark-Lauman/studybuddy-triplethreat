@@ -17,7 +17,6 @@ import java.io.OutputStream;
 import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 import javax.imageio.ImageIO;
-import sun.audio.AudioStream;
 
 public class JarResource {
 
@@ -59,23 +58,6 @@ public class JarResource {
             InputStream is = jar.getInputStream(jar.getEntry(file));
             BufferedReader read = new BufferedReader(new InputStreamReader(is));
             return read;
-        } catch (Exception ex) {
-            System.out.println(ex);
-            return null;
-        }
-    }
-
-/**
- *  Retrieves a .wav file from a jar file and returns as a AudioStream
- *
- * @param  file Name of the wav file to be found
- * @return  as The wav file returned as a AudioStream
- */
-    public AudioStream getSound(String file) {
-        try {
-            InputStream is = jar.getInputStream(jar.getEntry(file));
-            AudioStream as = new AudioStream(is);
-            return as;
         } catch (Exception ex) {
             System.out.println(ex);
             return null;

@@ -13,6 +13,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.ArrayList;
 import core.*;
+import java.awt.event.ActionListener;
 
 public class SelectionMenu extends JPanel implements ActionListener{
 
@@ -21,12 +22,12 @@ public class SelectionMenu extends JPanel implements ActionListener{
     protected DefaultListModel list;
     private JMenuBar buttonHolder;
     private ArrayList<JMenuItem> subButtons = new ArrayList<JMenuItem>();
-    public Core core;
-    private ActionListener[] listener = {this, core};
+    private ActionListener[] listener;
     private JButton mainButton;
     private JPanel content;
 
     public SelectionMenu(String menuName,int width, int height, ActionListener c) {
+        listener[0] = this;
         listener[1] = c;
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createTitledBorder(menuName));

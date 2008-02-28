@@ -73,7 +73,7 @@ public class Core extends JFrame implements ActionListener{
  *
  * @param  userName Name to change current user to
  */
-    public void setUser(String userName){
+    private void setUser(String userName){
         user = userName;
     }
 
@@ -97,7 +97,7 @@ public class Core extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Login")){
             if(us.getSelection() != null){
-            user = us.getSelection();
+            setUser(us.getSelection());
             us.setVisible(false);
             content.remove(us);
             uc = new UserChoice(this);
