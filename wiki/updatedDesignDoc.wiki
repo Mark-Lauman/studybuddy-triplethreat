@@ -2,11 +2,11 @@
 #labels Assignment3
 
 ==Guidelines==
- * The system will be constructed under Java programming language with the NetBeans IDE.
+ * The system will be constructed under Java programming language with the !NetBeans IDE.
 
  * Tortoise SVN is used to keep the data updated and consistence.
 
- * The project will be coding with the internal coding style.
+ * The project will be coding with the internal [CodingStyle coding style].
 
 ==System Diagrams==
  * to be updated by Mark
