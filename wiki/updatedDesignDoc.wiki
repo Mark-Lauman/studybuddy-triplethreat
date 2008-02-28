@@ -20,4 +20,6 @@
 
  * The results of a user will be stored in a TXT file and will be displayed as a bar graph for statistics purpose. Each line has a score of numbers. 
 
+ * When loading a buddy, its .class will be extracted from its .jar file in order to be executed with the system.
+
  * .JPEG file and .MP3 files will be used for the system to display images and play sounds.
