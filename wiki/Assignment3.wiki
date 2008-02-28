@@ -19,6 +19,8 @@ A link to the criteria of Assignment 3 can be found [http://sleepy.cs.surrey.sfu
 
 [BuddySelection Buddy Selection menu]
 
+[WorkDistri Work Distribution]
+
 [JarResource Jar Resource]
 
 [Core Core]
