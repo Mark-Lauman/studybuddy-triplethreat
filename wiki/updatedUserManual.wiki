@@ -24,14 +24,13 @@ Our system provides an educational learning tool to students of the sixth and se
  * [updatedFeatureMultimedia Multimedia]
 
 ==Non-Functional Requirements==
- * *Performance:*
  * *Speed:* With or without saving/loading data, the system should run smoothly. On top of that, if the user performs an action, they system should respond and interact very quickly. The user should not notice the difference.
  * *Ease of Use:* The system is straightforward and user-friendly to use, and interacts with the user through buttons-clicking and simple descriptions. The user should not find any difficulties. When about to play a buddy, a brief description will be provided.
  * *Reliability:* The system is always available since it does not use networking and potential failures could be caused by improper data given by the third party.
- * [updatedNonFuncPortability Portability]
- * [updatedNonFuncUsability Usability]
- * [updatedNonFuncMaintainability  Maintainability ]
- * [updatedNonFuncImplementation Implementation]
+ * *Portability:* The system could be run on any computer loaded with Java-running time, such as Windows or Linux.
+ * *Usability:* Any user with basic computer knowledge of how to use a mouse and a keyboard  would find out it is easy to use the system, assuming the user has basic conversational understanding of English.
+ * *Maintainability:* The system will be maintained by authorized developers or programmers. Comments are added as much as possible for non-original developers/programmers to understand easily.
+ * *Implementation:* The system is implemented by Java, using object-oriented design. Each module should be independent of each other, which is low coupled. 
  
 
 
