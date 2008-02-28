@@ -1,3 +1,6 @@
+#summary Updated User Manual - Plug-in System
+#labels Assignment3
+
 == Plug-in System ==
 
 Third parties will be allowed to create plug-in study buddies to work with our system.
