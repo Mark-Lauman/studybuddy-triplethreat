@@ -1,7 +1,0 @@
-==Ease of Use==
-
-The system is straightforward and user-friendly to use, and interacts with the user through buttons-clicking and simple descriptions. The user should not find any difficulties. When about to play a buddy, a brief description will be provided.
-
-
-----
-[updatedUserManual Back to User Manual]
