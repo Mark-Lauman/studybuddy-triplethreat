@@ -1,0 +1,6 @@
+==Speed==
+With or without saving/loading data, the system should run smoothly. On top of that, if the user performs an action, they system should respond and interact very quickly. The user should not notice the difference.
+
+
+----
+[updatedUserManual Back to User Manual]
