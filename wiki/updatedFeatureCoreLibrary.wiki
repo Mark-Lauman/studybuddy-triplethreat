@@ -1,4 +1,5 @@
 #summary Updated User Manual - Core Library
+#labels Assignment3
 
 == Core Library ==
 
