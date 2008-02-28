@@ -1,4 +1,4 @@
-#summary Program Adaptiveness
+#summary Updated User Manual - Program Adaptiveness
 #labels Assignment3
 
 == Program Adaptiveness ==
