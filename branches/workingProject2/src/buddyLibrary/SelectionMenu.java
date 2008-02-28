@@ -16,7 +16,6 @@ import core.*;
 import java.awt.event.ActionListener;
 
 public class SelectionMenu extends JPanel implements ActionListener{
-
     private JList jl;
     private JScrollPane jsp;
     protected DefaultListModel list;
@@ -31,12 +30,14 @@ public class SelectionMenu extends JPanel implements ActionListener{
         listener[1] = c;
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createTitledBorder(menuName));
+        
         content = new JPanel();
         content.setPreferredSize(new Dimension(width, height));
         content.setLayout(new FlowLayout());
         
         list = new DefaultListModel();
         jl = new JList(list);
+        jl.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);//set can only selet one
         JScrollPane jsp = new JScrollPane(jl);
         jsp.setPreferredSize(new Dimension(width, height));
 
@@ -50,7 +51,6 @@ public class SelectionMenu extends JPanel implements ActionListener{
         add(content, BorderLayout.CENTER);
         validate();
     }
-
     
  /**
  *  Adds a Choice to the list

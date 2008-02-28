@@ -79,7 +79,24 @@ public class UserSelection extends buddyLibrary.SelectionMenu {
                     JOptionPane.WARNING_MESSAGE);
                 return;
                 }
+            
+            //trim the str
+            str = str.trim();
+            
+            //if str is empty
+            if (str.length() == 0) {
+                JOptionPane.showMessageDialog(null,
+                   "Invalid username! Please enter again!", "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+                //prompt the user to enter again
+                addUser();
+                
+                return;
+                }
+            
+            
             userList.add(str.toUpperCase());
+            
             //creates the directory of the user
             File f = new File(userDIR + "/" + str);
             f.mkdir();
