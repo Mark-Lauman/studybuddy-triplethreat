@@ -1,4 +1,4 @@
-#summary Core Library
+#summary Updated User Manual - Core Library
 
 == Core Library ==
 
