@@ -1,4 +1,5 @@
 #summary Updated User Manual - GUI
+#labels Assignment3
 
 == GUI ==
 
