@@ -93,3 +93,6 @@ To build the documents when you are done commenting, choose "Build" then "Genera
 
 === Exceptions ===
  Inside functions programmers have free reign for commenting. Make sure the comments are understandable to a reader.
+
+----
+[updatedDesignDoc Back to updated Design Document]
