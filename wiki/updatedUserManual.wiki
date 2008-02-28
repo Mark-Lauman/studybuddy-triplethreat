@@ -82,8 +82,7 @@ Our system provides an educational learning tool to students of the sixth and se
 
  * *Statistics* - Recorded and intrepreted data based off of user performance in study buddies.
 
- * *Study Buddy* -  A plugin written in java to provide functionality to the system.
-All buddies are file folders filled with .java files.  Every study buddy must have a start.java file inside this folder.  Study buddies are meant for the purpose of learning.
+ * *Study Buddy* -  A plugin written in java to provide functionality to the system. All buddies are file folders filled with .java files.  Every study buddy must have a start.java file inside this folder.  Study buddies are meant for the purpose of learning.
 
  * *The System* - The core program, and any related data, plugins or assisting classes.
 
