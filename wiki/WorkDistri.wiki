@@ -26,4 +26,4 @@
    * Updated the user manual and design documents
 
 ----
-[updatedUserManual Back to User Manual]
+[Assignment3 Back to Assignment 3]
