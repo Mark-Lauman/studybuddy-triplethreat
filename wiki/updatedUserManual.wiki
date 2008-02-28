@@ -25,11 +25,16 @@ Our system provides an educational learning tool to students of the sixth and se
 
 ==Non-Functional Requirements==
  * *Speed:* With or without saving/loading data, the system should run smoothly. On top of that, if the user performs an action, they system should respond and interact very quickly. The user should not notice the difference.
+
  * *Ease of Use:* The system is straightforward and user-friendly to use, and interacts with the user through buttons-clicking and simple descriptions. The user should not find any difficulties. When about to play a buddy, a brief description will be provided.
+
  * *Reliability:* The system is always available since it does not use networking and potential failures could be caused by improper data given by the third party.
  * *Portability:* The system could be run on any computer loaded with Java-running time, such as Windows or Linux.
+
  * *Usability:* Any user with basic computer knowledge of how to use a mouse and a keyboard  would find out it is easy to use the system, assuming the user has basic conversational understanding of English.
+
  * *Maintainability:* The system will be maintained by authorized developers or programmers. Comments are added as much as possible for non-original developers/programmers to understand easily.
+
  * *Implementation:* The system is implemented by Java, using object-oriented design. Each module should be independent of each other, which is low coupled. 
  
 
@@ -39,41 +44,41 @@ Our system provides an educational learning tool to students of the sixth and se
 
 ==Glossary==
 
-* *Audio* - Sounds stored electronically in different formats, like MP3, WAV...
+ * *Audio* - Sounds stored electronically in different formats, like MP3, WAV...
 
-* *Average* - The sum of all scores divided by the number of scores
+ * *Average* - The sum of all scores divided by the number of scores
 
-* *Developer* - A Person who works on the system.
+ * *Developer* - A Person who works on the system.
 
-* *Difficulty Gradient* - The rate at which a study buddy difficulty changes.
+ * *Difficulty Gradient* - The rate at which a study buddy difficulty changes.
 
-* *Development team* - A group of developers.
+ * *Development team* - A group of developers.
 
-* *Error* - The system functioning in an unexpected and unintended way.
+ * *Error* - The system functioning in an unexpected and unintended way.
 
-* *Export* - Copying a component of the system to be saved to another location, Jar files.
+ * *Export* - Copying a component of the system to be saved to another location, Jar files.
 
-* *Guardian* - Adult that is assigned to the care of a child.
+ * *Guardian* - Adult that is assigned to the care of a child.
 
-* *GUI* - Graphical User Interface.  The Visual portions of the system, which the user interacts with.
+ * *GUI* - Graphical User Interface.  The Visual portions of the system, which the user interacts with.
+ 
+ * *Images* - Pictures stored electronically in different formats. JPEG, GIF, PNG...
 
-* *Images* - Pictures stored electronically in different formats. JPEG, GIF, PNG...
+ * *Import* - Adding an external plugin into the system for use, Jar files.
 
-* *Import* - Adding an external plugin into the system for use, Jar files.
+ * *Java* - Any references to Java refer to Java 1.5
 
-* *Java* - Any references to Java refer to Java 1.5
+ * *Plug-in* - A piece of software that accesses the core library to create a Study buddy.
 
-* *Plug-in* - A piece of software that accesses the core library to create a Study buddy.
+ * *Score* - Varies between Study Buddies.  The results after the Study buddy has been finished.  Study Buddies that return non-numerical scores are tallied up and graphed.  The amount of each string is indicated at the bottom of the graph.
 
-* *Score* - Varies between Study Buddies.  The results after the Study buddy has been finished.  Study Buddies that return non-numerical scores are tallied up and graphed.  The amount of each string is indicated at the bottom of the graph.
+ * *Statistics* - Recorded and intrepreted data based off of user performance in study buddies.
 
-* *Statistics* - Recorded and intrepreted data based off of user performance in study buddies.
-
-* *Study Buddy* -  A plugin written in java to provide functionality to the system.
+ * *Study Buddy* -  A plugin written in java to provide functionality to the system.
 All buddies are file folders filled with .java files.  Every study buddy must have a start.java file inside this folder.  Study buddies are meant for the purpose of learning.
 
-* *The System* - The core program, and any related data, plugins or assisting classes.
+ * *The System* - The core program, and any related data, plugins or assisting classes.
 
-* *Third party* - Organization that does not have relations to the original development of a system.
+ * *Third party* - Organization that does not have relations to the original development of a system.
 
-* *Username* -	A name used to identify a particular set of scores.  One user may have multiple usernames.
+ * *Username* -	A name used to identify a particular set of scores.  One user may have multiple usernames.
