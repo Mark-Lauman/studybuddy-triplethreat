@@ -23,10 +23,10 @@ Our system provides an educational learning tool to students of the sixth and se
  * [updatedFeatureMultimedia Multimedia]
 
 ==Non-Functional Requirements==
- * [updatedNonFuncPerformance Performance]
- * [updatedNonFuncSpeed Speed]
- * [updatedNonFuncEaseofUse Ease of Use]
- * Reliability: * The system is always available since it does not use networking and potential failures could be caused by improper data given by the third party.
+ * *Performance:*
+ * *Speed:* With or without saving/loading data, the system should run smoothly. On top of that, if the user performs an action, they system should respond and interact very quickly. The user should not notice the difference.
+ * *Ease of Use:* The system is straightforward and user-friendly to use, and interacts with the user through buttons-clicking and simple descriptions. The user should not find any difficulties. When about to play a buddy, a brief description will be provided.
+ * *Reliability:* The system is always available since it does not use networking and potential failures could be caused by improper data given by the third party.
  * [updatedNonFuncPortability Portability]
  * [updatedNonFuncUsability Usability]
  * [updatedNonFuncMaintainability  Maintainability ]
