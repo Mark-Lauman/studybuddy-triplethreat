@@ -14,7 +14,7 @@ A link to the criteria of Assignment 3 can be found [http://sleepy.cs.surrey.sfu
 
 [WorkDistri Work Distribution]
 
-[http://www.sfu.ca/~mcl5 JavaDoc]
+[http://www.sfu.ca/~vkao Source code documentation - JavaDoc]
 
 ===Unit Tests===
 
