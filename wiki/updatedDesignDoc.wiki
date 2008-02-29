@@ -36,7 +36,7 @@
    * [updatedFeatureUserStats User Statistics]
    * [updatedFeatureImpExp Import and Export]   
 
-  * * Version 2 *
+  * * Version 2:* Version 2 will have Difficulty Gradient and Multimedia function for buddies.
    * [updatedFeatureDifficultyGradient Difficulty Gradient]
    * [updatedFeatureMultimedia Multimedia]
    * Break Buddy   
