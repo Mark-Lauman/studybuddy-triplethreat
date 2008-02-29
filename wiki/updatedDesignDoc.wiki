@@ -9,7 +9,8 @@
  * The project will be coding with the internal [CodingStyle coding style].
 
 ==System Diagrams==
- * to be updated by Mark
+[http://studybuddy-triplethreat.googlecode.com/files/GUI State Diagram.jpg]
+    * State Machine Diagram
 
 ==Data Requirements==
  * A keyboard and a mouse will be used as the inputs to play buddies, and the monitor and speakers will be used as the outputs. For example, the user will have to use keyboard to create a new username and use mouse to choose actions related to the username.
