@@ -9,7 +9,7 @@
  * The project will be coding with the internal [CodingStyle coding style].
 
 ==System Diagrams==
-[http://studybuddy-triplethreat.googlecode.com/files/GUIStateDiagram.jpg]
+[http://studybuddy-triplethreat.googlecode.com/files/StatMachine.jpg]
  * State Machine Diagram
 
 [http://studybuddy-triplethreat.googlecode.com/files/GUIStateDiagram.jpg]
