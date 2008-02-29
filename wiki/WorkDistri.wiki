@@ -3,27 +3,68 @@
 
 ==Work Distribution of Team Triple Threat==
  # Allen:
-   * Designed initial diagrams
-   * Implemented the first version of !SoundPlayer.
-   * Implemented !JarResource, Buddy, Core, !UserChoice classes
-   * Modified !SelectionMenu class
+   * Designed initial diagrams 
+   * Implemented the first version of !SoundPlayer.  
+   * Implemented !JarResource, Buddy, Core, !UserChoice classes  
+   * Modified !SelectionMenu class 
    * Debugging and unit testing classes
  # Mark:
-   * Designed and drew diagrams
-   * Created templates for each class
-   * Modified !SoundPlayer to use up to date libraries
-   * Implemented !BarGraph
-   * Did research on !JavaDoc and integrated it with our coding standard
+   * Designed and drew diagrams 
+   * Created templates for each class 
+   * Modified !SoundPlayer to use up to date libraries  
+   * Implemented !BarGraph  
+   * Did research on !JavaDoc and integrated it with our coding standard  
    * Checked codes for errors, comments, and consistency
    * Drew final version of diagrams
-   * Updated group calendar with meeting times
+   * Updated group calendar with meeting times  
  # Vic:
-   * Designed initial diagrams
-   * Implemented the first verison of !SelectionMenu class
-   * Implemented !UserSelection, !BuddySelection, and Stats classes
-   * Modified !SelectionMenu to have the single selection function
-   * Debugging
-   * Updated the user manual and design documents
+   * Designed initial diagrams 
+   * Implemented the first verison of !SelectionMenu class  
+   * Implemented !UserSelection, !BuddySelection, and Stats classes  
+   * Modified !SelectionMenu to have the single selection function 
+   * Debugging 
+   * Updated the user manual and design documents  
+
+==Date View==
+ * *Feb 11:*
+   * Mark created templates for each class
+
+ * *Feb 12:*
+   * Allen, Mark and Vic designed initial diagrams
+
+ * *Feb 14:*
+   * Allen implemented !JarResource, Buddy, Core, !UserChoice classes
+
+ * *Feb 15:*
+   * Vic implemented the first verison of !SelectionMenu class
+   * Mark implemented !BarGraph
+
+ * *Feb 16:*
+   * Allen modified !SelectionMenu class
+
+ * *Feb 20:*
+   * Allen implemented the first version of !SoundPlayer.
+
+ * *Feb 21:*
+   * Vic implemented !UserSelection, !BuddySelection, and Stats classes
+
+ * *Feb 23:*
+   * Mark did research on !JavaDoc and integrated it with our coding standard
+
+ * *Feb 24:*
+   * Mark modified !SoundPlayer to use up to date libraries
+
+ * *Feb 27:*
+  * Vic modified !SelectionMenu to have the single selection function
+  * Allen, Mark and Vic debugged the system
+  * Vic updated the user manual and design documents
+
+ * *Feb 28:*
+  * Mark updated group calendar with meeting times
+  * Mark checked codes for errors, comments, and consistency
+  * Mark drew final version of diagrams
+  * Allen debugged the system and did unit testing classes
+
 
 ----
 [Assignment3 Back to Assignment 3]
