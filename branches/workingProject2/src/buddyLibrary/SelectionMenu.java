@@ -21,7 +21,7 @@ public class SelectionMenu extends JPanel implements ActionListener{
     protected DefaultListModel list;
     private JMenuBar buttonHolder;
     private ArrayList<JMenuItem> subButtons = new ArrayList<JMenuItem>();
-    private ActionListener[] listener;
+    private ActionListener[] listener = new ActionListener[2];
     private JButton mainButton;
     private JPanel content;
 

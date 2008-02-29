@@ -2,7 +2,7 @@ package Buddies;
 
 import buddyLibrary.*;
 import coreScreens.*;
-
+import core.*;
 /*
 Buddy.java
 Brief File Description
@@ -19,15 +19,17 @@ public class TestBuddy extends Buddy{
         //setReference(c);                    // Sets the Core as parent
         setBackground(Color.BLUE);
         //System.out.println(System.getProperty("user.dir") + "1.jar");
-        //JarResource j = new JarResource(System.getProperty("user.dir") + "\\build\\classes\\Data\\TestBuddy.jar");  //Initialize a jar resource
-        //j.extract("1.png", "C:\\Documents and Settings\\Knight\\Desktop\\");                    //extract a file from jar
-        //loadImage(j.getImage("1.png"), 90, 90);                     //load an image at a specific location from a jar file
-        //addAudioPlayer(j.getWav("1.wav"), 50, 50);                  //create an audioplayer by accessing wav in jar file
-        //float[] q = getStatistics(j.getText("q.txt"));              //Access text file and print out the values stored
-        //for (int i = 0; i < q.length; i++) {
-            //System.out.println(q[i]);
-        //}
-        //System.out.println(getUser());                              //Print the user name stored in core
+        JarResource j = new JarResource(System.getProperty("user.dir") + "\\build\\classes\\Buddies\\test.jar");  //Initialize a jar resource
+        j.extract("1.png", "C:\\Documents and Settings\\Knight\\Desktop\\");                    //extract a file from jar
+        loadImage(j.getImage("1.png"), 90, 90);                     //load an image at a specific location from a jar file
+        addAudioPlayer(j.getAudio("1.wav"), 50, 50);                  //create an audioplayer by accessing wav in jar file
+        float[] q = getStatistics(j.getText("q.txt"));              //Access text file and print out the values stored
+        System.out.println("Test scores:");
+        for (int i = 0; i < q.length; i++) {
+            System.out.println(q[i]);
+        }
+        
+        //System.out.println(frame.getUser());//Print the user name stored in core
         //setTitle("Changed");                                        //change the title of Core
         /*
         

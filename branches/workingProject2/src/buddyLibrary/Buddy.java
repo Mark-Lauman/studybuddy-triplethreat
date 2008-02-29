@@ -122,7 +122,9 @@ public class Buddy extends JPanel {
  * @return   Retrieves the username from the reference frame (Core)
  */ 
     public String getUser() {
+        System.out.println(frame.getUser());
         return frame.getUser();
+       
     }
     
  /**
@@ -194,7 +196,7 @@ public class Buddy extends JPanel {
  * @return   saves the reference to the Core object
  */ 
     public void setReference(Core f) {
-        this.frame = f;
+        frame = f;
     }
     
  /**
@@ -204,6 +206,6 @@ public class Buddy extends JPanel {
  * @return   Sets the new title in Core object
  */ 
     public void setTitle(String title) {
-        this.frame.setTitle(title);
+        frame.setTitle(title);
     }
 }

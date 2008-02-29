@@ -6,7 +6,7 @@
  * 02/24/2008 Mark Lauman Implemented
  */
 
-package Buddies;
+package testers;
 
 import buddyLibrary.SoundPlayer;
 import java.awt.Dimension;

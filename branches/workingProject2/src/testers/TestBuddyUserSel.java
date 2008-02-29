@@ -1,4 +1,4 @@
-package Buddies;
+package testers;
 
 import buddyLibrary.*;
 import coreScreens.*;

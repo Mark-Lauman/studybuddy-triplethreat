@@ -88,6 +88,7 @@ public class Core extends JFrame implements ActionListener{
             try {
                 Class c = Class.forName("Buddies." + classN);
                 Buddy b = (Buddy)c.newInstance();
+                b.setReference(this);
                 return b;
             } catch (Exception ex) {
                 return null;
@@ -98,6 +99,7 @@ public class Core extends JFrame implements ActionListener{
         if(e.getActionCommand().equals("Login")){
             if(us.getSelection() != null){
             setUser(us.getSelection());
+            setTitle(user);
             us.setVisible(false);
             content.remove(us);
             uc = new UserChoice(this);

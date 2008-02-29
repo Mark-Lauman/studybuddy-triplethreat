@@ -7,6 +7,7 @@ Team Triple Threat
 Log:
 02/14/2008 Allan Lei    Implementation of all methods
  */
+import com.sun.media.sound.JavaSoundAudioClip;
 import java.applet.AudioClip;
 import java.awt.Image;
 import java.io.BufferedReader;
@@ -15,7 +16,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.jar.JarFile;
-import java.util.zip.ZipEntry;
 import javax.imageio.ImageIO;
 
 public class JarResource {
@@ -64,6 +64,23 @@ public class JarResource {
         }
     }
 
+    /**
+ *  Retrieves an Image file from a jar file
+ *
+ * @param  file Name of the image file to be found
+ * @return  image Image file returned as in Image format
+ */
+    public AudioClip getAudio(String file) {
+        try {
+            InputStream is = jar.getInputStream(jar.getEntry(file));
+            AudioClip sound = new JavaSoundAudioClip(is);
+            return sound;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return null;
+        }
+    }
+    
  /**
  *  Extracts a file from a jar file and copies to a specified location
  *

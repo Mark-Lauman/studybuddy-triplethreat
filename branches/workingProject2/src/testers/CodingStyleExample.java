@@ -6,7 +6,7 @@
  * 02/22/2008 Mark Lauman Created class & Documented it
  */
 
-package Buddies;
+package testers;
 
 import buddyLibrary.Buddy;
 import java.awt.Graphics;
