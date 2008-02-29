@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.jar.JarFile;
+import java.util.zip.ZipEntry;
 import javax.imageio.ImageIO;
 
 public class JarResource {
@@ -98,6 +99,15 @@ public class JarResource {
             in.close();
             out.close();
         } catch (Exception ex) {
+        }
+    }
+    
+    public boolean contains(String filename){
+        ZipEntry zip = jar.getEntry(filename);
+        if(zip == null){
+            return false;
+        }else{
+            return true;
         }
     }
 }

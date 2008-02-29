@@ -17,8 +17,6 @@ import java.nio.channels.*;
 import javax.swing.JOptionPane;
 import javax.swing.*;
 import java.util.*;
-import java.util.jar.JarFile;
-import java.util.zip.ZipEntry;
 
 /**
  * This class handle all the requests related to buddies on the <code>Buddy</code>
@@ -33,15 +31,18 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
     HashMap<String, String> exportmap = new HashMap<String, String>();
     /** the space between buttons */
     public final int subButtonwidth = 25;
-    /** the string names for subbuttons and the main button */
+    /** the sub button - Add Buddy */
     public final String addBuddytext = "Add Buddy";
+    /** the sub button - Export Buddy */
     public final String exportBuddytext = "Export Buddy";
+    /** the sub button - Delete Buddy */
     public final String deleteBuddytext = "Delete Buddy";
+    /** the main button - Start */
     public final String startuddytext = "Start";
     /** the directory to store user's data */
-    //public final String buddydir="./Data";
-    public final String buddydir = "./build/classes/Buddies";
-
+    /** the directory to store user's data */
+    public final String buddydir = "./Buddies";
+    //public final String buddydir = "./build/classes/Buddies";
     /**
      * Constructs a <code>BuddySelection</code> menu with specified width 
      * and height and creates a directory of the buddy's name to store data.
@@ -55,14 +56,17 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
         File f = new File(buddydir);  //add all buddies to the list and create a directory    
 
         String[] fileList = f.list();
+        String classFile = ".class";
         for (int i = 0; i < fileList.length; i++) {
             //if the file doesn't have "."
-            if (fileList[i].indexOf(".") < 0) {
+            if (fileList[i].indexOf(".") < 0 && fileList[i].indexOf(classFile) > 0) {
                 list.addElement(fileList[i]); //add the names to list
                 exportmap.put(fileList[i], buddydir + "/" + fileList[i]);
             } else {
-                list.addElement(fileList[i].substring(0, fileList[i].indexOf("."))); //add the names to list
-                exportmap.put(fileList[i].substring(0, fileList[i].indexOf(".")), buddydir + "/" + fileList[i]);
+                if (fileList[i].indexOf(classFile) > 0) {
+                    list.addElement(fileList[i].substring(0, fileList[i].indexOf("."))); //add the names to list
+                    exportmap.put(fileList[i].substring(0, fileList[i].indexOf(".")), buddydir + "/" + fileList[i]);
+                }
             }
         }
 
@@ -102,14 +106,20 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
             String name = chooser.getSelectedFile().getName();
             name = name.substring(0, name.lastIndexOf(".")); //get the name before the extension type
             try {
-                JarResource jr = new JarResource(buddydir + "/" + chooser.getSelectedFile().getName());
-                jr.extract(name + ".class", buddydir + "/");
-                copyFile(chooser.getSelectedFile(), new File(buddydir + "/" + chooser.getSelectedFile().getName()));
-                exportmap.put(name, buddydir + "/" + chooser.getSelectedFile().getName());
-
-                addChoice(name); //add the name to the list
-            } catch (IOException e) {
-                System.out.println(e);
+                JarResource jr = new JarResource(chooser.getSelectedFile().getAbsolutePath());
+                
+                if (jr.contains(name + ".class")) {
+                    jr.extract(name + ".class", buddydir + "/");
+                    copyFile(chooser.getSelectedFile(), new File(buddydir + "/" + chooser.getSelectedFile().getName()));
+                    exportmap.put(name, buddydir + "/" + chooser.getSelectedFile().getName());
+                    addChoice(name); //add the name to the list
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "The chosen file is incompatible with our system! Please choose another", "Warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+            } catch (Exception ex) {
+                
             }
         }
     }
@@ -148,7 +158,7 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
     /**
      * Exports the selected buddy and saves to the specified location
      */
-    private void exportBuddy() {
+        private void exportBuddy() {
 
         String tempExport = getSelection();
 
@@ -176,14 +186,36 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
                 return "*.jar";
             }
         });
-
-        int returnVal = chooser.showSaveDialog(null);
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
+        
+        // Open chooser dialog
+        int result = chooser.showSaveDialog(null);
+        
+        if (result == JFileChooser.APPROVE_OPTION) {
+            
             String tofilename = "";
+            
+            orginalFile = chooser.getSelectedFile ();
+            
             //adds ".jar" for the file
             if (chooser.getSelectedFile().getName().indexOf(".") < 0) {
                 tofilename = chooser.getSelectedFile().getPath() + ".jar";
+                if (orginalFile.exists ()) {
+                    int response = JOptionPane.showConfirmDialog (null,
+                    "Overwrite existing file?","Confirm Overwrite",
+                    JOptionPane.OK_CANCEL_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+                    if (response == JOptionPane.CANCEL_OPTION) 
+                        return;
+                }
             } else {
+                if (orginalFile.exists ()) {
+                    int response = JOptionPane.showConfirmDialog (null,
+                    "Overwrite existing file?","Confirm Overwrite",
+                    JOptionPane.OK_CANCEL_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+                    if (response == JOptionPane.CANCEL_OPTION) 
+                        return;
+                }
                 tofilename = chooser.getSelectedFile().getPath();
             }
 

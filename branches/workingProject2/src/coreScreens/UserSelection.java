@@ -27,13 +27,14 @@ import java.util.ArrayList;
 public class UserSelection extends buddyLibrary.SelectionMenu {
    /** the space between buttons */   
    public final int subButtonwidth = 50 ;
-   /** the string names for subbuttons and the main button */
+   /** the sub button - New Player */
    public final String newPlayerText = "New Player";
+   /** the sub button - Delete Player */
    public final String deletePlayerText = "Delete Player";
+   /** the sub button - Login */
    public final String loginUserText = "Login";
    /** the directory to store user's data */
-   //public final String userDIR = "./data/user";
-   public final String userDIR = "./build/classes/Data/Users";
+   public final String userDIR = "./Data";
    /** an array list to store usernames */
    public ArrayList<String> userList = new ArrayList<String>();
    
@@ -47,12 +48,16 @@ public class UserSelection extends buddyLibrary.SelectionMenu {
     */
    public UserSelection (int width, int height, ActionListener c) {
        super("User Selection", width, height, c);
-       File f = new File(userDIR);  //add all users to the list and create the directory      
-       String [] fileList = f.list();       
+       File f = new File(userDIR);  //add all users to the list and create the directory   
+       String [] fileList = f.list();
+       
        for(int i = 0; i < fileList.length; i++) {
-           list.addElement(fileList[i]); //add the names to list
-           userList.add(fileList[i].toUpperCase());
+           if(fileList[i].indexOf(".") < 0){
+               list.addElement(fileList[i]); //add the names to list
+               userList.add(fileList[i].toUpperCase());
+           }
        }
+
        
        //add sub button - New Player
        addSubButton(newPlayerText, subButtonwidth); 

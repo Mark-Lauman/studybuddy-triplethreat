@@ -8,12 +8,14 @@
  */
 package core;
 
+import Buddies.*;
 import coreScreens.*;
 import buddyLibrary.*;
 import Buddies.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.ActionEvent;
+import java.io.File;
 import javax.swing.*;
 
 public class Core extends JFrame implements ActionListener{
@@ -23,17 +25,19 @@ public class Core extends JFrame implements ActionListener{
     private UserSelection us;
     private UserChoice uc;
     private BuddySelection bs;
+    private Stats stats;
     private Buddy b;
+    private JButton back;
 
     public static void main(String[] args) {
         new Core();
     }
 
     public Core() {
-        setTitle("Core");
+        setTitle("Buddy App V1");
         content = getContentPane();
         content.setBackground(Color.LIGHT_GRAY);
-        setPreferredSize(new Dimension(1200, 700));
+        setPreferredSize(new Dimension(800, 600));
         setLayout(new BorderLayout());
         setLocation(60, 50);
         makeMenuBar();
@@ -54,8 +58,16 @@ public class Core extends JFrame implements ActionListener{
  */
     private void makeMenuBar(){
         mb = new JMenuBar();
-        JMenu m = new JMenu("File");
-        mb.add(m);
+        mb.setLayout(new BorderLayout());
+        //JMenu m = new JMenu("File");
+        //mb.add(m, BorderLayout.LINE_START);
+        back = new JButton("Back");
+        back.setMargin(new Insets(0, 0, 0, 0));
+        back.setPreferredSize(new Dimension(60, 20));
+        
+        back.setActionCommand("None");
+        back.addActionListener(this);
+        mb.add(back, BorderLayout.LINE_END);
     }
     
  /**
@@ -77,7 +89,6 @@ public class Core extends JFrame implements ActionListener{
         user = userName;
     }
 
-    
  /**
  *  Loads a .class file in the Buddies folder and converts it to a Buddy Class
  *
@@ -86,8 +97,11 @@ public class Core extends JFrame implements ActionListener{
  */
     private Buddy loadBuddy(String classN) {
             try {
+                
                 Class c = Class.forName("Buddies." + classN);
+                
                 Buddy b = (Buddy)c.newInstance();
+                
                 b.setReference(this);
                 return b;
             } catch (Exception ex) {
@@ -98,30 +112,68 @@ public class Core extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Login")){
             if(us.getSelection() != null){
-            setUser(us.getSelection());
+            setUser(getTitle() + "  -  " + us.getSelection());
             setTitle(user);
             us.setVisible(false);
             content.remove(us);
             uc = new UserChoice(this);
             content.add(uc, BorderLayout.WEST);
+            back.setActionCommand("UserSelection");
             invalidate();
             validate();
             pack();
             }
-        }else if(e.getActionCommand().equals("Statistics")){
-            //System.out.println("Stats clicked");
-        }else if(e.getActionCommand().equals("Study Buddy")){
+        }else if(e.getActionCommand().equals("UserSelection")){
             uc.setVisible(false);
             content.remove(uc);
+            us = new UserSelection(300, 400, this);
+            content.add(us, BorderLayout.WEST);
+            back.setActionCommand("None");
+            validate();
+        }else if(e.getActionCommand().equals("Statistics")){
+            uc.setVisible(false);
+            content.remove(uc);
+            stats = new Stats();
+            stats.setReference(this);
+            content.add(stats, BorderLayout.CENTER);
+            back.setActionCommand("UserChoice");
+            validate();
+        }else if(e.getActionCommand().equals("Study Buddy")){
+            try{
+                uc.setVisible(false);
+                content.remove(uc);
+            }catch(Exception ex){
+                b.setVisible(false);
+                invalidate();
+                validate();
+                content.remove(b);
+                invalidate();
+                validate();
+                pack();
+            }
             bs = new BuddySelection(300, 400, this);
             content.add(bs, BorderLayout.WEST);
+            back.setActionCommand("UserChoice");
+            validate();
+        }else if(e.getActionCommand().equals("UserChoice")){
+            try{
+            bs.setVisible(false);
+            content.remove(bs);
+            }catch(Exception ex){
+                stats.setVisible(false);
+                content.remove(stats);
+            }
+            uc = new UserChoice(this);
+            content.add(uc, BorderLayout.WEST);
+            back.setActionCommand("UserSelection");
             validate();
         }else if(e.getActionCommand().equals("Start")){
             if(bs.getSelection() != null){
                 bs.setVisible(false);
                 content.remove(bs);
                 b = loadBuddy(bs.getSelection());
-                content.add(b);
+                content.add(b, BorderLayout.CENTER);
+                back.setActionCommand("Study Buddy");
                 validate();
             }            
         }
