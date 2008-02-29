@@ -3797,7 +3797,7 @@
       <entry fontholderid="1" name="SansSerif" CharSet="0" Height="12" Italic="false" Strikeout="false" Underline="false" Weight="400"/>
     </FontHolderTable>
   </resources>
-  <diagramInfo zoom="1.39096812846378" xPos="191.0" yPos="31.0" name="Activity Diagram" alias="" docs="" diagramKind="Activity Diagram" lastShowAliasState="false" namespaceToplevelID="DCE.CBA7E800-4EE1-1D1B-1E11-41209763DE3F" namespaceMEID="DCE.2AC2F0F8-3C3F-5E40-A9DE-F7C8EE9B0F7A" diagramXMIID="DCE.648B8ECD-78CC-8E1D-E006-0A0F6DF1730B"/>
+  <diagramInfo zoom="1.39096812846378" xPos="191.0" yPos="31.0" name="Old Activity Diagram" alias="" docs="" diagramKind="Activity Diagram" lastShowAliasState="false" namespaceToplevelID="DCE.CBA7E800-4EE1-1D1B-1E11-41209763DE3F" namespaceMEID="DCE.2AC2F0F8-3C3F-5E40-A9DE-F7C8EE9B0F7A" diagramXMIID="DCE.648B8ECD-78CC-8E1D-E006-0A0F6DF1730B"/>
   <DCE.9DA39044-4AF5-2F81-25DF-A0C2018D5E6A PEID="DCE.9DA39044-4AF5-2F81-25DF-A0C2018D5E6A" MEID="DCE.CFD5285F-1CC2-42AB-C50B-1C2320614D8C" toplevelMEID="DCE.CBA7E800-4EE1-1D1B-1E11-41209763DE3F" initString="org.netbeans.modules.uml.ui.products.ad.viewfactory.ETGenericNodeUI ControllerNode DecisionNode">
     <engine name="ControlNodeDrawEngine" editLocked="false">
       <resources>

@@ -14,5 +14,7 @@
 
    <XMI.content>
    <UML:Profile xmi.id="DCE.706E838D-729C-8503-2A4C-73A5473497F1" name="Unnamed" isCloned="true" href=".\diagrams.etup#//*[@xmi.id=&apos;DCE.706E838D-729C-8503-2A4C-73A5473497F1&apos;]" isDirty="false"><UML:Element.ownedElement>
-<UML:Stereotype xmi.id="DCE.D2304160-F3A4-028E-2176-A580882C955F" name="interface" owner="__uri_.\diagrams.etup#//*[@xmi.id=&apos;DCE.706E838D-729C-8503-2A4C-73A5473497F1&apos;]"/></UML:Element.ownedElement></UML:Profile></XMI.content>
+<UML:Stereotype xmi.id="DCE.D2304160-F3A4-028E-2176-A580882C955F" name="interface" owner="__uri_.\diagrams.etup#//*[@xmi.id=&apos;DCE.706E838D-729C-8503-2A4C-73A5473497F1&apos;]"/>
+<UML:Stereotype xmi.id="DCE.54252EB7-097D-E263-0734-6A1A50892772" name="Test" owner="__uri_.\diagrams.etup#//*[@xmi.id=&apos;DCE.706E838D-729C-8503-2A4C-73A5473497F1&apos;]"/>
+<UML:Stereotype xmi.id="DCE.EFA820F7-2CF2-86B3-360A-AAFD03B64E57" name="Test" owner="__uri_.\diagrams.etup#//*[@xmi.id=&apos;DCE.706E838D-729C-8503-2A4C-73A5473497F1&apos;]"/></UML:Element.ownedElement></UML:Profile></XMI.content>
 </XMI>
