@@ -42,7 +42,7 @@
    * Break Buddy   
    * Science Wiring Buddy
 
-  * * Version 3 *   
+  * * Version 3:* Version 3 will add two more buddies.
    * Math Buddy
    * Word Find Buddy 
 
