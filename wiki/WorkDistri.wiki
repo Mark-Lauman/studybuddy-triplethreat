@@ -2,7 +2,7 @@
 #labels Assignment3
 
 ==Work Distribution of Team Triple Threat==
- # Allen:
+ # Allan:
    * Designed initial diagrams 
    * Implemented the first version of !SoundPlayer.  
    * Implemented !JarResource, Buddy, Core, !UserChoice classes  
@@ -25,25 +25,24 @@
    * Debugging 
    * Updated the user manual and design documents  
 
-==Date View==
- * *Feb 11:*
-   * Mark created templates for each class
+==Timeline==
+
+ * *Feb 6 - 11:*
+   * Allan, Mark and Vic designed initial diagrams
 
  * *Feb 12:*
-   * Allen, Mark and Vic designed initial diagrams
+   * Mark created templates for each class
 
  * *Feb 14:*
-   * Allen implemented !JarResource, Buddy, Core, !UserChoice classes
+   * Allan implemented !JarResource, Buddy, Core, !UserChoice classes
+   * Allan implemented the first version of !SoundPlayer
 
  * *Feb 15:*
-   * Vic implemented the first verison of !SelectionMenu class
-   * Mark implemented !BarGraph
+   * Vic implemented the first version of the !SelectionMenu class
+   * Mark implemented !BarGraph and its tester
 
  * *Feb 16:*
-   * Allen modified !SelectionMenu class
-
- * *Feb 20:*
-   * Allen implemented the first version of !SoundPlayer.
+   * Allan extensively modified the !SelectionMenu class
 
  * *Feb 21:*
    * Vic implemented !UserSelection, !BuddySelection, and Stats classes
@@ -56,14 +55,14 @@
 
  * *Feb 27:*
   * Vic modified !SelectionMenu to have the single selection function
-  * Allen, Mark and Vic debugged the system
+  * Allan, Mark and Vic debugged the system
   * Vic updated the user manual and design documents
 
  * *Feb 28:*
   * Mark updated group calendar with meeting times
   * Mark checked codes for errors, comments, and consistency
   * Mark drew final version of diagrams
-  * Allen debugged the system and did unit testing classes
+  * Allan debugged the system and did unit testing classes
 
 
 ----
