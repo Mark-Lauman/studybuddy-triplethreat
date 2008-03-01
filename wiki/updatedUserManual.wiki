@@ -49,6 +49,12 @@ Our system provides an educational learning tool to students of the sixth and se
 
 ==Example Tutorials==
  * [updatedExampleTutUserLogin User Login]
+
+ * [updatedExampleTutAddBuddy Add/Import a study buddy]
+
+ * [updatedExampleTutExportBuddy Export a study buddy]
+
+ * [updatedExampleTutStats View statistics]
 ==Glossary==
 
  * *Audio* - Sounds stored electronically in different formats, like MP3, WAV...
