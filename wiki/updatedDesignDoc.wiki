@@ -9,14 +9,12 @@
  * The project will be coding with the internal [CodingStyle coding style].
 
 ==System Diagrams (created by using !NetBeans)== 
- * [http://studybuddy-triplethreat.googlecode.com/files/StatMachine.jpg State Machine Diagram]
-
+ * [http://studybuddy-triplethreat.googlecode.com/files/StateMachine.jpg State Machine Diagram]
 
  * [http://studybuddy-triplethreat.googlecode.com/files/ClassDiagramA.jpg Class Diagram A] 
 
  * [http://studybuddy-triplethreat.googlecode.com/files/ClassDiagramB.jpg Class Diagram B]
  
-
  * [http://studybuddy-triplethreat.googlecode.com/files/DeploymentDiagram.jpg Deployment Diagram]
 
 ==Data Requirements==
