@@ -8,7 +8,7 @@
 
  * The project will be coding with the internal [CodingStyle coding style].
 
-==System Diagrams (created by !NetBeans)== 
+==System Diagrams (created by using !NetBeans)== 
  * [http://studybuddy-triplethreat.googlecode.com/files/StatMachine.jpg State Machine Diagram]
 
 
