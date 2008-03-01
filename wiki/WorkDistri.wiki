@@ -101,7 +101,7 @@
 || * !CodingStyleExample * || x || || ||
 || * !TestBarGraph * || x || || ||
 || * !TestSoundPlayer * || x || || ||
-|| * TestBuddy * || || || x ||
+|| * !TestBuddy * || || || x ||
 
 
 ----
