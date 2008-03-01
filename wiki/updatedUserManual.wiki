@@ -48,8 +48,7 @@ Our system provides an educational learning tool to students of the sixth and se
 
 
 ==Example Tutorials==
- * to be updated by Vic and Mark
-
+ * [updatedExampleTutUserLogin User Login]
 ==Glossary==
 
  * *Audio* - Sounds stored electronically in different formats, like MP3, WAV...
