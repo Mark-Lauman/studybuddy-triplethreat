@@ -3,14 +3,10 @@
 
 ==Add/Import Study Buddy==
 
- # After login, the user will see this screen:
- [http://studybuddy-triplethreat.googlecode.com/files/UC.jpg]
- # Click "*Add Buddy*"
- [http://studybuddy-triplethreat.googlecode.com/files/IB02.jpg]
- # It will open up a file chooser to locate the buddy.
- [http://studybuddy-triplethreat.googlecode.com/files/IB03.jpg]
- # The buddy imported earlier is now on the list.
- [http://studybuddy-triplethreat.googlecode.com/files/IB04.jpg]
+ # After login, the user will see this screen:[http://studybuddy-triplethreat.googlecode.com/files/UC.jpg]
+ # Click "*Add Buddy*" [http://studybuddy-triplethreat.googlecode.com/files/IB02.jpg]
+ # It will open up a file chooser to locate the buddy.[http://studybuddy-triplethreat.googlecode.com/files/IB03.jpg]
+ # The buddy imported earlier is now on the list.[http://studybuddy-triplethreat.googlecode.com/files/IB04.jpg]
 
 ----
 [updatedUserManual Back to User Manual]
