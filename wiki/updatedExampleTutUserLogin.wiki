@@ -7,3 +7,6 @@
 [http://studybuddy-triplethreat.googlecode.com/files/U02.jpg]
 
 [http://studybuddy-triplethreat.googlecode.com/files/U03.jpg]
+
+----
+[updatedUserManual Back to User Manual]
