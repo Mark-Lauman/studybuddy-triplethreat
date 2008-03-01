@@ -2,11 +2,11 @@
 
 ==User Login==
 
-This is the starting screen. Click "*New Player*" [http://studybuddy-triplethreat.googlecode.com/files/U01.jpg]
+ This is the starting screen. Click "*New Player*" [http://studybuddy-triplethreat.googlecode.com/files/U01.jpg]
 
-Enter a username desired [http://studybuddy-triplethreat.googlecode.com/files/U02.jpg]
+ Enter a username desired [http://studybuddy-triplethreat.googlecode.com/files/U02.jpg]
 
-Click "*Login*" [http://studybuddy-triplethreat.googlecode.com/files/U03.jpg]
+ Click "*Login*" [http://studybuddy-triplethreat.googlecode.com/files/U03.jpg]
 
 ----
 [updatedUserManual Back to User Manual]
