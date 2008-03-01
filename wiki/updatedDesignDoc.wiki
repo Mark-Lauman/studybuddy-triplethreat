@@ -9,13 +9,13 @@
  * The project will be coding with the internal [CodingStyle coding style].
 
 ==System Diagrams (created by using !NetBeans)== 
- * [http://studybuddy-triplethreat.googlecode.com/files/StateMachine.jpg State Machine Diagram]
+ * [http://studybuddy-triplethreat.googlecode.com/files/DiagramS.jpg State Machine Diagram]
 
- * [http://studybuddy-triplethreat.googlecode.com/files/ClassDiagramA.jpg Class Diagram A] 
+ * [http://studybuddy-triplethreat.googlecode.com/files/DiagramA.jpg Class Diagram A] 
 
- * [http://studybuddy-triplethreat.googlecode.com/files/ClassDiagramB.jpg Class Diagram B]
+ * [http://studybuddy-triplethreat.googlecode.com/files/DiagramB.jpg Class Diagram B]
  
- * [http://studybuddy-triplethreat.googlecode.com/files/DeploymentDiagram.jpg Deployment Diagram]
+ * [http://studybuddy-triplethreat.googlecode.com/files/DiagramD.jpg Deployment Diagram]
 
 ==Data Requirements==
  * A keyboard and a mouse will be used as the inputs to play buddies, and the monitor and speakers will be used as the outputs. For example, the user will have to use keyboard to create a new username and use mouse to choose actions related to the username.
