@@ -3,9 +3,11 @@
 
 ==Export Study Buddy==
 
- # After login, the user will see this screen:[http://studybuddy-triplethreat.googlecode.com/files/UC.jpg]
- # Select a buddy and then click "*Export Buddy*" [http://studybuddy-triplethreat.googlecode.com/files/EB01.jpg]
- # It will open up a file chooser to locate the directory to save the buddy.[http://studybuddy-triplethreat.googlecode.com/files/EB02.jpg]
+After login, the user will see this screen:[http://studybuddy-triplethreat.googlecode.com/files/UC.jpg]
+
+Select a buddy and then click "*Export Buddy*" [http://studybuddy-triplethreat.googlecode.com/files/EB01.jpg]
+
+It will open up a file chooser to locate the directory to save the buddy.[http://studybuddy-triplethreat.googlecode.com/files/EB02.jpg]
 
 ----
 [updatedUserManual Back to User Manual]
