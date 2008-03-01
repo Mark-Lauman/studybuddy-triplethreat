@@ -4,7 +4,7 @@
 ==Add/Import Study Buddy==
 
 *After login, the user will see this screen:
- [http://studybuddy-triplethreat.googlecode.com/files/UC01.jpg]
+ [http://studybuddy-triplethreat.googlecode.com/files/UC.jpg]
 
  [http://studybuddy-triplethreat.googlecode.com/files/IB02.jpg]
 
