@@ -1,0 +1,15 @@
+#summary updated Example Tutorial Add/Import a study buddy
+
+
+==Add/Import Study Buddy==
+
+ [http://studybuddy-triplethreat.googlecode.com/files/UC01.jpg]
+
+ [http://studybuddy-triplethreat.googlecode.com/files/IB02.jpg]
+
+ [http://studybuddy-triplethreat.googlecode.com/files/IB03.jpg]
+
+ [http://studybuddy-triplethreat.googlecode.com/files/IB04.jpg]
+
+----
+[updatedUserManual Back to User Manual]
