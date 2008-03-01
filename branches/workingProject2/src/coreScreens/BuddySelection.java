@@ -111,6 +111,8 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
                 if (jr.contains(name + ".class")) {
                     jr.extract(name + ".class", buddydir + "/");
                     copyFile(chooser.getSelectedFile(), new File(buddydir + "/" + chooser.getSelectedFile().getName()));
+                    System.out.println(chooser.getSelectedFile());
+                    System.out.println(new File(buddydir + "/" + chooser.getSelectedFile().getName()));
                     exportmap.put(name, buddydir + "/" + chooser.getSelectedFile().getName());
                     addChoice(name); //add the name to the list
                 } else {
@@ -150,6 +152,7 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
             list.removeElement(buddyTobeDeleted);
 
             File f = new File(exportmap.get(buddyTobeDeleted));
+            System.out.println(buddyTobeDeleted);
             f.delete();
             exportmap.remove(buddyTobeDeleted);
         }
@@ -158,10 +161,9 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
     /**
      * Exports the selected buddy and saves to the specified location
      */
-        private void exportBuddy() {
-
+        
+    private void exportBuddy(){
         String tempExport = getSelection();
-
         //if nothing is chosen on the list, then pop up the warning message
         if (tempExport == null) {
             JOptionPane.showMessageDialog(null,
@@ -171,62 +173,36 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
         }
 
         //If a buddy is selected on the list, then commit the export 
-        File orginalFile = new File(exportmap.get(tempExport));
-
+        File orginalFile = new File(System.getProperty("user.dir") + "/Buddies/" + getSelection() + ".jar");
+        
         JFileChooser chooser = new JFileChooser();
-
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
-
             public boolean accept(File f) {
-                return f.getName().toLowerCase().endsWith(".jar") || f.isDirectory();
+                return f.getName().toLowerCase().endsWith("/") || f.isDirectory();
             }
 
             //shows ".jar" in the file type field
             public String getDescription() {
-                return "*.jar";
+                return "Folders";
             }
         });
         
         // Open chooser dialog
         int result = chooser.showSaveDialog(null);
-        
         if (result == JFileChooser.APPROVE_OPTION) {
             
-            String tofilename = "";
-            
-            orginalFile = chooser.getSelectedFile ();
-            
-            //adds ".jar" for the file
-            if (chooser.getSelectedFile().getName().indexOf(".") < 0) {
-                tofilename = chooser.getSelectedFile().getPath() + ".jar";
-                if (orginalFile.exists ()) {
-                    int response = JOptionPane.showConfirmDialog (null,
-                    "Overwrite existing file?","Confirm Overwrite",
-                    JOptionPane.OK_CANCEL_OPTION,
-                    JOptionPane.QUESTION_MESSAGE);
-                    if (response == JOptionPane.CANCEL_OPTION) 
-                        return;
-                }
-            } else {
-                if (orginalFile.exists ()) {
-                    int response = JOptionPane.showConfirmDialog (null,
-                    "Overwrite existing file?","Confirm Overwrite",
-                    JOptionPane.OK_CANCEL_OPTION,
-                    JOptionPane.QUESTION_MESSAGE);
-                    if (response == JOptionPane.CANCEL_OPTION) 
-                        return;
-                }
-                tofilename = chooser.getSelectedFile().getPath();
-            }
-
-            File file = new File(tofilename);
+            File target = new File(chooser.getSelectedFile().getAbsolutePath() + "/" + tempExport + ".jar");
             try {
-                copyFile(orginalFile, file);
+                copyFile(orginalFile, target);
             } catch (IOException e) {
-                System.out.println("Error!");
+                JOptionPane.showMessageDialog(null,
+                    "Sorry, we cannot find that specific path.  Please choose another", "Warning",
+                    JOptionPane.WARNING_MESSAGE);
             }
         }
     }
+
 
     /**
      * This function copyFile is copied from http://www.rgagnon.com/javadetails/java-0064.html
@@ -255,10 +231,12 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
         //if the command is Add buddy
         if (e.getActionCommand().compareTo(addBuddytext) == 0) {
             addBuddy();
+            
         }//esle if the command is Delete buddy
         else if (e.getActionCommand().compareTo(deleteBuddytext) == 0) {
             deleteBuddy();
         } else if (e.getActionCommand().compareTo(exportBuddytext) == 0) {
+            //exportBuddy();
             exportBuddy();
         } else if (e.getActionCommand().compareTo(startuddytext) == 0) {
 
