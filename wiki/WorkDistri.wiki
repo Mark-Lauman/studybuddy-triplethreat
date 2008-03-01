@@ -64,6 +64,9 @@
   * Mark drew final version of diagrams
   * Allan debugged the system and did unit testing classes
 
+
+==Break down of functions==
+
 || || Mark Lauman || Vic Kao || Allan Lei || || Mark Lauman || Vic Kao || Allan Lei ||
 || * !BarGraph * || x || || || * Buddy * || || || x ||
 || - calculateDisplayData() || x || || || - addAudioPlayer() || || || x ||
