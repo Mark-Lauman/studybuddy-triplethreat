@@ -1,4 +1,4 @@
-#updated Example Tutorial User Login
+#summary updated Example Tutorial User Login
 
 ==User Login==
  # [http://studybuddy-triplethreat.googlecode.com/files/U01.jpg]
