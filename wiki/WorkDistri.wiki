@@ -64,6 +64,40 @@
   * Mark drew final version of diagrams
   * Allan debugged the system and did unit testing classes
 
+|| || Mark Lauman || Vic Kao || Allan Lei || || Mark Lauman || Vic Kao || Allan Lei ||
+|| * !BarGraph * || x || || || * Buddy * || || || x ||
+|| - calculateDisplayData() || x || || || - addAudioPlayer() || || || x ||
+|| - makeBars() || x || || || - getStatistics() || || || x ||
+|| - render() || x || || || - getUser() || || || x ||
+|| - resetAll() || x || || || - loadImage() || || || x ||
+|| - setScores() || x || || || - loadSound() || || || x ||
+|| - repaint() || x || || || - setPosition() || || || x ||
+|| * !JarResource * || || || x || - setReference() || || || x ||
+|| - getImage() || || || x || - setTitle() || || || x ||
+|| - getText() || || || x || * !SelectionMenu * || || x || x ||
+|| - getAudio() || || || x || - addChoice() || || || x ||
+|| - extract() || || || x || - addSubButton() || || || x ||
+|| - contains() || || || x || - addToButtonHolder() || || || x ||
+|| * !SoundPlayer * || x || || x || - createButton() || || || x ||
+|| - play() || x || || || - createSpace() || || || x ||
+|| - stop() || x || || || - getChoices() || || || x ||
+|| * Core * || || || x || - getSelection() || || || x ||
+|| - makeMenuBar() || || || x || - removeAllChoices() || || || x ||
+|| - getUser() || || || x || - removeChoice() || || || x ||
+|| - setUser() || || || x || - removeFromButtonHolder() || || || x ||
+|| - loadBuddy() || || || x || - setMainButton() || || || x ||
+|| - actionPerformed() || || || x || * !BuddySelection * || || x || x ||
+|| * Stats * || || x || || - addBuddy() || || x || x ||
+|| - buddyLabelSelected() || || x || || - deleteBuddy() || || x || ||
+|| * !UserChoice * || || || x || - exportBuddy() || || x || x ||
+|| * !UserSelection * || || x || x ||  - copyFile() || || x || ||
+|| - addUser() || || x || ||
+|| - deleteUser() || || x || ||
+|| * !CodingStyleExample * || x || || ||
+|| * !TestBarGraph * || x || || ||
+|| * !TestSoundPlayer * || x || || ||
+|| * TestBuddy * || || || x ||
+
 
 ----
 [Assignment3 Back to Assignment 3]
