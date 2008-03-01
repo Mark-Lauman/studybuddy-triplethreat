@@ -23,7 +23,8 @@
    * Implemented !UserSelection, !BuddySelection, and Stats classes  
    * Modified !SelectionMenu to have the single selection function 
    * Debugging 
-   * Updated the user manual and design documents  
+   * Updated the user manual and design documents
+   * Updated the example tutorials with the lastest version of the system
 
 ==Timeline==
 
@@ -63,6 +64,7 @@
   * Mark checked codes for errors, comments, and consistency
   * Mark drew final version of diagrams
   * Allan debugged the system and did unit testing classes
+  * Vic updated the example tutorials with the lastest version of the system
 
 
 ==Break down of functions==
