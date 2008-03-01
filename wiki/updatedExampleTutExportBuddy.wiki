@@ -5,7 +5,7 @@
 
  # After login, the user will see this screen:[http://studybuddy-triplethreat.googlecode.com/files/UC.jpg]
  # Click "*Export Buddy*" [http://studybuddy-triplethreat.googlecode.com/files/EB01.jpg]
- # It will open up a file chooser to locate the directory to save the buddy.[http://studybuddy-triplethreat.googlecode.com/files/EB02.jpg
+ # It will open up a file chooser to locate the directory to save the buddy.[http://studybuddy-triplethreat.googlecode.com/files/EB02.jpg]
 
 ----
 [updatedUserManual Back to User Manual]
