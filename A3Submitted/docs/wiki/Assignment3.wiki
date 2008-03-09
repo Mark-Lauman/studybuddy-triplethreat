@@ -1,0 +1,24 @@
+#summary Version One
+#labels Assignment3
+
+===Project Manager:===
+Allan Lei
+
+===Criteria===
+A link to the criteria of Assignment 3 can be found [http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentThree here]
+
+===Updated Documents===
+[updatedUserManual User Manual]
+
+[updatedDesignDoc Design Document]
+
+[WorkDistri Work Distribution]
+
+[http://www.sfu.ca/~vkao Source code documentation - JavaDoc]
+
+===Unit Tests===
+
+[UserSelection User Selection menu]
+
+[BuddySelection Buddy Selection menu]
+----

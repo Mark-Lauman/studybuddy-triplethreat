@@ -1,0 +1,55 @@
+#summary Description of unit tests for Buddy Selection menu
+
+= Unit Test - Buddy Selection menu =
+
+
+=== Details ===
+
+ * Add Buddy - No file selected
+  # User presses "Add Buddy" button
+  # File chooser dialog pops up
+  # User clicks "Open" with no file selected
+  # Nothing happens
+
+ * Add Buddy - Jar File with the correct files
+  # User presses "Add Buddy" button
+  # File chooser dialog pops up
+  # User chooses a jar file
+  # Clicks "Open"
+  # File chooser dialog closes
+  # Class file and Jar file is extracted to folder ./Buddies
+  # Buddy name is added to the list
+
+ * Add Buddy - Jar file with incorrect files
+  # User presses "Add Buddy" button
+  # File chooser dialog pops up
+  # User chooses a jar file with incorrect files
+  # Clicks "Open"
+  # File chooser dialog closes
+  # Message box pops up saying it has incorrect files
+
+ * Delete Buddy - No buddy selected
+  # User Clicks "OK"
+  # Message box pops upsaying not buddy selected
+
+ * Delete Buddy - Buddy selected
+  # Selects a Buddy from the list
+  # User presses "Delete Buddy" button
+  # Confirmation box pops up
+   * "Yes" - Buddy deleted from list, buddy folder deleted from ./Buddies
+   * "No" - Confirmation box closes, nothing deleted
+
+ * Export Buddy - No Buddy selected
+  # User clicks "Export Buddy"
+  # Message box pops up saying no buddy is selected
+
+ * Export Buddy - Buddy Selected
+  # Selected buddy from list
+  # Pressed "Export Buddy"
+  # File Chooser box pops up
+  # Choosen file destination
+  # Clicked "Save" button
+  # Jar file of buddy saved to destination
+
+ * Copy file - Internal function used by Add, Delete, Export
+  * Works

@@ -1,0 +1,98 @@
+#summary The first version of our requirements document
+#labels Assignment2
+
+==Introduction==
+Our system provides an educational learning tool to students of the sixth and seventh grade. It does so by having a code library that third party “Study Buddies” access to create programs. The system keeps track of individual users and user statistics.  Study buddies can be imported into and exported out of the system to allow sharing of study buddies.  The study buddies are able to display images, play sounds, and take in events from a keyboard and mouse.
+This study buddy system can help Grade 6 students study a large amount of subjects without them leaving their computer. It will run on the Java Runtime Environment, allowing our program's use on all different platforms.
+
+
+==Intended Audience==
+ * Grade 6 students
+  * Our primary user of the program, Grade 6 students are very fond of all types of game. Most grade 6 students are competent with computer basics, as they enjoy instant messaging services and computer games a lot.
+  * Grade 6 students have reached the "cool" phase of their lives.  They enjoy watching teen dramas and anime shows, (Like Hannah Montana and Pokemon) and often play teenager though temporary "relationships".
+ * Parents of grade 6 students
+  * Grade 6 parents will want software that is educational for their children and age appropriate. They will be the ones who check over and install the software, and its associated buddies.  Parents have an varied technical ability, so the system must be simple enough that all can understand it.
+  * Parents are busy individuals who will occasionally look in on their children.  They may also actively participate, testing the program before their children use it. It is important to treat parents as grade 6 students, so they can correctly interpret how the system works.
+
+==Features==
+ * [FeatureUserID User Login]
+ * [FeatureCoreLibrary Core Library]
+ * [FeatureUserStats User Statistics]
+ * [FeatureDifficultyGradient Difficulty Gradient]
+ * [FeatureImpExp Import and Export]
+ * [FeaturePlugIn Plug-in System]
+ * [FeatureAdaptiveness Program adaptiveness]
+ * [FeatureGUI GUI]
+ * [FeatureMultimedia Multimedia]
+  
+
+==Non-fuctional requirements==
+ * * Product Requirements *
+  # Minimalistic.
+  # The system will be computer resource friendly.
+  # The system will be able to run on Windows and MacOS.
+  # Ease of Use.
+
+ * * Organizational Requirements *
+  # Product will be implemented in Java.
+  # Coding follows the same convention.
+  # Final product will be delivered as a simple executable.
+
+ * * External Requirements *
+  # Study buddy material is of the Grade 6 curriculum.
+
+
+==Example Tutorials==
+ * [Tutorial1 Tutorial 1: Logging in for the first time]
+ * [Tutorial2 Tutorial 2: Starting up a Study Buddy]
+ * [Tutorial3 Tutorial 3: Viewing Your Scores]
+
+==Glossary==
+
+* Audio * - Sounds stored electronically in different formats. MP3, WAV...
+
+* Average * - The sum of all scores divided by the number of scores
+
+* Developer * - A Person who works on the system.
+
+* Difficulty Gradient * - The rate at which a study buddy difficulty changes.
+
+* Development team * - A group of developers.
+
+* Error * - The system functioning in an unexpected and unintended way.
+
+* Export * - Copying a component of the system to be saved to another location.
+
+* Guardian * - Adult that is assigned to the care of a child.
+
+* GUI * - Graphical User Interface.  The Visual portions of the system, which the user interacts with.
+
+* Images * - Pictures stored electronically in different formats. JPEG, GIF, PNG...
+
+* Import * - Adding an external plugin into the system for use.
+
+* Java * - Any references to Java refer to Java 1.2
+
+* Minimalistic * - Using as few objects as neccessary to achieve the same result.
+
+* Plugin * - A piece of software that accesses the core library to create a Study buddy.
+
+* Score * - Varies between Study Buddies.  The results after the Study buddy has been finished.  Study Buddies that return non-numerical scores are tallied up and graphed.  The amount of each string is indicated at the bottom of the graph.
+
+* Statistics * - Recorded and intrepreted data based off of user performance in study buddies.
+
+* Study Buddy * -  A plugin written in java to provide functionality to the system.
+All buddies are file folders filled with .java files.  Every study buddy must have a start.java file inside this folder.  Study buddies are meant for the purpose of learning.
+
+* The System * - The core program, and any related data, plugins or assisting classes.
+
+* Third party * - Organization that does not have relations to the original development of a system.
+
+* Username * -	A name used to identify a particular set of scores.  One user may have multiple usernames.
+
+* Variable * - A component that has the ability to change.
+
+
+
+----
+[Assignment2 Assignment 2]
