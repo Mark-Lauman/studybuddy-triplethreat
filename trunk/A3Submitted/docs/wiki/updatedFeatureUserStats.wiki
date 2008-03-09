@@ -1,0 +1,9 @@
+#summary Updated User Manual - User Statistics
+#labels Assignment3
+
+== User Statistics ==
+
+The statistics system can then be accessed to gather all the statistics for a specific user and buddy to display them in a bar graph. User statistics will be stored each time when a study buddy is used. A lits of buddies could be selected from the menu to see the performance. Students and their parents therefore will be able to view statistics about how well they are doing in order to improve their learning skills. A bar graph is used to display each score, and highest, lowest, and average score are displayed for reference. As a result, students and parents can see the general statistical trends.
+
+----
+[updatedUserManual Back to User Manual]
