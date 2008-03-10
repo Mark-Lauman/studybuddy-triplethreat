@@ -41,12 +41,13 @@
   * * Version 2:* Version 2 will have Difficulty Gradient and Multimedia function for buddies.
    * [updatedFeatureDifficultyGradient Difficulty Gradient]
    * [updatedFeatureMultimedia Multimedia]
-   * Break Buddy   
+   * Math Buddy   
    * Science Wiring Buddy
+   * Word Find Buddy 
 
   * * Version 3:* Version 3 will add two more buddies.
-   * Math Buddy
-   * Word Find Buddy 
+   * Break Buddy
+   * Undo Feature
 
 ----
 [Assignment3 Back to Assignment 3]
