@@ -1,13 +1,14 @@
 package buddyLibrary;
 
 /*
-Buddy.java
-Brief File Description
-Team Triple Threat
-Log:
-02/22/2008 Mark Lauman Moved elements
-02/14/2008 Allan Lei   Total revision, implementation of all methods 
-02/11/2008 Mark Lauman Created Template
+ * Buddy.java
+ * Brief File Description
+ * Team Triple Threat
+ * Log:
+ * 03/10/2008 Mark Lauman Created templates for binary data functions
+ * 02/22/2008 Mark Lauman Moved elements
+ * 02/14/2008 Allan Lei   Total revision, implementation of all methods 
+ * 02/11/2008 Mark Lauman Created Template
  */
 
 import core.Core;
@@ -59,7 +60,46 @@ public class Buddy extends JPanel {
         setPosition(player, x, y);
         validate();
     }
-
+    
+    /**
+     * Get all abjects stored in this buddy's binary data file and return them
+     * as an ArrayList
+     * 
+     * @param  buddyName The name of this buddy for file access
+     * @return An ArrayList containing the objects stored in this buddy's binary
+     *         data file. These objects are of type Object, and must be cast to
+     *         their correct types by the calling buddy.<br />
+     *         If the file is empty or does not exist then this function returns
+     *         an empty ArrayList.
+     */
+    public ArrayList<Object> getDataContent(String buddyName) {
+        return null;
+    }
+    
+    /**
+     * Get an ObjectInputStream that points to this buddy's binary data file.
+     * This allows for more control over reading than getDataContent()
+     * 
+     * @param buddyName The name of this buddy for file access
+     * @return An ObjectInputStream that points to this buddy's binary data file.
+     *         If  file does not exist then it returns null
+     */
+    public ObjectInputStream getDataReader(String buddyName) {
+        return null;
+    }
+    
+    /**
+     * Get an ObjectOutputStream that points to this buddy's binary data file.
+     * This allows the buddy to write to the binary file.
+     * 
+     * @param buddyName The name of this buddy for file access
+     * @return An ObjectOutputStream that points to this buddy's binary data
+     *         file. If  file does not exist then it creates it
+     */
+    public ObjectOutputStream getDataWriter(String buddyName) {
+        return null;
+    }
+    
  /**
  *  Retrieve the statistics for a certain buddy
  *
