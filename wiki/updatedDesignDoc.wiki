@@ -37,10 +37,10 @@
    * [updatedFeatureUserID User Login]
    * [updatedFeatureUserStats User Statistics]
    * [updatedFeatureImpExp Import and Export]   
+   * [updatedFeatureMultimedia Multimedia]
 
   * * Version 2:* Version 2 will have Difficulty Gradient and Multimedia function for buddies.
    * [updatedFeatureDifficultyGradient Difficulty Gradient]
-   * [updatedFeatureMultimedia Multimedia]
    * Math Buddy   
    * Science Wiring Buddy
    * Word Find Buddy 
