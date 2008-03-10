@@ -45,7 +45,7 @@
    * Science Wiring Buddy
    * Word Find Buddy 
 
-  * * Version 3:* Version 3 will add two more buddies.
+  * * Version 3:* Version 3 will have the break buddy and Undo feature.
    * Break Buddy
    * Undo Feature
 
