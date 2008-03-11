@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import javax.swing.*;
 import core.*;
 import java.applet.AudioClip;
-import sun.audio.AudioStream;
 
 
 public class Buddy extends JPanel {
@@ -110,6 +109,7 @@ public class Buddy extends JPanel {
         }
         stats = new float[temp.size()];
         for (int i =
+                
                 0; i < temp.size(); i++) {
             stats[i] = temp.get(i);
         }

@@ -173,6 +173,7 @@ public class Core extends JFrame implements ActionListener {
                 bs.setVisible(false);
                 content.remove(bs);
                 b = loadBuddy(bs.getSelection());
+                b.setReference(this);
                 content.add(b, BorderLayout.CENTER);
                 back.setActionCommand("BackToBS");
                 validate();
