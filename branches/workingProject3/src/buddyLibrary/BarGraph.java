@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/12/2008 Mark Lauman Changed setScores()'s parameter to ArrayList<Float>
  * 03/11/2008 Mark Lauman Made the get statistics functions
  * 02/23/2008 Mark Lauman Changed the comments so they fit our standard
  * 02/15/2008 Mark Lauman Rewrote rendering functions - beta v1
@@ -326,7 +327,7 @@ public class BarGraph extends JPanel {
      * panel and the graph.
      * @param values The new scores
      */
-    public void setScores(float[] values) {
+    public void setScores(ArrayList<Float> values) {
         
         //make it so these will definitely be overwritten
         max = Float.MIN_VALUE;
@@ -334,20 +335,20 @@ public class BarGraph extends JPanel {
         avg = 0;
         scores.clear();
         
-        for(int i = 0; i < values.length; i++) {
+        for(int i = 0; i < values.size(); i++) {
             //loop through the values
-            scores.add(values[i]); //add it to the scores
+            scores.add(values.get(i)); //add it to the scores
             
             //see if it is the max or min value
-            if(values[i] > max)
-                max = values[i];
-            if(values[i] < min)
-                min = values[i];
-            avg += values[i];
+            if(values.get(i) > max)
+                max = values.get(i);
+            if(values.get(i) < min)
+                min = values.get(i);
+            avg += values.get(i);
         }
         
         top = max;
-        avg = avg/values.length;
+        avg = avg/values.size();
         bottom = min;
         
         if(bottom >= 0){

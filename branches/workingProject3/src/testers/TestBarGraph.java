@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/12/2008 Mark Lauman Modified setScore methods so they are up to date
  * 03/11/2008 Mark Lauman Added runFunctionTests() and re-ran all tests
  * 02/24/2008 Mark Lauman Changed the comments & made all methods public
  * 02/16/2008 Mark Lauman Some minor formatting fixes
@@ -16,6 +17,7 @@ package testers;
 import buddyLibrary.BarGraph;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JFrame;
 
@@ -38,14 +40,17 @@ public abstract class TestBarGraph {
      */
     public static void runFunctionTests() {
         BarGraph graph = new BarGraph();
-        float scores[] = {1f, 2f, 3f};
+        ArrayList<Float> scores = new ArrayList<Float>();
+        scores.add(1f);
+        scores.add(2f);
+        scores.add(3f);
         graph.setScores(scores);
         assert graph.getMax() == 3;
         assert graph.getAvg() == 2;
         assert graph.getMin() == 1;
-        scores = new float[200];
+        scores = new ArrayList<Float>();
         for(int i = 0; i < 200; i++) {
-            scores[i] = i+1;
+            scores.add(i + 1f);
         }
         graph.setScores(scores);
         assert graph.getMax() == 200;
@@ -96,7 +101,10 @@ public abstract class TestBarGraph {
         JFrame frame = new JFrame("Test 3: 3 Scores, Fixed");
         BarGraph graph = new BarGraph();
         graph.setPreferredSize(new Dimension(100, 90));
-        float scores[] = {5, 15, 22};
+        ArrayList<Float> scores = new ArrayList<Float>();
+        scores.add(5f);
+        scores.add(15f);
+        scores.add(22f);
         graph.setScores(scores);
         frame.setContentPane(graph);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -116,9 +124,9 @@ public abstract class TestBarGraph {
         JFrame frame = new JFrame("Test 4: 200 Scores, Fixed");
         BarGraph graph = new BarGraph();
         graph.setPreferredSize(new Dimension(100, 90));
-        float scores[] = new float[200];
+        ArrayList<Float> scores = new ArrayList<Float>();
         for(int i = 0; i < 200; i++) {
-            scores[i] = i;
+            scores.add((float)i);
         }
         graph.setScores(scores);
         frame.setContentPane(graph);
@@ -139,7 +147,10 @@ public abstract class TestBarGraph {
         JFrame frame = new JFrame("Test 5: 3 Scores, Variable");
         BarGraph graph = new BarGraph();
         graph.setPreferredSize(new Dimension(100, 90));
-        float scores[] = {5, 15, 22};
+        ArrayList<Float> scores = new ArrayList<Float>();
+        scores.add(5f);
+        scores.add(15f);
+        scores.add(22f);
         graph.setScores(scores);
         frame.setContentPane(graph);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -159,9 +170,9 @@ public abstract class TestBarGraph {
         JFrame frame = new JFrame("Test 6: 200 Scores, Variable");
         BarGraph graph = new BarGraph();
         graph.setPreferredSize(new Dimension(100, 90));
-        float scores[] = new float[200];
+        ArrayList<Float> scores = new ArrayList<Float>();
         for(int i = 0; i < 200; i++) {
-            scores[i] = i;
+            scores.add((float)i);
         }
         graph.setScores(scores);
         frame.setContentPane(graph);
@@ -183,9 +194,9 @@ public abstract class TestBarGraph {
         graph.setPreferredSize(new Dimension(100, 90));
         graph.setBackground(Color.BLUE);
         graph.setForeground(Color.WHITE);
-        float scores[] = new float[200];
+        ArrayList<Float> scores = new ArrayList<Float>();
         for(int i = 0; i < 200; i++) {
-            scores[i] = i;
+            scores.add((float)i);
         }
         graph.setScores(scores);
         frame.setContentPane(graph);
@@ -206,11 +217,11 @@ public abstract class TestBarGraph {
         JFrame frame = new JFrame("Test 8: 200 Random Percent Scores, Variable");
         BarGraph graph = new BarGraph();
         graph.setPreferredSize(new Dimension(100, 90));
-        float scores[] = new float[200];
         Random rand = new Random();
-        scores[0] = 0.75f;
+        ArrayList<Float> scores = new ArrayList<Float>();
+        scores.add(0.75f);
         for(int i = 1; i < 200; i++) {
-            scores[i] = rand.nextFloat()*0.75f;
+            scores.add(rand.nextFloat()*0.75f);
         }
         graph.setScores(scores);
         frame.setContentPane(graph);
@@ -231,10 +242,10 @@ public abstract class TestBarGraph {
         JFrame frame = new JFrame("Test 9: 200 Random Scores, Variable");
         BarGraph graph = new BarGraph();
         graph.setPreferredSize(new Dimension(100, 90));
-        float scores[] = new float[200];
+        ArrayList<Float> scores = new ArrayList<Float>();
         Random rand = new Random();
         for(int i = 0; i < 200; i++) {
-            scores[i] = rand.nextInt();
+            scores.add((float)rand.nextInt());
         }
         graph.setScores(scores);
         frame.setContentPane(graph);
