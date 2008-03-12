@@ -1,13 +1,14 @@
 /*
-TestBarGraph.java
-
-Team Triple Threat
-Log:
-02/24/2008 Mark Lauman Changed the comments & made all methods public
-02/16/2008 Mark Lauman Some minor formatting fixes
-02/14/2008 Mark Lauman implemented tests 6-9, ran all tests on BarGraph
-02/14/2008 Mark Lauman Sperated tests into functions, implemented tests 2-5
-02/12/2008 Mark Lauman Created main, ran test 1
+ * TestBarGraph.java
+ * 
+ * Team Triple Threat
+ * Log:
+ * 03/11/2008 Mark Lauman Added runFunctionTests() and re-ran all tests
+ * 02/24/2008 Mark Lauman Changed the comments & made all methods public
+ * 02/16/2008 Mark Lauman Some minor formatting fixes
+ * 02/14/2008 Mark Lauman implemented tests 6-9, ran all tests on BarGraph
+ * 02/14/2008 Mark Lauman Sperated tests into functions, implemented tests 2-5
+ * 02/12/2008 Mark Lauman Created main, ran test 1
 */
 
 package testers;
@@ -26,8 +27,30 @@ public abstract class TestBarGraph {
      * @param args arguments passed on command line. These are ignored.
      */
     public static void main(String[] args) {
-        JFrame test = makeTest7();
+        runFunctionTests();
+        JFrame test = makeTest9();
         test.setVisible(true);
+    }
+    
+    /**
+     * Runs some basic tests on BarGraph's functions. The functions tested are
+     * those not used in displaying or rendering the graph.
+     */
+    public static void runFunctionTests() {
+        BarGraph graph = new BarGraph();
+        float scores[] = {1f, 2f, 3f};
+        graph.setScores(scores);
+        assert graph.getMax() == 3;
+        assert graph.getAvg() == 2;
+        assert graph.getMin() == 1;
+        scores = new float[200];
+        for(int i = 0; i < 200; i++) {
+            scores[i] = i+1;
+        }
+        graph.setScores(scores);
+        assert graph.getMax() == 200;
+        assert graph.getAvg() == 100.5;
+        assert graph.getMin() == 1;
     }
     
     /**
@@ -38,9 +61,9 @@ public abstract class TestBarGraph {
      */
     public static JFrame makeTest1() {
         JFrame frame = new JFrame("Test 1: No Scores, Fixed");
-        BarGraph graph1 = new BarGraph();
-        graph1.setPreferredSize(new Dimension(100, 100));
-        frame.getContentPane().add(graph1);
+        BarGraph graph = new BarGraph();
+        graph.setPreferredSize(new Dimension(100, 100));
+        frame.getContentPane().add(graph);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.pack();
@@ -55,9 +78,9 @@ public abstract class TestBarGraph {
      */
     public static JFrame makeTest2() {
         JFrame frame = new JFrame("Test 2: No Scores, Resizable");
-        BarGraph graph1 = new BarGraph();
-        graph1.setPreferredSize(new Dimension(80, 80));
-        frame.setContentPane(graph1);
+        BarGraph graph = new BarGraph();
+        graph.setPreferredSize(new Dimension(80, 80));
+        frame.setContentPane(graph);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         return frame;
@@ -71,11 +94,11 @@ public abstract class TestBarGraph {
      */
     public static JFrame makeTest3() {
         JFrame frame = new JFrame("Test 3: 3 Scores, Fixed");
-        BarGraph graph1 = new BarGraph();
-        graph1.setPreferredSize(new Dimension(100, 90));
+        BarGraph graph = new BarGraph();
+        graph.setPreferredSize(new Dimension(100, 90));
         float scores[] = {5, 15, 22};
-        graph1.setScores(scores);
-        frame.setContentPane(graph1);
+        graph.setScores(scores);
+        frame.setContentPane(graph);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.pack();
@@ -91,14 +114,14 @@ public abstract class TestBarGraph {
      */
     public static JFrame makeTest4() {
         JFrame frame = new JFrame("Test 4: 200 Scores, Fixed");
-        BarGraph graph1 = new BarGraph();
-        graph1.setPreferredSize(new Dimension(100, 90));
+        BarGraph graph = new BarGraph();
+        graph.setPreferredSize(new Dimension(100, 90));
         float scores[] = new float[200];
         for(int i = 0; i < 200; i++) {
             scores[i] = i;
         }
-        graph1.setScores(scores);
-        frame.setContentPane(graph1);
+        graph.setScores(scores);
+        frame.setContentPane(graph);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.pack();
@@ -114,11 +137,11 @@ public abstract class TestBarGraph {
      */
     public static JFrame makeTest5() {
         JFrame frame = new JFrame("Test 5: 3 Scores, Variable");
-        BarGraph graph1 = new BarGraph();
-        graph1.setPreferredSize(new Dimension(100, 90));
+        BarGraph graph = new BarGraph();
+        graph.setPreferredSize(new Dimension(100, 90));
         float scores[] = {5, 15, 22};
-        graph1.setScores(scores);
-        frame.setContentPane(graph1);
+        graph.setScores(scores);
+        frame.setContentPane(graph);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         return frame;
@@ -134,14 +157,14 @@ public abstract class TestBarGraph {
      */
     public static JFrame makeTest6() {
         JFrame frame = new JFrame("Test 6: 200 Scores, Variable");
-        BarGraph graph1 = new BarGraph();
-        graph1.setPreferredSize(new Dimension(100, 90));
+        BarGraph graph = new BarGraph();
+        graph.setPreferredSize(new Dimension(100, 90));
         float scores[] = new float[200];
         for(int i = 0; i < 200; i++) {
             scores[i] = i;
         }
-        graph1.setScores(scores);
-        frame.setContentPane(graph1);
+        graph.setScores(scores);
+        frame.setContentPane(graph);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         return frame;
@@ -156,16 +179,16 @@ public abstract class TestBarGraph {
      */
     public static JFrame makeTest7() {
         JFrame frame = new JFrame("Test 7: 200 Scores, Variable, Coloured");
-        BarGraph graph1 = new BarGraph();
-        graph1.setPreferredSize(new Dimension(100, 90));
-        graph1.setBackground(Color.BLUE);
-        graph1.setForeground(Color.WHITE);
+        BarGraph graph = new BarGraph();
+        graph.setPreferredSize(new Dimension(100, 90));
+        graph.setBackground(Color.BLUE);
+        graph.setForeground(Color.WHITE);
         float scores[] = new float[200];
         for(int i = 0; i < 200; i++) {
             scores[i] = i;
         }
-        graph1.setScores(scores);
-        frame.setContentPane(graph1);
+        graph.setScores(scores);
+        frame.setContentPane(graph);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         return frame;
@@ -181,16 +204,16 @@ public abstract class TestBarGraph {
      */
     public static JFrame makeTest8() {
         JFrame frame = new JFrame("Test 8: 200 Random Percent Scores, Variable");
-        BarGraph graph1 = new BarGraph();
-        graph1.setPreferredSize(new Dimension(100, 90));
+        BarGraph graph = new BarGraph();
+        graph.setPreferredSize(new Dimension(100, 90));
         float scores[] = new float[200];
         Random rand = new Random();
         scores[0] = 0.75f;
         for(int i = 1; i < 200; i++) {
             scores[i] = rand.nextFloat()*0.75f;
         }
-        graph1.setScores(scores);
-        frame.setContentPane(graph1);
+        graph.setScores(scores);
+        frame.setContentPane(graph);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         return frame;
@@ -206,15 +229,15 @@ public abstract class TestBarGraph {
      */
     public static JFrame makeTest9() {
         JFrame frame = new JFrame("Test 9: 200 Random Scores, Variable");
-        BarGraph graph1 = new BarGraph();
-        graph1.setPreferredSize(new Dimension(100, 90));
+        BarGraph graph = new BarGraph();
+        graph.setPreferredSize(new Dimension(100, 90));
         float scores[] = new float[200];
         Random rand = new Random();
         for(int i = 0; i < 200; i++) {
             scores[i] = rand.nextInt();
         }
-        graph1.setScores(scores);
-        frame.setContentPane(graph1);
+        graph.setScores(scores);
+        frame.setContentPane(graph);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         return frame;

@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/11/2008 Mark Lauman Made the get statistics functions
  * 02/23/2008 Mark Lauman Changed the comments so they fit our standard
  * 02/15/2008 Mark Lauman Rewrote rendering functions - beta v1
  * 02/14/2008 Mark Lauman Worked on the render and makeBars function
@@ -45,9 +46,15 @@ public class BarGraph extends JPanel {
     private ArrayList<Float> scores;
     /** Contains the graph as an image */
     private BufferedImage disp;
-    /* The maximum value for the graph */
+    /** The top value for the graph display */
+    private float top;
+    /** The bottom value for the graph */
+    private float bottom;
+    /** The maximum value in the graph */
     private float max;
-    /** the minimum value for the graph */
+    /** The average value in the graph */
+    private float avg;
+    /** The minimum value in the graph */
     private float min;
 
     /**
@@ -172,7 +179,7 @@ public class BarGraph extends JPanel {
         //First divide the graph up
         int yRange = this.getHeight() - 32;
             //The size of the range of acceptable Y values
-        int posRange = Math.round((max / (max - min)) * yRange);
+        int posRange = Math.round((top / (top - bottom)) * yRange);
             //The size of the range of positive values
         int negRange = yRange - posRange;
             //The size of the range of negative values
@@ -183,12 +190,12 @@ public class BarGraph extends JPanel {
             // +/- Distinction
             if(0 > data.get(i)) {
                 //negative value
-                height = Math.round(data.get(i) / min * negRange);
+                height = Math.round(data.get(i) / bottom * negRange);
                 y = posRange + 16;
             }
             else {
                 //positive value
-                height = Math.round(data.get(i) / max * posRange);
+                height = Math.round(data.get(i) / top * posRange);
                 y = posRange + 16 - height;
             }
             
@@ -219,6 +226,33 @@ public class BarGraph extends JPanel {
 //        }
         
         return result;
+    }
+    
+    /**
+     * Returns the average value of the scores inside the graph. This value is
+     * already pre-calculated, so the function is very fast
+     * @return A float representing the average value of the scores
+     */
+    public float getAvg() {
+        return avg;
+    }
+    
+    /**
+     * Returns the maximum value of the scores inside the graph. This value is
+     * already pre-calculated, so the function is very fast
+     * @return A float representing the maximum value of the scores
+     */
+    public float getMax() {
+        return max;
+    }
+    
+    /**
+     * Returns the minimum value of the scores inside the graph. This value is
+     * already pre-calculated, so the function is very fast
+     * @return A float representing the minimum value of the scores
+     */
+    public float getMin() {
+        return min;
     }
     
     /**
@@ -297,6 +331,7 @@ public class BarGraph extends JPanel {
         //make it so these will definitely be overwritten
         max = Float.MIN_VALUE;
         min = Float.MAX_VALUE;
+        avg = 0;
         scores.clear();
         
         for(int i = 0; i < values.length; i++) {
@@ -308,15 +343,20 @@ public class BarGraph extends JPanel {
                 max = values[i];
             if(values[i] < min)
                 min = values[i];
+            avg += values[i];
         }
         
-        if(min >= 0){
+        top = max;
+        avg = avg/values.length;
+        bottom = min;
+        
+        if(bottom >= 0){
             //if the minimum is above 0, make it 0!
-            min = 0;
-            if(1 >= max) {
+            bottom = 0;
+            if(1 >= top) {
                 //if the max is 1 or less, the values are percents.
                 //To graph them appropriately, make 1 the max
-                max = 1;
+                top = 1;
             }
         }
         //redraw display
