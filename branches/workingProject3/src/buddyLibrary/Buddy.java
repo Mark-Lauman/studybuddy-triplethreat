@@ -65,39 +65,87 @@ public class Buddy extends JPanel {
      * Get all abjects stored in this buddy's binary data file and return them
      * as an ArrayList
      * 
-     * @param  buddyName The name of this buddy for file access
      * @return An ArrayList containing the objects stored in this buddy's binary
      *         data file. These objects are of type Object, and must be cast to
-     *         their correct types by the calling buddy.<br />
-     *         If the file is empty or does not exist then this function returns
-     *         an empty ArrayList.
+     *         their correct types by the calling buddy. If the file is empty or
+     *         does not exist then this function returns an empty ArrayList.
      */
-    public ArrayList<Object> getDataContent(String buddyName) {
-        return null;
+    public ArrayList<Object> getDataContent() {
+        ObjectInputStream o = getDataReader();
+        ArrayList<Object> result = new ArrayList<Object>();
+        if(o != null) {
+            try {
+                do {
+                    result.add(o.readObject());
+                } while(true);
+            } catch(Exception e) {
+                //do nothing - the ArrayList is finished
+            }
+            try {
+                o.close();
+            } catch(Exception e) {
+                //Do nothing. If it doesn't need closing then we're done
+            } 
+        }
+        return result;
+    }
+    
+    /**
+     * Get a File reference to the binary data file for this buddy.
+     * @return A File that points to this buddy's binary data file
+     */
+    public File getDataFile() {
+        //first we get the buddy's name
+        String temp[] = this.getClass().getName().replace(".", " ").split(" ");
+            //replace(".", " ") is needed because to split, "." means split on
+            //every character - which returns an empty array
+        String buddyName = temp[temp.length - 1];
+            //the last element in the array is the classname without any
+            //package extensions
+        
+        String filename = System.getProperty("user.dir");
+        filename += "\\Data\\" + getUser() + "\\";
+        filename += buddyName + ".dat";
+        
+        return new File(filename);
     }
     
     /**
      * Get an ObjectInputStream that points to this buddy's binary data file.
      * This allows for more control over reading than getDataContent()
-     * 
-     * @param buddyName The name of this buddy for file access
      * @return An ObjectInputStream that points to this buddy's binary data file.
      *         If  file does not exist then it returns null
      */
-    public ObjectInputStream getDataReader(String buddyName) {
-        return null;
+    public ObjectInputStream getDataReader() {
+        ObjectInputStream objStream;
+        try {
+            FileInputStream inStream = new FileInputStream(getDataFile());
+            objStream = new ObjectInputStream(inStream);
+        } catch(IOException e) {
+            objStream = null;
+        }
+        return objStream;
     }
     
     /**
      * Get an ObjectOutputStream that points to this buddy's binary data file.
-     * This allows the buddy to write to the binary file.
-     * 
-     * @param buddyName The name of this buddy for file access
+     * This allows the buddy to write to the binary file
      * @return An ObjectOutputStream that points to this buddy's binary data
-     *         file. If  file does not exist then it creates it
+     *         file. The file is created if it does not exist already. If the
+     *         file cannot be created for some reason, then this function
+     *         returns null.
      */
-    public ObjectOutputStream getDataWriter(String buddyName) {
-        return null;
+    public ObjectOutputStream getDataWriter() {
+        ObjectOutputStream objStream;
+        try {
+            File f = getDataFile();
+            f.getParentFile().mkdirs();
+            FileOutputStream outStream = new FileOutputStream(f);
+            objStream = new ObjectOutputStream(outStream);
+        } catch(IOException e) {
+            objStream = null;
+        }
+        return objStream;
     }
     
  /**
