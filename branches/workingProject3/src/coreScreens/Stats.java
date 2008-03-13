@@ -4,6 +4,8 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/13/2008 Vic Kao modified the codes for adapting the new file accessing system
+ * 03/13/2008 Vic Kao modified the codes so that the time is displayed
  * 02/25/2008 Vic Kao added the border and revised some comments
  * 02/23/2008 Vic Kao completed the class
  * 02/11/2008 Mark Lauman Created Template
@@ -14,8 +16,11 @@ import buddyLibrary.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import javax.swing.*;
 import java.util.HashMap;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 
@@ -54,57 +59,91 @@ public class Stats extends Buddy implements ActionListener {
     /** the height of the score JPanel */
     public final int rightHeight = (int) (StatsHeight / 4.5);
     /** the place where stores the buddies's stats, which are stored in text file */
-    public final String buddyDirText = "./Data";
+    public String buddyDirText = "./Data";
 
     /**
      * Handles the event of a JLabel on the list when clicked
      */
     private void buddyLabelSelected(MouseEvent arg0) {
+
         //get the file name of the buddy but the event source, get teh file name of the buddy
         String buddySelected = exportmap.get(arg0.getSource());
 
         //create a buddy , and call it's getStatis function with file name
         Buddy tempBuddy = new Buddy();
 
-        //diplay the statistic
-        float[] tempScore = tempBuddy.getStatistics(buddySelected);
+         try {
+             //create read to read the statistics file
+         
+            BufferedReader read = new BufferedReader(new FileReader(new File(buddySelected)));
 
-        //set the scores of the graph
-        graph.setScores(tempScore);
-        //tell the graph to update itself, by calling its repaint function
-        graph.repaint();
+            //get the first line as statics type
+            String statType = read.readLine() ;
+            
+            //diplay the statistic
+            float[] tempScore = tempBuddy.getStatistics(read);
 
-        //for loop to find the maximun, minimun, and average score
-        float min = tempScore[0];
-        float max = tempScore[0];
-        float total = 0;
-        float avg;
+            read.close();
+            
+            ArrayList<Float> tempFloat= new ArrayList<Float>();
+            
+            for(float f: tempScore)
+                tempFloat.add(f);
+            
+            //set the scores of the graph
+            graph.setScores(tempFloat);
+            //tell the graph to update itself, by calling its repaint function
+            graph.repaint();
 
-        for (int i = 0; i < tempScore.length; i++) {
-            if (tempScore[i] < min) {
-                min = tempScore[i];
+            
+            //for loop to find the maximun, minimun, and average score
+            float min = tempScore[0];
+            float max = tempScore[0];
+            float total = 0;
+            float avg;
+
+            for (int i = 0; i < tempScore.length; i++) {
+                if (tempScore[i] < min) {
+                    min = tempScore[i];
+                }
+                if (tempScore[i] > max) {
+                    max = tempScore[i];
+                }
+                total = tempScore[i] + total;
             }
-            if (tempScore[i] > max) {
-                max = tempScore[i];
+
+            avg = total / tempScore.length;
+            if( statType.equals(Buddy.SCORE_STATS)) {
+                //displays the score information with its integer part
+                highScore.setText("Highest Score: " + (int) max);
+                minScore.setText("Lowest Score: " + (int) min);
+                avgScore.setText("Average Score: " + (int) avg);
+            }else
+            if( statType.equals(Buddy.TIME_STATS)) {
+                //displays the score information with its integer part
+                highScore.setText("Slowest Time: " + (int) (max/60) + " min" + ((int)(max))%60 + " sec");
+                minScore.setText("Quickest Time: " + (int) (min/60) + " min" + ((int)(min))%60 + " sec");
+                avgScore.setText("Average Time: " + (int) (avg/60) + " min" + ((int)(avg))%60 + " sec");
             }
-            total = tempScore[i] + total;
+        
+            
+            } catch (Exception ex) {
+            System.out.println(ex);
+            }
+         
         }
-
-        avg = total / tempScore.length;
-
-        //displays the score information with its integer part
-        highScore.setText("Highest Score: " + (int) max);
-        minScore.setText("Lowest Score: " + (int) min);
-        avgScore.setText("Average Score: " + (int) avg);
-    }
+        
 
     /**
      * Constructs a <code>Stats</code> window, and displays the name of each buddy,
      * It will load the statistic of the selected buddy and display as a bar graph,
      * and the statistic of the user will be shown as well.
      */
-    public Stats() {
+    public Stats(String userName) {
         super();
+        
+        buddyDirText = buddyDirText + "/" + userName;
+
         //set the layout type to GridLayout
         setLayout(new GridLayout(1, 2, 10, 10));
         setBorder(BorderFactory.createTitledBorder("Statistics"));
