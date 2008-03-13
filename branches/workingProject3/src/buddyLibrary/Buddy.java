@@ -5,6 +5,8 @@ package buddyLibrary;
  * Brief File Description
  * Team Triple Threat
  * Log:
+ * 03/13/2008 Vic Kao added the data type for statistics and some functions for
+ * the new file accessing system
  * 03/10/2008 Mark Lauman Created templates for binary data functions
  * 02/22/2008 Mark Lauman Moved elements
  * 02/14/2008 Allan Lei   Total revision, implementation of all methods 
@@ -23,19 +25,24 @@ import sun.audio.AudioStream;
 
 public class Buddy extends JPanel {
     public Core frame;
-
+    
+    //the following is added by Vic
+    public static final String SCORE_STATS = "0";
+    public static final String TIME_STATS = "1";
+    public String statType;
+    
     public Buddy() {
         setLayout(null);
     }
     
- /**
- *  Create an audioplayer with a Audiostream at a specific location
- *
- * @param filename File location of the .wav file to be stored
- * @param x X coordinate where the audioplayer will be located
- * @param y Y coordinate where the audioplayer will be located
- * @return Creates a audiplayer with the specified AudioStream and moved to specified location
- */
+     /**
+     *  Create an audioplayer with a Audiostream at a specific location
+     *
+     * @param filename File location of the .wav file to be stored
+     * @param x X coordinate where the audioplayer will be located
+     * @param y Y coordinate where the audioplayer will be located
+     * @return Creates a audiplayer with the specified AudioStream and moved to specified location
+     */
     public void addAudioPlayer(String filename, int x, int y) {
         try{
         SoundPlayer player = new SoundPlayer(filename);
@@ -46,19 +53,39 @@ public class Buddy extends JPanel {
             ex.printStackTrace();
         }
     }
- /**
- *  Create an audioplayer with a Audiostream at a specific location
- *
- * @param filename File location of a AudioClip to be stored
- * @param x X coordinate where the audioplayer will be located
- * @param y Y coordinate where the audioplayer will be located
- * @return   Creates a audiplayer with the specified AudioClip and moved to specified location
- */
+     /**
+     *  Create an audioplayer with a Audiostream at a specific location
+     *
+     * @param filename File location of a AudioClip to be stored
+     * @param x X coordinate where the audioplayer will be located
+     * @param y Y coordinate where the audioplayer will be located
+     * @return   Creates a audiplayer with the specified AudioClip and moved to specified location
+     */
     public void addAudioPlayer(AudioClip ac, int x, int y) {
         SoundPlayer player = new SoundPlayer(ac);
         add(player);
         setPosition(player, x, y);
         validate();
+    }
+    
+    /**
+     * Clear the statistics data
+     */    
+    public void clearStats(){
+        //get the file
+        File temp = getDataFile();
+//not sure which for clearing stats.....Vic (delete the file or just clear the data inside the file?)        
+        //if it is deleted
+        temp.delete();
+        //if empty the file
+        try{
+            //create a printWriter with the file to empty the file
+            PrintWriter pw = new PrintWriter(temp);
+            //close the printWriter
+            pw.close();
+        }catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
     
     /**
@@ -147,13 +174,51 @@ public class Buddy extends JPanel {
         }
         return objStream;
     }
+
     
- /**
- *  Retrieve the statistics for a certain buddy
- *
- * @param  buddyName  Name of the study buddy to get the scores from
- * @return  stats Returns the values of the specified study buddy in a float array
- */
+     /**
+     * Retrieve the statistics for a certain buddy
+     *
+     * @return  stats Returns the values of the specified study buddy in a Float object array
+     */
+    public ArrayList<Float> getStats(){
+        
+       float[] tempFloat=null;
+       
+       try {
+           BufferedReader bf = new BufferedReader(new FileReader(getDataFile()));
+           statType = bf.readLine();    //get the statType first
+           //get the statistics with the path, and then return the statistics in float[]
+           tempFloat = getStatistics(bf);
+       } catch (Exception ex) {
+            System.out.println(ex);
+       }
+       
+       //create an arraylist with the float[]
+       //and add them to ArrayList as objects
+       ArrayList<Float> arrayFloat = new ArrayList<Float>();
+       for(int i = 0; i <  tempFloat.length; i++){
+           arrayFloat.add(tempFloat[i]);
+       }
+
+       return arrayFloat;        
+    }
+    
+    /**
+     * Return the statistics type of the data file
+     * 
+     * @return It returns the statistics type, Score or Time, as String
+     */
+    public String getStatType(){
+        return statType;
+    }
+
+     /**
+     *  Retrieve the statistics for a certain buddy
+     *
+     * @param  buddyName  Name of the study buddy to get the scores from
+     * @return  stats Returns the values of the specified study buddy in a float array
+     */
     public float[] getStatistics(String buddyName) {
         float[] stats = null;
         ArrayList<Float> temp = new ArrayList<Float>();
@@ -176,12 +241,12 @@ public class Buddy extends JPanel {
         return stats;
     }
     
- /**
- *  Retrieve the statistics for a certain buddy
- *
- * @param br Buffered reader that contains an data stream to be read from
- * @return stats Returns the values of the specified Buffered Reader in a float array
- */ 
+     /**
+     *  Retrieve the statistics for a certain buddy
+     *
+     * @param br Buffered reader that contains an data stream to be read from
+     * @return stats Returns the values of the specified Buffered Reader in a float array
+     */ 
     public float[] getStatistics(BufferedReader br) {
         float[] stats = null;
         ArrayList<Float> temp = new ArrayList<Float>();
@@ -204,25 +269,24 @@ public class Buddy extends JPanel {
         return stats;
     }
 
- /**
- *  Retrieve the user name from Core parent
- *
- * @return   Retrieves the username from the reference frame (Core)
- */ 
+     /**
+     *  Retrieve the user name from Core parent
+     *
+     * @return   Retrieves the username from the reference frame (Core)
+     */ 
     public String getUser() {
         System.out.println(frame.getUser());
         return frame.getUser();
-       
     }
     
- /**
- *  Loads and displays an image from a file location and specify the location
- *
- * @param filename File location of an image file
- * @param x X coordinate for the image to be placed at
- * @param y Y coordinate for the image to be placed at
- * @return   Places the accessed image at the specified location
- */ 
+     /**
+     *  Loads and displays an image from a file location and specify the location
+     *
+     * @param filename File location of an image file
+     * @param x X coordinate for the image to be placed at
+     * @param y Y coordinate for the image to be placed at
+     * @return   Places the accessed image at the specified location
+     */ 
     public void loadImage(String filename, int x, int y) {
         ImageIcon image = new ImageIcon(filename);
         JLabel pic = new JLabel(image);
@@ -231,14 +295,14 @@ public class Buddy extends JPanel {
         validate();
     }
     
- /**
- *  Loads and displays an image from a file location and specify the location
- *
- * @param i Image stream to be read from
- * @param x X coordinate for the image to be placed at
- * @param y Y coordinate for the image to be placed at
- * @return   Places the accessed image at the specified location
- */ 
+     /**
+     *  Loads and displays an image from a file location and specify the location
+     *
+     * @param i Image stream to be read from
+     * @param x X coordinate for the image to be placed at
+     * @param y Y coordinate for the image to be placed at
+     * @return   Places the accessed image at the specified location
+     */ 
     public void loadImage(Image i, int x, int y) {
         ImageIcon image = new ImageIcon(i);
         JLabel pic = new JLabel(image);
@@ -247,12 +311,12 @@ public class Buddy extends JPanel {
         validate();
     }
 
- /**
- *  Load a sound file from a specific location
- *
- * @param filename - File location of a .wav file
- * @return player Returns a object that has the .wav file stored inside
- */ 
+     /**
+     *  Load a sound file from a specific location
+     *
+     * @param filename - File location of a .wav file
+     * @return player Returns a object that has the .wav file stored inside
+     */ 
     public SoundPlayer loadSound(String filename) {
         try{
         SoundPlayer player = new SoundPlayer(filename);
@@ -263,37 +327,108 @@ public class Buddy extends JPanel {
         }
     }
     
- /**
- *  Sets the position of any component 
- *
- * @param c The Component to be moved
- * @param x X coordinate that the component will be moved to
- * @param y Y coordinate that the component will be moved to
- * @return Set the position of the component
- */ 
+     /**
+     *  Sets the position of any component 
+     *
+     * @param c The Component to be moved
+     * @param x X coordinate that the component will be moved to
+     * @param y Y coordinate that the component will be moved to
+     * @return Set the position of the component
+     */ 
     public void setPosition(Component c, int x, int y) {
         Insets insets = getInsets();
         c.setBounds(x + insets.left, y + insets.top, c.getPreferredSize().width, c.getPreferredSize().height);
         validate();
     }
     
- /**
- *  Sets the parent to f
- *
- * @param f A Core object
- * @return   saves the reference to the Core object
- */ 
+     /**
+     *  Sets the parent to f
+     *
+     * @param f A Core object
+     * @return   saves the reference to the Core object
+     */ 
     public void setReference(Core f) {
         frame = f;
     }
     
- /**
- *  Sets the title on the parent Core window
- *
- * @param title Name that the Core object's title will be changed to
- * @return   Sets the new title in Core object
- */ 
+     /**
+     *  Sets the title on the parent Core window
+     *
+     * @param title Name that the Core object's title will be changed to
+     * @return   Sets the new title in Core object
+     */ 
     public void setTitle(String title) {
         frame.setTitle(title);
     }
+    
+    /**
+     * Sets the statistics type to the given type, Score or Time
+     * 
+     * @param flag
+     */
+    public void setStatType(String flag) {
+        statType = flag;
+    }
+    
+    
+    /**
+     * This function is referenced from http://www.javareference.com/jrexamples/viewexample.jsp?id=5
+     * 
+     * @param The float numbers to be added to the end of the data file
+     */
+    public void writeStats(float... stats){
+
+        File f = getDataFile();
+        try{            
+            //set a flag to check if the file exists
+            boolean isFileExists = f.exists();
+            
+            long fileLength = f.length();
+            RandomAccessFile raf = new RandomAccessFile(f, "rw");            
+            raf.seek(fileLength);
+            
+            //if file does not exist
+            if (!isFileExists)
+                //write the flag to the file
+                raf.writeChars(statType);            
+           
+            //write the float[] to the file
+            for(float t:stats)
+                raf.writeFloat(t);
+            
+            raf.close();         
+      
+            }catch (Exception ex) {
+                System.out.println(ex);
+            }
+    }
+
+    //testing purpose    
+//    public static void main(String args []){
+//         File f = new File("tttt.txt");
+//        try{
+//            
+//            boolean isFileExists = f.exists();
+//            
+//            long fileLength = f.length();
+//            RandomAccessFile raf = new RandomAccessFile(f, "rw");
+//            
+//            raf.seek(fileLength);
+//            
+//            //if file not exits
+//            if (!isFileExists)
+//                //write the flag to the file
+//                raf.writeChars("aaa");
+//            
+//           
+//           
+//           
+//                raf.writeFloat(9f);
+//             raf.writeFloat(9f);
+//            raf.close();         
+//      
+//        } catch (Exception ex) {
+//            System.out.println(ex);
+//        }
+//    }
 }
