@@ -138,7 +138,7 @@ public class Core extends JFrame implements ActionListener {
         } else if (e.getActionCommand().equals("Statistics")) {
             uc.setVisible(false);
             content.remove(uc);
-            stats = new Stats();
+            stats = new Stats(getUser());
             stats.setReference(this);
             content.add(stats, BorderLayout.CENTER);
             back.setActionCommand("BackToUCFromStats");
