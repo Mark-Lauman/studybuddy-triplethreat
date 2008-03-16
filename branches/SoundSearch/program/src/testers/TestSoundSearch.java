@@ -3,13 +3,15 @@
  * 
  * Team Triple Threat
  * Log:
- * 03/15/2008 Mark Lauman Created class
+ * 03/15/2008 Mark Lauman Created + implemented class
  */
 
 package testers;
 
 import Buddies.SoundSearch;
+import java.awt.Dimension;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 
 /**
  *
@@ -20,6 +22,7 @@ public class TestSoundSearch {
         System.out.println(runGetLevelTest());
         System.out.println();
         System.out.println(runGetWordListTest());
+        runTest1().setVisible(true);
     }
     
     public static String runGetLevelTest() {
@@ -31,6 +34,16 @@ public class TestSoundSearch {
                 result += "\t" + lst.get(a).get(b) + "\n";
             }
         }
+        return result;
+    }
+    
+    public static JFrame runTest1() {
+        JFrame result = new JFrame();
+        SoundSearch s = new SoundSearch();
+        result.setPreferredSize(new Dimension(800, 600));
+        result.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        result.getContentPane().add(s);
+        result.pack();
         return result;
     }
     
