@@ -59,6 +59,7 @@ public class SelectionMenu extends JPanel implements ActionListener{
  */
     public void addChoice(String choice) {
         list.addElement(choice);
+        jl.setSelectedIndex(list.size()-1);
         invalidate();
         validate();
     }
