@@ -3,6 +3,7 @@ SelectionMenu.java
 It is a structure for each selection menu.
 Team Triple Threat
 Log:
+03/16/2008 Allan Lei Autoselect
 02/21/2008 Mark Lauman Location transfer
 02/16/2008 Allan Lei Implementation of methods
  */
