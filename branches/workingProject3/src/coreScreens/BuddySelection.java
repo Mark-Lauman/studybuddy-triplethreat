@@ -40,9 +40,8 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
     /** the main button - Start */
     public final String startuddytext = "Start";
     /** the directory to store user's data */
-    /** the directory to store user's data */
     public final String buddydir = "./Buddies";
-    //public final String buddydir = "./build/classes/Buddies";
+
     /**
      * Constructs a <code>BuddySelection</code> menu with specified width 
      * and height and creates a directory of the buddy's name to store data.

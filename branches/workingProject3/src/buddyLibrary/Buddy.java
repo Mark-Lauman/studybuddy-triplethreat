@@ -5,6 +5,7 @@ package buddyLibrary;
  * Brief File Description
  * Team Triple Threat
  * Log:
+ * 03/18/2008 Vic Kao modified the method for reading stats files
  * 03/13/2008 Vic Kao added the data type for statistics and some functions for
  * the new file accessing system
  * 03/10/2008 Mark Lauman Created templates for binary data functions
