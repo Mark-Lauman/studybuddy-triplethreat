@@ -3,9 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
- * 02/28/2008 Allan Lei added file checking to add buddy
- * 02/22/2008 Vic Kao complete deleteBuddy and exportBuddy
- * 02/21/2008 Vic Kao complete addBuddy  
+ * 03/16/2008 Vic Kao implemented the structure
  */
 
 package Buddies;
@@ -30,7 +28,6 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     private JButton[] choiceButtons= new JButton[3];
     private JButton AnswerButton;
     
-    //private JLabel[] choiceLabels = new JLabel[3];
     
     private JButton nextButton;
     private JLabel correctOrWrongLable;
@@ -39,21 +36,31 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     private ArrayList<String> QuestionNames;
     
     private int playgameIndex;
+    
+    String introText = "Welcome to this fun MATH world!";
+    int startButtonWidth = 150;
+    int startButtonHeight = 80;
+    
+    
     public MathFunBuddy (){
         createStartPanel();
-        add(startPanel);
-                
-         createQuestionPanel();
+        add(startPanel);                
+        
+        createQuestionPanel();
     }
     
-    private void startButtoClicked()
+    /**
+     * Handles the event of a JButtom "START" when clicked
+     */
+    private void startButtonClicked()
     {
         //remove the startpanel 
         remove(startPanel);
-        
+        //and then add the questionPanel
         add(questionPanel);
         
         this.repaint();
+        validate();
         
         //startGame();
     }
@@ -105,52 +112,47 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     //create the start panel
     private void createStartPanel()
     {
-        //start panel points to a panel
+        //create the startPanel
         startPanel = new JPanel();
-        
-     
-        //sert the layout as gridbag layout, with 2 row, 1 column
+       
+        //set the layout to BorderLayout
         startPanel.setLayout(new BorderLayout());
         
-        //make a upper panel for the start panel
+        //make the startPanel into two parts: upper and buttom panels
+        //make the upper panel for introduction
         JPanel upperPanel = new JPanel();
-        //make a buttom panel for the start panel
+        //make the buttom panel for displaying "START" buttom
         JPanel buttomPanel = new JPanel();
         
+                
+        //create a JLabel, and set the introduction text to the label
+        JLabel introJL = new JLabel(introText);
         
-        
-        //create a jlabel
-        JLabel jb = new JLabel(introText);
-        //set the introduction text to the label
         //add the label to the upper panel
-        upperPanel.add(jb);
-        upperPanel.setBackground(Color.blue);
+        upperPanel.add(introJL);
+upperPanel.setBackground(Color.blue);
         
         
-        //create a button "start"
+        //create then button "START"
         startButton = new JButton("Start");
-        //set the event listenter to this class
+        //set the event listenter to this 
         startButton.addActionListener(this);
         
         //set the preferred size of the button
         startButton.setPreferredSize((new Dimension(startButtonWidth, startButtonHeight)));
-        //add the button to the bottom panel of the start panel
+        //add the button to the buttom panel of the start panel
         buttomPanel.add(startButton);
         buttomPanel.setPreferredSize(new Dimension(100, 100));
         
-        
+        //add the upperPanel and buttomPanel
         startPanel.add(upperPanel,BorderLayout.CENTER);
         startPanel.add(buttomPanel, BorderLayout.SOUTH);
         
-        startPanel.setSize(700, 700);
         
-        
-        
+        startPanel.setSize(700, 500);
+
     }
     
-    String introText = "intro";
-    int startButtonWidth = 150;
-    int startButtonHeight = 150;
     
     private void createQuestionPanel()
     {   questionPanel=new JPanel();//points to a new JPanel
@@ -254,7 +256,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
       {
           //if the startbutton clicked
           if(e.getSource() == startButton)
-            startButtoClicked();
+            startButtonClicked();
           
       }
       
