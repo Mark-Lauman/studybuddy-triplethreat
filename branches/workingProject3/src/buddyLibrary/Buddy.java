@@ -384,20 +384,18 @@ public class Buddy extends JPanel {
             //set a flag to check if the file exists
             boolean isFileExists = f.exists();
             
-            long fileLength = f.length();
-            RandomAccessFile raf = new RandomAccessFile(f, "rw");            
-            raf.seek(fileLength);
-            
+            PrintWriter pw=new PrintWriter(
+	                  new FileWriter(f,true));
             //if file does not exist
             if (!isFileExists)
                 //write the flag to the file
-                raf.writeChars(statType);            
+                pw.println(statType);            
            
             //write the float[] to the file
             for(float t:stats)
-                raf.writeFloat(t);
+                pw.println(t);
             
-            raf.close();         
+            pw.close();         
       
             }catch (Exception ex) {
                 System.out.println(ex);
@@ -405,31 +403,29 @@ public class Buddy extends JPanel {
     }
 
     //testing purpose    
-//    public static void main(String args []){
-//         File f = new File("tttt.txt");
-//        try{
-//            
-//            boolean isFileExists = f.exists();
-//            
-//            long fileLength = f.length();
-//            RandomAccessFile raf = new RandomAccessFile(f, "rw");
-//            
-//            raf.seek(fileLength);
-//            
-//            //if file not exits
-//            if (!isFileExists)
-//                //write the flag to the file
-//                raf.writeChars("aaa");
-//            
-//           
-//           
-//           
-//                raf.writeFloat(9f);
-//             raf.writeFloat(9f);
-//            raf.close();         
-//      
-//        } catch (Exception ex) {
-//            System.out.println(ex);
-//        }
-//    }
+    public static void main(String args []){
+         File f = new File("tttt.txt");
+         
+        try{            
+            //set a flag to check if the file exists
+            boolean isFileExists = f.exists();
+            
+            PrintWriter pw=new PrintWriter(
+	                  new FileWriter(f,true));
+            //if file does not exist
+            if (!isFileExists)
+                //write the flag to the file
+                pw.println("TIME");            
+           
+            //write the float[] to the file
+          
+                pw.println(90);
+                pw.println(99);
+            
+            pw.close();         
+      
+            }catch (Exception ex) {
+                System.out.println(ex);
+            }
+    }
 }
