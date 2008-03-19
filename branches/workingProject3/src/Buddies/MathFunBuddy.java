@@ -56,9 +56,9 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     /** the width for questionText */
     int questionTextHight = 50;
     /** the counter used to record number of questions conseuctively answered correctly */
-    int conseuctiveCorrectCounter = 0;
+    int conseuctiveCorrectCounter;
     /** the counter used to record number of questions conseuctively answered incorrectly */
-    int conseuctiveIncorrectCounter = 0;
+    int conseuctiveIncorrectCounter;
    
     /** the JButtons - "Next" to go to the next question */
     private JButton nextButton;
@@ -73,7 +73,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     /** set the easy level */
     private final int easyLvl = 1;
     /** the ArrayList to store the questions that are not played yet */
-    private ArrayList<Integer> notPlayedYet = new ArrayList<Integer>();
+    private ArrayList<Integer> notPlayedYet;
     /** the variable to what the current question is */
     private int currentQuestion;//record the # of the question of the game
     
@@ -98,6 +98,8 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     {
         //remove the startpanel 
         remove(startPanel);
+        if(lastScreenPanel!=null)
+            remove(lastScreenPanel);
         //and then add the questionPanel
         add(questionPanel);
         
@@ -113,11 +115,17 @@ public class MathFunBuddy extends Buddy implements ActionListener {
      */
     private void startGame()
     {
+        conseuctiveCorrectCounter = 0;
+        conseuctiveIncorrectCounter = 0;
+        notPlayedYet = new ArrayList<Integer>();
+        
         //set currentQuestion to 0
         currentQuestion = 0;
         //set nextButton and correctOrWrongLabel to false
         nextButton.setVisible(false);
         correctOrWrongLabel.setVisible(false);
+        
+        
         try{
             //create an instance of String for QuestionNames 
             questionNames = new ArrayList<String>();
@@ -146,7 +154,8 @@ public class MathFunBuddy extends Buddy implements ActionListener {
             for(int i = 0; i < questionNames.size(); i++){
                 notPlayedYet.add(i);
             }          
-            
+            for(int i=0;i<3;++i)
+            choiceButtons[i].setEnabled(true); 
             //play the game
             playGame(questionIndex);
             }catch (Exception e){
@@ -364,7 +373,7 @@ lowerPanel.setBackground(Color.orange);
         String msgCorrect = "Excellent! You have gained 10 points! :)";
         correctOrWrongLabel.setText(msgCorrect);
         //update the score by 10 points
-        scoreGained =+10;
+        scoreGained = scoreGained + 10;
         score.setText("Score: " + scoreGained);
         //increment the conseuctiveCorrectCounter
         conseuctiveCorrectCounter++;
@@ -386,12 +395,68 @@ lowerPanel.setBackground(Color.orange);
         conseuctiveCorrectCounter = 0;
     }
 
-      
+      JPanel lastScreenPanel=null;
+      JButton playAgainButton;
+      JButton quitButton; 
       /**
        * This function handles when the user finishes playing the buddy
        */
       public void finishPlayingBuddy()
       {
+         
+          
+          //recored the scores
+          //set the stat type
+          setStatType(Buddy.SCORE_STATS);
+
+          //writhe the scoreGained to the file
+
+          writeStats(scoreGained);
+         
+ 
+          
+          lastScreenPanel = new JPanel();
+          lastScreenPanel.setLayout(new BoxLayout(lastScreenPanel, BoxLayout.Y_AXIS));
+          
+          lastScreenPanel.add(Box.createVerticalGlue());
+          
+          Font font = new Font("Arial", Font.PLAIN, 52);
+          JLabel thankUmsgLabel = new JLabel();
+          
+          thankUmsgLabel.setFont(font);
+          String thankUmsg = "Thank you for playing!";
+          thankUmsgLabel.setText(thankUmsg);
+          thankUmsgLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+          lastScreenPanel.add(thankUmsgLabel);
+          
+          JLabel scoreLabel = new JLabel("Your total socre is: " + scoreGained);
+          scoreLabel.setFont(font);
+          scoreLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+          lastScreenPanel.add(scoreLabel);
+          
+          
+          JPanel tempPanel = new JPanel();
+          playAgainButton = new JButton("Click here to play again!");
+          quitButton = new JButton("Quit");
+          
+          JLabel temp = new JLabel("                                 ");
+          
+          tempPanel.setLayout(new FlowLayout());          
+          tempPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+          tempPanel.add(playAgainButton);
+          playAgainButton.addActionListener(this);
+          tempPanel.add(temp);
+          
+          tempPanel.add(quitButton);
+          quitButton.addActionListener(this);
+          lastScreenPanel.add(tempPanel);
+          
+          
+          remove(questionPanel);
+          add(lastScreenPanel);
+          
+          validate();
+          
           
       }
       
@@ -465,9 +530,7 @@ lowerPanel.setBackground(Color.orange);
               for(int i = 0; i < choiceButtons.length; i++)
                   choiceButtons[i].setEnabled(false);
               
-              //if the user have played 10 questioins, end the program
-              if (currentQuestion == 10)
-                finishPlayingBuddy();
+              
               
               //set correctOrWrongLabel and nextButton to visible
               correctOrWrongLabel.setVisible(true);
@@ -475,7 +538,17 @@ lowerPanel.setBackground(Color.orange);
           }
           //the user clicks the "Next" button
           if(e.getSource() == nextButton)
-              nextButtonClicked();
+          {
+              //if the user have played 10 questioins, end the program
+              if (currentQuestion == 3)
+                finishPlayingBuddy();
+              else
+                nextButtonClicked();
+          }
+          if(e.getSource() == playAgainButton)
+              startButtonClicked();
+          //if(e.getSource() == quitButton)
+            
       }
       
       //testing codes
