@@ -3,20 +3,24 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/18/2008 Mark Lauman Added InfoPanel into the screen
  * 03/16/2008 Mark Lauman Implemented class
  * 03/15/2008 Mark Lauman Created class
  */
 
 package screens;
 
-import java.awt.Color;
-import java.awt.Dimension;
+import game.InfoPanel;
+import game.WordGrid;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.SpringLayout;
 
 /**
  * 
@@ -24,11 +28,55 @@ import javax.swing.JPanel;
  */
 public class GameScreen extends JPanel {
     private WordGrid grid;
+    private InfoPanel info;
     
-    public GameScreen(ActionListener a, int level, ArrayList<ArrayList<String>> wordList) {
+    public GameScreen(ActionListener a, int level,
+                             ArrayList<ArrayList<String>> wordList) {
+        this.setLayout(new GridBagLayout());
+        
+        //This is the GridBagConstraints object that specifies specifics for
+        //object layout
+        GridBagConstraints c = new GridBagConstraints();
+	c.fill = GridBagConstraints.BOTH;
+        c.weighty = 1;
+        c.gridy = 0;
+        c.insets = new Insets(5, 5, 5, 5);
+        
+        //make the buffer space around the letter grid
+        JPanel gridBuffer = new JPanel();
+        SpringLayout buffLayout = new SpringLayout();
+        gridBuffer.setLayout(buffLayout);
+        c.gridx = 0;
+        c.weightx = 2f/3f;
+        
+        //make the letter grid and add it to its buffer
         ArrayList<ArrayList<String>> words = pickWords(wordList);
         grid = new WordGrid(words.get(0));
-        this.add(grid);
+        gridBuffer.add(grid);
+        
+        //centre the wordlist and place the grid buffer onto this JPanel
+        buffLayout.putConstraint(SpringLayout.HORIZONTAL_CENTER, grid, 0,
+                                 SpringLayout.HORIZONTAL_CENTER, gridBuffer);
+        buffLayout.putConstraint(SpringLayout.VERTICAL_CENTER, grid, 0,
+                                 SpringLayout.VERTICAL_CENTER, gridBuffer);
+        this.add(gridBuffer, c);
+        
+        //get the filenames for all of the placed words
+        ArrayList<String> placedWords = grid.getPlaced();
+        ArrayList<String> filenames = new ArrayList<String>(placedWords.size());
+        int i = 0;
+        for(int j = 0; j < words.get(0).size() && i < placedWords.size(); j++) {
+            if(words.get(0).get(j).equals(placedWords.get(i))) {
+                filenames.add(words.get(1).get(j));
+                i++;
+            }
+        }
+        
+        //create the information panel and add it to the stage
+        info = new InfoPanel(level, filenames, a);
+        c.gridx = 2;
+        c.weightx = 1f/3f;
+        this.add(info, c);
     }
     
     /**
@@ -63,47 +111,22 @@ public class GameScreen extends JPanel {
     }
     
     /**
-     * This class is responsible for drawing the letter grid on the game screen
-     * @author Team Triple Threat
+     * If the user passed this level, this function returns <code>true</code>.
+     * Othewise, this returns <code>false</code>
+     * @return A <code>representing the state of the users game. If the user
+     *         passed this level, this function returns <code>true</code>.
+     *         Otherwise, this returns <code>false</code>
      */
-    public class WordGrid extends JPanel {
-        public WordGrid(ArrayList<String> words) {
-            super();
-            this.setDimensions(words);
-            this.setBackground(Color.WHITE);
-            this.setBorder(BorderFactory.createLineBorder(Color.BLACK));   
-        }
-        
-        private void setDimensions(ArrayList<String> words) {
-            int size = getBiggestWord(words).leghth() + 3;
-                //If the size of the grid == the size of all the words, then it
-                //is impossible to add in 5 words. Adding 3 makes word addition
-                //always possible.
-            size *= 20;
-            this.setPreferredSize(new Dimension(size, size));
-        }
-        
-        /**
-         * Gets data from the passed ArrayList.
-         * @param words The words that you want to analyze
-         * @return Data relating to the string. The first index is the longest
-         *         String's length, and the second is 1 if the array is all
-         *         equal length
-         */
-        private ArrayList<Integer> getWordData(ArrayList<String> words) {
-            ArrayList<Integer> result = new ArrayList<Integer>(0);
-            result.add(words.get(0).length());
-            result.add(1);
-            
-            for(int i = 1; i < words.size(); i++) {
-                if(result.get(0) != words.get(i).length()) {
-                    result.set(1, 0);
-                }
-                if(result.get(0) < words.get(i).length()) {
-                    result.set(0, words.get(i).length());
-                }
-            }
-            return result;
-        }
+    public boolean getPassed() {
+        return info.getPassed();
+    }
+    
+    /**
+     * Returns the time that the the user has played in seconds.
+     * @return An <code>int</code> representing the time that the the user has
+     *         played in seconds.
+     */
+    public int getTime() {
+        return info.getTime();
     }
 }
