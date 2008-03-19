@@ -3,11 +3,16 @@
 ===Project Manager:===
 Vic Kao
 
-==Test Plan==
+===Criteria===
+A link to the criteria of Assignment 3 can be found [http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFour here]
+
+===Test Plan===
 
 
-==User Manual==
+===User Manual===
+[updatedUserManual User Manual]
 
-==Design Document==
+===Design Document===
+[updatedDesignDoc Design Document]
 
-==Work Assignment Document==
+===Work Assignment Document===
