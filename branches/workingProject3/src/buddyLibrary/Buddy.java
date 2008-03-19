@@ -132,7 +132,7 @@ public class Buddy extends JPanel {
             //package extensions
         
         String filename = System.getProperty("user.dir");
-        filename += "\\Data\\" + getUser() + "\\";
+        filename += ".\\Data\\" + getUser() + "\\";
         filename += buddyName + ".dat";
         
         return new File(filename);
@@ -380,6 +380,7 @@ public class Buddy extends JPanel {
     public void writeStats(float... stats){
 
         File f = getDataFile();
+
         try{            
             //set a flag to check if the file exists
             boolean isFileExists = f.exists();
