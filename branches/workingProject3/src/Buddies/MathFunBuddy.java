@@ -1,11 +1,14 @@
   /*
- * MathFunbuddy.java
- * 
- * Team Triple Threat
- * Log:
- * 03/17/2008 Vic Kao updated the database and implemented functions in detail
- * 03/16/2008 Vic Kao implemented the structure
- */
+   * 
+   * MathFunbuddy.java
+   * 
+   * Team Triple Threat
+   * Log:
+   * 03/21/2008 Vic Kao changed some functions to be private and changed the number of 
+   * qustions.
+   * 03/17/2008 Vic Kao updated the database and implemented functions in detail
+   * 03/16/2008 Vic Kao implemented the structure
+   */
 
 package Buddies;
 
@@ -32,11 +35,11 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     /** the JButton - "START" */
     private JButton startButton;
     /** introduction on the welcome screen */
-    String introText = "Welcome to this fun MATH world!";
+    private String introText = "Welcome to this fun MATH world!";
     /** the width for the START button */
-    int startButtonWidth = 100;
+    private int startButtonWidth = 100;
     /** the height for the START button */
-    int startButtonHeight = 50;
+    private int startButtonHeight = 50;
     
     //variables used for the question screen
     /** the JButtons for displaying the choices */
@@ -52,13 +55,13 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     /** the JButtons used to get the answer*/
     private JButton AnswerButton;
     /** the width for questionText */
-    int questionTextWidth = 100;
+    private int questionTextWidth = 100;
     /** the width for questionText */
-    int questionTextHight = 50;
+    private int questionTextHight = 50;
     /** the counter used to record number of questions conseuctively answered correctly */
-    int conseuctiveCorrectCounter;
+    private int conseuctiveCorrectCounter;
     /** the counter used to record number of questions conseuctively answered incorrectly */
-    int conseuctiveIncorrectCounter;
+    private int conseuctiveIncorrectCounter;
    
     /** the JButtons - "Next" to go to the next question */
     private JButton nextButton;
@@ -76,7 +79,10 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     private ArrayList<Integer> notPlayedYet;
     /** the variable to what the current question is */
     private int currentQuestion;//record the # of the question of the game
-    
+    /** the JPanel for the ending screen */
+    private JPanel lastScreenPanel=null;
+    /** the JButton to ask if the user wants to play again */
+    private JButton playAgainButton;    
     
    /**
      * Constructs a <code>MathFunBuddy</code> buddy, and loads the welcome screen
@@ -368,7 +374,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     /**
      * This function handles the event when the user answers correctly
      */
-    public void answerCorrectquestion()
+    private void answerCorrectquestion()
     {
         String msgCorrect = "Excellent! You have gained 10 points! :)";
         correctOrWrongLabel.setText(msgCorrect);
@@ -384,7 +390,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     /**
      * This function handles the event when the user answers incorrectly
      */    
-    public void answerWrongquestion()
+    private void answerWrongquestion()
     {
         String msgWrong = "Sorry, your answer was not correct. " +
                 "Maybe you missed some details? Try harder for the next one! :)";
@@ -394,26 +400,18 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         //reset conseuctiveCorrectCounter to 0
         conseuctiveCorrectCounter = 0;
     }
-
-      JPanel lastScreenPanel=null;
-      JButton playAgainButton;
-
+    
       /**
        * This function handles when the user finishes playing the buddy
        */
-      public void finishPlayingBuddy()
+      private void finishPlayingBuddy()
       {
-         
-          
           //recored the scores
           //set the stat type
           setStatType(Buddy.SCORE_STATS);
 
           //writhe the scoreGained to the file
-
           writeStats(scoreGained);
-         
- 
           
           lastScreenPanel = new JPanel();
           lastScreenPanel.setLayout(new BoxLayout(lastScreenPanel, BoxLayout.Y_AXIS));
@@ -424,8 +422,8 @@ public class MathFunBuddy extends Buddy implements ActionListener {
           JLabel thankUmsgLabel = new JLabel();
           
           thankUmsgLabel.setFont(font);
-          String thankUmsg = "Thank you for playing!";
-          thankUmsgLabel.setText(thankUmsg);
+          String thankUmsg = "Thank you for playing, ";
+          thankUmsgLabel.setText(thankUmsg + getUser() + "!");
           thankUmsgLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
           lastScreenPanel.add(thankUmsgLabel);
           
@@ -437,32 +435,24 @@ public class MathFunBuddy extends Buddy implements ActionListener {
           
           JPanel tempPanel = new JPanel();
           playAgainButton = new JButton("Click here to play again!");
-   
-          
- 
           
           tempPanel.setLayout(new FlowLayout());          
           tempPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
           tempPanel.add(playAgainButton);
           playAgainButton.addActionListener(this);
-
-          
           
           lastScreenPanel.add(tempPanel);
-          
-          
+                    
           remove(questionPanel);
           add(lastScreenPanel);
           
           validate();
-          
-          
       }
       
       /**
        * This function handles the event when "Next" button is clicked
        */
-      public void nextButtonClicked(){
+      private void nextButtonClicked(){
           
           //decide which question to display next
           updateQuestionIndex();
@@ -485,7 +475,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
        * up before, it will not show up again. Instead, it will look for unused
        * questions.
        */
-      public void updateQuestionIndex(){
+      private void updateQuestionIndex(){
           
           int i = 0;
           //find the location in notPlayedYet that is larger than questionIndex
@@ -527,9 +517,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
                             
               //disable the choice buttons after the user answered
               for(int i = 0; i < choiceButtons.length; i++)
-                  choiceButtons[i].setEnabled(false);
-              
-              
+                  choiceButtons[i].setEnabled(false);              
               
               //set correctOrWrongLabel and nextButton to visible
               correctOrWrongLabel.setVisible(true);
@@ -539,7 +527,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
           if(e.getSource() == nextButton)
           {
               //if the user have played 10 questioins, end the program
-              if (currentQuestion == 9)
+              if (currentQuestion == 10)
                 finishPlayingBuddy();
               else
                 nextButtonClicked();
