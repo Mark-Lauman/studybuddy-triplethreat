@@ -18,3 +18,8 @@ A link to the criteria of Assignment 4 can be found [http://sleepy.cs.surrey.sfu
 
 ===Work Assignment Document===
 [http://studybuddy-triplethreat.googlecode.com/files/workDist.xls Work Assignment Document]
+
+===Unit Tests===
+[UserSelection User Selection menu]
+
+[BuddySelection Buddy Selection menu]
