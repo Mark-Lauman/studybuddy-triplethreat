@@ -133,7 +133,7 @@ public class Buddy extends JPanel {
         
         String filename = System.getProperty("user.dir");
         filename += ".\\Data\\" + getUser() + "\\";
-        filename += buddyName + ".dat";
+        filename += buddyName + ".txt";
         
         return new File(filename);
     }
