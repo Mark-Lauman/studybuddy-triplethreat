@@ -131,7 +131,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
             questionNames = new ArrayList<String>();
 
             //open the file for a list of question names
-            File f = new File("./questions/questionRecord.txt");
+            File f = new File("questions/questionRecord.txt");
             
             Scanner scan = new Scanner(f);
 
@@ -180,15 +180,15 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         //get the game name with the game index
         String currentQuestionName = questionNames.get(gameIndex);
         //open the "question.txt" in the directory of the currentQuestionName
-        File f = new File("./questions/"+ currentQuestionName+"/question.txt");
+        File f = new File("questions/"+ currentQuestionName+"/question.txt");
         
         try{
             Scanner scan = new Scanner(f);
         
             //for loop to set images and text on the buttons
             for(int i = 0; i < 3; i++){
-                choiceButtons[i].setIcon(new ImageIcon("./questions/"+ currentQuestionName+ "/img" + i + ".jpg"));
-                choiceButtons[i].setRolloverIcon(new ImageIcon("./questions/"+ currentQuestionName+ "/img" +  i + "a.jpg"));
+                choiceButtons[i].setIcon(new ImageIcon("questions/"+ currentQuestionName+ "/img" + i + ".jpg"));
+                choiceButtons[i].setRolloverIcon(new ImageIcon("questions/"+ currentQuestionName+ "/img" +  i + "a.jpg"));
                 choiceButtons[i].setRolloverEnabled(true); 
                 //get the a line from the text file
                 choiceButtons[i].setText(scan.nextLine());
@@ -205,7 +205,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
                 System.out.println(e);
             }        
     }
-    
+
     /** 
      * Create the start panel
      */
@@ -214,7 +214,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         //create the startPanel
         startPanel = new JPanel();
         //create a JLabel, and set the introduction text to the label
-        JLabel introJLabel = new JLabel(introText);
+        JLabel introJLabel = new JLabel(new ImageIcon("questions/intro.jpg"));
         
         //make the startPanel into two parts: upper and buttom panels
         //upper panel for displaying the introduction
@@ -231,7 +231,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         upperPanel.add(introJLabel);
 
 //tesing purpose
-upperPanel.setBackground(Color.WHITE);        
+//upperPanel.setBackground(Color.WHITE);        
 
         //set the size of the buttom panel
         buttomPanel.setPreferredSize(new Dimension(100, 100));   
@@ -261,7 +261,7 @@ upperPanel.setBackground(Color.WHITE);
         //set its layout to BorderLayout
         questionPanel.setLayout(new BorderLayout());
 //tesing purpose: set the background color
-questionPanel.setBackground(Color.GREEN);
+//questionPanel.setBackground(Color.GREEN);
         //set the size of question panel
         questionPanel.setSize(700,660);
         
@@ -276,7 +276,7 @@ questionPanel.setBackground(Color.GREEN);
         //add it to the west of upper panel
         upperPanel.add(question, BorderLayout.WEST);
 //tesing purpose: set the background color        
-upperPanel.setBackground(Color.MAGENTA);
+//upperPanel.setBackground(Color.MAGENTA);
         
         //create the socre label
         score = new JLabel("Score: ");
@@ -292,7 +292,7 @@ upperPanel.setBackground(Color.MAGENTA);
         //create the middle panel of the question panel
         JPanel middlePanel = new JPanel();
 //tesing purpose: set the background color        
-middlePanel.setBackground(Color.pink); 
+//middlePanel.setBackground(Color.pink); 
         //set its layout to BorderLayout
         middlePanel.setLayout(new BorderLayout());
         //questionText points to a new JTextArea
@@ -336,7 +336,7 @@ middlePanel.setBackground(Color.pink);
         //create the lower panel of the question panel
         JPanel lowerPanel = new JPanel();
 //tesing purpose: set the background color           
-lowerPanel.setBackground(Color.orange);
+//lowerPanel.setBackground(Color.orange);
         //set its layout to GridLayout, 1 row , 2 column
         lowerPanel.setLayout(new GridLayout(1,2));
         //create the correct-or-wrong label
@@ -397,7 +397,7 @@ lowerPanel.setBackground(Color.orange);
 
       JPanel lastScreenPanel=null;
       JButton playAgainButton;
-      JButton quitButton; 
+
       /**
        * This function handles when the user finishes playing the buddy
        */
@@ -437,18 +437,17 @@ lowerPanel.setBackground(Color.orange);
           
           JPanel tempPanel = new JPanel();
           playAgainButton = new JButton("Click here to play again!");
-          quitButton = new JButton("Quit");
+   
           
-          JLabel temp = new JLabel("                                 ");
+ 
           
           tempPanel.setLayout(new FlowLayout());          
           tempPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
           tempPanel.add(playAgainButton);
           playAgainButton.addActionListener(this);
-          tempPanel.add(temp);
+
           
-          tempPanel.add(quitButton);
-          quitButton.addActionListener(this);
+          
           lastScreenPanel.add(tempPanel);
           
           
@@ -497,7 +496,7 @@ lowerPanel.setBackground(Color.orange);
           
           //if the user answers correctly 1 question conseuctively
           //then the next question would be harder
-          if(conseuctiveCorrectCounter >= 3)
+          if(conseuctiveCorrectCounter >= 10)
               questionIndex = notPlayedYet.get(i+1);          
           else{
               //else the next question will be eaiser
@@ -540,14 +539,14 @@ lowerPanel.setBackground(Color.orange);
           if(e.getSource() == nextButton)
           {
               //if the user have played 10 questioins, end the program
-              if (currentQuestion == 3)
+              if (currentQuestion == 9)
                 finishPlayingBuddy();
               else
                 nextButtonClicked();
           }
           if(e.getSource() == playAgainButton)
               startButtonClicked();
-          //if(e.getSource() == quitButton)
+
             
       }
       
