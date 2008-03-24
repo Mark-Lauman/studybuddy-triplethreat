@@ -1,0 +1,11 @@
+#summary Updated User Manual - Plug-in System
+#labels Assignment3
+
+== Plug-in System ==
+
+Third parties will be allowed to create plug-in study buddies to work with our system.
+The plug-in system will provide a general template disign outline of how a buddy could be implemented to work with the system. It should be easy to be understood by users, like parents or teachers. 
+
+
+----
+[updatedUserManual Back to User Manual]
