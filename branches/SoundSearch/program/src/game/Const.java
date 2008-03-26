@@ -14,6 +14,10 @@ package game;
  * @author Team Triple Threat
  */
 public abstract class Const {
+    /** The file path of the sound files */
     public static final String FILE_PATH = "\\src\\game\\sounds\\";
 //    public static final String FILE_PATH = "\\SoundSearch\\game\\sounds\\";
+    
+    /** The width of a letter on the grid */
+    public static final int LETTER_WIDTH = 20;
 }

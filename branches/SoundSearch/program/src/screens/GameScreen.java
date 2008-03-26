@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/25/2008 Mark Lauman Implemented WordListener
  * 03/18/2008 Mark Lauman Added InfoPanel into the screen
  * 03/16/2008 Mark Lauman Implemented class
  * 03/15/2008 Mark Lauman Created class
@@ -16,6 +17,9 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
@@ -128,5 +132,22 @@ public class GameScreen extends JPanel {
      */
     public int getTime() {
         return info.getTime();
+    }
+    
+    private class WordListener extends MouseAdapter {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            //do nothing
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
     }
 }

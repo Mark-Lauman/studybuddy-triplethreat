@@ -46,7 +46,6 @@ public class SoundSearch extends Buddy implements ActionListener {
      * called.
      */
     private void endGame() {
-        
         ms.setMessage("Out of time!");
         ms.setTimeVisible(false);
         

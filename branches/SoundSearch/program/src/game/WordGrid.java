@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/25/2008 Mark Lauman created drawSelections()
  * 03/19/2008 Mark Lauman Modified getPlaced, it now returns the words as strings
  * 03/18/2008 Mark Lauman Modified placeWords, so words not placed are removed
  *                        from the wordList
@@ -16,6 +17,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
@@ -37,6 +39,8 @@ public class WordGrid extends JPanel {
     private ArrayList<ArrayList<Character>> grid;
     /** The <code>ArrayList</code> containing all the words in the grid */
     private ArrayList<Word> wordList;
+    /** The <code>ArrayList</code> that specifies what words have been found */
+    private ArrayList<Boolean> foundWords;
     
     /**
      * Constructs a new <code>WordGrid</code> and places as many of the passed
@@ -51,12 +55,18 @@ public class WordGrid extends JPanel {
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         setWords(words);
+        foundWords = new ArrayList<Boolean>(wordList.size());
+        for(int i = 0; i < wordList.size(); i++) {
+            foundWords.add(false);
+        }
         setDimensions();
         placeWords();
         fillGrid();
 
         disp = null;
     }
+    
+    //------------------------------------------------------------------------//
     
     /**
      * Redraws this <code>WordGrid</code> on the display image.
@@ -73,32 +83,9 @@ public class WordGrid extends JPanel {
         //paint this panel to the display image
         super.paint(brush);
         
-        //paint selections to the grid
-        brush.setColor(Color.YELLOW);
-        Point endPoint;
-        Point p;
-        boolean loop;
-        for(Word w : wordList) {
-            if(w.isPlaced()) {
-                endPoint = w.getEndPoint();
-                
-                loop = true;
-                p = new Point();
-                p.x = w.startPoint.x;
-                p.y = w.startPoint.y;
-                while(loop) {
-                    loop = p.x != endPoint.x || p.y != endPoint.y;
-                    brush.fillRect(20*p.x, 20*p.y, 20, 20);
-                    p = incWordPoint(p, w.getDirectionX(), w.getDirectionY());
-                }
-            }
-             
-        }
-        
-
         //paint the grid onto the image
         brush.setColor(Color.BLACK);
-        for(int i = 0; i < getWidth(); i += 20) {
+        for(int i = 0; i < getWidth(); i += Const.LETTER_WIDTH) {
             brush.drawLine(i, 0, i, getHeight());
             brush.drawLine(0, i, getWidth(), i);
         }
@@ -107,8 +94,68 @@ public class WordGrid extends JPanel {
         for(int x = 0; x < grid.size(); x++) {
             for(int y = 0; y < grid.get(0).size(); y++) {
                 brush.drawString(grid.get(x).get(y).toString(),
-                                                         20*x +5, 20*y +15);
+                                 Const.LETTER_WIDTH*x +5,
+                                 Const.LETTER_WIDTH*y +15);
             }
+        }
+    }
+    
+    /**
+     * Draws ovals showing the selected words. This draws the current selection
+     * and all found words.
+     * @param g A <code>Graphics</code> object pointing to this component
+     */
+    private void drawSelections(Graphics g) {
+        //Create the brush that will be used for drawing and set constants
+        Graphics2D brush = (Graphics2D)g;
+        final Color SELECTION_COLOR = new Color(255, 255, 0, 100);
+        
+        //Variables used in the loop
+        Point startPoint;
+        Point endPoint;
+        Word w;
+        int[] arcs;
+        
+        //iterate through the words
+        for(int i = 0; i < wordList.size(); i++) {
+            //get the word
+            w = wordList.get(i);
+            
+            //If the word is selected
+            if(true) {
+                //get the word's placement and get the arc orientation
+                startPoint = w.startPoint;
+                endPoint = w.getEndPoint();
+                arcs = getSelectionArcs(w.getDirection());
+                Polygon p = getSelectionPoly(Const.LETTER_WIDTH*startPoint.x,
+                                             Const.LETTER_WIDTH*startPoint.y,
+                                             Const.LETTER_WIDTH*endPoint.x,
+                                             Const.LETTER_WIDTH*endPoint.y);
+                
+                //draw the selection background
+                brush.setColor(SELECTION_COLOR);
+                brush.fillArc(Const.LETTER_WIDTH*startPoint.x + 1,
+                               Const.LETTER_WIDTH*startPoint.y + 1,
+                               Const.LETTER_WIDTH-1,
+                               Const.LETTER_WIDTH-1, arcs[0], arcs[1]);
+                brush.fillArc(Const.LETTER_WIDTH*endPoint.x + 1,
+                               Const.LETTER_WIDTH*endPoint.y + 1,
+                               Const.LETTER_WIDTH-1,
+                               Const.LETTER_WIDTH-1, arcs[2], arcs[3]);
+                brush.fillPolygon(p);
+                
+                //draw the selection outline
+                brush.setColor(Color.BLACK);
+                brush.drawArc(Const.LETTER_WIDTH*startPoint.x + 1,
+                               Const.LETTER_WIDTH*startPoint.y + 1,
+                               Const.LETTER_WIDTH-1,
+                               Const.LETTER_WIDTH-1, arcs[0], arcs[1]);
+                brush.drawArc(Const.LETTER_WIDTH*endPoint.x + 1,
+                               Const.LETTER_WIDTH*endPoint.y + 1,
+                               Const.LETTER_WIDTH-1,
+                               Const.LETTER_WIDTH-1, arcs[2], arcs[3]);
+            }
+             
         }
     }
     
@@ -127,7 +174,109 @@ public class WordGrid extends JPanel {
             }
         }
     }
-
+    
+    private int[] getSelectionArcs(int direction) {
+        int[] result = {0, 180, 180, 180};
+        switch(direction) {
+            case (Word.DOWN|Word.LEFT)  : result[0] += 45;
+                                          result[2] += 45;
+            case (Word.LEFT)            : result[0] += 45;
+                                          result[2] += 45;
+            case (Word.UP|Word.LEFT)    : result[0] += 45;
+                                          result[2] += 45;
+            case (Word.UP)              : result[0] += 45;
+                                          result[2] += 45;
+            case (Word.UP|Word.RIGHT)   : result[0] += 45;
+                                          result[2] += 45;
+            case (Word.RIGHT)           : result[0] += 45;
+                                          result[2] += 45;
+            case (Word.DOWN|Word.RIGHT) : result[0] += 45;
+                                          result[2] += 45;
+            default: 
+        }
+        if(result[2] >= 360) {
+            result[2] -= 360;
+        }
+        return result;
+    }
+    
+    /**
+     * Retrieves a <code>Polygon</code> that can be drawn between two letters to
+     * select all the letters between them. This polygon is ready to be drawn
+     * immediately
+     * @param startX The starting <b>X</b> coordinate of the word (in pixels)
+     * @param startY The starting <b>Y</b> coordinate of the word (in pixels)
+     * @param endX   The ending <b>X</b> coordinate of the word (in pixels)
+     * @param endY   The ending <b>Y</b> coordinate of the word (in pixels)
+     * @return       A <code>Polygon</code> that can be drawn to complete a
+     *               selection
+     */
+    private Polygon getSelectionPoly(int startX, int startY,
+                                                           int endX, int endY) {
+        int dirX = endX - startX;
+        int dirY = endY - startY;
+        //initialize variables
+        int[] xPoints = {startX+1, startX+1, endX+1, endX+1};
+        int[] yPoints = {startY+1, startY+1, endY+1, endY+1};
+        int width = Const.LETTER_WIDTH;
+        
+        //determine the x-coordinates of the polygon
+        if(dirX != 0 && dirY != 0) {
+            //If the arc is at an angle
+            xPoints[0] += width/4;
+            xPoints[1] += (int)(width * 3f/4);
+            xPoints[2] += (int)(width * 3f/4);
+            xPoints[3] += width/4;
+        }
+        else if(dirY != 0) {
+            //If the arc is pointing up or down
+            xPoints[1] += width - 1;
+            xPoints[2] += width - 1;
+        }
+        else {
+            //the arc is pointing either left or right
+            for(int i=0; i<xPoints.length; i++) {
+                xPoints[i] += width/2 - 1;
+            }
+        }
+        
+        //determine the y-coordinates of the polygon
+        if(dirX != 0 && dirY != 0) {
+            //If the arc is at an angle
+            int y1;
+            int y2;
+            //A reminder - the java operator ^ stands for exclusive-or
+            if(dirX > 0 ^ dirY > 0) {
+                //Down-Left or UP-Right
+                y1 = width/4;
+                y2 = (int)(width * 3f/4);
+                
+            }
+            else {
+                //Down-Right or UP-Left
+                y1 = (int)(width * 3f/4);
+                y2 = width/4;
+            }
+            yPoints[0] += y1;
+            yPoints[1] += y2;
+            yPoints[2] += y2;
+            yPoints[3] += y1;
+        }
+        else if(dirY == 0) {
+            //the arc is pointing left or right
+            yPoints[1] += width - 1;
+            yPoints[2] += width - 1;
+        }
+        else {
+            //if the arc is pointing either up or down
+            for(int i=0; i<xPoints.length; i++) {
+                yPoints[i] += width/2 - 1;
+            }
+        }
+        
+        return new Polygon(xPoints, yPoints, 4);
+    }
+    
     /**
      * Gets the length of the largest <code>String</code> in this
      * <code>WordGrid</code>'s word list
@@ -155,6 +304,69 @@ public class WordGrid extends JPanel {
             result.add(w.toString());
         }
         return result;
+    }
+    
+    /**
+     * Get a <code>Point</code> that is 1 space away from <code>p</code> in
+     * the specified direction
+     * @param p         The initial point to base the final point off of
+     * @param xDirection The horizontal direction we must travel in to reach the
+     *                   resulting point
+     * @param yDirection The vertical direction we must travel in to reach the
+     *                   resulting point
+     * @return A <code>Point</code> that is 1 square in <code>direction</code>'s
+     *         specified direction
+     */
+    private Point incWordPoint(final Point p, int xDirection, int yDirection) {
+        Point result = new Point();
+        result.x = p.x;
+        result.y = p.y;
+        switch(xDirection) {
+            case Word.LEFT : result.x -= 1; break;
+            case Word.RIGHT: result.x += 1; break;
+        }
+        switch(yDirection) {
+            case Word.UP  : result.y -= 1; break;
+            case Word.DOWN: result.y += 1; break;
+        }
+        return result;
+    }
+    
+    /**
+     * Attempts to insert the passed word into the grid. If this method is
+     * unsuccessful it returns <code>false</code>. Otherwise, it will return
+     * <code>true</code>
+     * @param w The word to be inserted
+     * @return <code>true</code> if the insertion suceeded, <code>false</code>
+     *         if otherwise
+     */
+    private boolean insertWord(Word w) {
+//        System.out.println(w);
+        final char c[] = w.toString().toCharArray();
+//        System.out.println(c);
+        Point curP = new Point();
+        curP.x = w.startPoint.x;
+        curP.y = w.startPoint.y;
+        
+        for(int i = 0; i < c.length; i++) {
+//            System.out.println(curP.x + ", " + curP.y);
+//            System.out.println(c);
+            if (!grid.get(curP.x).get(curP.y).equals(c[i]) &&
+                                        grid.get(curP.x).get(curP.y) != '\0') {
+                return false;
+            }
+            curP = incWordPoint(curP, w.getDirectionX(), w.getDirectionY());
+        }
+        
+        curP = new Point();
+        curP.x = w.startPoint.x;
+        curP.y = w.startPoint.y;
+        for(int i = 0; i < c.length; i++) {
+//            System.out.println(c[i] + "*");
+            grid.get(curP.x).set(curP.y, c[i]);
+            curP = incWordPoint(curP, w.getDirectionX(), w.getDirectionY());
+        }
+        return true;
     }
     
     /**
@@ -230,69 +442,6 @@ public class WordGrid extends JPanel {
     }
     
     /**
-     * Get a <code>Point</code> that is 1 space away from <code>p</code> in
-     * the specified direction
-     * @param p         The initial point to base the final point off of
-     * @param xDirection The horizontal direction we must travel in to reach the
-     *                   resulting point
-     * @param yDirection The vertical direction we must travel in to reach the
-     *                   resulting point
-     * @return A <code>Point</code> that is 1 square in <code>direction</code>'s
-     *         specified direction
-     */
-    private Point incWordPoint(final Point p, int xDirection, int yDirection) {
-        Point result = new Point();
-        result.x = p.x;
-        result.y = p.y;
-        switch(xDirection) {
-            case Word.LEFT : result.x -= 1; break;
-            case Word.RIGHT: result.x += 1; break;
-        }
-        switch(yDirection) {
-            case Word.UP  : result.y -= 1; break;
-            case Word.DOWN: result.y += 1; break;
-        }
-        return result;
-    }
-    
-    /**
-     * Attempts to insert the passed word into the grid. If this method is
-     * unsuccessful it returns <code>false</code>. Otherwise, it will return
-     * <code>true</code>
-     * @param w The word to be inserted
-     * @return <code>true</code> if the insertion suceeded, <code>false</code>
-     *         if otherwise
-     */
-    private boolean insertWord(Word w) {
-//        System.out.println(w);
-        final char c[] = w.toString().toCharArray();
-//        System.out.println(c);
-        Point curP = new Point();
-        curP.x = w.startPoint.x;
-        curP.y = w.startPoint.y;
-        
-        for(int i = 0; i < c.length; i++) {
-//            System.out.println(curP.x + ", " + curP.y);
-//            System.out.println(c);
-            if (!grid.get(curP.x).get(curP.y).equals(c[i]) &&
-                                        grid.get(curP.x).get(curP.y) != '\0') {
-                return false;
-            }
-            curP = incWordPoint(curP, w.getDirectionX(), w.getDirectionY());
-        }
-        
-        curP = new Point();
-        curP.x = w.startPoint.x;
-        curP.y = w.startPoint.y;
-        for(int i = 0; i < c.length; i++) {
-//            System.out.println(c[i] + "*");
-            grid.get(curP.x).set(curP.y, c[i]);
-            curP = incWordPoint(curP, w.getDirectionX(), w.getDirectionY());
-        }
-        return true;
-    }
-    
-    /**
      * Sets the dimensions of this panel, and the calls makeGrid to set the
      * dimensions of the grid. The size of the grid is equal to the size
      * of the largest word in the word list + 3. This ensures a greater
@@ -301,7 +450,7 @@ public class WordGrid extends JPanel {
     private void setDimensions() {
         int size = getBiggestWordSize() + 3;
         makeGrid(size);
-        size *= 20;
+        size *= Const.LETTER_WIDTH;
         this.setPreferredSize(new Dimension(size, size));
         this.setMaximumSize(new Dimension(size, size));
         this.setMinimumSize(new Dimension(size, size));
@@ -320,7 +469,9 @@ public class WordGrid extends JPanel {
             wordList.add(new Word(new String(s)));
         }
     }
-
+    
+    //------------------------------------------------------------------------//
+    
     /**
      * Draw the buffer display of this grid to the screen. If the buffer display
      * does not exist, create it and draw it to the screen
@@ -332,6 +483,7 @@ public class WordGrid extends JPanel {
             draw(g);
         }
         g.drawImage(disp, 0, 0, null);
+        drawSelections(g);
     }
 
     /**

@@ -31,8 +31,9 @@ public abstract class TestWordGrid {
             System.out.println(s);
         }
         
-//        System.out.println(lst);
-//        System.out.println(lst.get(0).charAt(0));
+        System.out.println("--------------------");
+        System.out.println("  End Passed List  ");
+        System.out.println("--------------------");
         
         runTest1(lst).setVisible(true);
     }

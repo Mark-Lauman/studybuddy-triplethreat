@@ -24,6 +24,9 @@ public class TestSoundSearch {
         System.out.println(runGetWordListTest1());
         System.out.println(runGetWordListTest2());
         System.out.println(runGetWordListTest3());
+        System.out.println("-----------------------");
+        System.out.println("    Begin Execution");
+        System.out.println("-----------------------");
         runTest1().setVisible(true);
     }
     
