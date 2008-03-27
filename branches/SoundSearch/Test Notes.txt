@@ -1,0 +1,10 @@
+03/25/2008
+- Ran WordGrid test 1 to check WordGrid functionality
+	Selections do not work yet, placement functions propoerly
+
+03/26/2008
+- Ran WordGrid test 1 repeatedly to verify that selections work at all angles.
+	Selections now function properly
+- Ran WordGrid test 1 repeatedly with different LETTER_WIDTH's and SELECT_DIFF's to verify
+  that WordGrid works when resized
+	Selections function properly

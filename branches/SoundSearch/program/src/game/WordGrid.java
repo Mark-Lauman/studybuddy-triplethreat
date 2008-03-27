@@ -3,6 +3,8 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/26/2008 Mark Lauman redesigned text drawing and selections to resize with
+ *                        constants
  * 03/25/2008 Mark Lauman created drawSelections()
  * 03/19/2008 Mark Lauman Modified getPlaced, it now returns the words as strings
  * 03/18/2008 Mark Lauman Modified placeWords, so words not placed are removed
@@ -14,6 +16,7 @@ package game;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -91,11 +94,23 @@ public class WordGrid extends JPanel {
         }
         
         //paint the letters to the image
+        FontMetrics metric = brush.getFontMetrics();
+        String word;
+        int xPixel;
+        int yPixel;
+        int buffer;
         for(int x = 0; x < grid.size(); x++) {
             for(int y = 0; y < grid.get(0).size(); y++) {
-                brush.drawString(grid.get(x).get(y).toString(),
-                                 Const.LETTER_WIDTH*x +5,
-                                 Const.LETTER_WIDTH*y +15);
+                word = grid.get(x).get(y).toString();
+                
+                buffer = (Const.LETTER_WIDTH-metric.stringWidth(word))/2;
+                xPixel = x*Const.LETTER_WIDTH + buffer;
+                
+                buffer = (Const.LETTER_WIDTH-metric.getHeight())/2;
+                buffer += metric.getHeight() - 2;
+                yPixel = Const.LETTER_WIDTH*y + buffer;
+                
+                brush.drawString(word, xPixel, yPixel);
             }
         }
     }
@@ -115,6 +130,7 @@ public class WordGrid extends JPanel {
         Point endPoint;
         Word w;
         int[] arcs;
+        final int buff = Const.SELECT_DIFF;
         
         //iterate through the words
         for(int i = 0; i < wordList.size(); i++) {
@@ -127,33 +143,39 @@ public class WordGrid extends JPanel {
                 startPoint = w.startPoint;
                 endPoint = w.getEndPoint();
                 arcs = getSelectionArcs(w.getDirection());
-                Polygon p = getSelectionPoly(Const.LETTER_WIDTH*startPoint.x,
-                                             Const.LETTER_WIDTH*startPoint.y,
-                                             Const.LETTER_WIDTH*endPoint.x,
-                                             Const.LETTER_WIDTH*endPoint.y);
+                Polygon p = getSelectionPoly(startPoint.x, startPoint.y,
+                                             endPoint.x,   endPoint.y  );
                 
                 //draw the selection background
                 brush.setColor(SELECTION_COLOR);
-                brush.fillArc(Const.LETTER_WIDTH*startPoint.x + 1,
-                               Const.LETTER_WIDTH*startPoint.y + 1,
-                               Const.LETTER_WIDTH-1,
-                               Const.LETTER_WIDTH-1, arcs[0], arcs[1]);
-                brush.fillArc(Const.LETTER_WIDTH*endPoint.x + 1,
-                               Const.LETTER_WIDTH*endPoint.y + 1,
-                               Const.LETTER_WIDTH-1,
-                               Const.LETTER_WIDTH-1, arcs[2], arcs[3]);
+                System.out.println(Const.LETTER_WIDTH*startPoint.x + buff);
+                System.out.println(Const.LETTER_WIDTH*startPoint.y + buff);
+                System.out.println(Const.LETTER_WIDTH*endPoint.x + buff);
+                System.out.println(Const.LETTER_WIDTH*endPoint.y + buff);
+                brush.fillArc(Const.LETTER_WIDTH*startPoint.x + buff,
+                              Const.LETTER_WIDTH*startPoint.y + buff,
+                              Const.SELECT_WIDTH,
+                              Const.SELECT_WIDTH, arcs[0], arcs[1]);
+                brush.fillArc(Const.LETTER_WIDTH*endPoint.x + buff,
+                              Const.LETTER_WIDTH*endPoint.y + buff,
+                              Const.SELECT_WIDTH,
+                              Const.SELECT_WIDTH, arcs[2], arcs[3]);
                 brush.fillPolygon(p);
                 
                 //draw the selection outline
                 brush.setColor(Color.BLACK);
-                brush.drawArc(Const.LETTER_WIDTH*startPoint.x + 1,
-                               Const.LETTER_WIDTH*startPoint.y + 1,
-                               Const.LETTER_WIDTH-1,
-                               Const.LETTER_WIDTH-1, arcs[0], arcs[1]);
-                brush.drawArc(Const.LETTER_WIDTH*endPoint.x + 1,
-                               Const.LETTER_WIDTH*endPoint.y + 1,
-                               Const.LETTER_WIDTH-1,
-                               Const.LETTER_WIDTH-1, arcs[2], arcs[3]);
+                brush.drawArc(Const.LETTER_WIDTH*startPoint.x + buff,
+                              Const.LETTER_WIDTH*startPoint.y + buff,
+                              Const.SELECT_WIDTH,
+                              Const.SELECT_WIDTH, arcs[0], arcs[1]);
+                brush.drawArc(Const.LETTER_WIDTH*endPoint.x + buff,
+                              Const.LETTER_WIDTH*endPoint.y + buff,
+                              Const.SELECT_WIDTH,
+                              Const.SELECT_WIDTH, arcs[2], arcs[3]);
+                brush.drawLine(p.xpoints[0], p.ypoints[0],
+                               p.xpoints[3], p.ypoints[3]);
+                brush.drawLine(p.xpoints[1], p.ypoints[1],
+                               p.xpoints[2], p.ypoints[2]);
             }
              
         }
@@ -204,77 +226,85 @@ public class WordGrid extends JPanel {
      * Retrieves a <code>Polygon</code> that can be drawn between two letters to
      * select all the letters between them. This polygon is ready to be drawn
      * immediately
-     * @param startX The starting <b>X</b> coordinate of the word (in pixels)
-     * @param startY The starting <b>Y</b> coordinate of the word (in pixels)
-     * @param endX   The ending <b>X</b> coordinate of the word (in pixels)
-     * @param endY   The ending <b>Y</b> coordinate of the word (in pixels)
+     * @param startX The starting <b>X</b> coordinate of the word
+     * @param startY The starting <b>Y</b> coordinate of the word
+     * @param endX   The ending <b>X</b> coordinate of the word
+     * @param endY   The ending <b>Y</b> coordinate of the word
      * @return       A <code>Polygon</code> that can be drawn to complete a
      *               selection
      */
     private Polygon getSelectionPoly(int startX, int startY,
                                                            int endX, int endY) {
-        int dirX = endX - startX;
-        int dirY = endY - startY;
         //initialize variables
-        int[] xPoints = {startX+1, startX+1, endX+1, endX+1};
-        int[] yPoints = {startY+1, startY+1, endY+1, endY+1};
-        int width = Const.LETTER_WIDTH;
+        int dirX = endX - startX; //The X direction
+        int dirY = endY - startY; //The Y direction
+        //The X coordinates of the polygon
+        int[] xPoints = {startX*Const.LETTER_WIDTH,
+                         startX*Const.LETTER_WIDTH + Const.LETTER_WIDTH,
+                         endX*Const.LETTER_WIDTH + Const.LETTER_WIDTH,
+                         endX*Const.LETTER_WIDTH};
+        //The Y coordinates of the polygon
+        int[] yPoints = {startY*Const.LETTER_WIDTH,
+                         startY*Const.LETTER_WIDTH + Const.LETTER_WIDTH,
+                         endY*Const.LETTER_WIDTH + Const.LETTER_WIDTH,
+                         endY*Const.LETTER_WIDTH};
+        int x0; //The leftmost X point
+        int x1; //The rightmost X point
+        int y0; //The left Y point
+        int y1; //The right Y point
+        int diff = Const.SELECT_DIFF;
+        int width = Const.SELECT_WIDTH;
         
         //determine the x-coordinates of the polygon
         if(dirX != 0 && dirY != 0) {
             //If the arc is at an angle
-            xPoints[0] += width/4;
-            xPoints[1] += (int)(width * 3f/4);
-            xPoints[2] += (int)(width * 3f/4);
-            xPoints[3] += width/4;
+            x0 = x1 = (int)Math.round(0.15*(width - 1)) + diff;
         }
         else if(dirY != 0) {
             //If the arc is pointing up or down
-            xPoints[1] += width - 1;
-            xPoints[2] += width - 1;
+            x0 = x1 = diff;
         }
         else {
-            //the arc is pointing either left or right
-            for(int i=0; i<xPoints.length; i++) {
-                xPoints[i] += width/2 - 1;
-            }
+            //If the arc is pointing left or right
+            x0 = x1 = Const.LETTER_WIDTH/2;
         }
+        xPoints[0] += x0;
+        xPoints[1] -= x1;
+        xPoints[2] -= x1;
+        xPoints[3] += x0;
         
         //determine the y-coordinates of the polygon
         if(dirX != 0 && dirY != 0) {
             //If the arc is at an angle
-            int y1;
-            int y2;
             //A reminder - the java operator ^ stands for exclusive-or
             if(dirX > 0 ^ dirY > 0) {
                 //Down-Left or UP-Right
-                y1 = width/4;
-                y2 = (int)(width * 3f/4);
-                
-            }
-            else {
+                y0 = y1 = (int)Math.round(0.15*(width - 1)) + diff;
+            } else {
                 //Down-Right or UP-Left
-                y1 = (int)(width * 3f/4);
-                y2 = width/4;
+                y0 = y1 = (int)Math.round(0.85*(width - 1)) + diff + 1;
             }
-            yPoints[0] += y1;
-            yPoints[1] += y2;
-            yPoints[2] += y2;
-            yPoints[3] += y1;
         }
         else if(dirY == 0) {
             //the arc is pointing left or right
-            yPoints[1] += width - 1;
-            yPoints[2] += width - 1;
+            y0 = y1 = diff;
         }
         else {
             //if the arc is pointing either up or down
-            for(int i=0; i<xPoints.length; i++) {
-                yPoints[i] += width/2 - 1;
-            }
+            y0 = y1 = Const.LETTER_WIDTH/2;
         }
+        yPoints[0] += y0;
+        yPoints[1] -= y1;
+        yPoints[2] -= y1;
+        yPoints[3] += y0;
         
-        return new Polygon(xPoints, yPoints, 4);
+        Polygon result = new Polygon(xPoints, yPoints, 4);
+//        System.out.println("------------");
+//        for(int i = 0; i < result.npoints; i++) {
+//            System.out.println("(" + result.xpoints[i] + ", " +
+//                               result.ypoints[i] + ")");
+//        }
+        return result;
     }
     
     /**
