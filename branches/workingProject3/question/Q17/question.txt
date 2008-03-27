@@ -1,0 +1,5 @@
+21
+7
+14
+There are 35 students in Manya¡¦s math class, number of boys is 3 / 5 of the total number of people in class, and number of girls is 2 / 5 of the total number of the people in class. What is the number of people in difference between boys and girls?
+1
