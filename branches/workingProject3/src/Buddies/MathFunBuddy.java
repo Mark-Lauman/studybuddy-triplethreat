@@ -484,17 +484,17 @@ public class MathFunBuddy extends Buddy implements ActionListener {
                   break;
           }
           
+          questionIndex = notPlayedYet.get(i);  
+           
           //if the user answers correctly 1 question conseuctively
           //then the next question would be harder
-          if(conseuctiveCorrectCounter >= 10)
+          if(conseuctiveCorrectCounter >= 2)
               questionIndex = notPlayedYet.get(i+1);          
-          else{
+          else if(conseuctiveIncorrectCounter >= 2){
               //else the next question will be eaiser
               //if easier question is available
               if ( (i-1) >=0)
-                  questionIndex = notPlayedYet.get(i-1); //roll back the question by 1
-              else
-                  questionIndex = notPlayedYet.get(i); //no change
+                  questionIndex = notPlayedYet.get(i-1); //roll back the question by 1              
           }
       }
       
@@ -539,14 +539,14 @@ public class MathFunBuddy extends Buddy implements ActionListener {
       }
       
       //testing codes
-      public static void main(String args[]){
-          JFrame test = new JFrame();
-
-          test.setSize(700,700);
-          test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE  );
-          test.add(new MathFunBuddy());
-          //test.pack();
-          test.setVisible(true);
-      }
+//      public static void main(String args[]){
+//          JFrame test = new JFrame();
+//
+//          test.setSize(700,700);
+//          test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE  );
+//          test.add(new MathFunBuddy());
+//          //test.pack();
+//          test.setVisible(true);
+//      }
       
 }
