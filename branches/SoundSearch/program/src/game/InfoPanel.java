@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/30/2008 Mark Lauman Wrote setButtonEnabled
  * 03/25/2008 Mark Lauman Fixed max timer event
  * 03/18/2008 Mark Lauman Implemented class
  */
@@ -35,6 +36,7 @@ public class InfoPanel extends JPanel {
     private ArrayList<SoundPlayer> playButtons;
     private double time;
     private JLabel timeLabel;
+    private Timer  timer;
     private JButton quit;
     
     /**
@@ -115,8 +117,21 @@ public class InfoPanel extends JPanel {
         time = 0;
 //        time = 60*14 + 45;
         
-        Timer t = new Timer(1000, new CounterListener());
-        t.start();
+        timer = new Timer(1000, new CounterListener());
+        timer.start();
+    }
+    
+    /**
+     * Transforms this panel into end game mode. This disables all the buttons,
+     * stops the timer, changes the text of the Give Up button, and adds the
+     * ending message to the panel.
+     */
+    public void endGameMode() {
+        for(int i=0; i < playButtons.size(); i++) {
+            playButtons.get(i).setEnabled(false);
+        }
+        timer.stop();
+        quit.setText("Play Again");
     }
     
     /**
@@ -144,6 +159,17 @@ public class InfoPanel extends JPanel {
     }
     
     /**
+     * Sets a the specified button to be enabled or disabled as specified by
+     * <code>enabled</code>
+     * @param button  The index of the button to enable/disable
+     * @param visible The new state of the button. <code>true</code> to enable
+     *                the button, and <code>false</code> to disable it
+     */
+    public void setButtonEnabled(int button, boolean enabled) {
+        playButtons.get(button).setEnabled(enabled);
+    }
+    
+    /**
      * This is the ActionListener used by the clock. It increments the timer,
      * and triggers the quit event if needed.
      */
@@ -166,7 +192,7 @@ public class InfoPanel extends JPanel {
             //If it is time to quit
             if(Math.floor(time / 60) >= 15) {
                 //Stop the clock
-                ((Timer)e.getSource()).stop();
+                endGameMode();
                 //release the quit event
                 quit.doClick();
             }

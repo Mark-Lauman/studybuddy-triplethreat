@@ -8,3 +8,20 @@
 - Ran WordGrid test 1 repeatedly with different LETTER_WIDTH's and SELECT_DIFF's to verify
   that WordGrid works when resized
 	Selections function properly
+
+03/30/2008
+- Ran WordGrid test 1 to check interactivity
+   Passed
+     - Words become selected when clicked
+     - Moving the mouse causes the selection to change correctly.
+     - Moving the mouse out of the selection area causes the selection to not change (correct)
+	 - Clicking on an incorect word will not cause it to be selected
+	 - Clicking on a correct word selects it perminantly
+	 - Clicking on the first letter and dragging to the last selects words correctly
+	 - When the mouse is released after dragging or clicked for the second time, the selection vanishes
+	 - Words are updated correctly
+- Ran GameScreen test 1 to check that everything updates correctly
+   Passed
+     - Buttons update when the correct word is found
+	 - Timer stops when all words are found
+	 - 

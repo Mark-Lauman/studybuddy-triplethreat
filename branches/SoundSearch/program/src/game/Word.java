@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/30/2008 Mark Lauman Added makeDirection
  * 03/16/2008 Mark Lauman Created + implemented class
  */
 
@@ -213,6 +214,42 @@ public class Word {
      */
     public int length() {
         return string.length();
+    }
+    
+    /**
+     * This function takes two values and determines the direction of a
+     * component based off of that.
+     * @param xDir This is the X direction that the object is travelling in.
+     *             It is the end point of the object minus the start point
+     *             (endX - startX)
+     * @param yDir This is the Y direction that the object is travelling in.
+     *             It is the end point of the object minus the start point
+     *             (endY - startY)
+     * @return A direction that can be used in any <code>Word</code> function
+     */
+    public static int makeDirection(final int xDir, final int yDir) {
+        int result;
+        
+        //determine the x direction
+        if(xDir > 0) {
+            result = Word.RIGHT;
+        }
+        else if(xDir < 0) {
+            result = Word.LEFT;
+        }
+        else {
+            result = Word.NONE;
+        }
+        
+        //Determine the y direction
+        if(yDir > 0) {
+            result |= Word.DOWN;
+        }
+        else if(yDir < 0) {
+            result |= Word.UP;
+        }
+        
+        return result;
     }
     
     /** Sets the direction of this object to equal the passed one. You can set

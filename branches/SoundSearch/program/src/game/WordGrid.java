@@ -3,6 +3,8 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/30/2008 Mark Lauman Added all interactivity and some minor selection
+                          drawing changes
  * 03/26/2008 Mark Lauman redesigned text drawing and selections to resize with
  *                        constants
  * 03/25/2008 Mark Lauman created drawSelections()
@@ -21,11 +23,14 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Polygon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import screens.GameScreen;
 
 /**
  * <code>WordGrid</code> is responsible for drawing the letter grid on the game
@@ -33,17 +38,33 @@ import javax.swing.JPanel;
  * @author Team Triple Threat
  */
 public class WordGrid extends JPanel {
+    
+    /**
+     * This is the currently selected word on the display. It allows the
+     * selection to be drawn when the users mouse moves and clicks on something
+     */
+    private ArrayList<Point> curSelection;
     /**
      * This image is used as a buffer before the grid is displayed to the
      * screen
      */
     private BufferedImage disp;
-    /** The character grid itself */
-    private ArrayList<ArrayList<Character>> grid;
-    /** The <code>ArrayList</code> containing all the words in the grid */
-    private ArrayList<Word> wordList;
     /** The <code>ArrayList</code> that specifies what words have been found */
     private ArrayList<Boolean> foundWords;
+    /** The character grid itself */
+    private ArrayList<ArrayList<Character>> grid;
+    /** 
+     * This variable is needed so that the <code>WordGrid</code> can call the
+     * <code>GameScreen</code>'s <code>update</code> method when a word is found
+     */
+    private GameScreen parent;
+    /** The <code>Color</code> used to draw all selections in this grid */
+    private final Color SELECTION_COLOR = new Color(Const.SELECT_COLOR[0],
+                                                   Const.SELECT_COLOR[1],
+                                                   Const.SELECT_COLOR[2],
+                                                   Const.SELECT_COLOR[3]);;
+    /** The <code>ArrayList</code> containing all the words in the grid */
+    private ArrayList<Word> wordList;
     
     /**
      * Constructs a new <code>WordGrid</code> and places as many of the passed
@@ -52,12 +73,15 @@ public class WordGrid extends JPanel {
      * <code>getPlaced()</code> method
      * @param words The words to be added to the <code>WordGrid</code>
      */
-    public WordGrid(final ArrayList<String> words) {
+    public WordGrid(final ArrayList<String> words, GameScreen parent) {
         super();
         this.setBackground(Color.WHITE);
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         setWords(words);
+        curSelection = new ArrayList<Point>(2);
+        curSelection.add(new Point(-1, -1));
+        curSelection.add(new Point(-1, -1));
         foundWords = new ArrayList<Boolean>(wordList.size());
         for(int i = 0; i < wordList.size(); i++) {
             foundWords.add(false);
@@ -65,7 +89,11 @@ public class WordGrid extends JPanel {
         setDimensions();
         placeWords();
         fillGrid();
-
+        this.parent = parent;
+        
+        GridListener listener = new GridListener();
+        this.addMouseListener(listener);
+        this.addMouseMotionListener(listener);
         disp = null;
     }
     
@@ -116,6 +144,55 @@ public class WordGrid extends JPanel {
     }
     
     /**
+     * Draws a selection on the screen that is placed according to the
+     * parameters passed
+     * @param startPoint The start location of the letter in the grid (not on
+     *                   the screen)
+     * @param endPoint   The end location of the letter in the grid (not on the
+     *                   screen)
+     * @param brush
+     */
+    private void drawOneSelection(Point startPoint, Point endPoint,
+                                  Graphics2D brush) {
+        int[] arcs=getSelectionArcs(Word.makeDirection(endPoint.x-startPoint.x,
+                                                       endPoint.y-startPoint.y )
+                                    );
+        Polygon p = getSelectionPoly(startPoint.x, startPoint.y,
+                                     endPoint.x, endPoint.y  );
+        
+        //draw the selection background
+        brush.setColor(SELECTION_COLOR);
+//        System.out.println(Const.LETTER_WIDTH*startPoint.x + Const.SELECT_DIFF);
+//        System.out.println(Const.LETTER_WIDTH*startPoint.y + Const.SELECT_DIFF);
+//        System.out.println(Const.LETTER_WIDTH*endPoint.x + Const.SELECT_DIFF);
+//        System.out.println(Const.LETTER_WIDTH*endPoint.y + Const.SELECT_DIFF);
+        brush.fillArc(Const.LETTER_WIDTH*startPoint.x + Const.SELECT_DIFF,
+                      Const.LETTER_WIDTH*startPoint.y + Const.SELECT_DIFF,
+                      Const.SELECT_WIDTH,
+                      Const.SELECT_WIDTH, arcs[0], arcs[1]);
+        brush.fillArc(Const.LETTER_WIDTH*endPoint.x + Const.SELECT_DIFF,
+                      Const.LETTER_WIDTH*endPoint.y + Const.SELECT_DIFF,
+                      Const.SELECT_WIDTH,
+                      Const.SELECT_WIDTH, arcs[2], arcs[3]);
+        brush.fillPolygon(p);
+
+        //draw the selection outline
+        brush.setColor(Color.BLACK);
+        brush.drawArc(Const.LETTER_WIDTH*startPoint.x + Const.SELECT_DIFF,
+                      Const.LETTER_WIDTH*startPoint.y + Const.SELECT_DIFF,
+                      Const.SELECT_WIDTH,
+                      Const.SELECT_WIDTH, arcs[0], arcs[1]);
+        brush.drawArc(Const.LETTER_WIDTH*endPoint.x + Const.SELECT_DIFF,
+                      Const.LETTER_WIDTH*endPoint.y + Const.SELECT_DIFF,
+                      Const.SELECT_WIDTH,
+                      Const.SELECT_WIDTH, arcs[2], arcs[3]);
+        brush.drawLine(p.xpoints[0], p.ypoints[0],
+                       p.xpoints[3], p.ypoints[3]);
+        brush.drawLine(p.xpoints[1], p.ypoints[1],
+                       p.xpoints[2], p.ypoints[2]);
+    }
+    
+    /**
      * Draws ovals showing the selected words. This draws the current selection
      * and all found words.
      * @param g A <code>Graphics</code> object pointing to this component
@@ -123,14 +200,9 @@ public class WordGrid extends JPanel {
     private void drawSelections(Graphics g) {
         //Create the brush that will be used for drawing and set constants
         Graphics2D brush = (Graphics2D)g;
-        final Color SELECTION_COLOR = new Color(255, 255, 0, 100);
         
         //Variables used in the loop
-        Point startPoint;
-        Point endPoint;
         Word w;
-        int[] arcs;
-        final int buff = Const.SELECT_DIFF;
         
         //iterate through the words
         for(int i = 0; i < wordList.size(); i++) {
@@ -138,47 +210,18 @@ public class WordGrid extends JPanel {
             w = wordList.get(i);
             
             //If the word is selected
-            if(true) {
-                //get the word's placement and get the arc orientation
-                startPoint = w.startPoint;
-                endPoint = w.getEndPoint();
-                arcs = getSelectionArcs(w.getDirection());
-                Polygon p = getSelectionPoly(startPoint.x, startPoint.y,
-                                             endPoint.x,   endPoint.y  );
-                
-                //draw the selection background
-                brush.setColor(SELECTION_COLOR);
-                System.out.println(Const.LETTER_WIDTH*startPoint.x + buff);
-                System.out.println(Const.LETTER_WIDTH*startPoint.y + buff);
-                System.out.println(Const.LETTER_WIDTH*endPoint.x + buff);
-                System.out.println(Const.LETTER_WIDTH*endPoint.y + buff);
-                brush.fillArc(Const.LETTER_WIDTH*startPoint.x + buff,
-                              Const.LETTER_WIDTH*startPoint.y + buff,
-                              Const.SELECT_WIDTH,
-                              Const.SELECT_WIDTH, arcs[0], arcs[1]);
-                brush.fillArc(Const.LETTER_WIDTH*endPoint.x + buff,
-                              Const.LETTER_WIDTH*endPoint.y + buff,
-                              Const.SELECT_WIDTH,
-                              Const.SELECT_WIDTH, arcs[2], arcs[3]);
-                brush.fillPolygon(p);
-                
-                //draw the selection outline
-                brush.setColor(Color.BLACK);
-                brush.drawArc(Const.LETTER_WIDTH*startPoint.x + buff,
-                              Const.LETTER_WIDTH*startPoint.y + buff,
-                              Const.SELECT_WIDTH,
-                              Const.SELECT_WIDTH, arcs[0], arcs[1]);
-                brush.drawArc(Const.LETTER_WIDTH*endPoint.x + buff,
-                              Const.LETTER_WIDTH*endPoint.y + buff,
-                              Const.SELECT_WIDTH,
-                              Const.SELECT_WIDTH, arcs[2], arcs[3]);
-                brush.drawLine(p.xpoints[0], p.ypoints[0],
-                               p.xpoints[3], p.ypoints[3]);
-                brush.drawLine(p.xpoints[1], p.ypoints[1],
-                               p.xpoints[2], p.ypoints[2]);
+            if(foundWords.get(i)) {
+                //draw the word's selection
+                drawOneSelection(w.startPoint, w.getEndPoint(), brush);
             }
-             
         }
+        if(curSelection.get(0).x >= 0 && curSelection.get(0).y >= 0 &&
+           curSelection.get(1).x < grid.size() &&
+           curSelection.get(1).y < grid.size()) {
+            //if the selection is inside the grid
+            drawOneSelection(curSelection.get(0), curSelection.get(1), brush);
+        }
+//        drawOneSelection(new Point(2, 2), new Point(2, 2), brush);
     }
     
     /**
@@ -197,6 +240,77 @@ public class WordGrid extends JPanel {
         }
     }
     
+    /**
+     * Checks the given location for a word in the wordlist. If it is there,
+     * then returns its index. Otherwise it returns -1
+     * @param startX The X co-ordinate of the starting character
+     * @param startY The Y co-ordinate of the starting character
+     * @param endX   The X co-ordinate of the ending character
+     * @param endY   The Y co-ordinate of the ending character
+     * @return The index of the word if it is found, or -1 if it is not
+     */
+    private int findMatchingWord(final int startX, final int startY,
+                                 final int endX,   final int endY   ) {
+        //Declare constants used in the loop
+        Word w;
+        ArrayList<Integer> xVals = new ArrayList<Integer>(2);
+        xVals.add(0);
+        xVals.add(0);
+        ArrayList<Integer> yVals = new ArrayList<Integer>(2);
+        yVals.add(0);
+        yVals.add(0);
+        //go through all words in the wordList to make sure none of them
+        //match (linear search)
+        for(int i = 0; i < wordList.size(); i++) {
+            //first initialize the variables
+            w = wordList.get(i);
+            xVals.set(0, w.startPoint.x);
+            xVals.set(1, w.getEndPoint().x);
+            yVals.set(0, w.startPoint.y);
+            yVals.set(1, w.getEndPoint().y);
+            
+            if(xVals.get(0) == startX && yVals.get(0) == startY &&
+               xVals.get(1) == endX && yVals.get(1) == endY) {
+                //If the word is a match (forwards)
+                return i;
+            }
+            else if(xVals.get(1) == startX && yVals.get(1) == startY &&
+                    xVals.get(0) == endX && yVals.get(0) == endY) {
+                //If the word is a match (backwards)
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    /**
+     * Gets a <code>boolean ArrayList</code> that shows what words have been
+     * found in this grid. Each <code>boolean</code> is true if its accompanying
+     * word has been found. The accompanying words can be retrieved with the
+     * <code>getPlaced</code> method
+     * @return A <code>boolean ArrayList</code> that shows what words have been
+     *         found in this grid.
+     */
+    public final ArrayList<Boolean> getFoundWords() {
+        return foundWords;
+    }
+    
+    /**
+     * This function gets the angles needed to draw arcs for selections. The
+     * first two elements of the returned <code>int</code> array relate to the
+     * first character in the selection, the second two relate to the last
+     * character
+     * @param direction The direction in which the <code>Word</code> is
+     *                  travelling. You can supply the direction passed from the
+     *                  word's <code>getDirection</code> method to satisfy this
+     *                  parameter
+     * @return An integer array that outlines the arc angles needed to
+     *         select the word<br />
+     *         Element 0 is the first character's starting arc angle
+     *         Element 1 is the first character's arc width (in degrees)
+     *         Element 2 and 3 specify the same things for the last character's
+     *         arc
+     */
     private int[] getSelectionArcs(int direction) {
         int[] result = {0, 180, 180, 180};
         switch(direction) {
@@ -312,7 +426,7 @@ public class WordGrid extends JPanel {
      * <code>WordGrid</code>'s word list
      * @return The size of the largest string the word list
      */
-    private int getBiggestWordSize() {
+    public int getBiggestWordSize() {
         int result = wordList.get(0).length();
         for(int i = 1; i < wordList.size(); i++) {
             if(result < wordList.get(i).length()) {
@@ -472,6 +586,26 @@ public class WordGrid extends JPanel {
     }
     
     /**
+     * Destroys this <code>WordGrid</code>'s drawing buffer, and asks the system
+     * to call paint. This effectively makes the <code>WordGrid</code> redraw
+     * itself
+     */
+    public void redraw() {
+        disp = null;
+        super.repaint();
+    }
+    
+    /**
+     * Finds all words for the user, so they don't have to find them themselves
+     */
+    public void revealAllWords() {
+        for(int i = 0; i < foundWords.size(); i++) {
+            foundWords.set(i, true);
+        }
+        repaint();
+    }
+    
+    /**
      * Sets the dimensions of this panel, and the calls makeGrid to set the
      * dimensions of the grid. The size of the grid is equal to the size
      * of the largest word in the word list + 3. This ensures a greater
@@ -515,15 +649,121 @@ public class WordGrid extends JPanel {
         g.drawImage(disp, 0, 0, null);
         drawSelections(g);
     }
-
+    
     /**
-     * Destroys this <code>WordGrid</code>'s drawing buffer, and asks the system
-     * to call paint. This effectively makes the <code>WordGrid</code> redraw
-     * itself
+     * This class listens to this WordGrid and adjusts its image accordingly.
      */
-    @Override
-    public void repaint() {
-        disp = null;
-        super.repaint();
+    private class GridListener extends MouseAdapter{
+        
+        /** This value is true if the mouse is being dragged */
+        private boolean drag;
+        
+        /**
+         * This function changes the selection's position and calls for a
+         * redraw. It is used whenever the mouse is moved
+         * @param e The <code>MouseEvent</code> that was passed to the listener
+         */
+        private void changeSelection(MouseEvent e, boolean dragVal) {
+            if(curSelection.get(0).x >= 0 && curSelection.get(0).y >= 0) {
+                //if the current selection is valid
+                drag = dragVal;
+                
+                //get the mouse location
+                int x = e.getX()/Const.LETTER_WIDTH;
+                int y = e.getY()/Const.LETTER_WIDTH;
+                
+                if(curSelection.get(1).x != x || curSelection.get(1).y != y) {
+                    //If the second point in the current selection does not
+                    //equal this point
+                    
+                    //These values help reduce the confusion of the next if
+                    //statement
+                    boolean insideGrid = x >= 0 && x < grid.size() &&
+                                         y >= 0 && y < grid.size();
+                    boolean at45degreeAngle =
+                                       Math.abs(x - curSelection.get(0).x) ==
+                                            Math.abs(y - curSelection.get(0).y);
+                    boolean flat = x - curSelection.get(0).x == 0 ||
+                                                 y - curSelection.get(0).y == 0;
+                    
+                    if(insideGrid && (at45degreeAngle || flat)) {
+                        //if the selection is inside the grid and at a 45 degree
+                        // angle or flat, then it is valid for highlighting
+                        curSelection.set(1, new Point(x, y));
+                        repaint();
+                    }
+                }
+                
+            }
+        }
+        
+        /**
+         * This function is called when the mouse is dragged inside the
+         * <code>WordGrid</code> with the mouse button down
+         * @param e A mouse event that indicates the drag
+         */
+        @Override
+        public void mouseDragged(MouseEvent e) {
+            changeSelection(e, true);
+        }
+        
+        /**
+         * This function is called when the mouse is moved inside the
+         * <code>WordGrid</code> without the mouse button down
+         * @param e A mouse event that indicates the movement
+         */
+        @Override
+        public void mouseMoved(MouseEvent e) {
+            changeSelection(e, false);
+        }
+        
+        /**
+         * This function is called whenever the user presses the left mouse
+         * button over the panel
+         * @param e A mouse event that indicates the click
+         */
+        @Override
+        public void mousePressed(MouseEvent e) {
+            int x, y;
+            if(curSelection.get(0).x < 0 || curSelection.get(0).y < 0) {
+                //If the current selection is invalid
+                x = e.getX()/Const.LETTER_WIDTH;
+                y = e.getY()/Const.LETTER_WIDTH;
+            }
+            else {
+                //if the selection is valid
+                //Find out if they have found a word and flag it if they have
+                int word = findMatchingWord(curSelection.get(0).x,
+                                            curSelection.get(0).y,
+                                            curSelection.get(1).x,
+                                            curSelection.get(1).y );
+//                System.out.println(word);
+                if(word >= 0) {
+                    foundWords.set(word, true);
+                    parent.update();
+                }
+                
+                //Invalidate the selection
+                x = y = -1;
+            }
+//            System.out.println("X=" + x);
+//            System.out.println("Y=" + y);
+            curSelection.set(0, new Point(x, y));
+            curSelection.set(1, new Point(x, y));
+            drag = false; //to reset everything
+            repaint();
+        }
+        
+        /**
+         * This function is called whenever the user releases the left mouse
+         * button over the panel
+         * @param e A mouse event that indicates the release
+         */
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            if(drag) {
+                mousePressed(e);
+            }
+        }
     }
 }

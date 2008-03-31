@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/30/2008 Mark Lauman WordGrid constructor changed, so updated this program
  * 03/17/2008 Mark Lauman Created class
  */
 
@@ -50,7 +51,7 @@ public abstract class TestWordGrid {
         JPanel panel = new JPanel();
         panel.setPreferredSize(new Dimension(800, 600));
         
-        WordGrid w = new WordGrid(words);
+        WordGrid w = new WordGrid(words, new EmptyScreen());
         panel.add(w);
         frame.getContentPane().add(panel);
         

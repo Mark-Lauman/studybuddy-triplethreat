@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 03/30/2008 Mark Lauman Removed WordListener, added update and
  * 03/25/2008 Mark Lauman Implemented WordListener
  * 03/18/2008 Mark Lauman Added InfoPanel into the screen
  * 03/16/2008 Mark Lauman Implemented class
@@ -17,9 +18,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
@@ -33,6 +31,14 @@ import javax.swing.SpringLayout;
 public class GameScreen extends JPanel {
     private WordGrid grid;
     private InfoPanel info;
+    
+    /**
+     * This constructor makes the <code>gameScreen</code> as an empty panel.
+     * It is mainly here for testing purposes.
+     */
+    public GameScreen() {
+        
+    }
     
     public GameScreen(ActionListener a, int level,
                              ArrayList<ArrayList<String>> wordList) {
@@ -55,7 +61,7 @@ public class GameScreen extends JPanel {
         
         //make the letter grid and add it to its buffer
         ArrayList<ArrayList<String>> words = pickWords(wordList);
-        grid = new WordGrid(words.get(0));
+        grid = new WordGrid(words.get(0), this);
         gridBuffer.add(grid);
         
         //centre the wordlist and place the grid buffer onto this JPanel
@@ -81,6 +87,19 @@ public class GameScreen extends JPanel {
         c.gridx = 2;
         c.weightx = 1f/3f;
         this.add(info, c);
+    }
+    
+    public void endGame() {
+        ArrayList<Boolean> found = grid.getFoundWords();
+        boolean complete = true;
+        for(boolean b : found) {
+            complete &= b;
+        }
+        
+        info.endGameMode();
+        if(complete) {
+            //send the data to the user's scores
+        }
     }
     
     /**
@@ -134,20 +153,18 @@ public class GameScreen extends JPanel {
         return info.getTime();
     }
     
-    private class WordListener extends MouseAdapter {
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet.");
+    public void update() {
+        ArrayList<Boolean> found = grid.getFoundWords();
+        boolean done = true;
+        
+        for(int i = 0; i < found.size(); i++) {
+            done = done && found.get(i);
+            info.setButtonEnabled(i, !found.get(i));
         }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-            //do nothing
+        
+        if(done) {
+            endGame();
         }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet.");
-        }
+        repaint();
     }
 }
