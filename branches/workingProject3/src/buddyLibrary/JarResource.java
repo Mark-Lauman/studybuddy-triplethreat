@@ -15,6 +15,8 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 import javax.imageio.ImageIO;
@@ -109,5 +111,16 @@ public class JarResource {
         }else{
             return true;
         }
+    }
+    
+    public ArrayList<String> getFilename(){
+        ArrayList<String> arr = new ArrayList<String>();
+        Enumeration en = jar.entries();
+        while(en.hasMoreElements()){
+            String s = en.nextElement().toString();
+            System.out.println(s);
+            arr.add(s);
+        }
+        return arr;   
     }
 }

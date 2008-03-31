@@ -15,12 +15,12 @@ import Buddies.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.ActionEvent;
-import java.io.File;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class Core extends JFrame implements ActionListener {
 
-    private String user = "asd";
+    private String user = "";
     private Container content;
     private JMenuBar mb;
     private UserSelection us;
@@ -29,6 +29,7 @@ public class Core extends JFrame implements ActionListener {
     private Stats stats;
     private Buddy b;
     private JButton back;
+    private ArrayList<String> history = new ArrayList<String>();
 
     public static void main(String[] args) {
         new Core();
@@ -60,8 +61,21 @@ public class Core extends JFrame implements ActionListener {
     private void makeMenuBar() {
         mb = new JMenuBar();
         mb.setLayout(new BorderLayout());
-        //JMenu m = new JMenu("File");
-        //mb.add(m, BorderLayout.LINE_START);
+        JMenu m = new JMenu("File");
+        mb.add(m, BorderLayout.LINE_START);
+        
+        JMenuItem undo = new JMenuItem("Undo");
+        undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, ActionEvent.CTRL_MASK));
+        undo.setActionCommand("Undo");
+        undo.addActionListener(this);
+        m.add(undo);
+        
+        JMenuItem exit = new JMenuItem("Exit");
+        exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4, ActionEvent.ALT_MASK));
+        exit.setActionCommand("Exit");
+        exit.addActionListener(this);
+        m.add(exit);
+        
         back = new JButton("Back");
         back.setMargin(new Insets(0, 0, 0, 0));
         back.setPreferredSize(new Dimension(60, 20));
@@ -184,6 +198,19 @@ public class Core extends JFrame implements ActionListener {
             content.add(bs, BorderLayout.WEST);
             back.setActionCommand("BackToUCFromBS");
             validate();
+        } else if (e.getActionCommand().equals("Exit")) {
+            System.exit(0);
+        } else if (e.getActionCommand().equals("Add Buddy")) {
+            System.out.println("Add Buddy");
+        } else if (e.getActionCommand().equals("Delete Buddy")) {
+            
+        }else if (e.getActionCommand().equals("Export Buddy")) {
+            
+        } else if(e.getActionCommand().equals("New Player")) {
+            
+        } else if(e.getActionCommand().equals("Delete Player")){
+            
         }
+        
     }
 }

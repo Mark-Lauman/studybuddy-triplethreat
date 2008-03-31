@@ -108,12 +108,22 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
                 JarResource jr = new JarResource(chooser.getSelectedFile().getAbsolutePath());
                 
                 if (jr.contains(name + ".class")) {
+                    ArrayList<String> files = jr.getFilename();
+                    File f = new File(buddydir + "/" + name);
+                    f.mkdir();
+                    for(int i = 0; i < files.size(); i++){
+                        if(files.get(i).endsWith("/")){
+                            f = new File(buddydir + "/" + name + "/" + files.get(i));
+                            f.mkdir();
+                        }else{
+                            jr.extract(files.get(i), buddydir + "/" + name + "/");
+                        }
+                    }
                     jr.extract(name + ".class", buddydir + "/");
                     copyFile(chooser.getSelectedFile(), new File(buddydir + "/" + chooser.getSelectedFile().getName()));
-                    System.out.println(chooser.getSelectedFile());
-                    System.out.println(new File(buddydir + "/" + chooser.getSelectedFile().getName()));
                     exportmap.put(name, buddydir + "/" + chooser.getSelectedFile().getName());
                     addChoice(name); //add the name to the list
+
                 } else {
                     JOptionPane.showMessageDialog(null,
                             "The chosen file is incompatible with our system! Please choose another", "Warning",
@@ -151,7 +161,7 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
             list.removeElement(buddyTobeDeleted);
 
             File f = new File(exportmap.get(buddyTobeDeleted));
-            System.out.println(buddyTobeDeleted);
+            System.out.println(exportmap.get(buddyTobeDeleted));
             f.delete();
             exportmap.remove(buddyTobeDeleted);
         }
@@ -229,13 +239,12 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
     public void actionPerformed(ActionEvent e) {
         //if the command is Add buddy
         if (e.getActionCommand().compareTo(addBuddytext) == 0) {
-            addBuddy();
-            
+            addBuddy();            
         }//esle if the command is Delete buddy
         else if (e.getActionCommand().compareTo(deleteBuddytext) == 0) {
             deleteBuddy();
         } else if (e.getActionCommand().compareTo(exportBuddytext) == 0) {
-            //exportBuddy();
+
             exportBuddy();
         } else if (e.getActionCommand().compareTo(startuddytext) == 0) {
 
