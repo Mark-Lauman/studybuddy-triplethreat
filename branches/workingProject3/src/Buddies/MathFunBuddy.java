@@ -35,9 +35,9 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     /** the JButton - "START" */
     private JButton startButton;
     /** the width for the START button */
-    private int startButtonWidth = 100;
+    private int startButtonWidth = 150;
     /** the height for the START button */
-    private int startButtonHeight = 50;
+    private int startButtonHeight = 80;
     
     //variables used for the question screen
     /** the JButtons for displaying the choices */
@@ -52,10 +52,6 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     private JTextArea questionText;
     /** the JButtons used to get the answer*/
     private JButton AnswerButton;
-    /** the width for questionText */
-    private int questionTextWidth = 100;
-    /** the width for questionText */
-    private int questionTextHight = 50;
     /** the counter used to record number of questions conseuctively answered correctly */
     private int conseuctiveCorrectCounter;
     /** the counter used to record number of questions conseuctively answered incorrectly */
@@ -242,6 +238,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         
         //create the button, "START"
         startButton = new JButton("START!");
+        startButton.setFont(new java.awt.Font("Arial", 0, 18));
         //set the preferred size of the button
         startButton.setPreferredSize((new Dimension(startButtonWidth, startButtonHeight)));
         //set the event listenter to this 
