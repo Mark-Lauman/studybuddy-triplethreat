@@ -15,7 +15,7 @@ import Buddies.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
+import java.io.File;
 import javax.swing.*;
 
 public class Core extends JFrame implements ActionListener {
@@ -29,14 +29,14 @@ public class Core extends JFrame implements ActionListener {
     private Stats stats;
     private Buddy b;
     private JButton back;
-    private ArrayList<String> history = new ArrayList<String>();
+    private String currentscreen;
 
     public static void main(String[] args) {
         new Core();
     }
 
     public Core() {
-        setTitle("Buddy App V1");
+        setTitle("Buddy App V2");
         content = getContentPane();
         content.setBackground(Color.LIGHT_GRAY);
         setPreferredSize(new Dimension(800, 600));
@@ -47,10 +47,20 @@ public class Core extends JFrame implements ActionListener {
 
         us = new UserSelection(300, 400, this);
         content.add(us, BorderLayout.WEST);
+        currentscreen = "userselection";
 
-        setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                exit();
+            }
+        });
         pack();
         setVisible(true);
+
+        File userFolder = new File("./Data/~temp/");
+        userFolder.mkdir();
+        File buddyFolder = new File("./Buddies/~temp/");
+        buddyFolder.mkdir();
     }
 
     /**
@@ -63,19 +73,19 @@ public class Core extends JFrame implements ActionListener {
         mb.setLayout(new BorderLayout());
         JMenu m = new JMenu("File");
         mb.add(m, BorderLayout.LINE_START);
-        
+
         JMenuItem undo = new JMenuItem("Undo");
         undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, ActionEvent.CTRL_MASK));
         undo.setActionCommand("Undo");
         undo.addActionListener(this);
         m.add(undo);
-        
+
         JMenuItem exit = new JMenuItem("Exit");
         exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4, ActionEvent.ALT_MASK));
         exit.setActionCommand("Exit");
         exit.addActionListener(this);
         m.add(exit);
-        
+
         back = new JButton("Back");
         back.setMargin(new Insets(0, 0, 0, 0));
         back.setPreferredSize(new Dimension(60, 20));
@@ -123,6 +133,27 @@ public class Core extends JFrame implements ActionListener {
         }
     }
 
+    private static boolean deleteDir(File dir) {
+        if (dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        return dir.delete();
+    }
+
+    private void exit() {
+        File userFolder = new File("./Data/~temp/");
+        deleteDir(userFolder);
+        File buddyFolder = new File("./Buddies/~temp/");
+        deleteDir(buddyFolder);
+        System.exit(0);
+    }
+
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Login")) {
             if (us.getSelection() != null) {
@@ -132,6 +163,7 @@ public class Core extends JFrame implements ActionListener {
                 content.remove(us);
                 uc = new UserChoice(this);
                 content.add(uc, BorderLayout.WEST);
+                currentscreen = "userchoice";
                 back.setActionCommand("BackToUserSelection");
                 back.setText("Logoff");
                 back.setVisible(true);
@@ -146,6 +178,7 @@ public class Core extends JFrame implements ActionListener {
             content.remove(uc);
             us = new UserSelection(300, 400, this);
             content.add(us, BorderLayout.WEST);
+            currentscreen = "userselection";
             back.setActionCommand("None");
             back.setVisible(false);
             validate();
@@ -155,6 +188,7 @@ public class Core extends JFrame implements ActionListener {
             stats = new Stats(getUser());
             stats.setReference(this);
             content.add(stats, BorderLayout.CENTER);
+            currentscreen = "stats";
             back.setActionCommand("BackToUCFromStats");
             back.setText("Back");
             validate();
@@ -163,6 +197,7 @@ public class Core extends JFrame implements ActionListener {
             content.remove(stats);
             uc = new UserChoice(this);
             content.add(uc, BorderLayout.WEST);
+            currentscreen = "userchoice";
             back.setActionCommand("BackToUserSelection");
             back.setText("Logoff");
             validate();
@@ -171,6 +206,7 @@ public class Core extends JFrame implements ActionListener {
             content.remove(uc);
             bs = new BuddySelection(300, 400, this);
             content.add(bs, BorderLayout.WEST);
+            currentscreen = "buddyselection";
             back.setActionCommand("BackToUCFromBS");
             back.setText("Back");
             validate();
@@ -179,6 +215,7 @@ public class Core extends JFrame implements ActionListener {
             content.remove(bs);
             uc = new UserChoice(this);
             content.add(uc, BorderLayout.WEST);
+            currentscreen = "userchoice";
             back.setActionCommand("BackToUserSelection");
             back.setText("Logoff");
             validate();
@@ -188,6 +225,7 @@ public class Core extends JFrame implements ActionListener {
                 content.remove(bs);
                 b = loadBuddy(bs.getSelection());
                 content.add(b, BorderLayout.CENTER);
+                currentscreen = "buddy";
                 back.setActionCommand("BackToBS");
                 validate();
             }
@@ -196,21 +234,18 @@ public class Core extends JFrame implements ActionListener {
             content.remove(b);
             bs = new BuddySelection(300, 400, this);
             content.add(bs, BorderLayout.WEST);
+            currentscreen = "buddyselection";
             back.setActionCommand("BackToUCFromBS");
             validate();
         } else if (e.getActionCommand().equals("Exit")) {
-            System.exit(0);
-        } else if (e.getActionCommand().equals("Add Buddy")) {
-            System.out.println("Add Buddy");
-        } else if (e.getActionCommand().equals("Delete Buddy")) {
-            
-        }else if (e.getActionCommand().equals("Export Buddy")) {
-            
-        } else if(e.getActionCommand().equals("New Player")) {
-            
-        } else if(e.getActionCommand().equals("Delete Player")){
-            
+            exit();
+        } else if (e.getActionCommand().equals("Undo")) {
+            if (currentscreen.equals("buddyselection")) {
+                bs.actionPerformed(new ActionEvent(this, 0, "Undo"));
+            } else if (currentscreen.equals("userselection")) {
+                us.actionPerformed(new ActionEvent(this, 0, "Undo"));
+            }
         }
-        
+
     }
 }

@@ -118,7 +118,6 @@ public class JarResource {
         Enumeration en = jar.entries();
         while(en.hasMoreElements()){
             String s = en.nextElement().toString();
-            System.out.println(s);
             arr.add(s);
         }
         return arr;   
