@@ -16,6 +16,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.net.URL;
+import java.net.URLClassLoader;
 import javax.swing.*;
 
 public class Core extends JFrame implements ActionListener {
@@ -36,7 +38,7 @@ public class Core extends JFrame implements ActionListener {
     }
 
     public Core() {
-        setTitle("Buddy App V2");
+        setTitle("Buddy App V3");
         content = getContentPane();
         content.setBackground(Color.LIGHT_GRAY);
         setPreferredSize(new Dimension(800, 600));
@@ -120,17 +122,26 @@ public class Core extends JFrame implements ActionListener {
      * @return  b The loaded .class file returned as a Buddy instance
      */
     private Buddy loadBuddy(String classN) {
+        File file = new File(System.getProperty("user.dir"));
+
         try {
+            // Convert File to a URL
+            
+            URL url = file.toURI().toURL();          // file:/c:/myclasses/
+            URL[] urls = new URL[]{url};
 
-            Class c = Class.forName("Buddies." + classN);
+            // Create a new class loader with the directory
+            ClassLoader cl = new URLClassLoader(urls);
 
-            Buddy b = (Buddy) c.newInstance();
-
-            b.setReference(this);
+            // Load in the class; MyClass.class should be located in
+            // the directory file:/c:/myclasses/com/mycompany
+            Class cls = cl.loadClass("Buddies." + classN);
+            Buddy b = (Buddy)cls.newInstance();
             return b;
-        } catch (Exception ex) {
+        } catch (Exception e) {
             return null;
         }
+
     }
 
     private static boolean deleteDir(File dir) {
