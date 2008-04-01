@@ -34,7 +34,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
     Random rand = new Random();
     
     /** the path storing the icons used */
-    private String iconPath = System.getProperty("user.dir") + "/icons/";
+    private String iconPath = System.getProperty("user.dir") + "/Buddies/BreakBuddy/icons/";
     /** the ico used when guessed correctly */
     private ImageIcon correctIcon;
     /** the ico used when guessed incorrectly */

@@ -18,7 +18,7 @@ public class startPanel extends javax.swing.JPanel {
     
     BreakBuddy breakBuddy;
     /** the path storing the icons used */
-    private String iconPath = System.getProperty("user.dir") + "/icons/";
+    private String iconPath = System.getProperty("user.dir") + "/Buddies/BreakBuddy/icons/";
     
     /** Creates new form startPanel */
     public startPanel(BreakBuddy breakBuddy) {
