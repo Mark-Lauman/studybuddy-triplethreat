@@ -76,6 +76,8 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     private JPanel lastScreenPanel=null;
     /** the JButton to ask if the user wants to play again */
     private JButton playAgainButton;    
+    /** the path stroing the questions */
+    private String questionPath = System.getProperty("user.dir") + "/Buddies/MathFunBuddy/questions/";
     
    /**
      * Constructs a <code>MathFunBuddy</code> buddy, and loads the welcome screen
@@ -129,7 +131,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
 
 
             //open the file for a list of question names
-            File f = new File(System.getProperty("user.dir") + "/Buddies/MathFunBuddy/questions/questionRecord.txt");
+            File f = new File(questionPath + "questionRecord.txt");
 
             Scanner scan = new Scanner(f);
 
@@ -178,15 +180,15 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         //get the game name with the game index
         String currentQuestionName = questionNames.get(gameIndex);
         //open the "question.txt" in the directory of the currentQuestionName
-        File f = new File(System.getProperty("user.dir") + "/Buddies/MathFunBuddy/questions/" + currentQuestionName + "/question.txt");
+        File f = new File(questionPath + currentQuestionName + "/question.txt");
         
         try {
             Scanner scan = new Scanner(f);
         
             //for loop to set images and text on the buttons
             for(int i = 0; i < 3; i++){
-                choiceButtons[i].setIcon(new ImageIcon(System.getProperty("user.dir") + "/Buddies/MathFunBuddy/questions/"+ currentQuestionName+ "/img" + i + ".jpg"));
-                choiceButtons[i].setRolloverIcon(new ImageIcon(System.getProperty("user.dir") + "/Buddies/MathFunBuddy/questions/" + currentQuestionName+ "/img" +  i + "a.jpg"));
+                choiceButtons[i].setIcon(new ImageIcon(questionPath + currentQuestionName+ "/img" + i + ".jpg"));
+                choiceButtons[i].setRolloverIcon(new ImageIcon(questionPath + currentQuestionName+ "/img" +  i + "a.jpg"));
                 choiceButtons[i].setRolloverEnabled(true); 
                 //get the a line from the text file
                 choiceButtons[i].setText(scan.nextLine());
@@ -211,7 +213,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         //create the startPanel
         startPanel = new JPanel();
         //create a JLabel, and set the introduction text to the label
-        JLabel introJLabel = new JLabel(new ImageIcon(System.getProperty("user.dir") + "/Buddies/MathFunBuddy/questions/intro.jpg"));
+        JLabel introJLabel = new JLabel(new ImageIcon(questionPath + "intro.jpg"));
         
         //make the startPanel into two parts: upper and buttom panels
         //upper panel for displaying the introduction

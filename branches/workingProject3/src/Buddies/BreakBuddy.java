@@ -10,7 +10,8 @@
 package Buddies;
 
 
-import subBreakBuddy.*;
+import subBreakBuddy.BreakBuddyJFrame;
+import subBreakBuddy.startPanel;
 import buddyLibrary.*;
 import java.awt.*;
 import java.io.*;
