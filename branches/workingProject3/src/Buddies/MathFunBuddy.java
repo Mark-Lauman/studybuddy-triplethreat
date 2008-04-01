@@ -34,8 +34,6 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     private JPanel startPanel;
     /** the JButton - "START" */
     private JButton startButton;
-    /** introduction on the welcome screen */
-    private String introText = "Welcome to this fun MATH world!";
     /** the width for the START button */
     private int startButtonWidth = 100;
     /** the height for the START button */
