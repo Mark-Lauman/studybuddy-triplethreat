@@ -59,7 +59,8 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         correctIcon = new ImageIcon(iconPath + "correct.png");
         wrongIcon = new ImageIcon(iconPath + "wrong.png");
         hintIcon = new ImageIcon(iconPath + "hint.png");
-        
+        questionIconLabel.setIcon(new javax.swing.ImageIcon("icons\\help.png"));
+        questionIconLabel.setVisible(true);
         //disable the "Play again!" button
         playAgainButton.setEnabled(false);
     }
@@ -124,7 +125,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
             }
         });
         add(okButton);
-        okButton.setBounds(360, 270, 80, 40);
+        okButton.setBounds(340, 270, 80, 40);
 
         clearButton.setFont(new java.awt.Font("Arial", 0, 12));
         clearButton.setText("Clear");
@@ -134,7 +135,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
             }
         });
         add(clearButton);
-        clearButton.setBounds(470, 270, 80, 40);
+        clearButton.setBounds(450, 270, 80, 40);
 
         playAgainButton.setFont(new java.awt.Font("Arial", 0, 12));
         playAgainButton.setText("Play Again!");
@@ -144,25 +145,25 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
             }
         });
         add(playAgainButton);
-        playAgainButton.setBounds(340, 450, 130, 40);
+        playAgainButton.setBounds(320, 450, 130, 40);
 
         countGuessLabel.setFont(new java.awt.Font("Arial", 0, 12));
         countGuessLabel.setText("Number of guess: 0");
         add(countGuessLabel);
-        countGuessLabel.setBounds(570, 50, 130, 15);
+        countGuessLabel.setBounds(550, 50, 130, 15);
         add(ansTextField);
-        ansTextField.setBounds(500, 200, 50, 20);
+        ansTextField.setBounds(480, 200, 50, 20);
         add(questionIconLabel);
-        questionIconLabel.setBounds(190, 190, 50, 50);
+        questionIconLabel.setBounds(170, 190, 50, 50);
 
         ansIconLabel.setPreferredSize(new java.awt.Dimension(48, 48));
         add(ansIconLabel);
-        ansIconLabel.setBounds(190, 340, 50, 50);
+        ansIconLabel.setBounds(170, 340, 50, 50);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel1.setText("Please enter a number between 0 and 99 :");
         add(jLabel1);
-        jLabel1.setBounds(250, 190, 240, 40);
+        jLabel1.setBounds(230, 190, 240, 40);
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -180,7 +181,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         jScrollPane1.setViewportView(correctOrWrongTextArea);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(250, 350, 300, 60);
+        jScrollPane1.setBounds(230, 350, 420, 60);
 
         jScrollPane2.setBackground(jPanel1.getBackground());
         jScrollPane2.setBorder(null);
@@ -192,13 +193,13 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         jTextArea1.setFont(new java.awt.Font("Arial", 1, 12));
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("The computer will generate a random number between 0 and 99. You have to guess the number correctly within 10 times! Ready? GO!\n");
+        jTextArea1.setText("The computer will generate a random interger number between 0 and 99. You have to guess the number correctly within 10 times! Are you ready? GO!\n");
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setBorder(null);
         jScrollPane2.setViewportView(jTextArea1);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(250, 120, 300, 50);
+        jScrollPane2.setBounds(170, 110, 470, 50);
 
         jScrollPane3.setBackground(jPanel1.getBackground());
         jScrollPane3.setBorder(null);
@@ -207,15 +208,17 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
 
         jTextArea2.setBackground(jPanel1.getBackground());
         jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Arial", 0, 12));
+        jTextArea2.setEditable(false);
+        jTextArea2.setFont(new java.awt.Font("Arial", 0, 10));
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
-        jTextArea2.setText("HINT: You may quit playing anytime you want by clicking \"Back\" button on the top right corner.\n");
+        jTextArea2.setText("HINT: You may quit playing anytime you want by clicking the \"Back\" button on the top right corner. =)\n");
         jTextArea2.setWrapStyleWord(true);
+        jTextArea2.setAutoscrolls(false);
         jScrollPane3.setViewportView(jTextArea2);
 
         add(jScrollPane3);
-        jScrollPane3.setBounds(540, 410, 224, 81);
+        jScrollPane3.setBounds(460, 450, 186, 70);
     }// </editor-fold>//GEN-END:initComponents
 
     /** This function handles the event when the "OK" button is clicked
@@ -231,7 +234,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
                 correctOrWrongTextArea.setVisible(true);
                 //display the message
                 String boxContent = "BINGO! The number was " + targetNum + "." +
-                        " You just used " + countGuess + " times only! You are so smart! :))";
+                        " You just used " + countGuess + " times only! You are so smart! :)";
                 correctOrWrongTextArea.setText(boxContent);
                 
                 //display the icon when guessed correcly
@@ -248,6 +251,8 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
                 okButton.setEnabled(false);
                 clearButton.setEnabled(false);
                 playAgainButton.setEnabled(true);
+                
+                ansTextField.setText(""); 
             }//else the user didn't guessed correctly and display how many chances left
             else{
                 countGuess++;
@@ -260,9 +265,9 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
                     String boxcontent="Sorry! Please guess again. ";
                     //if the guessNum is smaller than the targetNum
                     if(userGuess < targetNum)
-                        boxcontent = boxcontent + "It is smaller than the answer.";
+                        boxcontent = boxcontent + userGuess + " is smaller than the answer.";
                     else
-                        boxcontent = boxcontent + "It is larger than the answer.";
+                        boxcontent = boxcontent + userGuess + " is larger than the answer.";
                     
                     boxcontent = boxcontent + " You have " + (10 - countGuess) + " chances left!";
                     
@@ -277,9 +282,9 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
                     //else the user didn't guessed correctly within 10 times
                     correctOrWrongTextArea.setVisible(true);
                     String boxContent = "Sorry! You have guessed 10 times already. " +
-                            "The number was " + targetNum + ". A new integer has been re-generated now." +
+                            "The number was " + targetNum + ". A new integer number is now re-generated." +
                             "You may play again!";
-                            
+                    ansTextField.setText("");       
                     correctOrWrongTextArea.setText(boxContent);
                     //display the icon when guessed incorrecly after using up 10 chances
                     ansIconLabel.setVisible(true);
@@ -296,7 +301,6 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
                     clearButton.setEnabled(false);
                     playAgainButton.setEnabled(true);
                 }
-
             }
         }catch (Exception ex) {
             //catch the errors for invalid inputs
@@ -322,7 +326,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         ansIconLabel.setIcon(hintIcon);
         correctOrWrongTextArea.setVisible(true);
         
-        correctOrWrongTextArea.setText("A random integer between 0 and 99 is now re-generagted! " +
+        correctOrWrongTextArea.setText("A random integer number between 0 and 99 is now re-generagted! " +
                 "Please guess again!");
 
         //re-generates a new random integer        

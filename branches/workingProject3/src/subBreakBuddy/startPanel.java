@@ -25,8 +25,7 @@ public class startPanel extends javax.swing.JPanel {
         initComponents();
 
         this.breakBuddy = breakBuddy;
-
-        jLabel1 = new JLabel(new ImageIcon("./icons/intro.jpg"));
+        jLabel1.setIcon(new javax.swing.ImageIcon("icons\\intro.jpg"));
     }
     
 /*public static void main(String args[]){
@@ -56,7 +55,7 @@ public class startPanel extends javax.swing.JPanel {
         setLayout(null);
 
         startButton.setFont(new java.awt.Font("Arial", 0, 18));
-        startButton.setText("START");
+        startButton.setText("START!");
         startButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startButtonActionPerformed(evt);
@@ -67,7 +66,7 @@ public class startPanel extends javax.swing.JPanel {
         add(introLabel);
         introLabel.setBounds(40, 20, 0, 420);
         add(jLabel1);
-        jLabel1.setBounds(60, 40, 700, 390);
+        jLabel1.setBounds(40, 20, 730, 410);
     }// </editor-fold>//GEN-END:initComponents
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
