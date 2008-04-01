@@ -1,7 +1,8 @@
 /*
  * BreakBuddyJFrame.java
  *
- * Created on March 28, 2008, 1:41 PM
+ * 03/29/2008 Vic Kao completed the BreakBuddyJFrame.java and all its methods
+ * 03/28/2008 Vic Kao implementd the structure
  */
 
 package subBreakBuddy;
@@ -12,47 +13,55 @@ import java.util.*;
 import javax.swing.*;
 
 /**
- *
- * @author  Chen-Wei Kao
+ * This class creates a JFrame and a JPanel layouted by NetBeans interface.
+ * The class will generates a random integer number between 0 and 99, and
+ * the user will need to guess the number correcly within 10 times.
+ * @author Team Triple Threat
+ * @see <a href="http://java.sun.com/javase/6/docs/api/javax/swing/JPanel.html">
+ *      javax.swing.JPanel</a>
  */
 public class BreakBuddyJFrame extends javax.swing.JPanel {
-    
-    
-    private String correctIconPath="";
-    private String wrongIconPath="";
     //variables used for guessing game
+    /** the maximum number -1 */
     private final int endNum = 100;
+    /** the number generated randomly by the computer */
     private int targetNum;
+    /** the number guessed by the user */
     private int userGuess;
+    //** the counter to count how many times the user has guessed */
     private int countGuess = 0;
     
     Random rand = new Random();
     
-   
+    /** the path storing the icons used */
     private String iconPath = "icons/";
+    /** the ico used when guessed correctly */
     private ImageIcon correctIcon;
+    /** the ico used when guessed incorrectly */
     private ImageIcon wrongIcon;
+    /** the ico used when hint shows up */
     private ImageIcon hintIcon;
     
     BreakBuddy breakBuddy;
     /** Creates new form BreakBuddyJFrame */
     public BreakBuddyJFrame(BreakBuddy breakBuddy) {
+        //load the interface layouted by NetBeans
         initComponents();
-        this.breakBuddy=breakBuddy;
-        
+        this.breakBuddy = breakBuddy;
+        //generates a random integer between 0 to 99
         targetNum = rand.nextInt(endNum);
         
+        //initially there are no icons or hints shown
         ansIconLabel.setVisible(false);
         correctOrWrongTextArea.setVisible(false);
         
+        //set the path for the icons
         correctIcon = new ImageIcon(iconPath + "correct.png");
         wrongIcon = new ImageIcon(iconPath + "wrong.png");
         hintIcon = new ImageIcon(iconPath + "hint.png");
         
+        //disable the "Play again!" button
         playAgainButton.setEnabled(false);
-        
-
-        
     }
     
     /** This method is called from within the constructor to
@@ -77,6 +86,8 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         correctOrWrongTextArea = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -105,6 +116,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(null);
 
+        okButton.setFont(new java.awt.Font("Arial", 0, 12));
         okButton.setText("OK");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +126,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         add(okButton);
         okButton.setBounds(360, 270, 80, 40);
 
+        clearButton.setFont(new java.awt.Font("Arial", 0, 12));
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +136,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         add(clearButton);
         clearButton.setBounds(470, 270, 80, 40);
 
+        playAgainButton.setFont(new java.awt.Font("Arial", 0, 12));
         playAgainButton.setText("Play Again!");
         playAgainButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,11 +149,9 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         countGuessLabel.setFont(new java.awt.Font("Arial", 0, 12));
         countGuessLabel.setText("Number of guess: 0");
         add(countGuessLabel);
-        countGuessLabel.setBounds(430, 140, 130, 15);
+        countGuessLabel.setBounds(570, 50, 130, 15);
         add(ansTextField);
         ansTextField.setBounds(500, 200, 50, 20);
-
-        questionIconLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\Chen-Wei Kao\\Desktop\\March 28\\branches\\workingProject3\\icons\\help.png")); // NOI18N
         add(questionIconLabel);
         questionIconLabel.setBounds(190, 190, 50, 50);
 
@@ -147,6 +159,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         add(ansIconLabel);
         ansIconLabel.setBounds(190, 340, 50, 50);
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12));
         jLabel1.setText("Please enter a number between 0 and 99 :");
         add(jLabel1);
         jLabel1.setBounds(250, 190, 240, 40);
@@ -185,114 +198,140 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         jScrollPane2.setViewportView(jTextArea1);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(230, 60, 300, 50);
+        jScrollPane2.setBounds(250, 120, 300, 50);
+
+        jScrollPane3.setBackground(jPanel1.getBackground());
+        jScrollPane3.setBorder(null);
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea2.setBackground(jPanel1.getBackground());
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Arial", 0, 12));
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("HINT: You may quit playing anytime you want by clicking \"Back\" button on the top right corner.\n");
+        jTextArea2.setWrapStyleWord(true);
+        jScrollPane3.setViewportView(jTextArea2);
+
+        add(jScrollPane3);
+        jScrollPane3.setBounds(540, 410, 224, 81);
     }// </editor-fold>//GEN-END:initComponents
 
+    /** This function handles the event when the "OK" button is clicked
+     */
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        // TODO add your handling code here:
+
         try{
-            userGuess=Integer.parseInt(ansTextField.getText());
-        
-        
+            //get the user's input - guessing number
+            userGuess = Integer.parseInt(ansTextField.getText());        
+            //if the guessed number matches the number generated
             if (targetNum == userGuess) {
-               // 
-
-
-                ansIconLabel.setVisible(true);
-                //ansIconLabel.setIcon(new ImageIcon(correctIconPath));
+                
                 correctOrWrongTextArea.setVisible(true);
-                
+                //display the message
                 String boxContent = "BINGO! The number was " + targetNum + "." +
-                        " You just used " + countGuess + " times only!";
-                
+                        " You just used " + countGuess + " times only! You are so smart! :))";
                 correctOrWrongTextArea.setText(boxContent);
+                
+                //display the icon when guessed correcly
+                ansIconLabel.setVisible(true);
                 ansIconLabel.setIcon(correctIcon);
                 
+                //reset the counter
                 countGuess = 0;
-                
+                //generate a new number between 0 and 99
                 targetNum = rand.nextInt(endNum);
-                countGuessLabel.setText("Number of guess: " + countGuess);
                 
+                countGuessLabel.setText("Number of guess: " + countGuess);
+                //disable "OK" and "Clear" buttons, and enable "Play Again" button in the end
                 okButton.setEnabled(false);
                 clearButton.setEnabled(false);
                 playAgainButton.setEnabled(true);
-            }
+            }//else the user didn't guessed correctly and display how many chances left
             else{
                 countGuess++;
-                if (countGuess < 10) {
                 
-                    ansIconLabel.setVisible(true);
-                    //ansIconLabel.setIcon(new ImageIcon(wrongIconPath));
+                if (countGuess < 10) {                
                     
+                    //enable the hint message
                     correctOrWrongTextArea.setVisible(true);
-                    String boxcontent="Sorry! Please guess again. ";
-                    //if too small
-                    if(userGuess < targetNum)
-                        boxcontent= boxcontent + "It is smaller than the answer.";
-                    else
-                        boxcontent= boxcontent + "It is larger than the answer.";
                     
-                    boxcontent= boxcontent + " You have " + (10 - countGuess) + " chances left!";
+                    String boxcontent="Sorry! Please guess again. ";
+                    //if the guessNum is smaller than the targetNum
+                    if(userGuess < targetNum)
+                        boxcontent = boxcontent + "It is smaller than the answer.";
+                    else
+                        boxcontent = boxcontent + "It is larger than the answer.";
+                    
+                    boxcontent = boxcontent + " You have " + (10 - countGuess) + " chances left!";
                     
                     correctOrWrongTextArea.setText(boxcontent);
-
+                    
+                    //display the icon when guessed incorrecly
+                    ansIconLabel.setVisible(true);
                     ansIconLabel.setIcon(wrongIcon);
                     
                     countGuessLabel.setText("Number of guess: " + countGuess);
                 }else {
-                    ansIconLabel.setVisible(true);
-
+                    //else the user didn't guessed correctly within 10 times
                     correctOrWrongTextArea.setVisible(true);
                     String boxContent = "Sorry! You have guessed 10 times already. " +
-                            "The number was " + targetNum + "The number has been re-generated now.";
+                            "The number was " + targetNum + ". A new integer has been re-generated now." +
+                            "You may play again!";
                             
                     correctOrWrongTextArea.setText(boxContent);
+                    //display the icon when guessed incorrecly after using up 10 chances
+                    ansIconLabel.setVisible(true);
                     ansIconLabel.setIcon(hintIcon);
                     
                     countGuessLabel.setText("Number of guess: 0");
+                    //reset the counter
                     countGuess = 0;
+                    //re-generate a new integer
                     targetNum = rand.nextInt(endNum);
                     
+                    //disable "OK" and "Clear" buttons, and enable "Play Again" button in the end
                     okButton.setEnabled(false);
                     clearButton.setEnabled(false);
                     playAgainButton.setEnabled(true);
                 }
 
             }
-        }catch (Exception ex)
-        {
-            correctOrWrongTextArea.setText("Invalid input! Please enter again!");
+        }catch (Exception ex) {
+            //catch the errors for invalid inputs
+            correctOrWrongTextArea.setText("Invalid input! Please check it and enter again!");
             correctOrWrongTextArea.setVisible(true);
             ansIconLabel.setIcon(wrongIcon);
             ansIconLabel.setVisible(true);
         }
-        
     }//GEN-LAST:event_okButtonActionPerformed
 
+    /** This function handles the events when "Clear" button is clicked */
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
-        // TODO add your handling code here:
-        ansTextField.setText("");
-        
+        //clear the user's input
+        ansTextField.setText("");        
     }//GEN-LAST:event_clearButtonActionPerformed
-
+    
+    /** This function handles the events when "Play Again" button is clicked */
     private void playAgainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playAgainButtonActionPerformed
-        // TODO add your handling code here:
-        countGuess = 0;
+        //reset the counter
+        countGuess = 0;        
+        //disable and enable the corresponding icons used
+        ansIconLabel.setVisible(true);
+        ansIconLabel.setIcon(hintIcon);
+        correctOrWrongTextArea.setVisible(true);
         
-        
-                ansIconLabel.setVisible(true);
-                ansIconLabel.setIcon(hintIcon);
-                correctOrWrongTextArea.setVisible(true);
-                correctOrWrongTextArea.setText("The number is now re-generagted!" +
-                        "Please guess again!");
+        correctOrWrongTextArea.setText("A random integer between 0 and 99 is now re-generagted! " +
+                "Please guess again!");
 
+        //re-generates a new random integer        
+        targetNum = rand.nextInt(endNum);
+        countGuessLabel.setText("Number of guess: " + countGuess);
 
-                targetNum = rand.nextInt(endNum);
-                countGuessLabel.setText("Number of guess: " + countGuess);
-                
-                okButton.setEnabled(true);
-                clearButton.setEnabled(true);
-                playAgainButton.setEnabled(false);
+        okButton.setEnabled(true);
+        clearButton.setEnabled(true);
+        playAgainButton.setEnabled(false);
 }//GEN-LAST:event_playAgainButtonActionPerformed
     
     
@@ -307,7 +346,9 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JButton okButton;
     private javax.swing.JButton playAgainButton;
     private javax.swing.JLabel questionIconLabel;

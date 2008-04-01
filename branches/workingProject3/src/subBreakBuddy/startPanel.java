@@ -1,15 +1,17 @@
 /*
  * startPanel.java
  *
- * Created on March 28, 2008, 7:17 PM
+ * 03/29/2008 Vic Kao completed the startPanel.java and all its methods
+ * 03/28/2008 Vic Kao implementd the structure
  */
 
 package subBreakBuddy;
 
 import Buddies.*;
 import javax.swing.*;
+
 /**
- *
+ * This class just creates a welcome screen
  * @author  Chen-Wei Kao
  */
 public class startPanel extends javax.swing.JPanel {
@@ -19,13 +21,12 @@ public class startPanel extends javax.swing.JPanel {
     
     /** Creates new form startPanel */
     public startPanel(BreakBuddy breakBuddy) {
+        //load the interface layouted by NetBeans
         initComponents();
-        //set image on the label
-        //introLabel.setIcon(new ImageIcon ("questions/intro.jpg"));
-        this.breakBuddy=breakBuddy;
-        //introLabel.setSize(700, 700);
-        //setSize(700,700);
-        introLabel = new JLabel(new ImageIcon("questions/intro.jpg"));
+
+        this.breakBuddy = breakBuddy;
+
+        jLabel1 = new JLabel(new ImageIcon("./icons/intro.jpg"));
     }
     
 /*public static void main(String args[]){
@@ -49,10 +50,12 @@ public class startPanel extends javax.swing.JPanel {
 
         startButton = new javax.swing.JButton();
         introLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(0, 0));
         setLayout(null);
 
+        startButton.setFont(new java.awt.Font("Arial", 0, 18));
         startButton.setText("START");
         startButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,10 +64,10 @@ public class startPanel extends javax.swing.JPanel {
         });
         add(startButton);
         startButton.setBounds(320, 450, 150, 80);
-
-        introLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\Chen-Wei Kao\\Desktop\\March 28\\branches\\workingProject3\\icons\\intro.jpg")); // NOI18N
         add(introLabel);
-        introLabel.setBounds(40, 20, 695, 420);
+        introLabel.setBounds(40, 20, 0, 420);
+        add(jLabel1);
+        jLabel1.setBounds(60, 40, 700, 390);
     }// </editor-fold>//GEN-END:initComponents
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
@@ -75,6 +78,7 @@ public class startPanel extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel introLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton startButton;
     // End of variables declaration//GEN-END:variables
     
