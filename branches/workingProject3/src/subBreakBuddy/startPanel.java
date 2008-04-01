@@ -17,7 +17,8 @@ import javax.swing.*;
 public class startPanel extends javax.swing.JPanel {
     
     BreakBuddy breakBuddy;
-    
+    /** the path storing the icons used */
+    private String iconPath = System.getProperty("user.dir") + "/icons/";
     
     /** Creates new form startPanel */
     public startPanel(BreakBuddy breakBuddy) {
@@ -25,7 +26,7 @@ public class startPanel extends javax.swing.JPanel {
         initComponents();
 
         this.breakBuddy = breakBuddy;
-        jLabel1.setIcon(new javax.swing.ImageIcon("icons\\intro.jpg"));
+        jLabel1.setIcon(new javax.swing.ImageIcon(iconPath +  "intro.jpg"));
     }
     
 /*public static void main(String args[]){
@@ -62,11 +63,11 @@ public class startPanel extends javax.swing.JPanel {
             }
         });
         add(startButton);
-        startButton.setBounds(320, 450, 150, 80);
+        startButton.setBounds(380, 440, 150, 80);
         add(introLabel);
         introLabel.setBounds(40, 20, 0, 420);
         add(jLabel1);
-        jLabel1.setBounds(40, 20, 730, 410);
+        jLabel1.setBounds(80, 20, 810, 410);
     }// </editor-fold>//GEN-END:initComponents
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed

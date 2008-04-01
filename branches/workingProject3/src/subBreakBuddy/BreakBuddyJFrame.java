@@ -34,7 +34,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
     Random rand = new Random();
     
     /** the path storing the icons used */
-    private String iconPath = "icons/";
+    private String iconPath = System.getProperty("user.dir") + "/icons/";
     /** the ico used when guessed correctly */
     private ImageIcon correctIcon;
     /** the ico used when guessed incorrectly */
@@ -59,7 +59,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         correctIcon = new ImageIcon(iconPath + "correct.png");
         wrongIcon = new ImageIcon(iconPath + "wrong.png");
         hintIcon = new ImageIcon(iconPath + "hint.png");
-        questionIconLabel.setIcon(new javax.swing.ImageIcon("icons\\help.png"));
+        questionIconLabel.setIcon(new javax.swing.ImageIcon(iconPath + "help.png"));
         questionIconLabel.setVisible(true);
         //disable the "Play again!" button
         playAgainButton.setEnabled(false);
@@ -150,7 +150,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         countGuessLabel.setFont(new java.awt.Font("Arial", 0, 12));
         countGuessLabel.setText("Number of guess: 0");
         add(countGuessLabel);
-        countGuessLabel.setBounds(550, 50, 130, 15);
+        countGuessLabel.setBounds(520, 50, 130, 15);
         add(ansTextField);
         ansTextField.setBounds(480, 200, 50, 20);
         add(questionIconLabel);
