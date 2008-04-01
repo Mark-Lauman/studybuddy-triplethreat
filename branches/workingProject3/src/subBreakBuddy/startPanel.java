@@ -24,7 +24,7 @@ public class startPanel extends javax.swing.JPanel {
     public startPanel(BreakBuddy breakBuddy) {
         //load the interface layouted by NetBeans
         initComponents();
-
+System.out.println("The path is " + System.getProperty("user.dir"));
         this.breakBuddy = breakBuddy;
         jLabel1.setIcon(new javax.swing.ImageIcon(iconPath +  "intro.jpg"));
     }

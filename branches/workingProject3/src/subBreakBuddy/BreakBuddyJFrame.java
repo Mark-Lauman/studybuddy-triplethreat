@@ -35,6 +35,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
     
     /** the path storing the icons used */
     private String iconPath = System.getProperty("user.dir") + "/Buddies/BreakBuddy/icons/";
+
     /** the ico used when guessed correctly */
     private ImageIcon correctIcon;
     /** the ico used when guessed incorrectly */
@@ -47,6 +48,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
     public BreakBuddyJFrame(BreakBuddy breakBuddy) {
         //load the interface layouted by NetBeans
         initComponents();
+ System.out.println("The path is " + System.getProperty("user.dir"));
         this.breakBuddy = breakBuddy;
         //generates a random integer between 0 to 99
         targetNum = rand.nextInt(endNum);
