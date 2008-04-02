@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 04/01/2008 Mark Lauman Wrote both endGames, getWinState and QuitListener
  * 03/30/2008 Mark Lauman Wrote setButtonEnabled
  * 03/25/2008 Mark Lauman Fixed max timer event
  * 03/18/2008 Mark Lauman Implemented class
@@ -38,6 +39,7 @@ public class InfoPanel extends JPanel {
     private JLabel timeLabel;
     private Timer  timer;
     private JButton quit;
+    private boolean win;
     
     /**
      * Constructs an <code>InfoPanel</code> using the passed values. The panel's
@@ -111,9 +113,13 @@ public class InfoPanel extends JPanel {
         
         quit = new JButton("Give Up");
         quit.setAlignmentX(JButton.CENTER_ALIGNMENT);
-        quit.addActionListener(new ButtonListener());
+        //Add quit's two listeners. QuitListener is called first on a click,
+        //then a.
+        quit.addActionListener(a);
+        quit.addActionListener(new QuitListener());
         this.add(quit);
         
+        win = false;
         time = 0;
 //        time = 60*14 + 45;
         
@@ -122,31 +128,21 @@ public class InfoPanel extends JPanel {
     }
     
     /**
-     * Transforms this panel into end game mode. This disables all the buttons,
-     * stops the timer, changes the text of the Give Up button, and adds the
-     * ending message to the panel.
+     * Ends the current Game. This will always result in a lose state.
      */
-    public void endGameMode() {
-        for(int i=0; i < playButtons.size(); i++) {
-            playButtons.get(i).setEnabled(false);
-        }
-        timer.stop();
-        quit.setText("Play Again");
+    public void endGame() {
+        endGame(false);
     }
     
     /**
-     * If the user passed this level, this function returns <code>true</code>.
-     * Othewise, this returns <code>false</code>
-     * @return A <code>boolean</code> representing the state of the users game.
-     *         If the user passed this level, this function returns
-     *         <code>true</code>. Otherwise, this returns <code>false</code>
+     * Ends the current Game. Game state will be determined by the
+     * passed <code>boolean</code>, which is true if the game is won.
+     * @param win Win should be true if and only if the game is won.
+     *            If the game is lost, win should be false.
      */
-    public boolean getPassed() {
-        boolean result = true;
-        for(SoundPlayer s : playButtons) {
-            result = result && !s.isEnabled();
-        }
-        return result;
+    public void endGame(boolean win) {
+        this.win = win;
+        quit.doClick();
     }
     
     /**
@@ -156,6 +152,17 @@ public class InfoPanel extends JPanel {
      */
     public int getTime() {
         return (int) time;
+    }
+    
+    /**
+     * If the user passed this level, this function returns <code>true</code>.
+     * Othewise, this returns <code>false</code>
+     * @return A <code>boolean</code> representing the state of the users game.
+     *         If the user passed this level, this function returns
+     *         <code>true</code>. Otherwise, this returns <code>false</code>
+     */
+    public boolean getWinState() {
+        return win;
     }
     
     /**
@@ -191,12 +198,20 @@ public class InfoPanel extends JPanel {
             
             //If it is time to quit
             if(Math.floor(time / 60) >= 15) {
-                //Stop the clock
-                endGameMode();
-                //release the quit event
-                quit.doClick();
+                endGame();
             }
             repaint();
+        }
+    }
+    
+    /**
+     * This listener is attached to the quit button so that the timer stops
+     * correctly.
+     */
+    private class QuitListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+//            System.out.println("Win=" + win);
+            timer.stop();
         }
     }
 }

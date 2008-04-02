@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 04/01/2008 Mark Lauman Wrote getLastLevel test
  * 03/15/2008 Mark Lauman Created + implemented class
  */
 
@@ -24,6 +25,8 @@ public class TestSoundSearch {
         System.out.println(runGetWordListTest1());
         System.out.println(runGetWordListTest2());
         System.out.println(runGetWordListTest3());
+        System.out.println();
+        System.out.println(runGetLastLevelTest());
         System.out.println("-----------------------");
         System.out.println("    Begin Execution");
         System.out.println("-----------------------");
@@ -52,10 +55,15 @@ public class TestSoundSearch {
         return result;
     }
     
+    public static String runGetLastLevelTest() {
+        int level = SoundSearch.getLastLevel();
+        return "Last Level = " + level;
+    }
+    
     public static String runGetWordListTest1() {
         ArrayList<ArrayList<String>> lst;
         lst = SoundSearch.getWordList(1);
-        String result = "Level:" + (1) + "\n";
+        String result = "Level:" + 1 + "\n";
         for(int word = 0; word < lst.size(); word++) {
             result += "\t" + lst.get(word).get(0) + "\n";
             result += "\t\t" + lst.get(word).get(1) + "\n";
@@ -66,7 +74,7 @@ public class TestSoundSearch {
     public static String runGetWordListTest2() {
         ArrayList<ArrayList<String>> lst;
         lst = SoundSearch.getWordList(29);
-        String result = "Level:" + (1) + "\n";
+        String result = "Level:" + 29 + "\n";
         for(int word = 0; word < lst.size(); word++) {
             result += "\t" + lst.get(word).get(0) + "\n";
             result += "\t\t" + lst.get(word).get(1) + "\n";

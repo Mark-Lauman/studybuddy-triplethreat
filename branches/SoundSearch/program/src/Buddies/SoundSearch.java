@@ -31,6 +31,7 @@ import screens.MessageScreen;
 public class SoundSearch extends Buddy implements ActionListener {
     private MessageScreen ms;
     private GameScreen game;
+    private static final int LAST_LEVEL = getLastLevel();
     
     public SoundSearch() {
         super();
@@ -46,12 +47,23 @@ public class SoundSearch extends Buddy implements ActionListener {
      * called.
      */
     private void endGame() {
-        ms.setMessage("Out of time!");
-        ms.setTimeVisible(false);
-        
-        if(game.getTime() <= 60*15) {
-            ms.setMessage("Time's Up!");
+        if(game.getWinState()) {
+            //If you won the game
+            storeGameData(game.getTime());
+            ms.setTimeVisible(true);
+            ms.setTime(game.getTime());
+            ms.setMessage("Level Cleared!");
+        }
+        else {
+            //If you lost the match or gave it up
+            storeGameData(15*60);
             ms.setTimeVisible(false);
+            if(game.getTime() >= 60*15) {
+                ms.setMessage("Time's Up!");
+            }
+            else {
+                ms.setMessage("Try Again?");
+            }
         }
         
         this.remove(game);
@@ -59,8 +71,30 @@ public class SoundSearch extends Buddy implements ActionListener {
         this.add(ms);
         this.revalidate();
         this.repaint();
+        
     }
     
+    public static final int getLastLevel() {
+        int result = 0;
+        
+        try {
+            String path = System.getProperty("user.dir");
+            path += Const.FILE_PATH + "levels.txt";
+            FileReader f = new FileReader(path);
+            BufferedReader reader = new BufferedReader(f);
+            
+            String line = reader.readLine();
+            while(line != null) {
+                result++;
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch(Exception e) {
+            result = 0;
+        }
+        
+        return result;
+    }
     
     /**
      * Gets a list of all the folders inside each level. The outer ArrayList
@@ -83,6 +117,7 @@ public class SoundSearch extends Buddy implements ActionListener {
                 fileData.add(line);
                 line = reader.readLine();
             }
+            reader.close();
             
             String arr[];
             int i = 0;
@@ -107,6 +142,7 @@ public class SoundSearch extends Buddy implements ActionListener {
     
     /**
      * Gets a full list of all the sound files stored for the specified level.
+     * @param level The level that you wish to retrieve
      * @return An ArrayList representing all available sounds and their level
      *         structure
      */
@@ -177,12 +213,64 @@ public class SoundSearch extends Buddy implements ActionListener {
         }
     }
     
+    private int changeLevel(ArrayList<Integer> last3Rounds) {
+        int level = this.getLevel();
+        boolean change = true;
+        
+        //See if we need to increase the level
+        for(int i : last3Rounds) {
+            change &= i < 2.5*60;
+        }
+        if(change) {
+            if (level < LAST_LEVEL) {
+                return level+1;
+            }
+            else if(level > LAST_LEVEL) {
+                return LAST_LEVEL;
+            }
+        }
+        
+        change = true;
+        for(int i : last3Rounds) {
+            change &= i == 15*60;
+        }
+        if(change && level > 1) {
+            return level-1;
+        }
+        
+        return level;
+    }
+    
     private void startGame() {
         this.remove(ms);
         int level = getLevel();
         game = new GameScreen(this, level, getWordList(level));
         this.add(game);
         this.revalidate();
+    }
+    
+    public void storeGameData(int time) {
+        if(time > 0) {
+            this.setStatType(Buddy.TIME_STATS);
+            this.writeStats(time);
+        }
+        else {
+            this.setStatType(Buddy.TIME_STATS);
+            try {
+                //Try to write to existing binary data
+                ArrayList<Integer> dat =
+                        (ArrayList<Integer>)this.getDataContent().get(1);
+                dat.set(2, dat.get(1));
+                dat.set(1, dat.get(0));
+                dat.set(0, time);
+            }
+            catch (Exception e) {
+                //The binary data does not exist yet, so we must make it
+                //ourselves
+                
+            }
+        }
+        
     }
     
     public void actionPerformed(ActionEvent e) {

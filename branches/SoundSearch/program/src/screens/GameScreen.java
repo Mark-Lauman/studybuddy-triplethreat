@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 04/01/2008 Mark Lauman Wrote getWinState and getTime
  * 03/30/2008 Mark Lauman Removed WordListener, added update and
  * 03/25/2008 Mark Lauman Implemented WordListener
  * 03/18/2008 Mark Lauman Added InfoPanel into the screen
@@ -89,19 +90,6 @@ public class GameScreen extends JPanel {
         this.add(info, c);
     }
     
-    public void endGame() {
-        ArrayList<Boolean> found = grid.getFoundWords();
-        boolean complete = true;
-        for(boolean b : found) {
-            complete &= b;
-        }
-        
-        info.endGameMode();
-        if(complete) {
-            //send the data to the user's scores
-        }
-    }
-    
     /**
      * Returns the chosen words in a different format. The first element in the
      * returned list points to all the word names, while the second element
@@ -134,23 +122,23 @@ public class GameScreen extends JPanel {
     }
     
     /**
-     * If the user passed this level, this function returns <code>true</code>.
-     * Othewise, this returns <code>false</code>
-     * @return A <code>representing the state of the users game. If the user
-     *         passed this level, this function returns <code>true</code>.
-     *         Otherwise, this returns <code>false</code>
-     */
-    public boolean getPassed() {
-        return info.getPassed();
-    }
-    
-    /**
      * Returns the time that the the user has played in seconds.
      * @return An <code>int</code> representing the time that the the user has
      *         played in seconds.
      */
     public int getTime() {
         return info.getTime();
+    }
+    
+    /**
+     * If the user passed this level, this function returns <code>true</code>.
+     * Othewise, this returns <code>false</code>
+     * @return A <code>representing the state of the users game. If the user
+     *         passed this level, this function returns <code>true</code>.
+     *         Otherwise, this returns <code>false</code>
+     */
+    public boolean getWinState() {
+        return info.getWinState();
     }
     
     public void update() {
@@ -163,7 +151,8 @@ public class GameScreen extends JPanel {
         }
         
         if(done) {
-            endGame();
+            //End the game in a win state
+            info.endGame(true);
         }
         repaint();
     }

@@ -24,4 +24,20 @@
    Passed
      - Buttons update when the correct word is found
 	 - Timer stops when all words are found
-	 - 
+
+04/01/2008
+- Ran GameScreen test 1 with a modification to InfoPanel's constructor that made time start at 14:46
+   Passed
+    - When 15 min is reached, give up is clicked properly
+	- Clicking the "Give Up" button causes the timer to terminate immediately
+	- In both of the above cases the win state was false on termination
+- Ran GameScreen test 1 with no code modifications to check if finding all words causes appropriate game termination
+   Passed
+    - Game terminates as soon as all words are found
+	- The win state was true on termination
+- Ran SoundSearch Get Word List Test 1-3, Level Test 1, and full test 1
+    - Game terminates properly when give up is clicked
+	- Every time a new puzzle is started it is different from the last one.
+
+04/02/2008
+- data storage is being implemented, so execution will function only when run through the system.
