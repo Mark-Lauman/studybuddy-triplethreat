@@ -77,9 +77,11 @@ public class startPanel extends javax.swing.JPanel {
         introLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(0, 0));
         setLayout(null);
 
+        startButton.setBackground(new java.awt.Color(255, 255, 204));
         startButton.setFont(new java.awt.Font("Arial", 0, 18));
         startButton.setText("START!");
         startButton.addActionListener(new java.awt.event.ActionListener() {

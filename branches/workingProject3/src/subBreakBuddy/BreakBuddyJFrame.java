@@ -60,7 +60,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
     public BreakBuddyJFrame(BreakBuddy breakBuddy) {
         //load the interface layouted by NetBeans
         initComponents();
-        
+
         this.breakBuddy = breakBuddy;
         //generates a random integer between 0 to 99
         targetNum = rand.nextInt(endNum);
@@ -126,6 +126,7 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -183,7 +184,6 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        correctOrWrongTextArea.setBackground(jPanel1.getBackground());
         correctOrWrongTextArea.setColumns(20);
         correctOrWrongTextArea.setEditable(false);
         correctOrWrongTextArea.setFont(new java.awt.Font("Arial", 0, 12));
@@ -202,7 +202,6 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jTextArea1.setBackground(jPanel1.getBackground());
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Arial", 1, 12));
         jTextArea1.setLineWrap(true);
@@ -220,7 +219,6 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jTextArea2.setBackground(jPanel1.getBackground());
         jTextArea2.setColumns(20);
         jTextArea2.setEditable(false);
         jTextArea2.setFont(new java.awt.Font("Arial", 0, 10));
