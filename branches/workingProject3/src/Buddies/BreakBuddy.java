@@ -50,6 +50,8 @@ public class BreakBuddy extends Buddy {
      * the welcome screen
      */
     public void startButtonClicked() {
+
+        
         remove(startScreenPanel);
         add(gameScreenPanel);
         

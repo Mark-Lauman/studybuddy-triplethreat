@@ -3,6 +3,7 @@
    * 
    * Team Triple Threat
    * Log:
+   * 04/01/2008 Vic Kao added sounds effects
    * 03/21/2008 Vic Kao changed some functions to be private and changed the number of 
    * qustions.
    * 03/17/2008 Vic Kao updated the database and implemented functions in detail
@@ -18,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
+import sun.audio.*;
 
 /**
  * This Math buddy has a database of 20 math questions related to daily life 
@@ -78,6 +80,18 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     private JButton playAgainButton;    
     /** the path stroing the questions */
     private String questionPath = System.getProperty("user.dir") + "/Buddies/MathFunBuddy/questions/";
+    private String soundPath = System.getProperty("user.dir") + "/Buddies/MathFunBuddy/sound/";
+    
+    //sound effects variables
+    private ContinuousAudioDataStream welcomeMusic;
+    private AudioStream startButtonSound;
+    private ContinuousAudioDataStream bkMusic;
+    private AudioStream nextButtonSound;
+    private AudioStream correctSound;
+    private AudioStream wrongSound;
+    private AudioStream lastScreenMusic;
+    private AudioStream playAgainButtonSound;
+    private ContinuousAudioDataStream currentStream;
     
    /**
      * Constructs a <code>MathFunBuddy</code> buddy, and loads the welcome screen
@@ -85,19 +99,40 @@ public class MathFunBuddy extends Buddy implements ActionListener {
      */
     public MathFunBuddy (){
         this.setLayout(new BorderLayout());
+        
+        try { 
+            //background music for the welcome screen
+            welcomeMusic = new ContinuousAudioDataStream(        
+                (new AudioStream (new FileInputStream(soundPath + "welcome.wav"))).getData());     
+            
+            //background music for the question screen
+            bkMusic = new ContinuousAudioDataStream(        
+                (new AudioStream (new FileInputStream(soundPath + "bkMusic.wav"))).getData());                
+            
+        } catch (Exception ex) {
+                System.out.println(ex);
+          }        
+        
         createStartPanel();
         add(startPanel);                
         
-        createQuestionPanel();        
+        createQuestionPanel();         
     }
     
     /**
      * Handles the event of a JButtom "START" when clicked
      */
     private void startButtonClicked() {
+                          
+        AudioPlayer.player.stop(currentStream);
+        try {
+            startButtonSound = new AudioStream (new FileInputStream(soundPath + "startButton.wav"));
+            AudioPlayer.player.start(startButtonSound);
+        }catch (Exception ex) {}
+        
         //remove the startpanel 
         remove(startPanel);
-        if(lastScreenPanel!=null)
+        if(lastScreenPanel != null)
             remove(lastScreenPanel);
         //and then add the questionPanel
         add(questionPanel);
@@ -210,6 +245,10 @@ public class MathFunBuddy extends Buddy implements ActionListener {
      * Create the start panel
      */
     private void createStartPanel() {
+        
+        currentStream = welcomeMusic;            
+        AudioPlayer.player.start(currentStream);
+            
         //create the startPanel
         startPanel = new JPanel();
         //create a JLabel, and set the introduction text to the label
@@ -228,9 +267,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         
         //add the label to the upper panel
         upperPanel.add(introJLabel);
-
-//tesing purpose
-//upperPanel.setBackground(Color.WHITE);        
+  
 
         //set the size of the buttom panel
         buttomPanel.setPreferredSize(new Dimension(100, 100));   
@@ -256,11 +293,13 @@ public class MathFunBuddy extends Buddy implements ActionListener {
      */
     private void createQuestionPanel() {   
         
-        questionPanel=new JPanel();
+        
+        AudioPlayer.player.start(bkMusic);
+        
+        questionPanel = new JPanel();
         //set its layout to BorderLayout
         questionPanel.setLayout(new BorderLayout());
-//tesing purpose: set the background color
-//questionPanel.setBackground(Color.GREEN);
+
         //set the size of question panel
         questionPanel.setSize(700,660);
         
@@ -274,8 +313,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         question.setPreferredSize(new Dimension(100, 50));
         //add it to the west of upper panel
         upperPanel.add(question, BorderLayout.WEST);
-//tesing purpose: set the background color        
-//upperPanel.setBackground(Color.MAGENTA);
+
         
         //create the socre label
         score = new JLabel("Score: ");
@@ -290,14 +328,12 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         
         //create the middle panel of the question panel
         JPanel middlePanel = new JPanel();
-//tesing purpose: set the background color        
-//middlePanel.setBackground(Color.pink); 
+
         //set its layout to BorderLayout
         middlePanel.setLayout(new BorderLayout());
         //questionText points to a new JTextArea
         questionText = new JTextArea();
-//set the preferred size of questionText
-// questionText.setPreferredSize(new Dimension(questionTextWidth, questionTextHight));  
+
         //set questionText uneditable and the background to transparent
         questionText.setEditable(false);
         questionText.setBackground(new Color(255,255,255, 100));
@@ -334,13 +370,12 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         
         //create the lower panel of the question panel
         JPanel lowerPanel = new JPanel();
-//tesing purpose: set the background color           
-//lowerPanel.setBackground(Color.orange);
+
         //set its layout to GridLayout, 1 row , 2 column
         lowerPanel.setLayout(new GridLayout(1,2));
         //create the correct-or-wrong label
         correctOrWrongLabel = new JTextArea();
-//correctOrWrongLabel.setPreferredSize(new Dimension(100,90));
+
         //set correctOrWrongLabel uneditable and the background to transparent
         correctOrWrongLabel.setEditable(false);
         correctOrWrongLabel.setBackground(new Color(255,255,255, 100));
@@ -368,7 +403,14 @@ public class MathFunBuddy extends Buddy implements ActionListener {
     /**
      * This function handles the event when the user answers correctly
      */
-    private void answerCorrectquestion() {
+    private void answerCorrectquestion() {        
+        
+        try{                  
+              //sound effect
+              correctSound = new AudioStream (new FileInputStream(soundPath + "correctSound.wav"));            
+              AudioPlayer.player.start(correctSound);
+          } catch(Exception ex){}
+                
         String msgCorrect = "Excellent! You have gained 10 points! :)";
         correctOrWrongLabel.setText(msgCorrect);
         //update the score by 10 points
@@ -384,6 +426,14 @@ public class MathFunBuddy extends Buddy implements ActionListener {
      * This function handles the event when the user answers incorrectly
      */    
     private void answerWrongquestion() {
+        
+        try{                  
+              //sound effect
+              wrongSound = new AudioStream (new FileInputStream(soundPath + "wrongSound.wav"));            
+              AudioPlayer.player.start(wrongSound);
+          } catch(Exception ex){}
+        
+        
         String msgWrong = "Sorry, your answer was not correct. " +
                 "Maybe you missed some details? Try harder for the next one! :)";
         correctOrWrongLabel.setText(msgWrong);
@@ -397,6 +447,10 @@ public class MathFunBuddy extends Buddy implements ActionListener {
        * This function handles when the user finishes playing the buddy
        */
       private void finishPlayingBuddy() {
+          
+          AudioPlayer.player.stop(bkMusic);
+            
+          
           //recored the scores
           //set the stat type
           setStatType(Buddy.SCORE_STATS);
@@ -440,6 +494,13 @@ public class MathFunBuddy extends Buddy implements ActionListener {
           add(lastScreenPanel);
           
           validate();
+          
+                    try{                  
+              //sound effect
+              lastScreenMusic = new AudioStream (new FileInputStream(soundPath + "lastScreen.wav"));            
+              AudioPlayer.player.start(lastScreenMusic);
+          } catch(Exception ex){}   
+          
       }
       
       /**
@@ -502,7 +563,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
           //the user makes decision
           if(e.getSource() == choiceButtons[0] || e.getSource() == choiceButtons[1]
                   || e.getSource() == choiceButtons[2]){
-              if(e.getSource() == AnswerButton)                   
+              if(e.getSource() == AnswerButton)   
                   answerCorrectquestion();  //the user answers correctly
               else
                    answerWrongquestion();   //the user answers incorrectly
@@ -518,14 +579,31 @@ public class MathFunBuddy extends Buddy implements ActionListener {
           }
           //the user clicks the "Next" button
           if(e.getSource() == nextButton) {
+              try{
+                //sound effect for the "NEXT" button    
+                nextButtonSound = new AudioStream (new FileInputStream(soundPath + "nextButton.wav"));            
+                AudioPlayer.player.start(nextButtonSound);
+              } catch(Exception ex){}
+              
               //if the user have played 10 questioins, end the program
-              if (currentQuestion == 10)
-                finishPlayingBuddy();
+              if (currentQuestion == 10) {
+            
+                  finishPlayingBuddy();
+              }
               else
                 nextButtonClicked();
           }
-          if(e.getSource() == playAgainButton)
+          if(e.getSource() == playAgainButton) {
+              try{                  
+                  //sound effect
+                  playAgainButtonSound = new AudioStream (new FileInputStream(soundPath + "playAgain.wav"));            
+                  AudioPlayer.player.start(playAgainButtonSound);
+              } catch(Exception ex){}
+              
+              AudioPlayer.player.start(bkMusic);
+              
               startButtonClicked();
+          }
 
             
       }
