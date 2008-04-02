@@ -1,6 +1,7 @@
 /*
  * startPanel.java
  *
+ * 04/01/2008 Vic Kao added sounds effects
  * 03/29/2008 Vic Kao completed the startPanel.java and all its methods
  * 03/28/2008 Vic Kao implementd the structure
  */
@@ -9,6 +10,8 @@ package subBreakBuddy;
 
 import Buddies.*;
 import javax.swing.*;
+import sun.audio.*;
+import java.io.*;
 
 /**
  * This class just creates a welcome screen
@@ -16,17 +19,39 @@ import javax.swing.*;
  */
 public class startPanel extends javax.swing.JPanel {
     
-    BreakBuddy breakBuddy;
-    /** the path storing the icons used */
-    private String iconPath = System.getProperty("user.dir") + "/Buddies/BreakBuddy/icons/";
+    private ContinuousAudioDataStream bkMusic;
+    private AudioStream startButtonSound;
+    private ContinuousAudioDataStream currentStream;
+    
+    private BreakBuddy breakBuddy;
+    /** the path storing the icons and sounds used */
+    private String breakBuddyPath = System.getProperty("user.dir") + "/Buddies/BreakBuddy/";
+    
+    
     
     /** Creates new form startPanel */
     public startPanel(BreakBuddy breakBuddy) {
         //load the interface layouted by NetBeans
         initComponents();
-System.out.println("The path is " + System.getProperty("user.dir"));
+
         this.breakBuddy = breakBuddy;
-        jLabel1.setIcon(new javax.swing.ImageIcon(iconPath +  "intro.jpg"));
+        jLabel1.setIcon(new javax.swing.ImageIcon(breakBuddyPath +  "icons/intro.jpg"));
+        
+        try { 
+            bkMusic = new ContinuousAudioDataStream(        
+                (new AudioStream (
+                new FileInputStream(breakBuddyPath + "sound/bkMusic1.wav"))).getData());
+                         
+            startButtonSound = new AudioStream (new FileInputStream(breakBuddyPath + "sound/start.wav"));
+            
+            //set the current music to bkmusic
+            currentStream = bkMusic;
+            
+            AudioPlayer.player.start(currentStream);
+            
+        } catch (Exception ex) {
+                System.out.println(ex);
+          }
     }
     
 /*public static void main(String args[]){
@@ -72,6 +97,8 @@ System.out.println("The path is " + System.getProperty("user.dir"));
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         // TODO add your handling code here:
+       AudioPlayer.player.stop(bkMusic);
+       AudioPlayer.player.start(startButtonSound);
        breakBuddy.startButtonClicked();
     }//GEN-LAST:event_startButtonActionPerformed
     

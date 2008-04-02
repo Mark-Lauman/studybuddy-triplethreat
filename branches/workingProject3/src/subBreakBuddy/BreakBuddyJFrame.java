@@ -1,6 +1,7 @@
 /*
  * BreakBuddyJFrame.java
  *
+ * 04/01/2008 Vic Kao added sounds effects
  * 03/29/2008 Vic Kao completed the BreakBuddyJFrame.java and all its methods
  * 03/28/2008 Vic Kao implementd the structure
  */
@@ -11,6 +12,9 @@ import Buddies.*;
 import buddyLibrary.*;
 import java.util.*;
 import javax.swing.*;
+import sun.audio.*;
+import java.io.*;
+
 
 /**
  * This class creates a JFrame and a JPanel layouted by NetBeans interface.
@@ -33,8 +37,8 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
     
     Random rand = new Random();
     
-    /** the path storing the icons used */
-    private String iconPath = System.getProperty("user.dir") + "/Buddies/BreakBuddy/icons/";
+    /** the path storing the icons and sounds used */
+    private String breakBuddyPath = System.getProperty("user.dir") + "/Buddies/BreakBuddy/";
 
     /** the ico used when guessed correctly */
     private ImageIcon correctIcon;
@@ -43,12 +47,20 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
     /** the ico used when hint shows up */
     private ImageIcon hintIcon;
     
-    BreakBuddy breakBuddy;
+    private BreakBuddy breakBuddy;
+    
+    //sounds effects
+    private  AudioStream correctSound;
+    private  AudioStream wrongSound;
+    private  AudioStream playAgainSound;
+    private  AudioStream endSound;
+ 
+    
     /** Creates new form BreakBuddyJFrame */
     public BreakBuddyJFrame(BreakBuddy breakBuddy) {
         //load the interface layouted by NetBeans
         initComponents();
- System.out.println("The path is " + System.getProperty("user.dir"));
+        
         this.breakBuddy = breakBuddy;
         //generates a random integer between 0 to 99
         targetNum = rand.nextInt(endNum);
@@ -58,10 +70,10 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
         correctOrWrongTextArea.setVisible(false);
         
         //set the path for the icons
-        correctIcon = new ImageIcon(iconPath + "correct.png");
-        wrongIcon = new ImageIcon(iconPath + "wrong.png");
-        hintIcon = new ImageIcon(iconPath + "hint.png");
-        questionIconLabel.setIcon(new javax.swing.ImageIcon(iconPath + "help.png"));
+        correctIcon = new ImageIcon(breakBuddyPath + "icons/correct.png");
+        wrongIcon = new ImageIcon(breakBuddyPath + "icons/wrong.png");
+        hintIcon = new ImageIcon(breakBuddyPath + "icons/hint.png");
+        questionIconLabel.setIcon(new javax.swing.ImageIcon(breakBuddyPath + "icons/help.png"));
         questionIconLabel.setVisible(true);
         //disable the "Play again!" button
         playAgainButton.setEnabled(false);
@@ -232,6 +244,14 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
             userGuess = Integer.parseInt(ansTextField.getText());        
             //if the guessed number matches the number generated
             if (targetNum == userGuess) {
+                //play the sound if guess correctly
+                try {
+                    //play the sound clip when guessed correctly
+                    correctSound = new AudioStream (new FileInputStream(breakBuddyPath + "sound/correctSound.wav"));
+                    AudioPlayer.player.start(correctSound);
+                } catch (Exception ex) {
+                            System.out.println(ex);
+                  }
                 
                 correctOrWrongTextArea.setVisible(true);
                 //display the message
@@ -261,10 +281,19 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
                 
                 if (countGuess < 10) {                
                     
+                    //play the sound clip when guessed incorrectly
+                    try {
+                        wrongSound = new AudioStream (new FileInputStream(breakBuddyPath + "sound/wrongSound.wav"));                        
+                        AudioPlayer.player.start(wrongSound);
+                    } catch (Exception ex) {
+                        System.out.println(ex);
+                      }
+                    
+                    
                     //enable the hint message
                     correctOrWrongTextArea.setVisible(true);
                     
-                    String boxcontent="Sorry! Please guess again. ";
+                    String boxcontent = "Sorry! Please guess again. ";
                     //if the guessNum is smaller than the targetNum
                     if(userGuess < targetNum)
                         boxcontent = boxcontent + userGuess + " is smaller than the answer.";
@@ -282,10 +311,21 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
                     countGuessLabel.setText("Number of guess: " + countGuess);
                 }else {
                     //else the user didn't guessed correctly within 10 times
+                   //and play the sound clip
+                    try {
+                        endSound = new AudioStream (new FileInputStream(breakBuddyPath + "sound/endSound.wav"));                        
+                        AudioPlayer.player.start(endSound);
+                    } catch (Exception ex) {
+                        System.out.println(ex);
+                      }                    
+                    
                     correctOrWrongTextArea.setVisible(true);
+                    
+                    //display the related message
                     String boxContent = "Sorry! You have guessed 10 times already. " +
                             "The number was " + targetNum + ". A new integer number is now re-generated." +
                             "You may play again!";
+                    
                     ansTextField.setText("");       
                     correctOrWrongTextArea.setText(boxContent);
                     //display the icon when guessed incorrecly after using up 10 chances
@@ -304,9 +344,17 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
                     playAgainButton.setEnabled(true);
                 }
             }
-        }catch (Exception ex) {
+        } catch (Exception ex) {
             //catch the errors for invalid inputs
             correctOrWrongTextArea.setText("Invalid input! Please check it and enter again!");
+            //play the sound clip 
+            try {
+                playAgainSound = new AudioStream (new FileInputStream(breakBuddyPath + "sound/invalid.wav"));
+                AudioPlayer.player.start(playAgainSound);
+             } catch (Exception ex2) {
+                        System.out.println(ex2);
+               }
+            
             correctOrWrongTextArea.setVisible(true);
             ansIconLabel.setIcon(wrongIcon);
             ansIconLabel.setVisible(true);
@@ -321,6 +369,13 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
     
     /** This function handles the events when "Play Again" button is clicked */
     private void playAgainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playAgainButtonActionPerformed
+        try {
+            playAgainSound = new AudioStream (new FileInputStream(breakBuddyPath + "/sound/playAgain.wav"));
+            AudioPlayer.player.start(playAgainSound);
+        } catch (Exception ex) {
+            System.out.println(ex);
+          }
+        
         //reset the counter
         countGuess = 0;        
         //disable and enable the corresponding icons used
