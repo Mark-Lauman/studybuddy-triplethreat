@@ -184,14 +184,16 @@ public class MathFunBuddy extends Buddy implements ActionListener {
             scoreGained = 0;
             //set the score text
             score.setText("Score: " + scoreGained);
-
+            score.setFont(new java.awt.Font("Arial", 0, 18));
             //add all questions to the notPlayedYet ArrayList
             for(int i = 0; i < questionNames.size(); i++) {
                 notPlayedYet.add(i);
             }  
             
-            for(int i=0;i<3;++i)
+            for(int i=0;i<3;++i){
                 choiceButtons[i].setEnabled(true); 
+                choiceButtons[i].setBackground(new java.awt.Color(255, 255, 255));
+            }
             //play the game
             playGame(questionIndex);
        } catch (Exception e){
@@ -211,6 +213,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         //update the question label by 1
         currentQuestion++;
         question.setText("Question: " + currentQuestion);
+        question.setFont(new java.awt.Font("Arial", 0, 18));
         
         //get the game name with the game index
         String currentQuestionName = questionNames.get(gameIndex);
@@ -233,7 +236,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
             
             //get a line from the .txt file as instruction
             questionText.setText(scan.nextLine());
-        
+            questionText.setFont(new java.awt.Font("Arial", 0, 18));
             //get a integer as the index value of the answer
             AnswerButton = choiceButtons[scan.nextInt()];
         } catch (Exception e) {
@@ -251,14 +254,19 @@ public class MathFunBuddy extends Buddy implements ActionListener {
             
         //create the startPanel
         startPanel = new JPanel();
+        startPanel.setBackground(new java.awt.Color(255, 255, 255));
+        
         //create a JLabel, and set the introduction text to the label
         JLabel introJLabel = new JLabel(new ImageIcon(questionPath + "intro.jpg"));
+        
         
         //make the startPanel into two parts: upper and buttom panels
         //upper panel for displaying the introduction
         JPanel upperPanel = new JPanel();
+        upperPanel.setBackground(new java.awt.Color(255, 255, 255));
         //buttom panel for displaying the "START" buttom
         JPanel buttomPanel = new JPanel();
+        buttomPanel.setBackground(new java.awt.Color(255, 255, 255));
         
         startPanel.setSize(700, 700);        
         //set the layout to BorderLayout
@@ -275,6 +283,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         //create the button, "START"
         startButton = new JButton("START!");
         startButton.setFont(new java.awt.Font("Arial", 0, 18));
+        startButton.setBackground(new java.awt.Color(255, 255, 204));
         //set the preferred size of the button
         startButton.setPreferredSize((new Dimension(startButtonWidth, startButtonHeight)));
         //set the event listenter to this 
@@ -293,12 +302,13 @@ public class MathFunBuddy extends Buddy implements ActionListener {
      */
     private void createQuestionPanel() {   
         
-        
         AudioPlayer.player.start(bkMusic);
         
         questionPanel = new JPanel();
+        
         //set its layout to BorderLayout
         questionPanel.setLayout(new BorderLayout());
+
 
         //set the size of question panel
         questionPanel.setSize(700,660);
@@ -307,10 +317,12 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         JPanel upperPanel = new JPanel();
         //set it's layout to bordered
         upperPanel.setLayout(new BorderLayout());
+//upperPanel.setBackground(new java.awt.Color(255, 255, 255));
         //create the question label
         question = new JLabel();
         //set the preferred size
         question.setPreferredSize(new Dimension(100, 50));
+
         //add it to the west of upper panel
         upperPanel.add(question, BorderLayout.WEST);
 
@@ -331,6 +343,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
 
         //set its layout to BorderLayout
         middlePanel.setLayout(new BorderLayout());
+        middlePanel.setBackground(new java.awt.Color(255, 255, 255));
         //questionText points to a new JTextArea
         questionText = new JTextArea();
 
@@ -349,7 +362,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         JPanel choiceButtonPanel = new JPanel();
         //set its layout to GridLayout, 1 row 3 columns
         choiceButtonPanel.setLayout(new GridLayout(1,3));
-        
+        choiceButtonPanel.setBackground(new java.awt.Color(255, 255, 255));
         //create the 3 choices buttons by for loop
         for (int i = 0; i <  choiceButtons.length; i++) {
             choiceButtons[i] = new JButton("Choice " + (i + 1));
@@ -373,9 +386,10 @@ public class MathFunBuddy extends Buddy implements ActionListener {
 
         //set its layout to GridLayout, 1 row , 2 column
         lowerPanel.setLayout(new GridLayout(1,2));
+        lowerPanel.setBackground(new java.awt.Color(255, 255, 255));
         //create the correct-or-wrong label
         correctOrWrongLabel = new JTextArea();
-
+        correctOrWrongLabel.setFont(new java.awt.Font("Arial", 0, 18));
         //set correctOrWrongLabel uneditable and the background to transparent
         correctOrWrongLabel.setEditable(false);
         correctOrWrongLabel.setBackground(new Color(255,255,255, 100));
@@ -389,6 +403,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         //create the next button
         nextButton = new JButton("Next");
         nextButton.setFont(new java.awt.Font("Arial", 0, 18));
+        nextButton.setBackground(new java.awt.Color(255, 255, 204));
         //set it's preferred size
 
         //add it to the panel
@@ -460,7 +475,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
           
           lastScreenPanel = new JPanel();
           lastScreenPanel.setLayout(new BoxLayout(lastScreenPanel, BoxLayout.Y_AXIS));
-          
+          lastScreenPanel.setBackground(new java.awt.Color(255, 255, 255));
           lastScreenPanel.add(Box.createVerticalGlue());
           //set the fonts
           Font font = new Font("Arial", Font.PLAIN, 52);
@@ -479,6 +494,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
           
           
           JPanel tempPanel = new JPanel();
+          tempPanel.setBackground(new java.awt.Color(255, 255, 255));
           playAgainButton = new JButton("Click here to play again!");
           
           tempPanel.setLayout(new FlowLayout());          
