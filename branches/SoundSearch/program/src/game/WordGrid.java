@@ -82,12 +82,12 @@ public class WordGrid extends JPanel {
         curSelection = new ArrayList<Point>(2);
         curSelection.add(new Point(-1, -1));
         curSelection.add(new Point(-1, -1));
+        setDimensions();
+        placeWords();
         foundWords = new ArrayList<Boolean>(wordList.size());
         for(int i = 0; i < wordList.size(); i++) {
             foundWords.add(false);
         }
-        setDimensions();
-        placeWords();
         fillGrid();
         this.parent = parent;
         

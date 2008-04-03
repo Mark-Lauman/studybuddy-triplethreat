@@ -3,6 +3,7 @@
  * 
  * Team Triple Threat
  * Log:
+ * 04/02/2008 Mark Lauman Added END_TIME
  * 03/30/2008 Mark Lauman Added SELECT_COLOR
  * 03/26/2008 Mark Lauman Added SELECT_DIFF and SELECT_WIDTH
  * 03/16/2008 Mark Lauman Created Class
@@ -17,9 +18,18 @@ package game;
  */
 public abstract class Const {
     
+    /**
+     * If the user achieves this time or better 3 times in a row,
+     * then they are deemed to have mastered the level
+     */
+    public static final int SKILLED_TIME = 3*60;
+    
+    /** The time when the game must end */
+    public static final int END_TIME = 6*60;
+    
     /** The file path of the sound files */
-    public static final String FILE_PATH = "\\src\\game\\sounds\\";
-//    public static final String FILE_PATH = "\\SoundSearch\\game\\sounds\\";
+//    public static final String FILE_PATH = "\\src\\game\\sounds\\";
+    public static final String FILE_PATH = "\\SoundSearch\\game\\sounds\\";
     
     /** The width of a letter on the grid */
     public static final int LETTER_WIDTH = 20;

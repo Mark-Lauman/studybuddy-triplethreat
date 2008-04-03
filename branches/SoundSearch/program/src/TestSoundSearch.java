@@ -7,15 +7,12 @@
  * 03/15/2008 Mark Lauman Created + implemented class
  */
 
-package testers;
-
-import Buddies.SoundSearch;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
- *
+ * This class is designed to test SoundSearch and all its associated functions
  * @author Team Triple Threat
  */
 public class TestSoundSearch {

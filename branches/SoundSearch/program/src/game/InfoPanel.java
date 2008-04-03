@@ -25,7 +25,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-import testers.ButtonListener;
 
 /**
  * An <code>InfoPanel</code> is a panel displaying the word list and counter
@@ -197,7 +196,7 @@ public class InfoPanel extends JPanel {
             timeLabel.setText(text);
             
             //If it is time to quit
-            if(Math.floor(time / 60) >= 15) {
+            if(time == Const.END_TIME) {
                 endGame();
             }
             repaint();

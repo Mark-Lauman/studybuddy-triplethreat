@@ -9,8 +9,6 @@
  * 03/12/2008 Mark Lauman Wrote initial class
  */
 
-package Buddies;
-
 import buddyLibrary.Buddy;
 import game.Const;
 import game.SoundFilter;
@@ -21,6 +19,8 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Locale;
@@ -56,9 +56,9 @@ public class SoundSearch extends Buddy implements ActionListener {
         }
         else {
             //If you lost the match or gave it up
-            storeGameData(15*60);
+            storeGameData(Const.END_TIME);
             ms.setTimeVisible(false);
-            if(game.getTime() >= 60*15) {
+            if(game.getTime() >= Const.END_TIME) {
                 ms.setMessage("Time's Up!");
             }
             else {
@@ -219,7 +219,7 @@ public class SoundSearch extends Buddy implements ActionListener {
         
         //See if we need to increase the level
         for(int i : last3Rounds) {
-            change &= i < 2.5*60;
+            change &= i <= Const.SKILLED_TIME;
         }
         if(change) {
             if (level < LAST_LEVEL) {
@@ -232,7 +232,7 @@ public class SoundSearch extends Buddy implements ActionListener {
         
         change = true;
         for(int i : last3Rounds) {
-            change &= i == 15*60;
+            change &= i >= Const.END_TIME;
         }
         if(change && level > 1) {
             return level-1;
@@ -250,29 +250,39 @@ public class SoundSearch extends Buddy implements ActionListener {
     }
     
     public void storeGameData(int time) {
-        if(time > 0) {
-            this.setStatType(Buddy.TIME_STATS);
-            this.writeStats(time);
+        this.setStatType(Buddy.TIME_STATS);
+        this.writeStats(time);
+        
+        ArrayList<Integer> dat;
+        try {
+            //Try to get the existing binary data
+            dat = (ArrayList<Integer>)this.getDataContent().get(1);
+            dat.set(2, dat.get(1));
+            dat.set(1, dat.get(0));
+            dat.set(0, time);
         }
-        else {
-            this.setStatType(Buddy.TIME_STATS);
-            try {
-                //Try to write to existing binary data
-                ArrayList<Integer> dat =
-                        (ArrayList<Integer>)this.getDataContent().get(1);
-                dat.set(2, dat.get(1));
-                dat.set(1, dat.get(0));
-                dat.set(0, time);
-            }
-            catch (Exception e) {
-                //The binary data does not exist yet, so we must make it
-                //ourselves
-                
-            }
+        catch (Exception e) {
+            //The binary data does not exist yet, so we must make it
+            //ourselves
+            dat = new ArrayList<Integer>();
+            dat.add(time);
+            dat.add(Const.END_TIME);
+            dat.add(Const.END_TIME);
         }
         
+        try {
+            ObjectOutputStream os = this.getDataWriter();
+            os.writeObject(this.changeLevel(dat));
+            os.writeObject(dat);
+            os.flush();
+            os.close();
+        }
+        catch(IOException e) {
+            throw(new Error("Data File could not be written"));
+        }
     }
     
+    @Override
     public void actionPerformed(ActionEvent e) {
         String source = "";
         if(e.getSource().getClass().toString().equals("class javax.swing.JButton")) {
