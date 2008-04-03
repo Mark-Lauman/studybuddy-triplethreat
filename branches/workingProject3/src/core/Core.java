@@ -16,8 +16,13 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.nio.channels.FileChannel;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class Core extends JFrame implements ActionListener {
@@ -32,6 +37,7 @@ public class Core extends JFrame implements ActionListener {
     private Buddy b;
     private JButton back;
     private String currentscreen;
+    private ArrayList<File> tempFiles = new ArrayList<File>();
 
     public static void main(String[] args) {
         new Core();
@@ -52,6 +58,7 @@ public class Core extends JFrame implements ActionListener {
         currentscreen = "userselection";
 
         addWindowListener(new WindowAdapter() {
+
             public void windowClosing(WindowEvent we) {
                 exit();
             }
@@ -126,7 +133,7 @@ public class Core extends JFrame implements ActionListener {
 
         try {
             // Convert File to a URL
-            
+
             URL url = file.toURI().toURL();          // file:/c:/myclasses/
             URL[] urls = new URL[]{url};
 
@@ -136,12 +143,76 @@ public class Core extends JFrame implements ActionListener {
             // Load in the class; MyClass.class should be located in
             // the directory file:/c:/myclasses/com/mycompany
             Class cls = cl.loadClass("Buddies." + classN);
-            Buddy b = (Buddy)cls.newInstance();
+            Buddy b = (Buddy) cls.newInstance();
             return b;
         } catch (Exception e) {
             return null;
         }
+    }
 
+    private void loadResources(File buddyFolder, String bname) {
+        for (int i = 0; i < buddyFolder.listFiles().length; i++) {
+            if (buddyFolder.listFiles()[i].toString().contains(".class")) {
+                String s = buddyFolder.listFiles()[i].toString().replace(System.getProperty("user.dir") + "\\Buddies\\" + bname + "\\", "");
+                //System.out.println(s);
+                try {
+                    File newF = new File(s);
+                    copyFile(buddyFolder.listFiles()[i], newF);
+                    //tempFiles.add(newF);
+                    newF.deleteOnExit();
+                } catch (Exception ex) {
+
+                }
+            }
+            if (buddyFolder.listFiles()[i].isDirectory() && containsClass(buddyFolder.listFiles()[i], bname)) {
+                String s = buddyFolder.listFiles()[i].toString().replace(System.getProperty("user.dir") + "\\Buddies\\" + bname + "\\", "");
+                //System.out.println(s);
+                File f = new File(s);
+                f.mkdir();
+                //tempFiles.add(f);
+                f.deleteOnExit();
+                loadResources(buddyFolder.listFiles()[i], bname);
+            }
+        }
+    }
+
+    private boolean containsClass(File buddyFolder, String bname) {
+        for (int i = 0; i < buddyFolder.listFiles().length; i++) {
+            if (buddyFolder.listFiles()[i].toString().contains(".class")) {
+                String s = buddyFolder.listFiles()[i].toString().replace(System.getProperty("user.dir") + "\\Buddies\\" + "\\", "");
+                //System.out.println(s);
+                return true;
+            }
+            if (buddyFolder.listFiles()[i].isDirectory()) {
+                String s = buddyFolder.listFiles()[i].toString().replace(System.getProperty("user.dir") + "\\Buddies\\" + bname + "\\", "");
+                //System.out.println(s);
+                containsClass(buddyFolder.listFiles()[i], bname);
+            }
+        }
+        return false;
+    }
+
+    /**
+     * This function copyFile is copied from http://www.rgagnon.com/javadetails/java-0064.html
+     * It performs the copy-file function
+     * @param in A File object to be copied
+     * @param out A File object to be saved as
+     */
+    public static void copyFile(File in, File out) throws IOException {
+        FileChannel inChannel = new FileInputStream(in).getChannel();
+        FileChannel outChannel = new FileOutputStream(out).getChannel();
+        try {
+            inChannel.transferTo(0, inChannel.size(), outChannel);
+        } catch (IOException e) {
+            throw e;
+        } finally {
+            if (inChannel != null) {
+                inChannel.close();
+            }
+            if (outChannel != null) {
+                outChannel.close();
+            }
+        }
     }
 
     private static boolean deleteDir(File dir) {
@@ -155,6 +226,12 @@ public class Core extends JFrame implements ActionListener {
             }
         }
         return dir.delete();
+    }
+    
+    private void removeFiles(ArrayList<File> f){
+        for(int i = 0; i < f.size(); i++){
+            f.get(i).deleteOnExit();
+        }
     }
 
     private void exit() {
@@ -234,6 +311,7 @@ public class Core extends JFrame implements ActionListener {
             if (bs.getSelection() != null) {
                 bs.setVisible(false);
                 content.remove(bs);
+                loadResources(new File(System.getProperty("user.dir") + "/Buddies/" + bs.getSelection()), bs.getSelection());
                 b = loadBuddy(bs.getSelection());
                 b.setReference(this);
                 content.add(b, BorderLayout.CENTER);
