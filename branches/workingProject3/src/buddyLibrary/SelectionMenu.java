@@ -34,7 +34,7 @@ public class SelectionMenu extends JPanel implements ActionListener{
         
         content = new JPanel();
         content.setPreferredSize(new Dimension(width, height));
-        content.setLayout(new FlowLayout());
+        content.setLayout(new BorderLayout());
         
         list = new DefaultListModel();
         jl = new JList(list);
@@ -42,13 +42,13 @@ public class SelectionMenu extends JPanel implements ActionListener{
         JScrollPane jsp = new JScrollPane(jl);
         jsp.setPreferredSize(new Dimension(width, height));
 
-        content.add(jsp);
+        content.add(jsp, BorderLayout.CENTER);
 
         buttonHolder = new JMenuBar();
         buttonHolder.setPreferredSize(new Dimension(jsp.getPreferredSize().width, 30));
         buttonHolder.setBackground(null);
 
-        content.add(buttonHolder);
+        content.add(buttonHolder, BorderLayout.SOUTH);
         add(content, BorderLayout.CENTER);
         validate();
     }

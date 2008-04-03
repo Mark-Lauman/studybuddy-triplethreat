@@ -44,6 +44,11 @@ public class Core extends JFrame implements ActionListener {
     }
 
     public Core() {
+        File buddyf = new File(System.getProperty("user.dir") + "/Buddies/");
+        buddyf.mkdir();
+        File dataf = new File(System.getProperty("user.dir") + "/Data/");
+        dataf.mkdir();
+        
         setTitle("Buddy App V3");
         content = getContentPane();
         content.setBackground(Color.LIGHT_GRAY);
@@ -53,8 +58,8 @@ public class Core extends JFrame implements ActionListener {
         makeMenuBar();
         content.add(mb, BorderLayout.NORTH);
 
-        us = new UserSelection(300, 400, this);
-        content.add(us, BorderLayout.WEST);
+        us = new UserSelection(200,300, this);
+        content.add(us, BorderLayout.CENTER);
         currentscreen = "userselection";
 
         addWindowListener(new WindowAdapter() {
@@ -70,6 +75,8 @@ public class Core extends JFrame implements ActionListener {
         userFolder.mkdir();
         File buddyFolder = new File("./Buddies/~temp/");
         buddyFolder.mkdir();
+        
+        
     }
 
     /**
@@ -137,11 +144,7 @@ public class Core extends JFrame implements ActionListener {
             URL url = file.toURI().toURL();          // file:/c:/myclasses/
             URL[] urls = new URL[]{url};
 
-            // Create a new class loader with the directory
             ClassLoader cl = new URLClassLoader(urls);
-
-            // Load in the class; MyClass.class should be located in
-            // the directory file:/c:/myclasses/com/mycompany
             Class cls = cl.loadClass("Buddies." + classN);
             Buddy b = (Buddy) cls.newInstance();
             return b;
@@ -250,7 +253,7 @@ public class Core extends JFrame implements ActionListener {
                 us.setVisible(false);
                 content.remove(us);
                 uc = new UserChoice(this);
-                content.add(uc, BorderLayout.WEST);
+                content.add(uc, BorderLayout.CENTER);
                 currentscreen = "userchoice";
                 back.setActionCommand("BackToUserSelection");
                 back.setText("Logoff");
@@ -265,7 +268,7 @@ public class Core extends JFrame implements ActionListener {
             uc.setVisible(false);
             content.remove(uc);
             us = new UserSelection(300, 400, this);
-            content.add(us, BorderLayout.WEST);
+            content.add(us, BorderLayout.CENTER);
             currentscreen = "userselection";
             back.setActionCommand("None");
             back.setVisible(false);
@@ -284,7 +287,7 @@ public class Core extends JFrame implements ActionListener {
             stats.setVisible(false);
             content.remove(stats);
             uc = new UserChoice(this);
-            content.add(uc, BorderLayout.WEST);
+            content.add(uc, BorderLayout.CENTER);
             currentscreen = "userchoice";
             back.setActionCommand("BackToUserSelection");
             back.setText("Logoff");
@@ -293,7 +296,7 @@ public class Core extends JFrame implements ActionListener {
             uc.setVisible(false);
             content.remove(uc);
             bs = new BuddySelection(300, 400, this);
-            content.add(bs, BorderLayout.WEST);
+            content.add(bs, BorderLayout.CENTER);
             currentscreen = "buddyselection";
             back.setActionCommand("BackToUCFromBS");
             back.setText("Back");
@@ -302,7 +305,7 @@ public class Core extends JFrame implements ActionListener {
             bs.setVisible(false);
             content.remove(bs);
             uc = new UserChoice(this);
-            content.add(uc, BorderLayout.WEST);
+            content.add(uc, BorderLayout.CENTER);
             currentscreen = "userchoice";
             back.setActionCommand("BackToUserSelection");
             back.setText("Logoff");
@@ -324,7 +327,7 @@ public class Core extends JFrame implements ActionListener {
             b.setVisible(false);
             content.remove(b);
             bs = new BuddySelection(300, 400, this);
-            content.add(bs, BorderLayout.WEST);
+            content.add(bs, BorderLayout.CENTER);
             currentscreen = "buddyselection";
             back.setActionCommand("BackToUCFromBS");
             validate();
