@@ -28,8 +28,7 @@ public abstract class Const {
     public static final int END_TIME = 6*60;
     
     /** The file path of the sound files */
-//    public static final String FILE_PATH = "\\src\\game\\sounds\\";
-    public static final String FILE_PATH = "\\SoundSearch\\game\\sounds\\";
+    public static final String FILE_PATH = "\\Buddies\\SoundSearch\\game\\sounds\\";
     
     /** The width of a letter on the grid */
     public static final int LETTER_WIDTH = 20;
