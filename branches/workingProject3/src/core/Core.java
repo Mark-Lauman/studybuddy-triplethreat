@@ -169,7 +169,7 @@ public class Core extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("Login")) {
             if (us.getSelection() != null) {
                 setUser(us.getSelection());
-                setTitle("Buddy App V1 - " + user);
+                setTitle("Buddy App V3 - " + user);
                 us.setVisible(false);
                 content.remove(us);
                 uc = new UserChoice(this);
@@ -184,7 +184,7 @@ public class Core extends JFrame implements ActionListener {
             }
         } else if (e.getActionCommand().equals("BackToUserSelection")) {
             setUser(null);
-            setTitle("Buddy App V1");
+            setTitle("Buddy App V3");
             uc.setVisible(false);
             content.remove(uc);
             us = new UserSelection(300, 400, this);
@@ -235,12 +235,14 @@ public class Core extends JFrame implements ActionListener {
                 bs.setVisible(false);
                 content.remove(bs);
                 b = loadBuddy(bs.getSelection());
+                b.setReference(this);
                 content.add(b, BorderLayout.CENTER);
                 currentscreen = "buddy";
                 back.setActionCommand("BackToBS");
                 validate();
             }
         } else if (e.getActionCommand().equals("BackToBS")) {
+            b.actionPerformed(new ActionEvent(this, 0, "closed"));
             b.setVisible(false);
             content.remove(b);
             bs = new BuddySelection(300, 400, this);

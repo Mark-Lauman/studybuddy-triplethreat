@@ -97,6 +97,10 @@ public class startPanel extends javax.swing.JPanel {
         jLabel1.setBounds(80, 20, 810, 410);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void stopsound(){
+        AudioPlayer.player.stop(currentStream);
+    }
+    
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         // TODO add your handling code here:
        AudioPlayer.player.stop(bkMusic);

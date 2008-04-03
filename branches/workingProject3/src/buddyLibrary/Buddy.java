@@ -16,15 +16,17 @@ package buddyLibrary;
 
 import core.Core;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.io.*;
 import java.util.ArrayList;
 import javax.swing.*;
 import core.*;
 import java.applet.AudioClip;
+import java.awt.event.ActionListener;
 import sun.audio.AudioStream;
 
 
-public class Buddy extends JPanel {
+public class Buddy extends JPanel implements ActionListener{
     public Core frame;
     
     //the following is added by Vic
@@ -74,7 +76,7 @@ public class Buddy extends JPanel {
      */    
     public void clearStats(){
         //get the file
-        File temp = getDataFile();
+        File temp = new File(getDataFilename() + ".txt");
 //not sure which for clearing stats.....Vic (delete the file or just clear the data inside the file?)        
         //if it is deleted
         temp.delete();
@@ -122,7 +124,7 @@ public class Buddy extends JPanel {
      * Get a File reference to the binary data file for this buddy.
      * @return A File that points to this buddy's binary data file
      */
-    public File getDataFile() {
+    public String getDataFilename() {
         //first we get the buddy's name
         String temp[] = this.getClass().getName().replace(".", " ").split(" ");
             //replace(".", " ") is needed because to split, "." means split on
@@ -132,10 +134,9 @@ public class Buddy extends JPanel {
             //package extensions
         
         String filename = System.getProperty("user.dir");
-        filename += ".\\Data\\" + getUser() + "\\";
-        filename += buddyName + ".txt";
-        
-        return new File(filename);
+        filename += "\\Data\\" + getUser() + "\\";
+        filename += buddyName;
+        return filename;
     }
     
     /**
@@ -147,7 +148,8 @@ public class Buddy extends JPanel {
     public ObjectInputStream getDataReader() {
         ObjectInputStream objStream;
         try {
-            FileInputStream inStream = new FileInputStream(getDataFile());
+            FileInputStream inStream = new FileInputStream(
+                                                new File(getDataFilename()+".dat"));
             objStream = new ObjectInputStream(inStream);
         } catch(IOException e) {
             objStream = null;
@@ -166,7 +168,7 @@ public class Buddy extends JPanel {
     public ObjectOutputStream getDataWriter() {
         ObjectOutputStream objStream;
         try {
-            File f = getDataFile();
+            File f = new File(getDataFilename() + ".dat");
             f.getParentFile().mkdirs();
             FileOutputStream outStream = new FileOutputStream(f);
             objStream = new ObjectOutputStream(outStream);
@@ -187,7 +189,7 @@ public class Buddy extends JPanel {
        float[] tempFloat=null;
        
        try {
-           BufferedReader bf = new BufferedReader(new FileReader(getDataFile()));
+           BufferedReader bf = new BufferedReader(new FileReader(new File(getDataFilename() + ".txt")));
            statType = bf.readLine();    //get the statType first
            //get the statistics with the path, and then return the statistics in float[]
            tempFloat = getStatistics(bf);
@@ -276,8 +278,12 @@ public class Buddy extends JPanel {
      * @return   Retrieves the username from the reference frame (Core)
      */ 
     public String getUser() {
-        System.out.println(frame.getUser());
-        return frame.getUser();
+        try {
+            System.out.println(frame.getUser());
+            return frame.getUser();
+        } catch(NullPointerException e) {
+            return "user";
+        }
     }
     
      /**
@@ -379,7 +385,7 @@ public class Buddy extends JPanel {
      */
     public void writeStats(float... stats){
 
-        File f = getDataFile();
+        File f = new File(getDataFilename() + ".txt");
 
         try{            
             //set a flag to check if the file exists
@@ -401,6 +407,9 @@ public class Buddy extends JPanel {
             }catch (Exception ex) {
                 System.out.println(ex);
             }
+    }
+
+    public void actionPerformed(ActionEvent e) {
     }
 
     //testing purpose    

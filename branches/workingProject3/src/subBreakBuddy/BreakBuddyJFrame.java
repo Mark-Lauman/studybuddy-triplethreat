@@ -57,11 +57,9 @@ public class BreakBuddyJFrame extends javax.swing.JPanel {
  
     
     /** Creates new form BreakBuddyJFrame */
-    public BreakBuddyJFrame(BreakBuddy breakBuddy) {
+    public BreakBuddyJFrame() {
         //load the interface layouted by NetBeans
         initComponents();
-
-        this.breakBuddy = breakBuddy;
         //generates a random integer between 0 to 99
         targetNum = rand.nextInt(endNum);
         

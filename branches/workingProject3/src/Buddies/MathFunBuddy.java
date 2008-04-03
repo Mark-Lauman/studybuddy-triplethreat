@@ -16,6 +16,9 @@ import buddyLibrary.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
@@ -28,7 +31,7 @@ import sun.audio.*;
  * @see <a href="http://java.sun.com/javase/6/docs/api/javax/swing/JPanel.html">
  *      javax.swing.JPanel</a>
  */
-public class MathFunBuddy extends Buddy implements ActionListener {
+public class MathFunBuddy extends Buddy implements ActionListener{
     
     //variables used for the starting screen
     /** the JPanel for welcome screen showing the introduction */
@@ -99,7 +102,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
      */
     public MathFunBuddy (){
         this.setLayout(new BorderLayout());
-        
+        //this.addPropertyChangeListener(listener);
         try { 
             //background music for the welcome screen
             welcomeMusic = new ContinuousAudioDataStream(        
@@ -128,16 +131,25 @@ public class MathFunBuddy extends Buddy implements ActionListener {
         try {
             startButtonSound = new AudioStream (new FileInputStream(soundPath + "startButton.wav"));
             AudioPlayer.player.start(startButtonSound);
-        }catch (Exception ex) {}
+        }catch (Exception ex) {
+            
+        }
         
         //remove the startpanel 
-        remove(startPanel);
-        if(lastScreenPanel != null)
+        if(startPanel != null){
+            startPanel.setVisible(false);
+            remove(startPanel);
+        }
+        if(lastScreenPanel != null){
+            lastScreenPanel.setVisible(false);
             remove(lastScreenPanel);
+        }
         //and then add the questionPanel
+        createQuestionPanel();
         add(questionPanel);
         
-        this.repaint();
+        
+        repaint();
         validate();
         
         //start the game
@@ -479,6 +491,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
           lastScreenPanel.add(Box.createVerticalGlue());
           //set the fonts
           Font font = new Font("Arial", Font.PLAIN, 52);
+          
           JLabel thankUmsgLabel = new JLabel();
           
           thankUmsgLabel.setFont(font);
@@ -487,7 +500,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
           thankUmsgLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
           lastScreenPanel.add(thankUmsgLabel);
           
-          JLabel scoreLabel = new JLabel("Your total socre is: " + scoreGained);
+          JLabel scoreLabel = new JLabel("Your total score is: " + scoreGained);
           scoreLabel.setFont(font);
           scoreLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
           lastScreenPanel.add(scoreLabel);
@@ -505,7 +518,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
           playAgainButton.setFont(new java.awt.Font("Arial", 0, 18));
           
           lastScreenPanel.add(tempPanel);
-                    
+          questionPanel.setVisible(false);          
           remove(questionPanel);
           add(lastScreenPanel);
           
@@ -515,7 +528,10 @@ public class MathFunBuddy extends Buddy implements ActionListener {
               //sound effect
               lastScreenMusic = new AudioStream (new FileInputStream(soundPath + "lastScreen.wav"));            
               AudioPlayer.player.start(lastScreenMusic);
-          } catch(Exception ex){}   
+          } catch(Exception ex){
+            
+          
+          }   
           
       }
       
@@ -574,6 +590,10 @@ public class MathFunBuddy extends Buddy implements ActionListener {
        */
       public void actionPerformed(ActionEvent e) {
           //the user clickes "START" button on the welcome screen
+          if(e.getActionCommand().equals("closed")){
+              AudioPlayer.player.stop(bkMusic);
+              AudioPlayer.player.stop(currentStream);
+          }
           if(e.getSource() == startButton)
             startButtonClicked();
           //the user makes decision
@@ -602,8 +622,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
               } catch(Exception ex){}
               
               //if the user have played 10 questioins, end the program
-              if (currentQuestion == 10) {
-            
+              if (currentQuestion == 1) {
                   finishPlayingBuddy();
               }
               else
@@ -623,6 +642,7 @@ public class MathFunBuddy extends Buddy implements ActionListener {
 
             
       }
+
       
       //testing codes
 //      public static void main(String args[]){
