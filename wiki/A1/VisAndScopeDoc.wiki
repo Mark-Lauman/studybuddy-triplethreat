@@ -1,0 +1,84 @@
+#labels Assignment1
+===Vision and Scope Document===
+====Problem Description:====   
+ * *Project Background:*
+  Most educational children’s software is inflexible and inadaptable.  It is our hope to create an educational "study buddy" system for Grade 6 students that is both of these things.
+  
+ * * Stakeholders:*
+  * Our team.
+  
+ * *User Assumptions:*
+  # Grade 6 Students
+   * Can perform basic computer tasks with the mouse and keyboard.
+   * All students can read standard English to a Grade 5 level at least.
+   * Little to no experience in programming.
+  # Guardians of Grade 6 Students
+   * Know as much English as their children.
+   * Can perform basic computer tasks with the mouse and keyboard.
+   * Will want to check over the software before their child uses it.
+
+  * *Risks*
+|| *Risk*                   || *Occurrence* || *Severity* ||
+|| A team member is hit by a truck || Low || High ||
+|| Change in requirements || Medium || High ||
+|| Team member is sick/delayed || Medium || Low ||
+|| Google Servers Fail || Low || Medium ||
+|| Team Member's computer is disabled || Low || Medium ||
+
+  * *Assumptions*
+   * Team Members: 
+    * Current team will not be changed throughout the semester.
+    * Team members will complete their part of the project.
+    * Has some knowledge and experience with programming and Java.
+   * Stakeholders:
+    * Final project will be completed at the deadline.
+    * Final project will be useful and educational.
+   * Users:
+    * Study Buddies will be useful.
+    * Be able to acquire some knowledge from study buddies. 
+    * The system is visually pleasing.
+
+
+====Vision of Solution:====
+  * *Vision Statement*: We hope to make a system that will assist in home learning.  It will do so by providing third party "study buddies" to users that will teach them grade 6 topics. We also intend to implement our own study buddies, to better test the system and provide users with some starter applications. This system will be written in the Java programming language, to allow cross-platform compatibility.
+
+  * *Architectural Diagram*
+[http://studybuddy-triplethreat.googlecode.com/files/ArchDiagram2.png]
+
+  * *List of Features*
+   # *User Login*
+    Keeps track of different users that use the study buddies.
+   # *Statistics*
+    Keeps track of user's statistics so they can see if they are improving.
+   # *Variable Learning Curve*
+    Activities will depend on the user's statistics of previous use of the system.
+   # *Plug-in System*
+    Third parties can create plug-in study buddies to work with our system
+   # *GUI*
+
+    Our system will use a minimalistic, user-friendly GUI.  It will be tested on Grade 6 students.
+   # *Replay Value*
+    The questions and tasks for the study buddy will be on a random generator so that the user will rarely see the same thing appeared as the first question.
+   # *Multimedia*
+    Study buddies will use sounds and images.
+   # *Import Tool*
+    A tool that allows users to add new buddies easily
+   # *Export Tool*
+    A tool that exports installed buddies, so they can be used on other computers.
+
+  * *Scope of phased Release*
+   # *Version 1*
+    * Main Menu with the login function
+    * Buddy Plug-in System
+    * 1 study buddy
+   # *Version 2*
+    * Two study buddies
+    * User statistic and Account Information display and storage
+   # *Version 3*
+    * Three study buddies and one break study
+    * Bug fixes / removal
+  
+  * *Features that will not be implemented*
+   * System will not be accessing the internet, other networks or computers for multiplayer.  This will also exclude automatic statistic sharing with other computers, although it can be done manually.
+   * Customization of the GUI.
+   * Input devices other than the mouse and keyboard.

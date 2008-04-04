@@ -1,0 +1,98 @@
+#summary Coding conventions we will follow
+#labels Assignment3
+
+=== Introduction ===
+
+A class file is divided into sections, with one empty space between each section. There are no empty spaces inside sections unless otherwise noted.
+
+Comments follow the [http://java.sun.com/j2se/javadoc/writingdoccomments/ JavaDoc standards], unless inside a method. Whenever you mention a variable inside a method, be sure to surround it with <code> </code>
+
+An example class file for these rules may be found [http://code.google.com/p/studybuddy-triplethreat/source/browse/branches/workingProject2/src/testers/CodingStyleExample.java here].
+
+To build the documents when you are done commenting, choose "Build" then "Generate !JavaDoc for !ProjectName"
+
+=== Order: ===
+ ==== 1. Header ====
+ {{{
+ /*
+  * Name_of_Java_file
+  *
+  * Team Triple Threat
+  * Log:
+  * MM/DD/YYYY Name_of_Modifier Modification_Done
+   */
+ }}}
+ Each alteration has its own log line. These lines are ordered chronologically, with the most recent one on the top. All the !Name_of_Modifiers should line up, as well as all the !Modification_Dones.
+
+ ==== 2. Package name ====
+ {{{
+ package package_name;
+ }}}
+
+ ==== 3. Import statements ====
+ {{{
+ import import_path;
+ }}}
+ Ordered Alphabetically. Packages always come after classes (ie, "java.awt.Graphics" comes before "java.awt.event.!ActionEvent")
+
+ ==== 4. Class Declaration ====
+ {{{
+ /**
+  * Class Description
+  * @author Team Triple Threat
+  * @see <a href="JAVA_URL">DISPLAYED_LINK</a>
+  */
+ class_declaration
+ }}}
+ * The class description is separated into paragraphs using the <p> command
+ * For each class you import that affects your public methods and variables, include an @see statement linking us to its documentation. JAVA_URL is the location of the document, while DISPLAYED_LINK should be its full name (like "javax.swing.JFrame" or "buddyLibrary.Buddy")
+  * for one of our classes, the documentation is always located at "../packageName/buddyName.html". Note the two periods at the beginning of the path - they are essential
+  * for a Java API class, it is always located at "http://java.sun.com/javase/6/docs/api/" then its pathname. For instance, the pathname of "java.awt.Color" is "java/awt/Color.html"
+ * @see statements are ordered just like their import statements are
+ * If you need an additional line for either of the @ lines, create a new line, and start typing with the left edge lining up with your description on the above line.
+
+ ==== 5. Objects of the class ====
+ {{{
+ /** Object description */
+ object_declaration
+ }}}
+ Objects are ordered alphabetically: first by type, then by name. *Note:* There is no white space between objects.
+
+ ==== 6. Functions ====
+   {{{
+   /**
+    * Function Description
+    * @param parameter_name parameter_description
+    * @return description_of_returned_value
+   */
+   @Override
+   scope return_type func_name(params) {
+     //function is implemented...
+   }
+   }}}
+   * The function description works the same way as the class description.
+   * Each parameter has its own @param line. These lines follow the order of the parameters inside the brackets of the function.
+   * If you need an additional line for either of the @ lines, create a new line, and start typing with the left edge lining up with your description on the above line.
+   * Don't have an @param line if there are no parameters, and don't have a @return line if the return type is void.
+   * If the function overrides its parent's function, the @Override line is included. Otherwise, leave it out.
+   * *Tip:* If you type in the function, then try to place the comment in the line above (remember the double asterisks at the beginning!) then !NetBeans will place the @lines in the correct order for you.
+
+   Inside categories, functions are ordered first alphabetically by name, then by the number of parameters in ascending order. They are separated from other functions by one space.
+
+   Function categories (in order) are: 
+    # Constructors
+    # public static void main
+    # A horizontal rule
+     * A comment line starting with // ending with // and containing several dashes.  The line ends 12 characters before the red line in !NetBeans.
+    # Setters, Getters and Misc functions
+      * Setters start with set
+      * Getters start with get
+    # A horizontal rule
+    # Overridden functions
+    # Interface functions
+
+=== Exceptions ===
+ Inside functions programmers have free reign for commenting. Make sure the comments are understandable to a reader.
+
+----
+[updatedDesignDoc Back to updated Design Document]
