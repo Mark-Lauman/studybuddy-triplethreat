@@ -82,3 +82,5 @@
    * System will not be accessing the internet, other networks or computers for multiplayer.  This will also exclude automatic statistic sharing with other computers, although it can be done manually.
    * Customization of the GUI.
    * Input devices other than the mouse and keyboard.
+   
+   [Assignment1 Back to Assignment 1]

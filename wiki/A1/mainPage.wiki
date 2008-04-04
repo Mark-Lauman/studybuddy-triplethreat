@@ -34,4 +34,6 @@
 
 
 ===Diagram===
-http://studybuddy-triplethreat.googlecode.com/files/Project_Plan.jpg
+[http://code.google.com/p/studybuddy-triplethreat/wiki/A1/images/diagrams/Project_Plan.jpg]
+
+[Assignment1 Back to Assignment 1]
