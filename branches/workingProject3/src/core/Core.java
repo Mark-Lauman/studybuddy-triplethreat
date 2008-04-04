@@ -11,7 +11,6 @@ package core;
 import Buddies.*;
 import coreScreens.*;
 import buddyLibrary.*;
-import Buddies.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.ActionEvent;
@@ -19,10 +18,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 
 public class Core extends JFrame implements ActionListener {
@@ -37,7 +39,8 @@ public class Core extends JFrame implements ActionListener {
     private Buddy b;
     private JButton back;
     private String currentscreen;
-    private ArrayList<File> tempFiles = new ArrayList<File>();
+    private JPanel screen;
+    private ImageIcon icon = new ImageIcon("bg.jpg");
 
     public static void main(String[] args) {
         new Core();
@@ -48,8 +51,26 @@ public class Core extends JFrame implements ActionListener {
         buddyf.mkdir();
         File dataf = new File(System.getProperty("user.dir") + "/Data/");
         dataf.mkdir();
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream("core/bg.jpg");
+        if(is != null){
+            try{
+            Image i = ImageIO.read(is);
+            icon = new ImageIcon(i);
+            is.close();
+            }catch(Exception ex){
+            }
+        }
+        InputStream is2 = this.getClass().getClassLoader().getResourceAsStream("core/ico.jpg");
+        if(is != null){
+            try{
+            Image i = ImageIO.read(is2);
+            this.setIconImage(i);
+            is2.close();
+            }catch(Exception ex){
+            }
+        }
         
-        setTitle("Buddy App V3");
+        setTitle("SnowBird V3");
         content = getContentPane();
         content.setBackground(Color.LIGHT_GRAY);
         setPreferredSize(new Dimension(800, 600));
@@ -58,8 +79,28 @@ public class Core extends JFrame implements ActionListener {
         makeMenuBar();
         content.add(mb, BorderLayout.NORTH);
 
-        us = new UserSelection(200,300, this);
-        content.add(us, BorderLayout.CENTER);
+        screen = new JPanel() {
+
+            protected void paintComponent(Graphics g) {
+                //  Dispaly image at at full size
+                //g.drawImage(icon.getImage(), 0, 0, null);
+
+                //  Scale image to size of component
+                Dimension d = getSize();
+                g.drawImage(icon.getImage(), 0, 0, d.width, d.height, null);
+
+            //super.paintComponent(g);
+            }
+        };
+        screen.setLayout(null);
+        screen.setOpaque(false);
+        content.add(screen, BorderLayout.CENTER);
+
+        
+        setVisible(true);
+        us = new UserSelection(400, 400, this);
+        setCenter(us);
+        screen.add(us);
         currentscreen = "userselection";
 
         addWindowListener(new WindowAdapter() {
@@ -68,15 +109,29 @@ public class Core extends JFrame implements ActionListener {
                 exit();
             }
         });
-        pack();
-        setVisible(true);
+        screen.addComponentListener(new ComponentListener() {
+
+            public void componentResized(ComponentEvent e) {
+                if(!currentscreen.equals("buddy")){
+                    setCenter(screen.getComponents()[0]);
+                }
+                
+            }
+            public void componentHidden(ComponentEvent e) {
+            }
+            public void componentMoved(ComponentEvent e) {
+            }
+            public void componentShown(ComponentEvent e) {
+            }
+        });
+        
 
         File userFolder = new File("./Data/~temp/");
         userFolder.mkdir();
         File buddyFolder = new File("./Buddies/~temp/");
         buddyFolder.mkdir();
-        
-        
+
+        pack();
     }
 
     /**
@@ -230,9 +285,9 @@ public class Core extends JFrame implements ActionListener {
         }
         return dir.delete();
     }
-    
-    private void removeFiles(ArrayList<File> f){
-        for(int i = 0; i < f.size(); i++){
+
+    private void removeFiles(ArrayList<File> f) {
+        for (int i = 0; i < f.size(); i++) {
             f.get(i).deleteOnExit();
         }
     }
@@ -245,67 +300,94 @@ public class Core extends JFrame implements ActionListener {
         System.exit(0);
     }
 
+    /**
+     *  Sets the position of any component 
+     *
+     * @param c The Component to be moved
+     * @param x X coordinate that the component will be moved to
+     * @param y Y coordinate that the component will be moved to
+     * @return Set the position of the component
+     */
+    public void setPosition(Component c, int x, int y) {
+        Insets insets = screen.getInsets();
+        c.setBounds(x + insets.left, y + insets.top, c.getPreferredSize().width, c.getPreferredSize().height);
+        validate();
+    }
+
+    public void setCenter(Component c) {
+        setPosition(c, getSize().width / 2 - c.getPreferredSize().width / 2, getSize().height / 2 - c.getPreferredSize().height / 2);
+        validate();
+    }
+
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Login")) {
             if (us.getSelection() != null) {
                 setUser(us.getSelection());
-                setTitle("Buddy App V3 - " + user);
+                setTitle("SnowBird V3 - " + user);
                 us.setVisible(false);
-                content.remove(us);
+                screen.remove(us);
                 uc = new UserChoice(this);
-                content.add(uc, BorderLayout.CENTER);
+                uc.setPreferredSize(new Dimension(300,400));
+                screen.add(uc);
+                setCenter(uc);
                 currentscreen = "userchoice";
                 back.setActionCommand("BackToUserSelection");
                 back.setText("Logoff");
                 back.setVisible(true);
+
                 invalidate();
                 validate();
                 pack();
             }
         } else if (e.getActionCommand().equals("BackToUserSelection")) {
             setUser(null);
-            setTitle("Buddy App V3");
+            setTitle("SnowBird V3");
             uc.setVisible(false);
-            content.remove(uc);
+            screen.remove(uc);
             us = new UserSelection(300, 400, this);
-            content.add(us, BorderLayout.CENTER);
+            screen.add(us);
+            setCenter(us);
             currentscreen = "userselection";
             back.setActionCommand("None");
             back.setVisible(false);
             validate();
         } else if (e.getActionCommand().equals("Statistics")) {
             uc.setVisible(false);
-            content.remove(uc);
+            screen.remove(uc);
             stats = new Stats(getUser());
             stats.setReference(this);
-            content.add(stats, BorderLayout.CENTER);
+            screen.add(stats);
+            setCenter(stats);
             currentscreen = "stats";
             back.setActionCommand("BackToUCFromStats");
             back.setText("Back");
             validate();
         } else if (e.getActionCommand().equals("BackToUCFromStats")) {
             stats.setVisible(false);
-            content.remove(stats);
+            screen.remove(stats);
             uc = new UserChoice(this);
-            content.add(uc, BorderLayout.CENTER);
+            screen.add(uc);
+            setCenter(uc);
             currentscreen = "userchoice";
             back.setActionCommand("BackToUserSelection");
             back.setText("Logoff");
             validate();
         } else if (e.getActionCommand().equals("Study Buddy")) {
             uc.setVisible(false);
-            content.remove(uc);
+            screen.remove(uc);
             bs = new BuddySelection(300, 400, this);
-            content.add(bs, BorderLayout.CENTER);
+            screen.add(bs);
+            setCenter(bs);
             currentscreen = "buddyselection";
             back.setActionCommand("BackToUCFromBS");
             back.setText("Back");
             validate();
         } else if (e.getActionCommand().equals("BackToUCFromBS")) {
             bs.setVisible(false);
-            content.remove(bs);
+            screen.remove(bs);
             uc = new UserChoice(this);
-            content.add(uc, BorderLayout.CENTER);
+            screen.add(uc);
+            setCenter(uc);
             currentscreen = "userchoice";
             back.setActionCommand("BackToUserSelection");
             back.setText("Logoff");
@@ -313,21 +395,29 @@ public class Core extends JFrame implements ActionListener {
         } else if (e.getActionCommand().equals("Start")) {
             if (bs.getSelection() != null) {
                 bs.setVisible(false);
-                content.remove(bs);
+                screen.remove(bs);
                 loadResources(new File(System.getProperty("user.dir") + "/Buddies/" + bs.getSelection()), bs.getSelection());
                 b = loadBuddy(bs.getSelection());
                 b.setReference(this);
-                content.add(b, BorderLayout.CENTER);
+                screen.setLayout(new BorderLayout());
+                
+                screen.add(b, BorderLayout.CENTER);
+                setSize(b.getPreferredSize());
                 currentscreen = "buddy";
                 back.setActionCommand("BackToBS");
                 validate();
+                //setResizable(false);
             }
         } else if (e.getActionCommand().equals("BackToBS")) {
             b.actionPerformed(new ActionEvent(this, 0, "closed"));
+            setResizable(true);
             b.setVisible(false);
-            content.remove(b);
+            screen.remove(b);
+            screen.setLayout(null);
             bs = new BuddySelection(300, 400, this);
-            content.add(bs, BorderLayout.CENTER);
+            screen.add(bs);
+            setCenter(bs);
+            this.setPreferredSize(bs.getPreferredSize());
             currentscreen = "buddyselection";
             back.setActionCommand("BackToUCFromBS");
             validate();

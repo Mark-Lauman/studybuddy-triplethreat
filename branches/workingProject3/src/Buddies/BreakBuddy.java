@@ -44,32 +44,11 @@ public class BreakBuddy extends Buddy implements ActionListener{
     public BreakBuddy() {
         //set the layout to BorderLayout
         this.setLayout(new BorderLayout());
+        this.setPreferredSize(new Dimension(900, 600));
         startScreenPanel = new startPanel(this);
         gameScreenPanel = new BreakBuddyJFrame();
         
         add(startScreenPanel);     
-        
-        
-        
-        File f2 = new File(System.getProperty("user.dir") + "/subBreakBuddy/");
-        f2.mkdir();
-        try{
-        copyFile(new File(buddyPath + "/subBreakBuddy/BreakBuddyJFrame.class"), 
-                new File(System.getProperty("user.dir") + "/subBreakBuddy/BreakBuddyJFrame.class"));
-        copyFile(new File(buddyPath + "/subBreakBuddy/BreakBuddyJFrame.class"), 
-                new File(System.getProperty("user.dir") + "/subBreakBuddy/BreakBuddyJFrame$1.class"));
-        copyFile(new File(buddyPath + "/subBreakBuddy/BreakBuddyJFrame.class"), 
-                new File(System.getProperty("user.dir") + "/subBreakBuddy/BreakBuddyJFrame$2.class"));
-        copyFile(new File(buddyPath + "/subBreakBuddy/BreakBuddyJFrame.class"), 
-                new File(System.getProperty("user.dir") + "/subBreakBuddy/BreakBuddyJFrame$3.class"));
-        copyFile(new File(buddyPath + "/subBreakBuddy/BreakBuddyJFrame.class"), 
-                new File(System.getProperty("user.dir") + "/subBreakBuddy/startPanel.class"));
-        copyFile(new File(buddyPath + "/subBreakBuddy/BreakBuddyJFrame.class"), 
-                new File(System.getProperty("user.dir") + "/subBreakBuddy/startPanel$1.class"));
-        
-        }catch(Exception ex){
-            
-        }
     }
     
 /**

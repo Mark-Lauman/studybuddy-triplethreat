@@ -101,6 +101,7 @@ public class MathFunBuddy extends Buddy implements ActionListener{
      * and question screen.
      */
     public MathFunBuddy (){
+        setPreferredSize(new Dimension(900, 600));
         this.setLayout(new BorderLayout());
         //this.addPropertyChangeListener(listener);
         try { 

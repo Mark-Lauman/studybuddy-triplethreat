@@ -45,8 +45,8 @@ public class CircuitBuddy extends Buddy implements ActionListener {
     private String fileloc = System.getProperty("user.dir") + "/Buddies/CircuitBuddy/";
 
     public CircuitBuddy() {
+        setPreferredSize(new Dimension(800, 700));
         setLayout(new BorderLayout());
-        setPreferredSize(new Dimension(800, 600));
         setFocusable(true);
         start();
         add(startScreen, BorderLayout.CENTER);
@@ -65,7 +65,7 @@ public class CircuitBuddy extends Buddy implements ActionListener {
         startScreen = new JPanel();
         startScreen.setLayout(null);
         startScreen.setBorder(BorderFactory.createTitledBorder("Intoduction"));
-        startScreen.setPreferredSize(new Dimension(getPreferredSize().width, getPreferredSize().height));
+        startScreen.setPreferredSize(getPreferredSize());
         startScreen.setBackground(Color.BLUE);
         JButton startB = new JButton("Start");
         startB.setActionCommand("Start");

@@ -42,6 +42,8 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
     /** the directory to store user's data */
     private final String buddydir = "./Buddies";
     private ArrayList<String> undo = new ArrayList<String>();
+    private JFrame frame;
+    private int items = 0;
 
     /**
      * Constructs a <code>BuddySelection</code> menu with specified width 
@@ -52,7 +54,19 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
      */
     public BuddySelection(int width, int height, ActionListener c) {
         super("Buddy Selection", width, height, c);
-
+        JButton b = new JButton("Random Buddy");
+        b.addActionListener(this);
+        b.setActionCommand("Random");
+        bh.add(b, BorderLayout.CENTER);
+        
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        frame = new JFrame();
+        frame.setPreferredSize(new Dimension(400, 0));
+        frame.setLocation(((int)(d.getWidth()/2)) - frame.getPreferredSize().width/2, (int)(d.getHeight()/2));
+        frame.getContentPane().setBackground(Color.GREEN);
+        frame.setAlwaysOnTop(true);
+        frame.pack();
+        
         File f = new File(buddydir);  //add all buddies to the list and create a directory    
 
         String[] fileList = f.list();
@@ -62,10 +76,12 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
             if (fileList[i].indexOf(".") < 0 && fileList[i].indexOf(classFile) > 0) {
                 list.addElement(fileList[i]); //add the names to list
                 exportmap.put(fileList[i], buddydir + "/" + fileList[i]);
+                items++;
             } else {
                 if (fileList[i].indexOf(classFile) > 0) {
                     list.addElement(fileList[i].substring(0, fileList[i].indexOf("."))); //add the names to list
                     exportmap.put(fileList[i].substring(0, fileList[i].indexOf(".")), buddydir + "/" + fileList[i]);
+                    items++;
                 }
             }
         }
@@ -86,6 +102,7 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
      */
     private void addBuddy() {
         //open a file choose to locate the .jar file
+        
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new File("."));
 
@@ -102,13 +119,16 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
         });
 
         int r = chooser.showOpenDialog(new JFrame());
-        if (r == JFileChooser.APPROVE_OPTION) {
+        if (r == JFileChooser.APPROVE_OPTION) {            
             String name = chooser.getSelectedFile().getName();
             name = name.substring(0, name.lastIndexOf(".")); //get the name before the extension type
             try {
                 JarResource jr = new JarResource(chooser.getSelectedFile().getAbsolutePath());
 
                 if (jr.contains(name + ".class")) {
+                    frame.setTitle("Loading " + name + "...");
+                    frame.setVisible(true);
+                    
                     ArrayList<String> files = jr.getFilename();
                     File f = new File(buddydir + "/" + name);
                     f.mkdir();
@@ -127,6 +147,7 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
                     exportmap.put(name, buddydir + "/" + chooser.getSelectedFile().getName());
                     addChoice(name); //add the name to the list
                     undo.add("Add - " + name);
+                    frame.setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null,
                             "The chosen file is incompatible with our system! Please choose another", "Warning",
@@ -323,6 +344,10 @@ public class BuddySelection extends buddyLibrary.SelectionMenu {
                 addBuddy(cmd.substring(9, cmd.length()));
                 undo.remove(undo.size() - 1);
             }
+        } else if(e.getActionCommand().equals("Random")){
+            Random r = new Random();
+            jl.setSelectedIndex(r.nextInt(list.size()));
+            listener[1].actionPerformed(new ActionEvent(this, 0, "Start"));
         }
     }
 }

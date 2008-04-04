@@ -17,7 +17,7 @@ import core.*;
 import java.awt.event.ActionListener;
 
 public class SelectionMenu extends JPanel implements ActionListener{
-    private JList jl;
+    public JList jl;
     private JScrollPane jsp;
     protected DefaultListModel list;
     private JMenuBar buttonHolder;
@@ -25,12 +25,14 @@ public class SelectionMenu extends JPanel implements ActionListener{
     public ActionListener[] listener = new ActionListener[2];
     private JButton mainButton;
     private JPanel content;
+    public JPanel bh;
 
     public SelectionMenu(String menuName,int width, int height, ActionListener c) {
         listener[0] = this;
         listener[1] = c;
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createTitledBorder(menuName));
+        this.setOpaque(false);
         
         content = new JPanel();
         content.setPreferredSize(new Dimension(width, height));
@@ -44,11 +46,15 @@ public class SelectionMenu extends JPanel implements ActionListener{
 
         content.add(jsp, BorderLayout.CENTER);
 
+        bh = new JPanel();
+        bh.setLayout(new BorderLayout());
+        
         buttonHolder = new JMenuBar();
         buttonHolder.setPreferredSize(new Dimension(jsp.getPreferredSize().width, 30));
         buttonHolder.setBackground(null);
 
-        content.add(buttonHolder, BorderLayout.SOUTH);
+        bh.add(buttonHolder, BorderLayout.NORTH);
+        content.add(bh, BorderLayout.SOUTH);
         add(content, BorderLayout.CENTER);
         validate();
     }
@@ -163,7 +169,7 @@ public class SelectionMenu extends JPanel implements ActionListener{
         }
         return choices;
     }
-
+    
  /**
  *  Gets the currently selected item on the list
  *

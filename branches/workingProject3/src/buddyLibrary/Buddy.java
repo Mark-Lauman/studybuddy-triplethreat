@@ -36,6 +36,7 @@ public class Buddy extends JPanel implements ActionListener{
     
     public Buddy() {
         setLayout(null);
+        setPreferredSize(new Dimension(800, 600));
     }
     
      /**

@@ -81,7 +81,6 @@ public class startPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(0, 0));
         setLayout(null);
 
-        startButton.setBackground(new java.awt.Color(255, 255, 204));
         startButton.setFont(new java.awt.Font("Arial", 0, 18));
         startButton.setText("START!");
         startButton.addActionListener(new java.awt.event.ActionListener() {
@@ -93,8 +92,10 @@ public class startPanel extends javax.swing.JPanel {
         startButton.setBounds(380, 440, 150, 80);
         add(introLabel);
         introLabel.setBounds(40, 20, 0, 420);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(jLabel1);
-        jLabel1.setBounds(80, 20, 810, 410);
+        jLabel1.setBounds(70, 20, 810, 410);
     }// </editor-fold>//GEN-END:initComponents
 
     public void stopsound(){
