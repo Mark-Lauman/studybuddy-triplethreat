@@ -48,7 +48,7 @@ Our system provides an educational learning tool to students of the sixth and se
 
 
 ==Example Tutorials==
- * [updatedExampleTutUserLogin User Login]
+ * [http://studybuddy-triplethreat.googlecode.com/files/tutorial.aviUser Login]
 
  * [http://studybuddy-triplethreat.googlecode.com/files/addBuddy.avi Add/Import/Export a study buddy]
 
