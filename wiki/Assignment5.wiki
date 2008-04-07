@@ -7,6 +7,9 @@ Mark Lauman
 === Design Document ===
 [http://code.google.com/p/studybuddy-triplethreat/wiki/updatedDesignDoc Design Document]
 
+===User Manual===
+[updatedUserManual User Manual]
+
 ==Example Tutorials==
  * [http://studybuddy-triplethreat.googlecode.com/files/tutorial.avi User Login]
 
