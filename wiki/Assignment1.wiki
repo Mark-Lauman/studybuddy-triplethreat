@@ -11,7 +11,7 @@ A link to the crieria of assingment 1 can be found [http://sleepy.cs.surrey.sfu.
 To set up a website for the project. You can click on the tab "*Project Home*" to view our homepage.
 
 ===Vision and Scope Document:===
-[A1/VisAndScopeDoc Vision and Scope Document]
+[http://studybuddy-triplethreat.googlecode.com/svn/wiki/A1/VisAndScopeDoc Vision and Scope Document]
 
 ===Main Page:Assignment 1 Version===
 [A1/mainPage Main Page]
