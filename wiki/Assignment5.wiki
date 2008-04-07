@@ -7,8 +7,12 @@ Mark Lauman
 === Design Document ===
 [http://code.google.com/p/studybuddy-triplethreat/wiki/updatedDesignDoc Design Document]
 
-=== Login Tutorial ===
-[http://studybuddy-triplethreat.googlecode.com/files/tutorial.avi Login tutorial video]
+==Example Tutorials==
+ * [http://studybuddy-triplethreat.googlecode.com/files/tutorial.avi User Login]
+
+ * [http://studybuddy-triplethreat.googlecode.com/files/addBuddy.avi Add/Export/Delete a buddy]
+
+ * [http://studybuddy-triplethreat.googlecode.com/files/stats.avi View statistics]
 
 === Presentation PowerPoint ===
 [http://studybuddy-triplethreat.googlecode.com/files/assign5.ppt Assignment 5 PowerPoint]
