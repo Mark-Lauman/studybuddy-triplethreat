@@ -26,5 +26,5 @@ Mark Lauman
 === Power Point Presentation ===
 [http://studybuddy-triplethreat.googlecode.com/files/assign5.ppt Assignment 5 PowerPoint]
 
-== Relase of SnowBird ===
+== Relase of SnowBird! ===
 [http://studybuddy-triplethreat.googlecode.com/files/SnowBirdV3%20preloaded.zip A downloadable version of the project, SnowBird]
