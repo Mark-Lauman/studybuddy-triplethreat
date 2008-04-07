@@ -13,8 +13,5 @@ To set up a website for the project. You can click on the tab "*Project Home*" t
 ===Vision and Scope Document:===
 [VisAndScopeDoc Vision and Scope Document]
 
-===Main Page:Assignment 1 Version===
-[A1/mainPage Main Page]
-
 
 [http://code.google.com/p/studybuddy-triplethreat/ Back to Project Home]
