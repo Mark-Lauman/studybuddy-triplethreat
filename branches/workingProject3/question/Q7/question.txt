@@ -1,5 +1,0 @@
-256000
-128000
-64000
-Ocean Aquarium recently purchases a new fish jar. The fish jar's width is 200 cm, length is 80 cm, and depth is 60 cm. John pours 576 liters of water into the jar, and then put 30 fish into it. The surface of the water is now 16 cm from the top of the jar. What is the volume of these 30 fish in cm^3? [Hint: 1 liter = 1000 cm^3]
-1

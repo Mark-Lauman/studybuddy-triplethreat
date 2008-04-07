@@ -7,13 +7,13 @@
     * The project will be coding with the internal coding style.
 
 ==System Diagrams==
-[http://studybuddy-triplethreat.googlecode.com/files/systemOutline.jpg]
+[http://studybuddy-triplethreat.googlecode.com/svn/wiki/A2/images/diagrams/systemOutline.jpg]
     * System Outline Diagram
 
-[http://studybuddy-triplethreat.googlecode.com/files/stateDiagram.jpg]
+[http://studybuddy-triplethreat.googlecode.com/svn/wiki/A2/images/diagrams/stateDiagram.jpg]
     * State Machine Diagram
 
-[http://studybuddy-triplethreat.googlecode.com/files/uml.jpg]
+[http://studybuddy-triplethreat.googlecode.com/svn/wiki/A2/images/diagrams/uml.jpg]
     * UML Diagram
 
 

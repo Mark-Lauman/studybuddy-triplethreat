@@ -1,5 +1,0 @@
-x = 2
-x = 4
-x = 2.5
-You were given a balloon in science class today. You want to keep it nicely so that It will not blow out on your way home. Which of the following box would you choose to put the balloon in for maximum protection? [The volume of the balloon is 50 cm3, and the length of the box is x and is in cm.]
-1

@@ -1,5 +1,0 @@
-195
-216
-225
-There is a container with the width of 36.7 m, length of 29.45 m, and depth of 7.8 m. How many cubes of 27 cm3 can you put inside it? [HINT: 1m = 100cm]
-1

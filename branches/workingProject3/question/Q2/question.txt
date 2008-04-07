@@ -1,5 +1,0 @@
-x = 30
-x = 45
-x = 75
-Today is a nice sunny day and you feel like exercising! You decide to go vistiing local mountain to ride a bicycle. On your way to the top of the mountain, you can have three routes to choose to go to the top. Which of the following would you choose as an easiest route that requires least work? [The triangles are drawn abstractly so it means they are not scaled]
-2
