@@ -17,5 +17,8 @@ Mark Lauman
 
  * [http://studybuddy-triplethreat.googlecode.com/files/stats.avi View statistics]
 
+===Test Plan===
+[http://www.sfu.ca/~vkao/testPlan.xls Test Plan]
+
 === Presentation PowerPoint ===
 [http://studybuddy-triplethreat.googlecode.com/files/assign5.ppt Assignment 5 PowerPoint]
