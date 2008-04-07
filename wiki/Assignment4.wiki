@@ -17,7 +17,7 @@ A link to the criteria of Assignment 4 can be found [http://sleepy.cs.surrey.sfu
 [updatedDesignDoc Design Document]
 
 ===Work Assignment Document===
-[http://studybuddy-triplethreat.googlecode.com/svn/wiki/A4/docs/workDist.xls Work Assignment Document]
+[http://www.sfu.ca/~vkao/workDist.xls Work Assignment Document]
 
 ===Unit Tests===
 [UserSelection User Selection menu]
