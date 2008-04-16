@@ -1,6 +1,0 @@
-== GUI ==
-
-Our Program will be implemented as GUI to make it user-friendly.
-
-----
-[RequirementsDocumentv1 Back to Requirements Document]

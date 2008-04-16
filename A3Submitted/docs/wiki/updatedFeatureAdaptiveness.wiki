@@ -1,9 +1,0 @@
-#summary Updated User Manual - Program Adaptiveness
-#labels Assignment3
-
-== Program Adaptiveness ==
-
-The system will be able to keep track how well the user is doing and analyze user's progress trend to adjust the question difficulty as needed. 
-
-----
-[updatedUserManual Back to User Manual]
