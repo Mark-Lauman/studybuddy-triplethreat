@@ -5,7 +5,7 @@
 Vic Kao
 
 ===Criteria===
-A link to the criteria of Assignment 4 can be found [http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFour here]
+A link to the criteria of Assignment 4 can be found [http://studybuddy-triplethreat.googlecode.com/svn/wiki/criteria/A4/index.html here]
 
 ===Test Plan===
 [http://www.sfu.ca/~vkao/testPlan.xls Test Plan]

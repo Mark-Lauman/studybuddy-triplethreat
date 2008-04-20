@@ -1,0 +1,1125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+
+
+
+  
+    <title>AssignmentFive — CS Surrey Courses</title>
+
+    
+
+    
+      
+        
+      
+    
+
+    <meta name="generator" content="Plone - http://plone.org">
+
+    <meta content="Assignment 5: Version 3
+=======================" name="description"><!-- Plone ECMAScripts -->
+
+    
+    
+      
+        
+            
+                
+                
+            
+            
+                
+                
+            
+        
+    
+    
+
+    
+	
+          
+        
+            
+                
+                    
+                    
+                        
+                    
+                    
+                
+            
+            
+                
+                    <link rel="alternate stylesheet" type="text/css" media="screen" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/portal_css/Plone%20Default/ploneStyles6902.css" title="Small Text">
+                    
+                    
+                
+            
+            
+                
+                    <link rel="alternate stylesheet" type="text/css" media="screen" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/portal_css/Plone%20Default/ploneStyles6531.css" title="Large Text">
+                    
+                    
+                
+            
+            
+                
+                    
+                    
+                        <!-- Internet Explorer CSS Fixes --><!--[if lt IE 7]>
+        <style type="text/css" media="all">@import url(http://sleepy.cs.surrey.sfu.ca/cmpt/courses/IEFixes.css);</style>
+    <![endif]-->
+                    
+                    
+                
+            
+        
+    
+        
+        
+    
+
+    
+    
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="home" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses" title="Front page">
+    <link rel="search" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/search_form" title="Search this site">
+    <link rel="author" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/author/tjd" title="Author information">
+    <link rel="contents" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/sitemap" title="Site Map">
+
+    
+
+    
+
+    <link rel="up" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275" title="Up one level"><!-- Disable IE6 image toolbar -->
+
+    
+
+    
+    <meta http-equiv="imagetoolbar" content="no">
+    
+    
+      
+      
+    
+
+    
+      
+      
+      
+      
+    
+    
+
+    
+
+      
+    
+    
+    
+    
+
+
+      
+      
+    
+    <meta name="keywords" content="Assignment Five">
+    <meta name="description" content="Assignment 5: Version 3
+=======================">
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="section-cmpt275" dir="ltr">
+    <div id="visual-portal-wrapper">
+
+      <div id="portal-top">
+
+        <div id="portal-header">
+          <p class="hiddenStructure">
+            <a accesskey="2" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive#documentContent">Skip to content.</a> |
+
+            <a accesskey="6" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive#portlet-navigation-tree">Skip to navigation</a>
+          </p>
+
+             <ul id="portal-siteactions">
+
+    <li id="siteaction-sitemap"><a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/sitemap" accesskey="3" title="Site Map">Site Map</a></li>
+    <li id="siteaction-accessibility"><a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/accessibility-info" accesskey="0" title="Accessibility">Accessibility</a></li>
+    <li id="siteaction-contact"><a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/contact-info" accesskey="9" title="Contact">Contact</a></li>
+
+</ul>
+
+             <div id="portal-searchbox">
+    <form name="searchform" action="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/search" style="white-space: nowrap;" onsubmit="return liveSearchSubmit()">
+
+        <label for="searchGadget" class="hiddenStructure">Search Site</label>
+
+        <div class="LSBox">
+        <input value="" autocomplete="off" id="searchGadget" name="SearchableText" size="15" title="Search Site" accesskey="4" class="visibility:visible" type="text">
+
+        <input class="searchButton" value="Search" type="submit">
+
+        <div class="LSResult" id="LSResult" style="display: none;"><div class="LSShadow" id="LSShadow"></div></div>
+        </div>
+    </form>
+
+    <div id="portal-advanced-search" class="hiddenStructure">
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/search_form" accesskey="5">
+            Advanced Search…
+        </a>
+    </div>
+
+</div>
+
+             <h1 id="portal-logo">
+    <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses" accesskey="1">CS Surrey Courses</a>
+</h1>
+
+             <div id="portal-skinswitcher">
+  
+</div>
+
+             
+    <h5 class="hiddenStructure">Sections</h5>
+
+    <ul id="portal-globalnav">
+        <li id="portaltab-cmpt110" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt110">110</a></li>
+        <li id="portaltab-cmpt120" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt120">120</a></li>
+        <li id="portaltab-cmpt125" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt125">125</a></li>
+        <li id="portaltab-cmpt150" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt150">150</a></li>
+        <li id="portaltab-cmpt250" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt250">250</a></li>
+        <li id="portaltab-cmpt275" class="selected">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275">275</a></li>
+        <li id="portaltab-cmpt320" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt320">320</a></li>
+        <li id="portaltab-cmpt489" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt489">489</a></li>
+        <li id="portaltab-wiki" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/wiki">wiki</a></li>
+    </ul>
+
+          </div>
+
+          <div id="portal-personaltools-wrapper">
+
+<h5 class="hiddenStructure">Personal tools</h5>
+
+<ul id="portal-personaltools">
+   
+
+    
+        <li>
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/login_form">
+               Log in
+            </a>
+        </li>
+    
+
+</ul>
+</div>
+
+           <div id="portal-breadcrumbs">
+
+    <span id="breadcrumbs-you-are-here">You
+are here:</span>
+    <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses">Home</a>
+    <span class="breadcrumbSeparator">
+        →
+        
+    </span>
+    <span dir="ltr">
+        
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275">CMPT 275</a>
+            <span class="breadcrumbSeparator">
+                →
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr">
+        
+            
+            
+            <span>AssignmentFive</span>
+         
+    </span>
+
+</div>
+      </div>
+
+      <div class="visualClear" id="clear-space-before-wrapper-table"><!-- --></div>
+
+      
+
+      <table id="portal-columns">
+        <tbody>
+          <tr>
+            
+            <td id="portal-column-one">
+              <div class="visualPadding">
+                
+                  
+
+    
+        
+
+        
+            
+
+<dl class="portlet" id="portlet-navigation-tree">
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/sitemap" class="tile">Navigation</a>
+       
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem lastItem">
+        <ul class="portletNavigationTree navTreeLevel0">
+
+            <li class="navTreeItem">
+                
+                   <div class="visualIcon contenttype-plone-site">
+                       <a class="visualIconPadding" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses" title="">
+                       Home
+                       
+                       </a>
+                   </div>
+                
+            </li>
+            
+
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-large-plone-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/Members" class="state-visible visualIconPadding" title="Container for portal members' home directories">Members</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/wiki" class="state-visible visualIconPadding" title="">Wiki</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-forumfolder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/forums" class="state-visible visualIconPadding" title="">Discussion Forums</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-topic">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/news" class="state-visible visualIconPadding" title="Site News">News</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-topic">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/events" class="state-visible visualIconPadding" title="Site Events">Events</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt110" class="state-visible visualIconPadding" title="">CMPT 110</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt120" class="state-visible visualIconPadding" title="">CMPT 120</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt125" class="state-visible visualIconPadding" title="">CMPT 125</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt150" class="state-published visualIconPadding" title="">CMPT 150</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt250" class="state-visible visualIconPadding" title="">CMPT 250</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-atfolder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275" class="state-visible visualIconPadding" title="">CMPT 275</a>
+        
+    </div>
+
+    <ul class="navTree navTreeLevel2">
+        
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-wiki-page">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive" class="state-missing-value visualIconPadding navTreeCurrentItem" title="Assignment 5: Version 3
+=======================">AssignmentFive</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt320" class="state-visible visualIconPadding" title="">CMPT 320</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt489" class="state-published visualIconPadding" title="Design and Implementation of Web Languages">CMPT 489</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+
+
+        </ul>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+
+
+        
+
+        
+
+        
+    
+    
+        
+
+        
+            
+
+<dl class="portlet" id="portlet-login">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/login_form" class="tile">Log in</a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd">
+        <form action="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/login_form" name="loginform" method="post">
+
+            <input name="form.submitted" value="1" type="hidden">
+            <input name="came_from" value="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive" type="hidden">
+            <input name="js_enabled" id="js_enabled" value="0" type="hidden">
+            <input name="cookies_enabled" id="cookies_enabled" value="" type="hidden">
+            <input name="login_name" id="login_name" value="" type="hidden">
+            <input name="pwd_empty" id="pwd_empty" value="0" type="hidden">
+
+            <div class="field">
+                <label for="__ac_name">Login Name</label>
+                <br>
+                <input size="10" alt="Login Name" onclick="showCookieMessage('cookies_message')" name="__ac_name" value="" id="__ac_name" type="text">
+            </div>
+            
+            <div class="field">
+                <label for="__ac_password">Password</label>
+                <br>
+                <input size="10" alt="Password" onclick="showCookieMessage('cookies_message')" name="__ac_password" id="__ac_password" type="password">
+            </div>
+
+            <div id="cookies_message" class="portalMessage" style="display: none;">
+                Cookies are not enabled. You must <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/enabling_cookies">enable cookies</a> before you can log in.
+            </div>
+            
+            <div class="formControls">
+            
+                <input class="context" name="submit" value="Log in" alt="Log in" onclick="javascript:return setLoginVars('__ac_name','login_name','__ac_password','pwd_empty','js_enabled','cookies_enabled')" type="submit">
+            </div>
+        </form>
+    </dd>
+    
+    <dd class="portletItem even">
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/mail_password_form" class="tile">
+           <img src="info_icon.gif" alt="" title="" height="16" width="16">
+           Forgot your password?
+        </a>
+    </dd>
+    
+    
+</dl>
+
+
+
+
+
+
+
+
+
+        
+
+        
+
+        
+    
+    
+        
+
+        
+            
+        
+
+        
+
+        
+    
+    
+        
+
+        
+            
+        
+
+        
+
+        
+    
+    
+        
+
+        
+            
+        
+
+        
+
+        
+    
+    
+        
+
+        
+            
+        
+
+        
+
+        
+    
+    
+        
+
+        
+            
+
+    <!-- The calendar, rendered as a table -->
+
+    <table class="ploneCalendar" id="thePloneCalendar" summary="Calendar">
+        <thead>
+            <tr>
+                <th id="calendar-previous">
+                    <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/wikipage?None&amp;month:int=3&amp;year:int=2008&amp;orig_query=None" rel="nofollow" title="Previous month">«</a>
+                </th>
+                <th colspan="5">
+                    
+                        April
+                        2008
+                    
+                </th>
+                  <th id="calendar-next">
+                    <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/wikipage?None&amp;month:int=5&amp;year:int=2008&amp;orig_query=None" rel="nofollow" title="Next month">»</a>
+                </th>
+            </tr>
+            <tr class="weekdays">
+                
+                    <td>Su</td>
+                
+                
+                    <td>Mo</td>
+                
+                
+                    <td>Tu</td>
+                
+                
+                    <td>We</td>
+                
+                
+                    <td>Th</td>
+                
+                
+                    <td>Fr</td>
+                
+                
+                    <td>Sa</td>
+                
+            </tr>
+        </thead>
+
+        
+        <tbody>
+            <tr><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+            </tr>
+            <tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+            </tr>
+            <tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+            </tr>
+            <tr><td class="todaynoevent">20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+            </tr>
+            <tr><td>27</td><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+        
+
+        
+
+        
+    
+
+                
+                &nbsp;
+              </div>
+            </td>
+            
+
+            
+            <td id="portal-column-content">
+
+              
+                <div id="content" class="documentEditable">
+
+                  
+                    
+
+        <h5 class="hiddenStructure">Views</h5>
+
+        <ul class="contentViews">
+
+            
+              <li id="contentview-view" class="selected">
+                <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive">View</a>
+              </li>
+            
+            
+              <li id="contentview-history" class="plain">
+                <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/diff">History</a>
+              </li>
+            
+            
+              <li id="contentview-backlinks" class="plain">
+                <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/backlinks">Backlinks</a>
+              </li>
+            
+
+        </ul>
+
+    
+
+                    <div class="contentActions">
+
+        <h5 class="hiddenStructure">Actions</h5>
+
+        <ul class="actionItems">
+            <li id="contentaction-recentchanges">
+              
+                <a class="" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/recentchanges">
+                
+                    
+                    
+                    Recent changes
+                </a>
+                
+            </li>
+            <li id="contentaction-contents">
+              
+                <a class="" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/contents#AssignmentFive">
+                
+                    
+                    
+                    Wiki contents
+                </a>
+                
+            </li>
+            <li id="contentaction-searchwiki">
+              
+                <a class="" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/searchwiki">
+                
+                    
+                    
+                    Wiki search
+                </a>
+                
+            </li>
+        </ul>
+
+        
+
+<ul>
+
+    
+
+    
+    
+    
+
+    
+
+    
+        <li>
+            <dl class="actionMenu deactivated" id="actionDropDownMenu">
+                <dt class="actionMenuHeader">
+                    <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/folder_contents" title="Actions for the current content item">
+                        Actions
+                    </a>
+                </dt>
+                <dd class="actionMenuContent">
+                    <ul>
+                        
+                            
+                                <li>
+                                    <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/object_copy" class="visualIconPadding visualIcon actionicon-object_buttons-copy" title="Copy">Copy</a>
+                                </li>
+
+                                
+                            
+                        
+                    </ul>
+                </dd>
+            </dl>
+        </li>
+    
+
+    
+
+</ul>
+
+
+
+    </div>
+                  
+
+                  <div class="documentContent" id="region-content">
+
+                    <a name="documentContent"></a>
+
+                    
+
+    
+
+
+
+                    
+
+                    
+      
+      <!-- always-available zwiki access keys -->
+      <a accesskey="f" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275"></a>
+      <a accesskey="c" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/contents#AssignmentFive"></a>
+      <a accesskey="r" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/recentchanges"></a>
+      
+      
+      
+      
+      <a accesskey="o" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/useroptions"></a>
+      
+      <a accesskey="-" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/setskin?skin=zwiki&amp;came_from=http%3A//sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive"></a>
+      <a accesskey="+" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/setskin?skin=plone&amp;came_from=http%3A//sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive"></a>
+      <a accesskey="v" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive"></a>
+      <a accesskey="m" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/subscribeform"></a>
+      <a accesskey="b" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/backlinks"></a>
+      <a accesskey="d" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/diff"></a>
+      <a accesskey="y" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/manage_change_history_page"></a>
+      <a accesskey="e" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/editform"></a>
+      <a accesskey="x" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/externalEdit_/AssignmentFive?borrow_lock=1"></a>
+      <a accesskey="n" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/FinalExam"></a>
+      <a accesskey="p" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFour"></a>
+      <a accesskey="u" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey"></a>
+      <a accesskey="0" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/showAccessKeys"></a>
+    
+      <div class="pageheader">
+      <!-- page header -->
+      <form method="get" action="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/searchwiki">
+        <table border="0" cellspacing="0" width="100%">
+          <tbody><tr>
+            <!-- logo -->
+            
+            <!-- page name and context (parent topics) -->
+            <td align="left" width="79%">
+              
+                <ul style="list-style-type: none; list-style-image: none; list-style-position: outside; margin-left: 0pt;" class="aqtree3clickable">
+ <li style="list-style-type: none; list-style-image: none; list-style-position: outside;" class="aqtree3clickable"><a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey" name="275Spring2008Surrey">275Spring2008Surrey</a>
+<ul>
+ <li style="list-style-type: none; list-style-image: none; list-style-position: outside;" class="aqtree3clickable"><h1 style="display: inline;"><a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/backlinks" title="which pages link to this one ?" name="AssignmentFive">AssignmentFive</a></h1></li>
+</ul>
+ </li>
+</ul>
+
+              
+              
+            </td>
+          </tr>
+        </tbody></table>
+      </form>
+    </div>
+      <div align="right">  
+      <!-- page rating form -->
+      
+    </div>
+      <br>
+      <div class="content">
+      <!-- page content (main text, subtopics links, comments) -->
+      <!--
+      <div metal:use-macro="here/macros/maintext" />
+      <div metal:use-macro="here/macros/subtopics" />
+      <div metal:use-macro="here/macros/comments" />
+      -->
+      <h1 class="title">Assignment 5: Version 3</h1>
+<p>This assignment requires everything required by assignment 3 and
+assignment 4, plus the following.</p>
+<div class="section" id="getting-started-tutorial">
+<h2><a name="getting-started-tutorial">Getting Started Tutorial</a></h2>
+<p>An end-user "getting started" tutorial, in the form of a 
+<span class="link-external"><a class="reference" href="http://en.wikipedia.org/wiki/Screencast">screencast</a></span>,
+for at least one of the main usage scenarios from your user manual.</p>
+</div>
+<div class="section" id="final-presentation">
+<h2><a name="final-presentation">Final Presentation</a></h2>
+<p>Your final presentation must be no shorter than 8 minutes and no
+longer than 10 minutes. <strong>Presentations that are too short or too long
+will be penalized!</strong> Use PowerPoint<a class="new visualNoPrint" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentFive/createform?page=PowerPoint" title="create this page">?</a>, or a free equivalent, and design
+your presentation to be interesting and informative for both technical
+and non-technical audience members.</p>
+<p>You must provide at least the following:</p>
+<ul class="simple">
+<li>A clear one-sentence summary of your system that ordinary
+non-technical users could understand and find helpful.</li>
+<li>Tell us what your system does in clear, non-technical
+language. What are its most interesting features?</li>
+<li>An architectural diagram (not a class diagram!!) of your
+system. Summarize the basic system implementation details and
+design choices.</li>
+<li>A discussion of the testing you did to ensure that the system works
+correctly. Don't bore us by listing dozens of low-level test
+cases. Instead, summarize all the testing you have done, and tell us
+why we should believe your system is error-free and works as
+promised.</li>
+<li>How many known bugs do you have? Are there features you intended to
+implemented that you didn't?</li>
+<li>List feedback --- good and bad --- from <em>real users</em> (i.e. people
+not on your team!) of your system. If you had no real users, then
+say so.</li>
+<li>Finally, give a post-mortem analysis of your team and project,
+e.g.<ul>
+<li>What project management techniques worked well, and what
+worked not so well?</li>
+<li>What were the major technical problems you encountered?</li>
+<li>What were the major "human" problems you encountered while
+working as a team?</li>
+<li>If you were to do the project over again, what would you do
+differently? What would you have done the same? What advice would
+you give to next year's students?</li>
+</ul>
+</li>
+<li>This is a formal presentation, and so it is expected to be
+<strong>substantially more polished</strong> than your previous
+presentations. Your group should do at least one practice
+run-through, and read general advice for giving oral
+presentations, such as <span class="link-external"><a class="reference" href="http://pages.cs.wisc.edu/%7Emarkhill/conference-talk.html">this</a></span> or
+<span class="link-external"><a class="reference" href="http://www.aresearchguide.com/3tips.html">perhaps this</a></span>.</li>
+</ul>
+</div>
+<div class="section" id="presentation-times-and-due-date">
+<h2><a name="presentation-times-and-due-date">Presentation Times and Due Date</a></h2>
+<p>The final presentations will take place during the regular class times 
+on <strong>Wednesday April 2nd</strong>, and <strong>Friday April 4th</strong>.</p>
+<p>All team members are expected to be present <em>both</em> days, even if they 
+are not presenting.</p>
+<p>The (randomly generated) order of presentation is as follows:</p>
+<blockquote>
+<dl class="docutils">
+<dt>Wednesday April 2nd</dt>
+<dd><ol class="first last arabic simple">
+<li>Team Black Mage (9:30am - 9:40am)</li>
+<li>Team DISC (9:45am - 9:55am)</li>
+<li>Team Directories (10:00am - 10:10am)</li>
+<li>Team Actaeon (10:15am - 10:25am)</li>
+</ol>
+</dd>
+<dt>Friday April 4th</dt>
+<dd><ol class="first last arabic simple" start="5">
+<li>Team TVK (9:30am - 9:40am)</li>
+<li>Team Triple Threat (9:45am - 9:55am)</li>
+<li>A-Minus Team (10:00am - 10:10am)</li>
+</ol>
+</dd>
+</dl>
+</blockquote>
+<p>The final due date is <strong>Monday April 7th, 5pm</strong>. This is the final,
+no exceptions, due date for everything to be done for your project.
+Think of it as the "shipping date" for your software --- anything
+you do after this will not make it out the door.</p>
+<p>
+</p>
+</div>
+
+      <a name="bottom"></a>
+      <br>
+      
+    </div>
+      
+    
+
+                    
+                      
+                 
+    
+
+                    
+
+                  </div>
+
+                </div>
+
+              
+            </td>
+            
+
+            
+            
+            
+          </tr>
+        </tbody>
+      </table>
+      
+
+      <div class="visualClear" id="clear-space-before-footer"><!-- --></div>
+
+
+      <hr class="netscape4">
+
+      
+
+        <div id="portal-footer">
+
+<p>
+    
+    The 
+    <a href="http://plone.org/">Plone<sup>®</sup> CMS — Open Source Content Management System</a>
+    is Copyright
+    ©
+    2000-<span>2008</span>
+    by the 
+    <a href="http://plone.org/foundation">Plone Foundation</a>
+    et al.
+    
+</p>
+
+<p>
+
+    <span>
+    Plone<sup>®</sup> and the Plone logo are registered trademarks of the  
+        <a href="http://plone.org/foundation">Plone Foundation</a>.
+    </span>
+
+    <span>
+    Distributed under the 
+        <a href="http://creativecommons.org/licenses/GPL/2.0/">GNU GPL license</a>.
+    </span>
+</p>
+
+</div>
+
+        <div id="portal-colophon">
+      
+
+      <a href="http://plone.org/" class="colophonIcon colophonIconPlone" title="This Plone site was built using Plone CMS, the Open Source Content Management System. Click for more information.">
+        Powered by Plone CMS, the Open Source Content Management System
+      </a>
+
+      
+
+      <p class="discreet">
+        This site conforms to the following standards:
+      </p>
+
+      <div class="colophonWrapper">
+      <ul>
+    <li>
+      <a href="http://www.section508.gov/" class="colophonIcon colophonIcon508" title="This Plone site conforms to the US Government Section 508 Accessibility Guidelines.">
+        Section 508
+      </a>
+    </li>
+    <li>
+      <a href="http://www.w3.org/WAI/WCAG1AA-Conformance" class="colophonIcon colophonIconWAI" title="This Plone site conforms to the W3C-WAI Web Content Accessibility Guidelines.">
+        WCAG
+      </a>
+    </li>
+    <li>
+      <a href="http://validator.w3.org/check/referer" class="colophonIcon colophonIconXHTML" title="This Plone site is valid XHTML.">
+        Valid XHTML
+      </a>
+    </li>
+    <li>
+      <a href="http://jigsaw.w3.org/css-validator/check/referer&amp;warning=no&amp;profile=css3&amp;usermedium=all" class="colophonIcon colophonIconCSS" title="This Plone site was built with valid CSS.">
+        Valid CSS
+      </a>
+    </li>
+    <li>
+      <a href="http://plone.org/browsersupport" class="colophonIcon colophonIconAnyBrowser" title="This Plone site is usable in any web browser.">
+        Usable in any browser
+      </a>
+    </li>
+      </ul>
+      </div>
+
+    </div>
+      
+
+    </div>
+
+
+</body>
+</html>

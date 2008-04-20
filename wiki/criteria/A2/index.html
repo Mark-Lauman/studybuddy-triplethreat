@@ -1,0 +1,1158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+
+
+
+  
+    <title>AssignmentTwo — CS Surrey Courses</title>
+
+    
+
+    
+      
+        
+      
+    
+
+    <meta name="generator" content="Plone - http://plone.org">
+
+    <meta content="Assignment 2: Requirements and Initial Design
+=============================================" name="description"><!-- Plone ECMAScripts -->
+
+    
+    
+      
+        
+            
+                
+                
+            
+            
+                
+                
+            
+        
+    
+    
+
+    
+	
+          
+        
+            
+                
+                    
+                    
+                        
+                    
+                    
+                
+            
+            
+                
+                    <link rel="alternate stylesheet" type="text/css" media="screen" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/portal_css/Plone%20Default/ploneStyles6902.css" title="Small Text">
+                    
+                    
+                
+            
+            
+                
+                    <link rel="alternate stylesheet" type="text/css" media="screen" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/portal_css/Plone%20Default/ploneStyles6531.css" title="Large Text">
+                    
+                    
+                
+            
+            
+                
+                    
+                    
+                        <!-- Internet Explorer CSS Fixes --><!--[if lt IE 7]>
+        <style type="text/css" media="all">@import url(http://sleepy.cs.surrey.sfu.ca/cmpt/courses/IEFixes.css);</style>
+    <![endif]-->
+                    
+                    
+                
+            
+        
+    
+        
+        
+    
+
+    
+    
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="home" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses" title="Front page">
+    <link rel="search" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/search_form" title="Search this site">
+    <link rel="author" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/author/tjd" title="Author information">
+    <link rel="contents" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/sitemap" title="Site Map">
+
+    
+
+    
+
+    <link rel="up" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275" title="Up one level"><!-- Disable IE6 image toolbar -->
+
+    
+
+    
+    <meta http-equiv="imagetoolbar" content="no">
+    
+    
+      
+      
+    
+
+    
+      
+      
+      
+      
+    
+    
+
+    
+
+      
+    
+    
+    
+    
+
+
+      
+      
+    
+    <meta name="keywords" content="Assignment Two">
+    <meta name="description" content="Assignment 2: Requirements and Initial Design
+=============================================">
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body class="section-cmpt275" dir="ltr">
+    <div id="visual-portal-wrapper">
+
+      <div id="portal-top">
+
+        <div id="portal-header">
+          <p class="hiddenStructure">
+            <a accesskey="2" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo#documentContent">Skip to content.</a> |
+
+            <a accesskey="6" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo#portlet-navigation-tree">Skip to navigation</a>
+          </p>
+
+             <ul id="portal-siteactions">
+
+    <li id="siteaction-sitemap"><a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/sitemap" accesskey="3" title="Site Map">Site Map</a></li>
+    <li id="siteaction-accessibility"><a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/accessibility-info" accesskey="0" title="Accessibility">Accessibility</a></li>
+    <li id="siteaction-contact"><a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/contact-info" accesskey="9" title="Contact">Contact</a></li>
+
+</ul>
+
+             <div id="portal-searchbox">
+    <form name="searchform" action="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/search" style="white-space: nowrap;" onsubmit="return liveSearchSubmit()">
+
+        <label for="searchGadget" class="hiddenStructure">Search Site</label>
+
+        <div class="LSBox">
+        <input value="" autocomplete="off" id="searchGadget" name="SearchableText" size="15" title="Search Site" accesskey="4" class="visibility:visible" type="text">
+
+        <input class="searchButton" value="Search" type="submit">
+
+        <div class="LSResult" id="LSResult" style="display: none;"><div class="LSShadow" id="LSShadow"></div></div>
+        </div>
+    </form>
+
+    <div id="portal-advanced-search" class="hiddenStructure">
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/search_form" accesskey="5">
+            Advanced Search…
+        </a>
+    </div>
+
+</div>
+
+             <h1 id="portal-logo">
+    <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses" accesskey="1">CS Surrey Courses</a>
+</h1>
+
+             <div id="portal-skinswitcher">
+  
+</div>
+
+             
+    <h5 class="hiddenStructure">Sections</h5>
+
+    <ul id="portal-globalnav">
+        <li id="portaltab-cmpt110" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt110">110</a></li>
+        <li id="portaltab-cmpt120" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt120">120</a></li>
+        <li id="portaltab-cmpt125" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt125">125</a></li>
+        <li id="portaltab-cmpt150" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt150">150</a></li>
+        <li id="portaltab-cmpt250" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt250">250</a></li>
+        <li id="portaltab-cmpt275" class="selected">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275">275</a></li>
+        <li id="portaltab-cmpt320" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt320">320</a></li>
+        <li id="portaltab-cmpt489" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt489">489</a></li>
+        <li id="portaltab-wiki" class="plain">
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/wiki">wiki</a></li>
+    </ul>
+
+          </div>
+
+          <div id="portal-personaltools-wrapper">
+
+<h5 class="hiddenStructure">Personal tools</h5>
+
+<ul id="portal-personaltools">
+   
+
+    
+        <li>
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/login_form">
+               Log in
+            </a>
+        </li>
+    
+
+</ul>
+</div>
+
+           <div id="portal-breadcrumbs">
+
+    <span id="breadcrumbs-you-are-here">You
+are here:</span>
+    <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses">Home</a>
+    <span class="breadcrumbSeparator">
+        →
+        
+    </span>
+    <span dir="ltr">
+        
+            <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275">CMPT 275</a>
+            <span class="breadcrumbSeparator">
+                →
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr">
+        
+            
+            
+            <span>AssignmentTwo</span>
+         
+    </span>
+
+</div>
+      </div>
+
+      <div class="visualClear" id="clear-space-before-wrapper-table"><!-- --></div>
+
+      
+
+      <table id="portal-columns">
+        <tbody>
+          <tr>
+            
+            <td id="portal-column-one">
+              <div class="visualPadding">
+                
+                  
+
+    
+        
+
+        
+            
+
+<dl class="portlet" id="portlet-navigation-tree">
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/sitemap" class="tile">Navigation</a>
+       
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem lastItem">
+        <ul class="portletNavigationTree navTreeLevel0">
+
+            <li class="navTreeItem">
+                
+                   <div class="visualIcon contenttype-plone-site">
+                       <a class="visualIconPadding" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses" title="">
+                       Home
+                       
+                       </a>
+                   </div>
+                
+            </li>
+            
+
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-large-plone-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/Members" class="state-visible visualIconPadding" title="Container for portal members' home directories">Members</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/wiki" class="state-visible visualIconPadding" title="">Wiki</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-forumfolder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/forums" class="state-visible visualIconPadding" title="">Discussion Forums</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-topic">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/news" class="state-visible visualIconPadding" title="Site News">News</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-topic">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/events" class="state-visible visualIconPadding" title="Site Events">Events</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt110" class="state-visible visualIconPadding" title="">CMPT 110</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt120" class="state-visible visualIconPadding" title="">CMPT 120</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt125" class="state-visible visualIconPadding" title="">CMPT 125</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt150" class="state-published visualIconPadding" title="">CMPT 150</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt250" class="state-visible visualIconPadding" title="">CMPT 250</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-atfolder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275" class="state-visible visualIconPadding" title="">CMPT 275</a>
+        
+    </div>
+
+    <ul class="navTree navTreeLevel2">
+        
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-wiki-page">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo" class="state-missing-value visualIconPadding navTreeCurrentItem" title="Assignment 2: Requirements and Initial Design
+=============================================">AssignmentTwo</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+    </ul>
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt320" class="state-visible visualIconPadding" title="">CMPT 320</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+<li class="navTreeItem visualNoMarker">
+
+    
+
+    <div class="visualIcon contenttype-folder">
+        
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt489" class="state-published visualIconPadding" title="Design and Implementation of Web Languages">CMPT 489</a>
+        
+    </div>
+
+    
+    
+</li>
+
+
+
+
+        </ul>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+
+
+        
+
+        
+
+        
+    
+    
+        
+
+        
+            
+
+<dl class="portlet" id="portlet-login">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/login_form" class="tile">Log in</a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd">
+        <form action="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/login_form" name="loginform" method="post">
+
+            <input name="form.submitted" value="1" type="hidden">
+            <input name="came_from" value="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo" type="hidden">
+            <input name="js_enabled" id="js_enabled" value="0" type="hidden">
+            <input name="cookies_enabled" id="cookies_enabled" value="" type="hidden">
+            <input name="login_name" id="login_name" value="" type="hidden">
+            <input name="pwd_empty" id="pwd_empty" value="0" type="hidden">
+
+            <div class="field">
+                <label for="__ac_name">Login Name</label>
+                <br>
+                <input size="10" alt="Login Name" onclick="showCookieMessage('cookies_message')" name="__ac_name" value="" id="__ac_name" type="text">
+            </div>
+            
+            <div class="field">
+                <label for="__ac_password">Password</label>
+                <br>
+                <input size="10" alt="Password" onclick="showCookieMessage('cookies_message')" name="__ac_password" id="__ac_password" type="password">
+            </div>
+
+            <div id="cookies_message" class="portalMessage" style="display: none;">
+                Cookies are not enabled. You must <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/enabling_cookies">enable cookies</a> before you can log in.
+            </div>
+            
+            <div class="formControls">
+            
+                <input class="context" name="submit" value="Log in" alt="Log in" onclick="javascript:return setLoginVars('__ac_name','login_name','__ac_password','pwd_empty','js_enabled','cookies_enabled')" type="submit">
+            </div>
+        </form>
+    </dd>
+    
+    <dd class="portletItem even">
+        <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/mail_password_form" class="tile">
+           <img src="info_icon.gif" alt="" title="" height="16" width="16">
+           Forgot your password?
+        </a>
+    </dd>
+    
+    
+</dl>
+
+
+
+
+
+
+
+
+
+        
+
+        
+
+        
+    
+    
+        
+
+        
+            
+        
+
+        
+
+        
+    
+    
+        
+
+        
+            
+        
+
+        
+
+        
+    
+    
+        
+
+        
+            
+        
+
+        
+
+        
+    
+    
+        
+
+        
+            
+        
+
+        
+
+        
+    
+    
+        
+
+        
+            
+
+    <!-- The calendar, rendered as a table -->
+
+    <table class="ploneCalendar" id="thePloneCalendar" summary="Calendar">
+        <thead>
+            <tr>
+                <th id="calendar-previous">
+                    <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/wikipage?None&amp;month:int=3&amp;year:int=2008&amp;orig_query=None" rel="nofollow" title="Previous month">«</a>
+                </th>
+                <th colspan="5">
+                    
+                        April
+                        2008
+                    
+                </th>
+                  <th id="calendar-next">
+                    <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/wikipage?None&amp;month:int=5&amp;year:int=2008&amp;orig_query=None" rel="nofollow" title="Next month">»</a>
+                </th>
+            </tr>
+            <tr class="weekdays">
+                
+                    <td>Su</td>
+                
+                
+                    <td>Mo</td>
+                
+                
+                    <td>Tu</td>
+                
+                
+                    <td>We</td>
+                
+                
+                    <td>Th</td>
+                
+                
+                    <td>Fr</td>
+                
+                
+                    <td>Sa</td>
+                
+            </tr>
+        </thead>
+
+        
+        <tbody>
+            <tr><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+            </tr>
+            <tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+            </tr>
+            <tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+            </tr>
+            <tr><td class="todaynoevent">20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+            </tr>
+            <tr><td>27</td><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+        
+
+        
+
+        
+    
+
+                
+                &nbsp;
+              </div>
+            </td>
+            
+
+            
+            <td id="portal-column-content">
+
+              
+                <div id="content" class="documentEditable">
+
+                  
+                    
+
+        <h5 class="hiddenStructure">Views</h5>
+
+        <ul class="contentViews">
+
+            
+              <li id="contentview-view" class="selected">
+                <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo">View</a>
+              </li>
+            
+            
+              <li id="contentview-history" class="plain">
+                <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/diff">History</a>
+              </li>
+            
+            
+              <li id="contentview-backlinks" class="plain">
+                <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/backlinks">Backlinks</a>
+              </li>
+            
+
+        </ul>
+
+    
+
+                    <div class="contentActions">
+
+        <h5 class="hiddenStructure">Actions</h5>
+
+        <ul class="actionItems">
+            <li id="contentaction-recentchanges">
+              
+                <a class="" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/recentchanges">
+                
+                    
+                    
+                    Recent changes
+                </a>
+                
+            </li>
+            <li id="contentaction-contents">
+              
+                <a class="" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/contents#AssignmentTwo">
+                
+                    
+                    
+                    Wiki contents
+                </a>
+                
+            </li>
+            <li id="contentaction-searchwiki">
+              
+                <a class="" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/searchwiki">
+                
+                    
+                    
+                    Wiki search
+                </a>
+                
+            </li>
+        </ul>
+
+        
+
+<ul>
+
+    
+
+    
+    
+    
+
+    
+
+    
+        <li>
+            <dl class="actionMenu deactivated" id="actionDropDownMenu">
+                <dt class="actionMenuHeader">
+                    <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/folder_contents" title="Actions for the current content item">
+                        Actions
+                    </a>
+                </dt>
+                <dd class="actionMenuContent">
+                    <ul>
+                        
+                            
+                                <li>
+                                    <a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/object_copy" class="visualIconPadding visualIcon actionicon-object_buttons-copy" title="Copy">Copy</a>
+                                </li>
+
+                                
+                            
+                        
+                    </ul>
+                </dd>
+            </dl>
+        </li>
+    
+
+    
+
+</ul>
+
+
+
+    </div>
+                  
+
+                  <div class="documentContent" id="region-content">
+
+                    <a name="documentContent"></a>
+
+                    
+
+    
+
+
+
+                    
+
+                    
+      
+      <!-- always-available zwiki access keys -->
+      <a accesskey="f" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275"></a>
+      <a accesskey="c" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/contents#AssignmentTwo"></a>
+      <a accesskey="r" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/recentchanges"></a>
+      
+      
+      
+      
+      <a accesskey="o" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/useroptions"></a>
+      
+      <a accesskey="-" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/setskin?skin=zwiki&amp;came_from=http%3A//sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo"></a>
+      <a accesskey="+" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/setskin?skin=plone&amp;came_from=http%3A//sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo"></a>
+      <a accesskey="v" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo"></a>
+      <a accesskey="m" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/subscribeform"></a>
+      <a accesskey="b" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/backlinks"></a>
+      <a accesskey="d" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/diff"></a>
+      <a accesskey="y" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/manage_change_history_page"></a>
+      <a accesskey="e" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/editform"></a>
+      <a accesskey="x" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/externalEdit_/AssignmentTwo?borrow_lock=1"></a>
+      <a accesskey="n" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/MidtermExam"></a>
+      <a accesskey="p" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentOne"></a>
+      <a accesskey="u" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey"></a>
+      <a accesskey="0" href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/showAccessKeys"></a>
+    
+      <div class="pageheader">
+      <!-- page header -->
+      <form method="get" action="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey/searchwiki">
+        <table border="0" cellspacing="0" width="100%">
+          <tbody><tr>
+            <!-- logo -->
+            
+            <!-- page name and context (parent topics) -->
+            <td align="left" width="79%">
+              
+                <ul style="list-style-type: none; list-style-image: none; list-style-position: outside; margin-left: 0pt;" class="aqtree3clickable">
+ <li style="list-style-type: none; list-style-image: none; list-style-position: outside;" class="aqtree3clickable"><a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/275Spring2008Surrey" name="275Spring2008Surrey">275Spring2008Surrey</a>
+<ul>
+ <li style="list-style-type: none; list-style-image: none; list-style-position: outside;" class="aqtree3clickable"><h1 style="display: inline;"><a href="http://sleepy.cs.surrey.sfu.ca/cmpt/courses/cmpt275/AssignmentTwo/backlinks" title="which pages link to this one ?" name="AssignmentTwo">AssignmentTwo</a></h1></li>
+</ul>
+ </li>
+</ul>
+
+             
+            </td>
+          </tr>
+        </tbody></table>
+      </form>
+    </div>
+      <div align="right">  
+      <!-- page rating form -->
+      
+    </div>
+      <br>
+      <div class="content">
+      <!-- page content (main text, subtopics links, comments) -->
+      <!--
+      <div metal:use-macro="here/macros/maintext" />
+      <div metal:use-macro="here/macros/subtopics" />
+      <div metal:use-macro="here/macros/comments" />
+      -->
+      <div class="section" id="assignment-2-requirements-and-initial-design">
+<h2><a name="assignment-2-requirements-and-initial-design">Assignment 2: Requirements and Initial Design</a></h2>
+<p>This assignment has two main parts: a requirements document, and some
+initial design documents.</p>
+<div class="section" id="requirements-document">
+<h3><a name="requirements-document">Requirements Document</a></h3>
+<p>Your requirements document will be written in the form of a <em>user
+manual</em>. It might seem strange to write a user manual before you have
+written any code for the system, but it is a good way to focus on the
+user-level requirements without yet going into implementation detail.</p>
+<p>While we call this a <em>user manual</em>, this is in fact <strong>a combination user
+manual (meant for end-users) and requirements document (meant for
+system designers)</strong>. You must therefore write this in a language and
+format that is useful for both end-users and designers: don't make it
+too technical, nor too vague.</p>
+<p>At this early point in the project it is more important to make this
+user manual useful for designers. <strong>Make sure there is enough detail
+and information in it so that a system designer could ideally design
+and implement your system from the manual alone.</strong> A polished
+user-friendly version of this manual can be created for end-users
+later on.</p>
+<p>Structure your user manual as follows:</p>
+<ul class="simple">
+<li><strong>Introduction</strong> This explains what the system does and what is
+useful for.</li>
+<li><strong>Intended Audience</strong> List the kinds of users for this system in
+some detail (certainly more detail than in the Vision and Scope
+document from the previous assignment). Make clear what experience,
+expertise, and goals you assume they have.</li>
+<li><strong>Features</strong> Catalog <em>every</em> significant feature of the system. This
+is should be an exhaustive list. Hint: You may want to give each of
+these features its own anchor or page, so that in the design
+document (described below) you can easily refer to them.</li>
+<li><strong>Non-functional requirements</strong> Describe your system's
+non-functional requirements. Hint: Look at the table on page 125 of
+Sommerville.</li>
+<li><strong>Example Tutorials</strong> Provide 3 - 5 (or more, if necessary) examples
+of <strong>typical usage scenarios</strong>. These need to be highly detailed,
+step-by-step tutorial-like descriptions of how to use your system's
+major features. You must include <strong>screenshots</strong> of how your system
+will behave (users don't want to read through a lot of text!).</li>
+<li><strong>Glossary</strong> List all technical terms and their <em>precise</em>
+definitions here. These will be terms <em>about your application</em>, not
+about programming or software engineering. For example, in a
+grade-keeper application, terms like "course", "grade", "mark", and
+"GPA" all need precise definitions.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="design-document">
+<h2><a name="design-document">Design Document</a></h2>
+<p>Your design document outlines the high-level framework of your system,
+and it is what the programmers will refer to during implementation.</p>
+<p>Your design document should have these sections:</p>
+<ul>
+<li><p class="first"><strong>Guidelines</strong> List all technical guidelines (e.g. "Development will
+be done using the Eclipse IDE"), and any relevant ethical or legal
+issues.</p>
+</li>
+<li><p class="first"><strong>System Diagrams</strong> This should include 2 or 3 (or more, if needed)
+substantial diagrams showing the major modules, classes, and
+functions of your system relate and share data. <strong>Important:</strong> these
+must be diagrams as described in chapter 8 (System models) of the
+textbook; you must follow the proper rules and notations for the
+diagrams you use. It is <em>not</em> acceptable to make up your own kind of
+diagram! Hint: If you are using an object-oriented programming
+language, than one of your diagrams should be a class diagram.</p>
+</li>
+<li><p class="first"><strong>Data Requirements</strong> This is a summary of all the I/O for your
+system, including <em>exact</em> definitions of file formats, what other
+systems (if any) yours interacts with, and how the user interacts
+with the system via the mouse/keyboard/wii-mote/etc.</p>
+</li>
+<li><p class="first"><strong>Feature Priority</strong> You will be going through three implementation
+iterations during the course of this project --- version 1, version
+2, and version 3. Label each feature listed in your user manual, as
+being delivered in version 1, 2, or 3. Hint: An ordered list of
+hyperlinks to the relevant features in the user manual might be a
+good way to organize this.</p>
+<p>Remember that your Vision and Scope document from the previous
+assignment should have a similar (but less detailed) list of what
+features are planned for each version; so that would be a good
+starting point.</p>
+<p>It is important that version 1 (and, of course, the following
+versions) be a usable system. Version 1 should implement all your
+promised version 1 features completely and correctly! Also keep in
+mind that version 3 is the final "gold" version of your project, and
+anything not implemented by version 3 will not be implemented at all
+(at least during this course!).</p>
+<p>Think hard about a good ordering for your features, taking into
+account things like their dependencies and complexity. Do not
+over-promise (too many features) or under-deliver (too few
+features).</p>
+</li>
+</ul>
+<div class="section" id="tagging-your-assignment-submissions">
+<h3><a name="tagging-your-assignment-submissions">Tagging Your Assignment Submissions</a></h3>
+<p>Using your version control system, please save copies of 
+your assignment files <strong>exactly as they were submitted</strong>. 
+This means all submitted files: source code, documentation, 
+diagrams, wiki pages --- whatever files you have in your 
+assignment. In Subversion, all you need to do is copy your 
+final assignment files into a folder named something 
+like "a2submittted". Since Subversion repositories
+use "cheap copying", making a copy of an entire folder
+structure is sometimes called <strong>tagging</strong>, since in reality 
+no files are copied.</p>
+<p>Also, please provide explicit instructions for how to check out
+these specific versions of your assignment so there is
+no confusion about which folder is the one containing the 
+officially submitted files.</p>
+<p>Of course, you can (and should!) change and update your previous 
+assignments as necessary. Use a sensible naming/numbering scheme 
+to keep track of updates, e.g. for each assignment, tag each
+<em>previous</em> assignment to take into account updated files.</p>
+<p>However you exactly do this tagging, make it easy to understand --- 
+we should not have to do anything more than look at folder names to 
+clearly and completely understand your tagging scheme.</p>
+<p>
+</p>
+</div>
+</div>
+
+      <a name="bottom"></a>
+      <br>
+      
+    </div>
+      
+    
+
+                    
+                      
+                 
+    
+
+                    
+
+                  </div>
+
+                </div>
+
+              
+            </td>
+            
+
+            
+            
+            
+          </tr>
+        </tbody>
+      </table>
+      
+
+      <div class="visualClear" id="clear-space-before-footer"><!-- --></div>
+
+
+      <hr class="netscape4">
+
+      
+
+        <div id="portal-footer">
+
+<p>
+    
+    The 
+    <a href="http://plone.org/">Plone<sup>®</sup> CMS — Open Source Content Management System</a>
+    is Copyright
+    ©
+    2000-<span>2008</span>
+    by the 
+    <a href="http://plone.org/foundation">Plone Foundation</a>
+    et al.
+    
+</p>
+
+<p>
+
+    <span>
+    Plone<sup>®</sup> and the Plone logo are registered trademarks of the  
+        <a href="http://plone.org/foundation">Plone Foundation</a>.
+    </span>
+
+    <span>
+    Distributed under the 
+        <a href="http://creativecommons.org/licenses/GPL/2.0/">GNU GPL license</a>.
+    </span>
+</p>
+
+</div>
+
+        <div id="portal-colophon">
+      
+
+      <a href="http://plone.org/" class="colophonIcon colophonIconPlone" title="This Plone site was built using Plone CMS, the Open Source Content Management System. Click for more information.">
+        Powered by Plone CMS, the Open Source Content Management System
+      </a>
+
+      
+
+      <p class="discreet">
+        This site conforms to the following standards:
+      </p>
+
+      <div class="colophonWrapper">
+      <ul>
+    <li>
+      <a href="http://www.section508.gov/" class="colophonIcon colophonIcon508" title="This Plone site conforms to the US Government Section 508 Accessibility Guidelines.">
+        Section 508
+      </a>
+    </li>
+    <li>
+      <a href="http://www.w3.org/WAI/WCAG1AA-Conformance" class="colophonIcon colophonIconWAI" title="This Plone site conforms to the W3C-WAI Web Content Accessibility Guidelines.">
+        WCAG
+      </a>
+    </li>
+    <li>
+      <a href="http://validator.w3.org/check/referer" class="colophonIcon colophonIconXHTML" title="This Plone site is valid XHTML.">
+        Valid XHTML
+      </a>
+    </li>
+    <li>
+      <a href="http://jigsaw.w3.org/css-validator/check/referer&amp;warning=no&amp;profile=css3&amp;usermedium=all" class="colophonIcon colophonIconCSS" title="This Plone site was built with valid CSS.">
+        Valid CSS
+      </a>
+    </li>
+    <li>
+      <a href="http://plone.org/browsersupport" class="colophonIcon colophonIconAnyBrowser" title="This Plone site is usable in any web browser.">
+        Usable in any browser
+      </a>
+    </li>
+      </ul>
+      </div>
+
+    </div>
+      
+
+    </div>
+
+
+</body>
+</html>

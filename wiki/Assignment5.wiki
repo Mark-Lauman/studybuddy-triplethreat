@@ -4,6 +4,9 @@
 ===Project Manager:===
 Mark Lauman
 
+===Criteria===
+A link to the criteria of Assignment 5 can be found [http://studybuddy-triplethreat.googlecode.com/svn/wiki/criteria/A5/index.html here]
+
 === Design Document ===
 [http://code.google.com/p/studybuddy-triplethreat/wiki/updatedDesignDoc Design Document]
 
