@@ -1,0 +1,9 @@
+## User ID ##
+
+At the start of the system, users are able to enter a name of their choosing.  This name will be used to track and store all statistics for study buddies that the user uses under that name.
+
+
+
+---
+
+[Back to Requirements Document](RequirementsDocumentv1.md)

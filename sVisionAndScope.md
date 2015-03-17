@@ -1,0 +1,93 @@
+### Vision and Scope Document ###
+#### Problem Description: ####
+  * **Project Background:**
+> > We are interested in helping elementary school students that are in grades five to seven.  The topics of the study buddies will mainly reflect the subjects taught in schools such as English, Math, Science, etc.  Our goal is to make an effective yet enteratining learning system that will help students.
+
+  * **Stakeholders:**
+    * Our team.
+
+  * **Users:**
+    1. Grade 6 Students
+      * Assumptions:
+        * Expertise:
+        * Experience: Minimal
+        * Background: Limited knowledge in real world activities. Knows how to use a mouse and be able to type.
+    1. Parents of Grade 6 students
+      * Assumptions:
+        * Expertise: Medium
+        * Experience: Experienced
+        * Background: Computer Science Students
+    1. Buddy Developers
+      * Assumptions:
+        * Expertise: High
+        * Experience: Experienced
+        * Background: Computer Science.
+
+  * **Risks**
+| **Risk**                   | **Occurrence** | **Severity** |
+|:---------------------------|:---------------|:-------------|
+| Deadlines not met        | Low | Catastrophic |
+| Program crashes/errors   | Low | Medium |
+| Program does not run     | Low | Catastrophic |
+| Requirements not met     | Medium | Medium |
+| Features not implemented | High | Low |
+| Guidelines not followed  | Medium | Medium |
+| Changes to Team          | Low | Catastrophic |
+
+  * **Assumptions**
+    * Team Members:
+      * Current team will not be changed throughout the semester.
+      * Team members will complete their part of the project.
+      * Has some knowledge and experience with programming and Java.
+    * Stakeholders:
+      * Final project will be completed at the deadline.
+      * Final project will be of high quality.
+    * Users:
+      * Programs will be useful.
+      * Be able to learn from programs.
+      * Programs is visually pleasing.
+
+
+#### Vision of Solution: ####
+  * **Vision Statement**:  The purpose of this project is to create mini learning programs for high school or ESL students in Canada.  These programs are called “Study buddies” and they will be designed to help users to educate themselves on a specific topic that the Study buddy that each was designed for, and in this case, Canada and its culture.  The method of instruction for each Study buddy will be different and will be appropriate for the topic.  There will also be one Study buddy not meant for learning purposes which will be called a Break buddy.  The Break buddy will be used as entertainment  program for the user.
+
+  * **Architectural Diagram**
+![http://studybuddy-triplethreat.googlecode.com/files/ArchDiagram.jpg](http://studybuddy-triplethreat.googlecode.com/files/ArchDiagram.jpg)
+  * **List of Features**
+    1. **User Login**
+> > > Keeps track of different users that use the study buddies.
+    1. **Interaction**
+> > > Study buddies will have creative uses for the input devices to enhance learning.
+    1. **Multiplayer**
+> > > Challenge fellow students to create competition to help with learning.
+    1. **Statistics**
+> > > Keeps track of user's statistics so they can see if they are improving.
+    1. **Varying Learning Curve**
+> > > Activities will depend on the user's statistics of previous use of the program.
+    1. **Plugin Loader**
+> > > Third parties can create plugin study buddies or add to the current study buddies through the plugin loader.
+    1. **GUI**
+> > > The Study buddy programs will be included in a easy to use and and easy to navigate GUI.
+    1. **Replay Value**
+> > > The questions and tasks for the study buddy will be on a random generator so that the user will rarely see the same thing twice.
+    1. **Multimedia**
+> > > Study buddies will use sound, images, and video.
+    1. **Time of Day**
+> > > Some buddies will be different depending on the time of day it is. (According to the system time, not outside environment).
+
+  * **Scope of phased Release**
+    1. **Version 1**
+      * Study buddy loader / Plugin Loader
+      * 3 prototype study buddies
+      * User statistic and Account Information storage
+    1. **Version 2**
+      * User login
+      * GUI
+      * Break Buddy
+    1. **Version 3**
+      * Bug fixes / removal
+
+  * **Features that will not be implemented**
+    * Program will not be accessing the internet, other networks or computers for multiplayer.  This will also exclude automatic statistic sharing with other computers, although it can be done manually.
+    * Customization of the GUI.
+    * Input devices other than the mouse and keyboard.

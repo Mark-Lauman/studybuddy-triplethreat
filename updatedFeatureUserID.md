@@ -1,0 +1,8 @@
+## User Login ##
+
+At the start of the system, users are able to enter a name of their choosing.  This name will be used to track and store all statistics for study buddies that the user uses under that name. If the user name already exists, a warning message will show up. For example, "Vic" is on the user list already, and the user is trying to enter "vic", or "viC". The system will pop up the warning message and prompt the user to enter another name.
+
+
+---
+
+[Back to User Manual](updatedUserManual.md)

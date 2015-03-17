@@ -1,0 +1,20 @@
+## Introduction ##
+OK, you've downloaded the program and started it up, but what do you do next?
+
+First you have to create your own player account. This account will keep track of how well you do on all of your study buddies, so you can see how you're doing. You can also show off your skill to others.
+
+## Step by Step ##
+  1. The first screen you will see looks like the one below. Just click on the "New Player" button to begin.
+![http://studybuddy-triplethreat.googlecode.com/svn/wiki/A2/images/tutorialImages/Tut1Pic1.jpg](http://studybuddy-triplethreat.googlecode.com/svn/wiki/A2/images/tutorialImages/Tut1Pic1.jpg)
+  1. You will be presented with a pop up box. Type in the name of the person you wish to add, and click OK.
+> > ![http://studybuddy-triplethreat.googlecode.com/svn/wiki/A2/images/tutorialImages/Tut1Pic2.jpg](http://studybuddy-triplethreat.googlecode.com/svn/wiki/A2/images/tutorialImages/Tut1Pic2.jpg)
+  1. You will notice that your name now appears in the window, inside a gray box. The gray box indicates that your name is selected. To select another name, if one is available, click on that name.  For now, make sure your name is selected.
+> > ![http://studybuddy-triplethreat.googlecode.com/svn/wiki/A2/images/tutorialImages/Tut1Pic3.jpg](http://studybuddy-triplethreat.googlecode.com/svn/wiki/A2/images/tutorialImages/Tut1Pic3.jpg)
+  1. Now that your name is selected, just click the Log In button to log in to the program.
+> > ![http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic4.jpg](http://studybuddy-triplethreat.googlecode.com/files/Tut1Pic4.jpg)
+  1. When you want to log out, merely close the program, or click the "Log out" button in the top right corner or close the program window.
+> > ![http://studybuddy-triplethreat.googlecode.com/svn/wiki/A2/images/tutorialImages/Tut1Pic5.jpg](http://studybuddy-triplethreat.googlecode.com/svn/wiki/A2/images/tutorialImages/Tut1Pic5.jpg)
+Congratulations! You've created your first player account and learned how to log in and out!
+
+## What Next? ##
+Now that you've logged in correctly, I'm sure you want to try out a buddy.  For instructions on how to do that, view our tutorial on [Starting up a Study Buddy](Tutorial2.md).

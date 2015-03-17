@@ -1,0 +1,8 @@
+## Program Adaptiveness ##
+
+The system will be able to analyze user scores and adjust the question difficult as needed.  The user statistics will have a part in determining the difficulty.
+
+
+---
+
+[Back to Requirements Document](RequirementsDocumentv1.md)

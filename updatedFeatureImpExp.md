@@ -1,0 +1,11 @@
+## Import and Export ##
+
+The system will have functions to allow the import and export of study buddies.  For importing, it will prompt the user to locate a study buddy (.jar file) to be copied into the system. Then it will extracts its class so that it can be plug-in and run with the system. The buddy to be imported should be written under a general template in order to fit the system. For exporting, it will prompt the user to choose a loaded study buddy to copy and save to their chosen location.
+
+**Note:** A .jar file includes all essential files required to be excuted, such as java classes, related sounds, and images. A general template would be available for programmers to implement a study buddy.
+
+
+
+---
+
+[Back to User Manual](updatedUserManual.md)
